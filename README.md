@@ -1,13 +1,62 @@
-**Privacy Policy**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echopais - Privacy Policy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0057B8;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Echopais</h1>
+        <h2>Privacy Policy</h2>
+        <p>
+            This app does not collect, store, or share any personal data from users.
+            We do not use any third-party analytics tools, advertising platforms, or data tracking systems.
+            No personal information such as names, emails, phone numbers, or location data is gathered or transmitted.
+        </p>
+        <p>
+            Your privacy is important to us. We are committed to ensuring that your experience is safe, simple, and private.
+        </p>
+        <p>
+            If you have any questions or concerns about this privacy policy, please contact us at:
+        </p>
+        <p>
+            ✉️ Email: <a href="mailto:g.coci@echopais.com">g.coci@echopais.com</a>
+        </p>
+        <div class="footer">
+            Last updated: April 25, 2025
+        </div>
+    </div>
+</body>
+</html>
 
-This app does not collect, store, or share any personal data from users.
-
-We do not use any third-party analytics tools, advertising platforms, or data tracking systems. No personal information such as names, emails, phone numbers, or location data is gathered or transmitted.
-
-Your privacy is important to us. We are committed to ensuring that your experience is safe, simple, and private.
-
-If you have any questions or concerns about this privacy policy, please contact us at:
-
-📧 Email: [g.coci@echopais.com]
-
-Last updated: [April 25, 2025]
