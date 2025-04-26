@@ -8,6 +8,6 @@ Your privacy is important to us. We are committed to ensuring that your experien
 
 If you have any questions or concerns about this privacy policy, please contact us at:
 
-📧 Email: [giannis.tsotsis@gmx.de]
+📧 Email: [g.coci@echopais.com]
 
-Last updated: [April 23, 2025]
+Last updated: [April 25, 2025]
