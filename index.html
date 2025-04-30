@@ -41,6 +41,14 @@
       font-weight: bold;
       margin-top: 1.5rem;
     }
+    .language-selector {
+      margin-top: 1.5rem;
+    }
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
     footer {
       margin-top: 3rem;
       font-size: 0.9rem;
@@ -50,13 +58,51 @@
       text-decoration: underline;
     }
   </style>
+  <script>
+    const content = {
+      en: {
+        title: "Echopais MIDI Controller",
+        description: "Echopais is a simple yet powerful MIDI controller for musicians, producers and performers who want speed, flexibility and style in every set.",
+        button: "Download on the App Store"
+      },
+      gr: {
+        title: "Echopais MIDI Controller",
+        description: "Το Echopais είναι ένας απλός αλλά ισχυρός MIDI controller για μουσικούς, παραγωγούς και performers που θέλουν ταχύτητα, ευελιξία και στυλ σε κάθε set.",
+        button: "Κατεβάστε από το App Store"
+      },
+      es: {
+        title: "Controlador MIDI Echopais",
+        description: "Echopais es un controlador MIDI simple pero potente para músicos, productores e intérpretes que desean velocidad, flexibilidad y estilo en cada presentación.",
+        button: "Descargar en la App Store"
+      },
+      it: {
+        title: "Controller MIDI Echopais",
+        description: "Echopais è un controller MIDI semplice ma potente per musicisti, produttori e performer che vogliono velocità, flessibilità e stile in ogni set.",
+        button: "Scarica da App Store"
+      }
+    };
+
+    function updateContent(lang) {
+      document.getElementById("desc").textContent = content[lang].description;
+      document.getElementById("download-btn").textContent = content[lang].button;
+    }
+  </script>
 </head>
-<body>
+<body onload="updateContent('en')">
   <header>
     <img src="Echopais.png" alt="Echopais Logo" />
     <h1>Echopais MIDI Controller</h1>
-    <p>Το Echopais είναι ένας απλός αλλά ισχυρός MIDI controller για μουσικούς, παραγωγούς και performers που θέλουν ταχύτητα, ευελιξία και στυλ σε κάθε set.</p>
-    <a class="button" href="#">Κατεβάστε την εφαρμογή</a>
+    <p id="desc"></p>
+    <a class="button" id="download-btn" href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank">Download</a>
+    <div class="language-selector">
+      <label for="lang">Language:</label>
+      <select id="lang" onchange="updateContent(this.value)">
+        <option value="en">English</option>
+        <option value="gr">Ελληνικά</option>
+        <option value="es">Español</option>
+        <option value="it">Italiano</option>
+      </select>
+    </div>
   </header>
   <footer>
     <p>
