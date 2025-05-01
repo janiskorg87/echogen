@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Echopais MIDI Controller</title>
+  <title>Echopais</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -11,36 +11,43 @@
       font-family: 'Roboto', sans-serif;
       background-color: #111;
       color: #f4f4f4;
+      padding: 0;
+    }
+    header {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
+      padding: 1rem 2rem;
+    }
+    header img {
+      max-width: 140px;
+      height: auto;
+    }
+    .flags {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .flags img {
+      width: 24px;
+      height: 16px;
+      cursor: pointer;
+      border: 1px solid #333;
+      border-radius: 3px;
+    }
+    main {
       text-align: center;
       padding: 2rem;
     }
-    header img {
-      max-width: 200px;
-      height: auto;
-      margin-bottom: 1rem;
-    }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: #ff6600;
     }
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 1rem 0;
-    }
-    select {
-      padding: 0.5rem;
-      font-size: 1rem;
-      border-radius: 5px;
-    }
-    .language-selector {
-      margin-top: 1.5rem;
+    #desc {
+      font-size: 1.1rem;
+      margin-top: 1rem;
     }
     .apps-section {
-      margin-top: 2rem;
+      margin-top: 3rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -74,7 +81,9 @@
     }
     footer {
       margin-top: 3rem;
+      text-align: center;
       font-size: 0.9rem;
+      padding: 1rem;
     }
     footer a {
       color: #ccc;
@@ -84,99 +93,83 @@
   <script>
     const content = {
       en: {
-        title: "Echopais MIDI Controller",
-        description: "Echopais is a simple yet powerful MIDI controller for musicians, producers and performers who want speed, flexibility and style in every set.",
+        desc: "Download your favorite application",
         apps: "Available Applications"
       },
       gr: {
-        title: "Echopais MIDI Controller",
-        description: "Το Echopais είναι ένας απλός αλλά ισχυρός MIDI controller για μουσικούς, παραγωγούς και performers που θέλουν ταχύτητα, ευελιξία και στυλ σε κάθε set.",
+        desc: "Κατεβάστε την αγαπημένη σας εφαρμογή",
         apps: "Διαθέσιμες Εφαρμογές"
       },
       es: {
-        title: "Controlador MIDI Echopais",
-        description: "Echopais es un controlador MIDI simple pero potente para músicos, productores e intérpretes que desean velocidad, flexibilidad y estilo en cada presentación.",
+        desc: "Descargue su aplicación favorita",
         apps: "Aplicaciones Disponibles"
       },
       it: {
-        title: "Controller MIDI Echopais",
-        description: "Echopais è un controller MIDI semplice ma potente per musicisti, produttori e performer che vogliono velocità, flessibilità e stile in ogni set.",
+        desc: "Scarica la tua app preferita",
         apps: "Applicazioni Disponibili"
       },
       de: {
-        title: "Echopais MIDI-Controller",
-        description: "Echopais ist ein einfacher, aber leistungsstarker MIDI-Controller für Musiker, Produzenten und Performer, die Geschwindigkeit, Flexibilität und Stil wollen.",
+        desc: "Laden Sie Ihre Lieblings-App herunter",
         apps: "Verfügbare Apps"
       },
       fr: {
-        title: "Contrôleur MIDI Echopais",
-        description: "Echopais est un contrôleur MIDI simple mais puissant pour les musiciens, producteurs et artistes recherchant vitesse, flexibilité et style.",
+        desc: "Téléchargez votre application préférée",
         apps: "Applications Disponibles"
       },
       ru: {
-        title: "MIDI контроллер Echopais",
-        description: "Echopais — это простой, но мощный MIDI контроллер для музыкантов, продюсеров и исполнителей, которым нужна скорость и гибкость.",
+        desc: "Скачайте своё любимое приложение",
         apps: "Доступные приложения"
       },
       bg: {
-        title: "Echopais MIDI контролер",
-        description: "Echopais е лесен, но мощен MIDI контролер за музиканти, продуценти и изпълнители, които търсят бързина и гъвкавост.",
+        desc: "Изтеглете любимото си приложение",
         apps: "Налични приложения"
       },
       tr: {
-        title: "Echopais MIDI Denetleyicisi",
-        description: "Echopais, müzisyenler, yapımcılar ve sahne sanatçıları için hızlı ve esnek bir MIDI denetleyicisidir.",
+        desc: "Favori uygulamanızı indirin",
         apps: "Mevcut Uygulamalar"
       },
       al: {
-        title: "Kontrolluesi MIDI Echopais",
-        description: "Echopais është një kontrollues i thjeshtë por i fuqishëm për muzikantët, producentët dhe interpretuesit që duan shpejtësi dhe fleksibilitet.",
+        desc: "Shkarkoni aplikacionin tuaj të preferuar",
         apps: "Aplikacionet në dispozicion"
       }
     };
 
-    function updateContent(lang) {
-      document.getElementById("desc").textContent = content[lang].description;
+    function updateLang(lang) {
+      document.getElementById("desc").textContent = content[lang].desc;
       document.getElementById("apps-header").textContent = content[lang].apps;
     }
   </script>
 </head>
-<body onload="updateContent('en')">
+<body onload="updateLang('en')">
   <header>
-    <img src="Echopais.png" alt="Echopais Logo" />
-    <h1>Echopais MIDI Controller</h1>
-    <p id="desc"></p>
-    <div class="language-selector">
-      <label for="lang">Language:</label>
-      <select id="lang" onchange="updateContent(this.value)">
-        <option value="en">English</option>
-        <option value="gr">Ελληνικά</option>
-        <option value="es">Español</option>
-        <option value="it">Italiano</option>
-        <option value="de">Deutsch</option>
-        <option value="fr">Français</option>
-        <option value="ru">Русский</option>
-        <option value="bg">Български</option>
-        <option value="tr">Türkçe</option>
-        <option value="al">Shqip</option>
-      </select>
+    <img src="Echopais.png" alt="Logo" />
+    <div class="flags">
+      <img src="https://flagcdn.com/gb.svg" alt="English" onclick="updateLang('en')">
+      <img src="https://flagcdn.com/gr.svg" alt="Greek" onclick="updateLang('gr')">
+      <img src="https://flagcdn.com/es.svg" alt="Spanish" onclick="updateLang('es')">
+      <img src="https://flagcdn.com/it.svg" alt="Italian" onclick="updateLang('it')">
+      <img src="https://flagcdn.com/de.svg" alt="German" onclick="updateLang('de')">
+      <img src="https://flagcdn.com/fr.svg" alt="French" onclick="updateLang('fr')">
+      <img src="https://flagcdn.com/ru.svg" alt="Russian" onclick="updateLang('ru')">
+      <img src="https://flagcdn.com/bg.svg" alt="Bulgarian" onclick="updateLang('bg')">
+      <img src="https://flagcdn.com/tr.svg" alt="Turkish" onclick="updateLang('tr')">
+      <img src="https://flagcdn.com/al.svg" alt="Albanian" onclick="updateLang('al')">
     </div>
   </header>
-
-  <section class="apps-section">
+  <main>
+    <h1 id="desc">Download your favorite application</h1>
     <h2 id="apps-header">Available Applications</h2>
-    <div class="app-card">
-      <h3>Echopais Pad Controller</h3>
-      <p>A touch-based MIDI controller app for iOS. Designed for live performance and studio flexibility.</p>
-      <a href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank">View on App Store</a>
+    <div class="apps-section">
+      <div class="app-card">
+        <h3>Echopais Pad Controller</h3>
+        <p>A touch-based MIDI controller app for iOS. Designed for live performance and studio flexibility.</p>
+        <a href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank">View on App Store</a>
+      </div>
     </div>
-  </section>
-
+  </main>
   <footer>
-    <p>
-      &copy; 2025 Echopais | <a href="privacy.html">Πολιτική Απορρήτου</a> |
-      <a href="mailto:g.coci@echopais.com">Επικοινωνία</a>
-    </p>
+    &copy; 2025 Echopais | <a href="privacy.html">Privacy Policy</a> |
+    <a href="mailto:g.coci@echopais.com">Contact</a>
   </footer>
 </body>
 </html>
