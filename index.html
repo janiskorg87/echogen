@@ -920,41 +920,190 @@
     </div>
   </footer>
   
-  <script>
-    // Language switcher functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const content = {
-        en: {
-          desc: "Download your favorite application",
-          apps: "Available Applications"
-        },
-        gr: {
-          desc: "Κατεβάστε την αγαπημένη σας εφαρμογή",
-          apps: "Διαθέσιμες Εφαρμογές"
-        },
-        es: {
-          desc: "Descargue su aplicación favorita",
-          apps: "Aplicaciones Disponibles"
-        },
-        it: {
-          desc: "Scarica la tua app preferita",
-          apps: "Applicazioni Disponibili"
-        },
-        de: {
-          desc: "Laden Sie Ihre Lieblings-App herunter",
-          apps: "Verfügbare Apps"
+ <script>
+  // Language switcher functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const content = {
+      en: {
+        heroTitle: "Innovative Audio Solutions",
+        heroDesc: "Elevate your music production with professional MIDI controllers and audio applications designed for creators.",
+        downloadBtn: "Download Now",
+        learnMoreBtn: "Learn More",
+        productsTitle: "Our Applications",
+        productsDesc: "Professional audio tools designed for musicians, producers, and sound engineers",
+        developerTitle: "Meet the Developer",
+        developerDesc: "Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.",
+        contactTitle: "Get In Touch",
+        contactDesc: "Have questions about our products or need technical support? We're here to help.",
+        contactFormTitle: "Contact Us",
+        contactFormDesc: "Fill out the form below and we'll get back to you as soon as possible.",
+        firstName: "First name",
+        lastName: "Last name",
+        email: "Email",
+        message: "Message",
+        sendMessage: "Send Message",
+        footerDesc: "Creating innovative audio solutions for musicians and producers worldwide."
+      },
+      gr: {
+        heroTitle: "Καινοτόμες Λύσεις Ήχου",
+        heroDesc: "Αναβαθμίστε την παραγωγή μουσικής σας με επαγγελματικούς MIDI controllers και εφαρμογές ήχου σχεδιασμένες για δημιουργούς.",
+        downloadBtn: "Κατεβάστε Τώρα",
+        learnMoreBtn: "Μάθετε Περισσότερα",
+        productsTitle: "Οι Εφαρμογές Μας",
+        productsDesc: "Επαγγελματικά εργαλεία ήχου σχεδιασμένα για μουσικούς, παραγωγούς και ηχολήπτες",
+        developerTitle: "Γνωρίστε τον Προγραμματιστή",
+        developerDesc: "Μηχανικός λογισμικού ήχου και μουσικός με πάνω από 10 χρόνια εμπειρίας στην ανάπτυξη επαγγελματικών εφαρμογών ήχου. Ειδικεύεται σε MIDI controllers, επεξεργασία ψηφιακού σήματος και διαδραστικά μουσικά συστήματα.",
+        contactTitle: "Επικοινωνήστε Μαζί Μας",
+        contactDesc: "Έχετε ερωτήσεις σχετικά με τα προϊόντα μας ή χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να βοηθήσουμε.",
+        contactFormTitle: "Επικοινωνία",
+        contactFormDesc: "Συμπληρώστε την παρακάτω φόρμα και θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό.",
+        firstName: "Όνομα",
+        lastName: "Επώνυμο",
+        email: "Email",
+        message: "Μήνυμα",
+        sendMessage: "Αποστολή Μηνύματος",
+        footerDesc: "Δημιουργούμε καινοτόμες λύσεις ήχου για μουσικούς και παραγωγούς παγκοσμίως."
+      },
+      es: {
+        heroTitle: "Soluciones de Audio Innovadoras",
+        heroDesc: "Eleve su producción musical con controladores MIDI profesionales y aplicaciones de audio diseñadas para creadores.",
+        downloadBtn: "Descargar Ahora",
+        learnMoreBtn: "Más Información",
+        productsTitle: "Nuestras Aplicaciones",
+        productsDesc: "Herramientas de audio profesionales diseñadas para músicos, productores e ingenieros de sonido",
+        developerTitle: "Conozca al Desarrollador",
+        developerDesc: "Ingeniero de software de audio y músico con más de 10 años de experiencia en el desarrollo de aplicaciones de audio profesionales. Especializado en controladores MIDI, procesamiento de señales digitales y sistemas musicales interactivos.",
+        contactTitle: "Póngase en Contacto",
+        contactDesc: "¿Tiene preguntas sobre nuestros productos o necesita soporte técnico? Estamos aquí para ayudar.",
+        contactFormTitle: "Contáctenos",
+        contactFormDesc: "Complete el formulario a continuación y nos pondremos en contacto con usted lo antes posible.",
+        firstName: "Nombre",
+        lastName: "Apellido",
+        email: "Correo electrónico",
+        message: "Mensaje",
+        sendMessage: "Enviar Mensaje",
+        footerDesc: "Creando soluciones de audio innovadoras para músicos y productores en todo el mundo."
+      },
+      it: {
+        heroTitle: "Soluzioni Audio Innovative",
+        heroDesc: "Migliora la tua produzione musicale con controller MIDI professionali e applicazioni audio progettate per i creatori.",
+        downloadBtn: "Scarica Ora",
+        learnMoreBtn: "Scopri di Più",
+        productsTitle: "Le Nostre Applicazioni",
+        productsDesc: "Strumenti audio professionali progettati per musicisti, produttori e ingegneri del suono",
+        developerTitle: "Incontra lo Sviluppatore",
+        developerDesc: "Ingegnere software audio e musicista con oltre 10 anni di esperienza nello sviluppo di applicazioni audio professionali. Specializzato in controller MIDI, elaborazione di segnali digitali e sistemi musicali interattivi.",
+        contactTitle: "Contattaci",
+        contactDesc: "Hai domande sui nostri prodotti o hai bisogno di supporto tecnico? Siamo qui per aiutarti.",
+        contactFormTitle: "Contattaci",
+        contactFormDesc: "Compila il modulo sottostante e ti risponderemo il prima possibile.",
+        firstName: "Nome",
+        lastName: "Cognome",
+        email: "Email",
+        message: "Messaggio",
+        sendMessage: "Invia Messaggio",
+        footerDesc: "Creiamo soluzioni audio innovative per musicisti e produttori in tutto il mondo."
+      },
+      de: {
+        heroTitle: "Innovative Audio-Lösungen",
+        heroDesc: "Verbessern Sie Ihre Musikproduktion mit professionellen MIDI-Controllern und Audio-Anwendungen, die für Kreative entwickelt wurden.",
+        downloadBtn: "Jetzt Herunterladen",
+        learnMoreBtn: "Mehr Erfahren",
+        productsTitle: "Unsere Anwendungen",
+        productsDesc: "Professionelle Audio-Tools für Musiker, Produzenten und Toningenieure",
+        developerTitle: "Lernen Sie den Entwickler kennen",
+        developerDesc: "Audio-Softwareingenieur und Musiker mit über 10 Jahren Erfahrung in der Entwicklung professioneller Audio-Anwendungen. Spezialisiert auf MIDI-Controller, digitale Signalverarbeitung und interaktive Musiksysteme.",
+        contactTitle: "Kontaktieren Sie Uns",
+        contactDesc: "Haben Sie Fragen zu unseren Produkten oder benötigen Sie technischen Support? Wir sind hier, um zu helfen.",
+        contactFormTitle: "Kontakt",
+        contactFormDesc: "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden.",
+        firstName: "Vorname",
+        lastName: "Nachname",
+        email: "E-Mail",
+        message: "Nachricht",
+        sendMessage: "Nachricht Senden",
+        footerDesc: "Wir entwickeln innovative Audio-Lösungen für Musiker und Produzenten weltweit."
+      }
+    };
+    
+    // Elements to update
+    const elementsToUpdate = {
+      heroTitle: document.querySelector('.hero h1'),
+      heroDesc: document.querySelector('.hero p'),
+      downloadBtn: document.querySelector('.btn-primary'),
+      learnMoreBtn: document.querySelector('.btn-outline'),
+      productsTitle: document.querySelector('.section-header h2'),
+      productsDesc: document.querySelector('.section-header p'),
+      developerTitle: document.querySelector('.developer-content h2'),
+      developerDesc: document.querySelector('.developer-content p'),
+      contactTitle: document.querySelector('#contact .section-header h2'),
+      contactDesc: document.querySelector('#contact .section-header p'),
+      contactFormTitle: document.querySelector('.contact-title'),
+      contactFormDesc: document.querySelector('.contact-subtitle'),
+      firstName: document.querySelector('label[for="first-name"]'),
+      lastName: document.querySelector('label[for="last-name"]'),
+      email: document.querySelector('label[for="email"]'),
+      message: document.querySelector('label[for="message"]'),
+      sendMessage: document.querySelector('form .btn-primary'),
+      footerDesc: document.querySelector('.footer-brand p')
+    };
+    
+    // Function to update language
+    function updateLanguage(lang) {
+      // Update hero title with HTML to preserve the span
+      if (elementsToUpdate.heroTitle) {
+        if (lang === 'en') {
+          elementsToUpdate.heroTitle.innerHTML = '<span>Innovative</span> Audio Solutions';
+        } else {
+          const parts = content[lang].heroTitle.split(' ');
+          elementsToUpdate.heroTitle.innerHTML = `<span>${parts[0]}</span> ${parts.slice(1).join(' ')}`;
         }
-      };
+      }
       
-      // Add language switching functionality if needed
-      const languageItems = document.querySelectorAll('.dropdown-item');
-      languageItems.forEach(item => {
-        item.addEventListener('click', function() {
-          // Language switching logic would go here
-          // This is a placeholder for actual implementation
-        });
+      // Update all other text elements
+      for (const [key, element] of Object.entries(elementsToUpdate)) {
+        if (element && key !== 'heroTitle') {
+          if (content[lang][key]) {
+            if (key === 'downloadBtn' || key === 'learnMoreBtn' || key === 'sendMessage') {
+              // For buttons, preserve the SVG if present
+              const svg = element.querySelector('svg');
+              if (svg) {
+                element.innerHTML = '';
+                element.appendChild(svg);
+                element.innerHTML += ' ' + content[lang][key];
+              } else {
+                element.textContent = content[lang][key];
+              }
+            } else {
+              element.textContent = content[lang][key];
+            }
+          }
+        }
+      }
+      
+      // Update the language button
+      const langButton = document.querySelector('.lang-button img');
+      if (langButton) {
+        langButton.src = `https://flagcdn.com/${lang === 'gr' ? 'gr' : lang}.svg`;
+        langButton.alt = {
+          'en': 'English',
+          'gr': 'Ελληνικά',
+          'es': 'Español',
+          'it': 'Italiano',
+          'de': 'Deutsch'
+        }[lang];
+      }
+    }
+    
+    // Add language switching functionality
+    const languageItems = document.querySelectorAll('.dropdown-item');
+    languageItems.forEach((item, index) => {
+      item.addEventListener('click', function() {
+        const langs = ['en', 'gr', 'es', 'it', 'de'];
+        if (index < langs.length) {
+          updateLanguage(langs[index]);
+        }
       });
     });
-  </script>
-</body>
-</html>
+  });
+</script>
