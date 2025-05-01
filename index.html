@@ -961,9 +961,12 @@
   </footer>
   
  <script>
-  // Language switcher functionality
+  // Περιμένουμε να φορτωθεί πλήρως η σελίδα
   document.addEventListener('DOMContentLoaded', function() {
-  const content = {
+    console.log("DOM fully loaded");
+    
+    // Ορίζουμε το περιεχόμενο για κάθε γλώσσα
+    const content = {
     en: {
       heroTitle: "Innovative Audio Solutions",
       heroDesc: "Elevate your music production with professional MIDI controllers and audio applications designed for creators.",
@@ -1287,10 +1290,15 @@
     sendMessage: document.querySelector('form .btn-primary'),
     footerDesc: document.querySelector('.footer-brand p')
   };
-  
-  // Function to update language
+
+  // Καταγράφουμε τα στοιχεία που βρήκαμε για αποσφαλμάτωση
+  console.log("Elements found:", elementsToUpdate);
+    
+  // Συνάρτηση για την ενημέρωση της γλώσσας
   function updateLanguage(lang) {
-    // Update hero title with HTML to preserve the span
+    console.log("Updating language to:", lang);
+    
+    // Ενημερώνουμε τον τίτλο του hero με HTML για να διατηρήσουμε το span
     if (elementsToUpdate.heroTitle) {
       if (lang === 'en') {
         elementsToUpdate.heroTitle.innerHTML = '<span>Innovative</span> Audio Solutions';
@@ -1298,18 +1306,21 @@
         const parts = content[lang].heroTitle.split(' ');
         elementsToUpdate.heroTitle.innerHTML = `<span>${parts[0]}</span> ${parts.slice(1).join(' ')}`;
       }
+    } else {
+      console.warn("Hero title element not found");
     }
     
-    // Update all other text elements
+    // Ενημερώνουμε όλα τα άλλα στοιχεία κειμένου
     for (const [key, element] of Object.entries(elementsToUpdate)) {
-      if (element && key !== 'heroTitle') {
-        if (content[lang][key]) {
+      if (element && key !== 'heroTitle' && content[lang][key]) {
+        try {
           if (key === 'downloadBtn' || key === 'learnMoreBtn' || key === 'sendMessage') {
-            // For buttons, preserve the SVG if present
+            // Για τα κουμπιά, διατηρούμε το SVG αν υπάρχει
             const svg = element.querySelector('svg');
             if (svg) {
+              const svgClone = svg.cloneNode(true);
               element.innerHTML = '';
-              element.appendChild(svg);
+              element.appendChild(svgClone);
               element.innerHTML += ' ' + content[lang][key];
             } else {
               element.textContent = content[lang][key];
@@ -1317,15 +1328,19 @@
           } else {
             element.textContent = content[lang][key];
           }
+        } catch (error) {
+          console.error(`Error updating ${key}:`, error);
         }
+      } else if (!element && key !== 'heroTitle') {
+        console.warn(`Element for ${key} not found`);
       }
     }
     
-    // Update the language button
+    // Ενημερώνουμε το κουμπί γλώσσας
     const langButton = document.querySelector('.lang-button img');
     if (langButton) {
-      langButton.src = `https://flagcdn.com/${lang}.svg`;
-      langButton.alt = {
+      langButton.src = `https://flagcdn.com/${lang === 'gr' ? 'gr' : lang}.svg`;
+      const langNames = {
         'en': 'English',
         'gr': 'Ελληνικά',
         'es': 'Español',
@@ -1341,19 +1356,37 @@
         'nl': 'Nederlands',
         'ja': '日本語',
         'zh': '中文'
-      }[lang];
+      };
+      langButton.alt = langNames[lang] || 'Language';
+    } else {
+      console.warn("Language button not found");
     }
+    
+    // Αποθηκεύουμε την επιλεγμένη γλώσσα στο localStorage
+    localStorage.setItem('selectedLanguage', lang);
   }
   
-  // Add language switching functionality
+  // Προσθέτουμε τη λειτουργικότητα αλλαγής γλώσσας
   const languageItems = document.querySelectorAll('.dropdown-item');
   const langs = ['en', 'gr', 'es', 'it', 'de', 'fr', 'ru', 'ar', 'bg', 'al', 'tr', 'pt', 'nl', 'ja', 'zh'];
   
+  console.log("Language items found:", languageItems.length);
+  
   languageItems.forEach((item, index) => {
     if (index < langs.length) {
-      item.addEventListener('click', function() {
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log("Language clicked:", langs[index]);
         updateLanguage(langs[index]);
       });
     }
   });
+  
+  // Φορτώνουμε την αποθηκευμένη γλώσσα αν υπάρχει
+  const savedLanguage = localStorage.getItem('selectedLanguage');
+  if (savedLanguage && content[savedLanguage]) {
+    console.log("Loading saved language:", savedLanguage);
+    updateLanguage(savedLanguage);
+  }
 });
+</script>
