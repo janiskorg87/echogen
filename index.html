@@ -1,206 +1,960 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Echopais</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echopais - Professional Audio Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #111;
-      color: #f4f4f4;
+    :root {
+      --orange-500: #ff6600;
+      --orange-600: #e65c00;
+      --zinc-100: #f4f4f5;
+      --zinc-200: #e4e4e7;
+      --zinc-300: #d4d4d8;
+      --zinc-400: #a1a1aa;
+      --zinc-500: #71717a;
+      --zinc-600: #52525b;
+      --zinc-700: #3f3f46;
+      --zinc-800: #27272a;
+      --zinc-900: #18181b;
+      --black: #09090b;
     }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, var(--zinc-900), var(--black));
+      color: var(--zinc-100);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 1.5rem 0;
     }
-    .logo {
-      text-align: left;
-    }
+    
     .logo img {
-      max-width: 180px;
+      height: 60px;
+      width: auto;
     }
+    
+    nav {
+      display: none;
+    }
+    
+    @media (min-width: 768px) {
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+    }
+    
+    nav a {
+      color: var(--zinc-300);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    nav a:hover {
+      color: var(--orange-500);
+    }
+    
     .lang-dropdown {
       position: relative;
       display: inline-block;
     }
+    
     .lang-button {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
       background: none;
       border: none;
+      color: var(--zinc-300);
       cursor: pointer;
+      padding: 0.5rem;
     }
+    
     .lang-button img {
-      width: 24px;
-      height: 16px;
-      border: 1px solid #333;
-      border-radius: 3px;
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      border: 1px solid var(--zinc-700);
     }
+    
     .dropdown-content {
       display: none;
       position: absolute;
       right: 0;
-      background-color: #222;
-      min-width: 140px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      background-color: var(--zinc-800);
+      min-width: 160px;
+      border: 1px solid var(--zinc-700);
+      border-radius: 0.5rem;
       z-index: 1;
-      padding: 0.5rem;
-      border-radius: 6px;
+      overflow: hidden;
     }
-    .dropdown-content img {
-      display: block;
-      width: 24px;
-      height: 16px;
-      margin: 0.3rem;
+    
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      color: var(--zinc-200);
+      text-decoration: none;
       cursor: pointer;
     }
+    
+    .dropdown-item:hover {
+      background-color: var(--zinc-700);
+      color: white;
+    }
+    
+    .dropdown-item img {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+    }
+    
     .lang-dropdown:hover .dropdown-content {
       display: block;
     }
-    main {
-      text-align: center;
-      padding: 2rem;
+    
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 6rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
     }
-    h1 {
-      font-size: 2rem;
-      color: #ff6600;
+    
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    #desc {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-    }
-    .apps-section {
-      margin-top: 3rem;
+    
+    .hero-content {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       gap: 1.5rem;
     }
-    .app-card {
-      background-color: #222;
-      padding: 1rem;
-      border-radius: 8px;
-      max-width: 300px;
-      text-align: left;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
     }
-    .app-card h3 {
-      margin-top: 0;
-      color: #ff6600;
+    
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
     }
-    .app-card p {
-      font-size: 0.95rem;
-      color: #ddd;
+    
+    .hero h1 span {
+      color: var(--orange-500);
     }
-    .app-card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #fff;
-      background: #ff6600;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--zinc-300);
+    }
+    
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .button-group {
+        flex-direction: row;
+      }
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
       text-decoration: none;
-      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
     }
-    footer {
-      margin-top: 3rem;
+    
+    .btn-primary {
+      background-color: var(--orange-500);
+      color: white;
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--orange-600);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--zinc-300);
+      border: 1px solid var(--zinc-700);
+    }
+    
+    .btn-outline:hover {
+      color: white;
+      border-color: var(--zinc-500);
+    }
+    
+    .btn svg {
+      margin-right: 0.5rem;
+      width: 1rem;
+      height: 1rem;
+    }
+    
+    /* Products Section */
+    .section {
+      padding: 4rem 0;
+    }
+    
+    .section-header {
       text-align: center;
-      font-size: 0.9rem;
-      padding: 1rem;
+      margin-bottom: 3rem;
     }
-    footer a {
-      color: #ccc;
-      text-decoration: underline;
+    
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .section-header h2 {
+        font-size: 2.5rem;
+      }
+    }
+    
+    .section-header p {
+      color: var(--zinc-400);
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+    
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .card {
+      background-color: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+    
+    .card-image {
+      height: 12rem;
+      background: linear-gradient(to bottom right, rgba(255, 102, 0, 0.2), var(--zinc-800));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .card-image svg {
+      width: 4rem;
+      height: 4rem;
+      color: var(--orange-500);
+    }
+    
+    .card-header {
+      padding: 1.5rem 1.5rem 0.75rem;
+    }
+    
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--zinc-100);
+      margin-bottom: 0.25rem;
+    }
+    
+    .card-subtitle {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+    }
+    
+    .card-content {
+      padding: 0 1.5rem 1.5rem;
+    }
+    
+    .card-content p {
+      color: var(--zinc-300);
+      font-size: 0.9375rem;
+    }
+    
+    .card-footer {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--zinc-700);
+    }
+    
+    /* Developer Section */
+    .developer {
+      padding: 4rem 0;
+      background-color: rgba(24, 24, 27, 0.5);
+      border-radius: 0.75rem;
+    }
+    
+    .developer-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) {
+      .developer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .developer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 36rem;
+    }
+    
+    .developer-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    
+    .developer-content h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--orange-500);
+    }
+    
+    .developer-content p {
+      color: var(--zinc-300);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .developer-image {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .developer-image img {
+      width: 16rem;
+      height: 16rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--orange-500);
+    }
+    
+    /* Contact Section */
+    .contact-form {
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+    
+    .contact-card {
+      background-color: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+    
+    .contact-header {
+      padding: 1.5rem 1.5rem 0.75rem;
+    }
+    
+    .contact-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--zinc-100);
+      margin-bottom: 0.25rem;
+    }
+    
+    .contact-subtitle {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+    }
+    
+    .contact-content {
+      padding: 0.75rem 1.5rem 1.5rem;
+    }
+    
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .form-label {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+    }
+    
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--zinc-700);
+      border: 1px solid var(--zinc-600);
+      border-radius: 0.375rem;
+      color: var(--zinc-100);
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--orange-500);
+    }
+    
+    .form-textarea {
+      resize: vertical;
+      min-height: 6rem;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--zinc-900);
+      border-top: 1px solid var(--zinc-800);
+      padding: 3rem 0;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .footer-brand img {
+      width: 8.75rem;
+      height: auto;
+    }
+    
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+    }
+    
+    .footer-links h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--zinc-200);
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--orange-500);
+    }
+    
+    .footer-connect a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .footer-connect svg {
+      width: 1rem;
+      height: 1rem;
+    }
+    
+    .footer-separator {
+      height: 1px;
+      background-color: var(--zinc-800);
+      margin: 2rem 0;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    
+    .footer-copyright {
+      font-size: 0.875rem;
+      color: var(--zinc-500);
+    }
+    
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .footer-legal a {
+      font-size: 0.875rem;
+      color: var(--zinc-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer-legal a:hover {
+      color: var(--orange-500);
     }
   </style>
-  <script>
-    const content = {
-      en: {
-        desc: "Download your favorite application",
-        apps: "Available Applications"
-      },
-      gr: {
-        desc: "Κατεβάστε την αγαπημένη σας εφαρμογή",
-        apps: "Διαθέσιμες Εφαρμογές"
-      },
-      es: {
-        desc: "Descargue su aplicación favorita",
-        apps: "Aplicaciones Disponibles"
-      },
-      it: {
-        desc: "Scarica la tua app preferita",
-        apps: "Applicazioni Disponibili"
-      },
-      de: {
-        desc: "Laden Sie Ihre Lieblings-App herunter",
-        apps: "Verfügbare Apps"
-      },
-      fr: {
-        desc: "Téléchargez votre application préférée",
-        apps: "Applications Disponibles"
-      },
-      ru: {
-        desc: "Скачайте своё любимое приложение",
-        apps: "Доступные приложения"
-      },
-      bg: {
-        desc: "Изтеглете любимото си приложение",
-        apps: "Налични приложения"
-      },
-      tr: {
-        desc: "Favori uygulamanızı indirin",
-        apps: "Mevcut Uygulamalar"
-      },
-      al: {
-        desc: "Shkarkoni aplikacionin tuaj të preferuar",
-        apps: "Aplikacionet në dispozicion"
-      }
-    };
-
-    function updateLang(lang) {
-      document.getElementById("desc").textContent = content[lang].desc;
-      document.getElementById("apps-header").textContent = content[lang].apps;
-    }
-  </script>
 </head>
-<body onload="updateLang('en')">
-  <header>
-    <div class="logo">
-      <img src="Echopais.png" alt="Echopais Logo" />
-    </div>
-    <div class="lang-dropdown">
-      <button class="lang-button"><img src="https://flagcdn.com/gb.svg" alt="Language" /></button>
-      <div class="dropdown-content">
-        <img src="https://flagcdn.com/gb.svg" onclick="updateLang('en')" />
-        <img src="https://flagcdn.com/gr.svg" onclick="updateLang('gr')" />
-        <img src="https://flagcdn.com/es.svg" onclick="updateLang('es')" />
-        <img src="https://flagcdn.com/it.svg" onclick="updateLang('it')" />
-        <img src="https://flagcdn.com/de.svg" onclick="updateLang('de')" />
-        <img src="https://flagcdn.com/fr.svg" onclick="updateLang('fr')" />
-        <img src="https://flagcdn.com/ru.svg" onclick="updateLang('ru')" />
-        <img src="https://flagcdn.com/bg.svg" onclick="updateLang('bg')" />
-        <img src="https://flagcdn.com/tr.svg" onclick="updateLang('tr')" />
-        <img src="https://flagcdn.com/al.svg" onclick="updateLang('al')" />
+<body>
+  <!-- Header -->
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-453oE7USxaPpEN9Gxb09pEEyWKqwrY.png" alt="Echopais Logo">
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <nav>
+          <a href="#products">Products</a>
+          <a href="#about">About</a>
+          <a href="#developer">Developer</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        
+        <div class="lang-dropdown">
+          <button class="lang-button">
+            <img src="https://flagcdn.com/gb.svg" alt="English">
+            <span style="display: none; margin-left: 0.25rem;">English</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="dropdown-content">
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/gb.svg" alt="English">
+              <span>English</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/gr.svg" alt="Greek">
+              <span>Ελληνικά</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/es.svg" alt="Spanish">
+              <span>Español</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/it.svg" alt="Italian">
+              <span>Italiano</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/de.svg" alt="German">
+              <span>Deutsch</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <h1><span>Innovative</span> Audio Solutions</h1>
+          <p>Elevate your music production with professional MIDI controllers and audio applications designed for creators.</p>
+          <div class="button-group">
+            <a href="#" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Now
+            </a>
+            <a href="#" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-453oE7USxaPpEN9Gxb09pEEyWKqwrY.png" alt="Echopais MIDI Controller">
+        </div>
       </div>
     </div>
-  </header>
-  <main>
-    <h1 id="desc">Download your favorite application</h1>
-    <h2 id="apps-header">Available Applications</h2>
-    <div class="apps-section">
-      <div class="app-card">
-        <h3>Echopais Pad Controller</h3>
-        <p>A touch-based MIDI controller app for iOS. Designed for live performance and studio flexibility.</p>
-        <a href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank">View on App Store</a>
+  </section>
+  
+  <!-- Products Section -->
+  <section id="products" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Applications</h2>
+        <p>Professional audio tools designed for musicians, producers, and sound engineers</p>
+      </div>
+      
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 10a8 8 0 0 1 16 0v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10Z"/>
+              <path d="M6 2v8"/>
+              <path d="M18 2v8"/>
+              <path d="M4 14h16"/>
+            </svg>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Echopais Pad Controller</h3>
+            <div class="card-subtitle">Touch-based MIDI controller for iOS</div>
+          </div>
+          <div class="card-content">
+            <p>A professional-grade MIDI controller app designed for live performance and studio flexibility. Create, perform, and innovate with intuitive touch controls.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">Learn More</a>
+            <a href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank" class="btn btn-primary" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              App Store
+            </a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 10a8 8 0 0 1 16 0v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10Z"/>
+              <path d="M6 2v8"/>
+              <path d="M18 2v8"/>
+              <path d="M4 14h16"/>
+            </svg>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Echopais Studio</h3>
+            <div class="card-subtitle">Professional audio workstation</div>
+          </div>
+          <div class="card-content">
+            <p>A complete audio production environment with advanced MIDI capabilities, virtual instruments, and professional mixing tools.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">Learn More</a>
+            <a href="#" class="btn btn-primary" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Coming Soon
+            </a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-image">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 10a8 8 0 0 1 16 0v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10Z"/>
+              <path d="M6 2v8"/>
+              <path d="M18 2v8"/>
+              <path d="M4 14h16"/>
+            </svg>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Echopais Synth</h3>
+            <div class="card-subtitle">Advanced synthesizer plugin</div>
+          </div>
+          <div class="card-content">
+            <p>A powerful synthesizer with unique sound design capabilities, perfect for electronic music producers and sound designers.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">Learn More</a>
+            <a href="#" class="btn btn-primary" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Coming Soon
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </main>
-  <footer>
-    &copy; 2025 Echopais | <a href="privacy.html">Privacy Policy</a> |
-    <a href="mailto:g.coci@echopais.com">Contact</a>
+  </section>
+  
+  <!-- Developer Section -->
+  <section id="developer" class="section developer">
+    <div class="container">
+      <div class="developer-container">
+        <div class="developer-content order-2">
+          <h2>Meet the Developer</h2>
+          <h3>Giannis Tsotsis</h3>
+          <p>Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.</p>
+          <div class="social-links">
+            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                <path d="M9 18c-4.51 2-5-2-7-2"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="developer-image order-1">
+          <img src="https://via.placeholder.com/300" alt="Giannis Tsotsis">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+        <p>Have questions about our products or need technical support? We're here to help.</p>
+      </div>
+      
+      <div class="contact-form">
+        <div class="contact-card">
+          <div class="contact-header">
+            <h3 class="contact-title">Contact Us</h3>
+            <div class="contact-subtitle">Fill out the form below and we'll get back to you as soon as possible.</div>
+          </div>
+          <div class="contact-content">
+            <form class="form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name" class="form-label">First name</label>
+                  <input id="first-name" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label for="last-name" class="form-label">Last name</label>
+                  <input id="last-name" class="form-input">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" type="email" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" rows="4" class="form-textarea"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-453oE7USxaPpEN9Gxb09pEEyWKqwrY.png" alt="Echopais Logo">
+          <p>Creating innovative audio solutions for musicians and producers worldwide.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="#">Pad Controller</a></li>
+            <li><a href="#">Studio</a></li>
+            <li><a href="#">Synth</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links footer-connect">
+          <h3>Connect</h3>
+          <ul>
+            <li>
+              <a href="mailto:g.coci@echopais.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                g.coci@echopais.com
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                  <path d="M9 18c-4.51 2-5-2-7-2"/>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-separator"></div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 Echopais. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
   </footer>
+  
+  <script>
+    // Language switcher functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const content = {
+        en: {
+          desc: "Download your favorite application",
+          apps: "Available Applications"
+        },
+        gr: {
+          desc: "Κατεβάστε την αγαπημένη σας εφαρμογή",
+          apps: "Διαθέσιμες Εφαρμογές"
+        },
+        es: {
+          desc: "Descargue su aplicación favorita",
+          apps: "Aplicaciones Disponibles"
+        },
+        it: {
+          desc: "Scarica la tua app preferita",
+          apps: "Applicazioni Disponibili"
+        },
+        de: {
+          desc: "Laden Sie Ihre Lieblings-App herunter",
+          apps: "Verfügbare Apps"
+        }
+      };
+      
+      // Add language switching functionality if needed
+      const languageItems = document.querySelectorAll('.dropdown-item');
+      languageItems.forEach(item => {
+        item.addEventListener('click', function() {
+          // Language switching logic would go here
+          // This is a placeholder for actual implementation
+        });
+      });
+    });
+  </script>
 </body>
 </html>
