@@ -637,6 +637,46 @@
               <img src="https://flagcdn.com/de.svg" alt="German">
               <span>Deutsch</span>
             </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/fr.svg" alt="French">
+              <span>Français</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/ru.svg" alt="Russian">
+              <span>Русский</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/sa.svg" alt="Arabic">
+              <span>العربية</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/bg.svg" alt="Bulgarian">
+              <span>Български</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/al.svg" alt="Albanian">
+              <span>Shqip</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/tr.svg" alt="Turkish">
+              <span>Türkçe</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/pt.svg" alt="Portuguese">
+              <span>Português</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/nl.svg" alt="Dutch">
+              <span>Nederlands</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/jp.svg" alt="Japanese">
+              <span>日本語</span>
+            </a>
+            <a class="dropdown-item">
+              <img src="https://flagcdn.com/cn.svg" alt="Chinese">
+              <span>中文</span>
+            </a>
           </div>
         </div>
       </div>
@@ -923,187 +963,397 @@
  <script>
   // Language switcher functionality
   document.addEventListener('DOMContentLoaded', function() {
-    const content = {
-      en: {
-        heroTitle: "Innovative Audio Solutions",
-        heroDesc: "Elevate your music production with professional MIDI controllers and audio applications designed for creators.",
-        downloadBtn: "Download Now",
-        learnMoreBtn: "Learn More",
-        productsTitle: "Our Applications",
-        productsDesc: "Professional audio tools designed for musicians, producers, and sound engineers",
-        developerTitle: "Meet the Developer",
-        developerDesc: "Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.",
-        contactTitle: "Get In Touch",
-        contactDesc: "Have questions about our products or need technical support? We're here to help.",
-        contactFormTitle: "Contact Us",
-        contactFormDesc: "Fill out the form below and we'll get back to you as soon as possible.",
-        firstName: "First name",
-        lastName: "Last name",
-        email: "Email",
-        message: "Message",
-        sendMessage: "Send Message",
-        footerDesc: "Creating innovative audio solutions for musicians and producers worldwide."
-      },
-      gr: {
-        heroTitle: "Καινοτόμες Λύσεις Ήχου",
-        heroDesc: "Αναβαθμίστε την παραγωγή μουσικής σας με επαγγελματικούς MIDI controllers και εφαρμογές ήχου σχεδιασμένες για δημιουργούς.",
-        downloadBtn: "Κατεβάστε Τώρα",
-        learnMoreBtn: "Μάθετε Περισσότερα",
-        productsTitle: "Οι Εφαρμογές Μας",
-        productsDesc: "Επαγγελματικά εργαλεία ήχου σχεδιασμένα για μουσικούς, παραγωγούς και ηχολήπτες",
-        developerTitle: "Γνωρίστε τον Προγραμματιστή",
-        developerDesc: "Μηχανικός λογισμικού ήχου και μουσικός με πάνω από 10 χρόνια εμπειρίας στην ανάπτυξη επαγγελματικών εφαρμογών ήχου. Ειδικεύεται σε MIDI controllers, επεξεργασία ψηφιακού σήματος και διαδραστικά μουσικά συστήματα.",
-        contactTitle: "Επικοινωνήστε Μαζί Μας",
-        contactDesc: "Έχετε ερωτήσεις σχετικά με τα προϊόντα μας ή χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να βοηθήσουμε.",
-        contactFormTitle: "Επικοινωνία",
-        contactFormDesc: "Συμπληρώστε την παρακάτω φόρμα και θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό.",
-        firstName: "Όνομα",
-        lastName: "Επώνυμο",
-        email: "Email",
-        message: "Μήνυμα",
-        sendMessage: "Αποστολή Μηνύματος",
-        footerDesc: "Δημιουργούμε καινοτόμες λύσεις ήχου για μουσικούς και παραγωγούς παγκοσμίως."
-      },
-      es: {
-        heroTitle: "Soluciones de Audio Innovadoras",
-        heroDesc: "Eleve su producción musical con controladores MIDI profesionales y aplicaciones de audio diseñadas para creadores.",
-        downloadBtn: "Descargar Ahora",
-        learnMoreBtn: "Más Información",
-        productsTitle: "Nuestras Aplicaciones",
-        productsDesc: "Herramientas de audio profesionales diseñadas para músicos, productores e ingenieros de sonido",
-        developerTitle: "Conozca al Desarrollador",
-        developerDesc: "Ingeniero de software de audio y músico con más de 10 años de experiencia en el desarrollo de aplicaciones de audio profesionales. Especializado en controladores MIDI, procesamiento de señales digitales y sistemas musicales interactivos.",
-        contactTitle: "Póngase en Contacto",
-        contactDesc: "¿Tiene preguntas sobre nuestros productos o necesita soporte técnico? Estamos aquí para ayudar.",
-        contactFormTitle: "Contáctenos",
-        contactFormDesc: "Complete el formulario a continuación y nos pondremos en contacto con usted lo antes posible.",
-        firstName: "Nombre",
-        lastName: "Apellido",
-        email: "Correo electrónico",
-        message: "Mensaje",
-        sendMessage: "Enviar Mensaje",
-        footerDesc: "Creando soluciones de audio innovadoras para músicos y productores en todo el mundo."
-      },
-      it: {
-        heroTitle: "Soluzioni Audio Innovative",
-        heroDesc: "Migliora la tua produzione musicale con controller MIDI professionali e applicazioni audio progettate per i creatori.",
-        downloadBtn: "Scarica Ora",
-        learnMoreBtn: "Scopri di Più",
-        productsTitle: "Le Nostre Applicazioni",
-        productsDesc: "Strumenti audio professionali progettati per musicisti, produttori e ingegneri del suono",
-        developerTitle: "Incontra lo Sviluppatore",
-        developerDesc: "Ingegnere software audio e musicista con oltre 10 anni di esperienza nello sviluppo di applicazioni audio professionali. Specializzato in controller MIDI, elaborazione di segnali digitali e sistemi musicali interattivi.",
-        contactTitle: "Contattaci",
-        contactDesc: "Hai domande sui nostri prodotti o hai bisogno di supporto tecnico? Siamo qui per aiutarti.",
-        contactFormTitle: "Contattaci",
-        contactFormDesc: "Compila il modulo sottostante e ti risponderemo il prima possibile.",
-        firstName: "Nome",
-        lastName: "Cognome",
-        email: "Email",
-        message: "Messaggio",
-        sendMessage: "Invia Messaggio",
-        footerDesc: "Creiamo soluzioni audio innovative per musicisti e produttori in tutto il mondo."
-      },
-      de: {
-        heroTitle: "Innovative Audio-Lösungen",
-        heroDesc: "Verbessern Sie Ihre Musikproduktion mit professionellen MIDI-Controllern und Audio-Anwendungen, die für Kreative entwickelt wurden.",
-        downloadBtn: "Jetzt Herunterladen",
-        learnMoreBtn: "Mehr Erfahren",
-        productsTitle: "Unsere Anwendungen",
-        productsDesc: "Professionelle Audio-Tools für Musiker, Produzenten und Toningenieure",
-        developerTitle: "Lernen Sie den Entwickler kennen",
-        developerDesc: "Audio-Softwareingenieur und Musiker mit über 10 Jahren Erfahrung in der Entwicklung professioneller Audio-Anwendungen. Spezialisiert auf MIDI-Controller, digitale Signalverarbeitung und interaktive Musiksysteme.",
-        contactTitle: "Kontaktieren Sie Uns",
-        contactDesc: "Haben Sie Fragen zu unseren Produkten oder benötigen Sie technischen Support? Wir sind hier, um zu helfen.",
-        contactFormTitle: "Kontakt",
-        contactFormDesc: "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden.",
-        firstName: "Vorname",
-        lastName: "Nachname",
-        email: "E-Mail",
-        message: "Nachricht",
-        sendMessage: "Nachricht Senden",
-        footerDesc: "Wir entwickeln innovative Audio-Lösungen für Musiker und Produzenten weltweit."
-      }
-    };
-    
-    // Elements to update
-    const elementsToUpdate = {
-      heroTitle: document.querySelector('.hero h1'),
-      heroDesc: document.querySelector('.hero p'),
-      downloadBtn: document.querySelector('.btn-primary'),
-      learnMoreBtn: document.querySelector('.btn-outline'),
-      productsTitle: document.querySelector('.section-header h2'),
-      productsDesc: document.querySelector('.section-header p'),
-      developerTitle: document.querySelector('.developer-content h2'),
-      developerDesc: document.querySelector('.developer-content p'),
-      contactTitle: document.querySelector('#contact .section-header h2'),
-      contactDesc: document.querySelector('#contact .section-header p'),
-      contactFormTitle: document.querySelector('.contact-title'),
-      contactFormDesc: document.querySelector('.contact-subtitle'),
-      firstName: document.querySelector('label[for="first-name"]'),
-      lastName: document.querySelector('label[for="last-name"]'),
-      email: document.querySelector('label[for="email"]'),
-      message: document.querySelector('label[for="message"]'),
-      sendMessage: document.querySelector('form .btn-primary'),
-      footerDesc: document.querySelector('.footer-brand p')
-    };
-    
-    // Function to update language
-    function updateLanguage(lang) {
-      // Update hero title with HTML to preserve the span
-      if (elementsToUpdate.heroTitle) {
-        if (lang === 'en') {
-          elementsToUpdate.heroTitle.innerHTML = '<span>Innovative</span> Audio Solutions';
-        } else {
-          const parts = content[lang].heroTitle.split(' ');
-          elementsToUpdate.heroTitle.innerHTML = `<span>${parts[0]}</span> ${parts.slice(1).join(' ')}`;
-        }
-      }
-      
-      // Update all other text elements
-      for (const [key, element] of Object.entries(elementsToUpdate)) {
-        if (element && key !== 'heroTitle') {
-          if (content[lang][key]) {
-            if (key === 'downloadBtn' || key === 'learnMoreBtn' || key === 'sendMessage') {
-              // For buttons, preserve the SVG if present
-              const svg = element.querySelector('svg');
-              if (svg) {
-                element.innerHTML = '';
-                element.appendChild(svg);
-                element.innerHTML += ' ' + content[lang][key];
-              } else {
-                element.textContent = content[lang][key];
-              }
-            } else {
-              element.textContent = content[lang][key];
-            }
-          }
-        }
-      }
-      
-      // Update the language button
-      const langButton = document.querySelector('.lang-button img');
-      if (langButton) {
-        langButton.src = `https://flagcdn.com/${lang === 'gr' ? 'gr' : lang}.svg`;
-        langButton.alt = {
-          'en': 'English',
-          'gr': 'Ελληνικά',
-          'es': 'Español',
-          'it': 'Italiano',
-          'de': 'Deutsch'
-        }[lang];
+  const content = {
+    en: {
+      heroTitle: "Innovative Audio Solutions",
+      heroDesc: "Elevate your music production with professional MIDI controllers and audio applications designed for creators.",
+      downloadBtn: "Download Now",
+      learnMoreBtn: "Learn More",
+      productsTitle: "Our Applications",
+      productsDesc: "Professional audio tools designed for musicians, producers, and sound engineers",
+      developerTitle: "Meet the Developer",
+      developerDesc: "Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.",
+      contactTitle: "Get In Touch",
+      contactDesc: "Have questions about our products or need technical support? We're here to help.",
+      contactFormTitle: "Contact Us",
+      contactFormDesc: "Fill out the form below and we'll get back to you as soon as possible.",
+      firstName: "First name",
+      lastName: "Last name",
+      email: "Email",
+      message: "Message",
+      sendMessage: "Send Message",
+      footerDesc: "Creating innovative audio solutions for musicians and producers worldwide."
+    },
+    gr: {
+      heroTitle: "Καινοτόμες Λύσεις Ήχου",
+      heroDesc: "Αναβαθμίστε την παραγωγή μουσικής σας με επαγγελματικούς MIDI controllers και εφαρμογές ήχου σχεδιασμένες για δημιουργούς.",
+      downloadBtn: "Κατεβάστε Τώρα",
+      learnMoreBtn: "Μάθετε Περισσότερα",
+      productsTitle: "Οι Εφαρμογές Μας",
+      productsDesc: "Επαγγελματικά εργαλεία ήχου σχεδιασμένα για μουσικούς, παραγωγούς και ηχολήπτες",
+      developerTitle: "Γνωρίστε τον Προγραμματιστή",
+      developerDesc: "Μηχανικός λογισμικού ήχου και μουσικός με πάνω από 10 χρόνια εμπειρίας στην ανάπτυξη επαγγελματικών εφαρμογών ήχου. Ειδικεύεται σε MIDI controllers, επεξεργασία ψηφιακού σήματος και διαδραστικά μουσικά συστήματα.",
+      contactTitle: "Επικοινωνήστε Μαζί Μας",
+      contactDesc: "Έχετε ερωτήσεις σχετικά με τα προϊόντα μας ή χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να βοηθήσουμε.",
+      contactFormTitle: "Επικοινωνία",
+      contactFormDesc: "Συμπληρώστε την παρακάτω φόρμα και θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό.",
+      firstName: "Όνομα",
+      lastName: "Επώνυμο",
+      email: "Email",
+      message: "Μήνυμα",
+      sendMessage: "Αποστολή Μηνύματος",
+      footerDesc: "Δημιουργούμε καινοτόμες λύσεις ήχου για μουσικούς και παραγωγούς παγκοσμίως."
+    },
+    es: {
+      heroTitle: "Soluciones de Audio Innovadoras",
+      heroDesc: "Eleve su producción musical con controladores MIDI profesionales y aplicaciones de audio diseñadas para creadores.",
+      downloadBtn: "Descargar Ahora",
+      learnMoreBtn: "Más Información",
+      productsTitle: "Nuestras Aplicaciones",
+      productsDesc: "Herramientas de audio profesionales diseñadas para músicos, productores e ingenieros de sonido",
+      developerTitle: "Conozca al Desarrollador",
+      developerDesc: "Ingeniero de software de audio y músico con más de 10 años de experiencia en el desarrollo de aplicaciones de audio profesionales. Especializado en controladores MIDI, procesamiento de señales digitales y sistemas musicales interactivos.",
+      contactTitle: "Póngase en Contacto",
+      contactDesc: "¿Tiene preguntas sobre nuestros productos o necesita soporte técnico? Estamos aquí para ayudar.",
+      contactFormTitle: "Contáctenos",
+      contactFormDesc: "Complete el formulario a continuación y nos pondremos en contacto con usted lo antes posible.",
+      firstName: "Nombre",
+      lastName: "Apellido",
+      email: "Correo electrónico",
+      message: "Mensaje",
+      sendMessage: "Enviar Mensaje",
+      footerDesc: "Creando soluciones de audio innovadoras para músicos y productores en todo el mundo."
+    },
+    it: {
+      heroTitle: "Soluzioni Audio Innovative",
+      heroDesc: "Migliora la tua produzione musicale con controller MIDI professionali e applicazioni audio progettate per i creatori.",
+      downloadBtn: "Scarica Ora",
+      learnMoreBtn: "Scopri di Più",
+      productsTitle: "Le Nostre Applicazioni",
+      productsDesc: "Strumenti audio professionali progettati per musicisti, produttori e ingegneri del suono",
+      developerTitle: "Incontra lo Sviluppatore",
+      developerDesc: "Ingegnere software audio e musicista con oltre 10 anni di esperienza nello sviluppo di applicazioni audio professionali. Specializzato in controller MIDI, elaborazione di segnali digitali e sistemi musicali interattivi.",
+      contactTitle: "Contattaci",
+      contactDesc: "Hai domande sui nostri prodotti o hai bisogno di supporto tecnico? Siamo qui per aiutarti.",
+      contactFormTitle: "Contattaci",
+      contactFormDesc: "Compila il modulo sottostante e ti risponderemo il prima possibile.",
+      firstName: "Nome",
+      lastName: "Cognome",
+      email: "Email",
+      message: "Messaggio",
+      sendMessage: "Invia Messaggio",
+      footerDesc: "Creiamo soluzioni audio innovative per musicisti e produttori in tutto il mondo."
+    },
+    de: {
+      heroTitle: "Innovative Audio-Lösungen",
+      heroDesc: "Verbessern Sie Ihre Musikproduktion mit professionellen MIDI-Controllern und Audio-Anwendungen, die für Kreative entwickelt wurden.",
+      downloadBtn: "Jetzt Herunterladen",
+      learnMoreBtn: "Mehr Erfahren",
+      productsTitle: "Unsere Anwendungen",
+      productsDesc: "Professionelle Audio-Tools für Musiker, Produzenten und Toningenieure",
+      developerTitle: "Lernen Sie den Entwickler kennen",
+      developerDesc: "Audio-Softwareingenieur und Musiker mit über 10 Jahren Erfahrung in der Entwicklung professioneller Audio-Anwendungen. Spezialisiert auf MIDI-Controller, digitale Signalverarbeitung und interaktive Musiksysteme.",
+      contactTitle: "Kontaktieren Sie Uns",
+      contactDesc: "Haben Sie Fragen zu unseren Produkten oder benötigen Sie technischen Support? Wir sind hier, um zu helfen.",
+      contactFormTitle: "Kontakt",
+      contactFormDesc: "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden.",
+      firstName: "Vorname",
+      lastName: "Nachname",
+      email: "E-Mail",
+      message: "Nachricht",
+      sendMessage: "Nachricht Senden",
+      footerDesc: "Wir entwickeln innovative Audio-Lösungen für Musiker und Produzenten weltweit."
+    },
+    fr: {
+      heroTitle: "Solutions Audio Innovantes",
+      heroDesc: "Améliorez votre production musicale avec des contrôleurs MIDI professionnels et des applications audio conçues pour les créateurs.",
+      downloadBtn: "Télécharger Maintenant",
+      learnMoreBtn: "En Savoir Plus",
+      productsTitle: "Nos Applications",
+      productsDesc: "Outils audio professionnels conçus pour les musiciens, les producteurs et les ingénieurs du son",
+      developerTitle: "Rencontrez le Développeur",
+      developerDesc: "Ingénieur logiciel audio et musicien avec plus de 10 ans d'expérience dans le développement d'applications audio professionnelles. Spécialisé dans les contrôleurs MIDI, le traitement du signal numérique et les systèmes musicaux interactifs.",
+      contactTitle: "Contactez-Nous",
+      contactDesc: "Vous avez des questions sur nos produits ou besoin d'un support technique ? Nous sommes là pour vous aider.",
+      contactFormTitle: "Contact",
+      contactFormDesc: "Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+      firstName: "Prénom",
+      lastName: "Nom",
+      email: "Email",
+      message: "Message",
+      sendMessage: "Envoyer le Message",
+      footerDesc: "Nous créons des solutions audio innovantes pour les musiciens et les producteurs du monde entier."
+    },
+    ru: {
+      heroTitle: "Инновационные Аудио Решения",
+      heroDesc: "Улучшите свое музыкальное производство с помощью профессиональных MIDI-контроллеров и аудиоприложений, разработанных для творческих людей.",
+      downloadBtn: "Скачать Сейчас",
+      learnMoreBtn: "Узнать Больше",
+      productsTitle: "Наши Приложения",
+      productsDesc: "Профессиональные аудиоинструменты, разработанные для музыкантов, продюсеров и звукорежиссеров",
+      developerTitle: "Познакомьтесь с Разработчиком",
+      developerDesc: "Инженер-программист аудио и музыкант с более чем 10-летним опытом разработки профессиональных аудиоприложений. Специализируется на MIDI-контроллерах, цифровой обработке сигналов и интерактивных музыкальных системах.",
+      contactTitle: "Свяжитесь с Нами",
+      contactDesc: "У вас есть вопросы о наших продуктах или вам нужна техническая поддержка? Мы здесь, чтобы помочь.",
+      contactFormTitle: "Контакт",
+      contactFormDesc: "Заполните форму ниже, и мы свяжемся с вами как можно скорее.",
+      firstName: "Имя",
+      lastName: "Фамилия",
+      email: "Электронная почта",
+      message: "Сообщение",
+      sendMessage: "Отправить Сообщение",
+      footerDesc: "Мы создаем инновационные аудиорешения для музыкантов и продюсеров по всему миру."
+    },
+    ar: {
+      heroTitle: "حلول صوتية مبتكرة",
+      heroDesc: "ارتقِ بإنتاجك الموسيقي مع وحدات تحكم MIDI احترافية وتطبيقات صوتية مصممة للمبدعين.",
+      downloadBtn: "تحميل الآن",
+      learnMoreBtn: "معرفة المزيد",
+      productsTitle: "تطبيقاتنا",
+      productsDesc: "أدوات صوتية احترافية مصممة للموسيقيين والمنتجين ومهندسي الصوت",
+      developerTitle: "تعرف على المطور",
+      developerDesc: "مهندس برمجيات صوتية وموسيقي بخبرة تزيد عن 10 سنوات في تطوير تطبيقات الصوت الاحترافية. متخصص في وحدات تحكم MIDI ومعالجة الإشارات الرقمية وأنظمة الموسيقى التفاعلية.",
+      contactTitle: "تواصل معنا",
+      contactDesc: "هل لديك أسئلة حول منتجاتنا أو تحتاج إلى دعم فني؟ نحن هنا للمساعدة.",
+      contactFormTitle: "اتصل بنا",
+      contactFormDesc: "املأ النموذج أدناه وسنرد عليك في أقرب وقت ممكن.",
+      firstName: "الاسم الأول",
+      lastName: "اسم العائلة",
+      email: "البريد الإلكتروني",
+      message: "الرسالة",
+      sendMessage: "إرسال الرسالة",
+      footerDesc: "نحن نبتكر حلولًا صوتية مبتكرة للموسيقيين والمنتجين في جميع أنحاء العالم."
+    },
+    bg: {
+      heroTitle: "Иновативни Аудио Решения",
+      heroDesc: "Подобрете вашата музикална продукция с професионални MIDI контролери и аудио приложения, проектирани за творци.",
+      downloadBtn: "Изтеглете Сега",
+      learnMoreBtn: "Научете Повече",
+      productsTitle: "Нашите Приложения",
+      productsDesc: "Професионални аудио инструменти, проектирани за музиканти, продуценти и звукови инженери",
+      developerTitle: "Запознайте се с Разработчика",
+      developerDesc: "Аудио софтуерен инженер и музикант с над 10 години опит в разработването на професионални аудио приложения. Специализиран в MIDI контролери, цифрова обработка на сигнали и интерактивни музикални системи.",
+      contactTitle: "Свържете се с Нас",
+      contactDesc: "Имате въпроси относно нашите продукти или се нуждаете от техническа поддръжка? Ние сме тук, за да помогнем.",
+      contactFormTitle: "Контакт",
+      contactFormDesc: "Попълнете формуляра по-долу и ще се свържем с вас възможно най-скоро.",
+      firstName: "Име",
+      lastName: "Фамилия",
+      email: "Имейл",
+      message: "Съобщение",
+      sendMessage: "Изпратете Съобщение",
+      footerDesc: "Създаваме иновативни аудио решения за музиканти и продуценти по целия свят."
+    },
+    al: {
+      heroTitle: "Zgjidhje Inovative Audio",
+      heroDesc: "Përmirësoni prodhimin tuaj muzikor me kontrollues profesionalë MIDI dhe aplikacione audio të dizajnuara për krijuesit.",
+      downloadBtn: "Shkarkoni Tani",
+      learnMoreBtn: "Mësoni Më Shumë",
+      productsTitle: "Aplikacionet Tona",
+      productsDesc: "Mjete profesionale audio të dizajnuara për muzikantë, prodhues dhe inxhinierë zëri",
+      developerTitle: "Njihuni me Zhvilluesin",
+      developerDesc: "Inxhinier softuerik audio dhe muzikant me mbi 10 vjet përvojë në zhvillimin e aplikacioneve profesionale audio. I specializuar në kontrolluesit MIDI, përpunimin e sinjalit dixhital dhe sistemet interaktive muzikore.",
+      contactTitle: "Na Kontaktoni",
+      contactDesc: "Keni pyetje për produktet tona ose keni nevojë për mbështetje teknike? Ne jemi këtu për t'ju ndihmuar.",
+      contactFormTitle: "Kontakt",
+      contactFormDesc: "Plotësoni formularin më poshtë dhe do t'ju kontaktojmë sa më shpejt të jetë e mundur.",
+      firstName: "Emri",
+      lastName: "Mbiemri",
+      email: "Email",
+      message: "Mesazhi",
+      sendMessage: "Dërgo Mesazhin",
+      footerDesc: "Ne krijojmë zgjidhje inovative audio për muzikantë dhe prodhues në mbarë botën."
+    },
+    tr: {
+      heroTitle: "Yenilikçi Ses Çözümleri",
+      heroDesc: "Yaratıcılar için tasarlanmış profesyonel MIDI kontrolörleri ve ses uygulamaları ile müzik prodüksiyonunuzu yükseltin.",
+      downloadBtn: "Şimdi İndir",
+      learnMoreBtn: "Daha Fazla Bilgi",
+      productsTitle: "Uygulamalarımız",
+      productsDesc: "Müzisyenler, prodüktörler ve ses mühendisleri için tasarlanmış profesyonel ses araçları",
+      developerTitle: "Geliştiriciyle Tanışın",
+      developerDesc: "Profesyonel ses uygulamaları geliştirmede 10 yıldan fazla deneyime sahip ses yazılım mühendisi ve müzisyen. MIDI kontrolörleri, dijital sinyal işleme ve interaktif müzik sistemleri konusunda uzmanlaşmıştır.",
+      contactTitle: "Bizimle İletişime Geçin",
+      contactDesc: "Ürünlerimiz hakkında sorularınız mı var veya teknik desteğe mi ihtiyacınız var? Yardım etmek için buradayız.",
+      contactFormTitle: "İletişim",
+      contactFormDesc: "Aşağıdaki formu doldurun, en kısa sürede size geri döneceğiz.",
+      firstName: "Ad",
+      lastName: "Soyad",
+      email: "E-posta",
+      message: "Mesaj",
+      sendMessage: "Mesaj Gönder",
+      footerDesc: "Dünya çapında müzisyenler ve prodüktörler için yenilikçi ses çözümleri yaratıyoruz."
+    },
+    pt: {
+      heroTitle: "Soluções de Áudio Inovadoras",
+      heroDesc: "Eleve sua produção musical com controladores MIDI profissionais e aplicativos de áudio projetados para criadores.",
+      downloadBtn: "Baixar Agora",
+      learnMoreBtn: "Saiba Mais",
+      productsTitle: "Nossos Aplicativos",
+      productsDesc: "Ferramentas de áudio profissionais projetadas para músicos, produtores e engenheiros de som",
+      developerTitle: "Conheça o Desenvolvedor",
+      developerDesc: "Engenheiro de software de áudio e músico com mais de 10 anos de experiência no desenvolvimento de aplicativos de áudio profissionais. Especializado em controladores MIDI, processamento de sinal digital e sistemas musicais interativos.",
+      contactTitle: "Entre em Contato",
+      contactDesc: "Tem perguntas sobre nossos produtos ou precisa de suporte técnico? Estamos aqui para ajudar.",
+      contactFormTitle: "Contato",
+      contactFormDesc: "Preencha o formulário abaixo e entraremos em contato com você o mais breve possível.",
+      firstName: "Nome",
+      lastName: "Sobrenome",
+      email: "Email",
+      message: "Mensagem",
+      sendMessage: "Enviar Mensagem",
+      footerDesc: "Criamos soluções de áudio inovadoras para músicos e produtores em todo o mundo."
+    },
+    nl: {
+      heroTitle: "Innovatieve Audio-oplossingen",
+      heroDesc: "Verbeter je muziekproductie met professionele MIDI-controllers en audio-applicaties ontworpen voor makers.",
+      downloadBtn: "Nu Downloaden",
+      learnMoreBtn: "Meer Informatie",
+      productsTitle: "Onze Applicaties",
+      productsDesc: "Professionele audiotools ontworpen voor muzikanten, producers en geluidstechnici",
+      developerTitle: "Ontmoet de Ontwikkelaar",
+      developerDesc: "Audio-software-engineer en muzikant met meer dan 10 jaar ervaring in het ontwikkelen van professionele audio-applicaties. Gespecialiseerd in MIDI-controllers, digitale signaalverwerking en interactieve muzieksystemen.",
+      contactTitle: "Neem Contact Op",
+      contactDesc: "Heb je vragen over onze producten of heb je technische ondersteuning nodig? Wij zijn er om te helpen.",
+      contactFormTitle: "Contact",
+      contactFormDesc: "Vul het onderstaande formulier in en we nemen zo snel mogelijk contact met je op.",
+      firstName: "Voornaam",
+      lastName: "Achternaam",
+      email: "E-mail",
+      message: "Bericht",
+      sendMessage: "Bericht Verzenden",
+      footerDesc: "We creëren innovatieve audio-oplossingen voor muzikanten en producers wereldwijd."
+    },
+    ja: {
+      heroTitle: "革新的なオーディオソリューション",
+      heroDesc: "クリエイター向けに設計されたプロフェッショナルなMIDIコントローラーとオーディオアプリケーションで音楽制作を向上させましょう。",
+      downloadBtn: "今すぐダウンロード",
+      learnMoreBtn: "詳細を見る",
+      productsTitle: "アプリケーション",
+      productsDesc: "ミュージシャン、プロデューサー、サウンドエンジニア向けに設計されたプロフェッショナルなオーディオツール",
+      developerTitle: "開発者紹介",
+      developerDesc: "プロフェッショナルなオーディオアプリケーションの開発に10年以上の経験を持つオーディオソフトウェアエンジニアおよびミュージシャン。MIDIコントローラー、デジタル信号処理、インタラクティブな音楽システムを専門としています。",
+      contactTitle: "お問い合わせ",
+      contactDesc: "製品に関するご質問や技術サポートが必要ですか？お手伝いします。",
+      contactFormTitle: "お問い合わせ",
+      contactFormDesc: "以下のフォームにご記入いただければ、できるだけ早くご連絡いたします。",
+      firstName: "名",
+      lastName: "姓",
+      email: "メールアドレス",
+      message: "メッセージ",
+      sendMessage: "メッセージを送信",
+      footerDesc: "世界中のミュージシャンやプロデューサーのために革新的なオーディオソリューションを創造しています。"
+    },
+    zh: {
+      heroTitle: "创新音频解决方案",
+      heroDesc: "通过专为创作者设计的专业MIDI控制器和音频应用程序提升您的音乐制作。",
+      downloadBtn: "立即下载",
+      learnMoreBtn: "了解更多",
+      productsTitle: "我们的应用",
+      productsDesc: "为音乐家、制作人和音响工程师设计的专业音频工具",
+      developerTitle: "认识开发者",
+      developerDesc: "拥有10多年专业音频应用程序开发经验的音频软件工程师和音乐家。专注于MIDI控制器、数字信号处理和交互式音乐系统。",
+      contactTitle: "联系我们",
+      contactDesc: "对我们的产品有疑问或需要技术支持？我们随时为您提供帮助。",
+      contactFormTitle: "联系",
+      contactFormDesc: "填写下面的表格，我们将尽快与您联系。",
+      firstName: "名字",
+      lastName: "姓氏",
+      email: "电子邮件",
+      message: "留言",
+      sendMessage: "发送消息",
+      footerDesc: "我们为全球音乐家和制作人创造创新的音频解决方案。"
+    }
+  };
+  
+  // Elements to update
+  const elementsToUpdate = {
+    heroTitle: document.querySelector('.hero h1'),
+    heroDesc: document.querySelector('.hero p'),
+    downloadBtn: document.querySelector('.btn-primary'),
+    learnMoreBtn: document.querySelector('.btn-outline'),
+    productsTitle: document.querySelector('.section-header h2'),
+    productsDesc: document.querySelector('.section-header p'),
+    developerTitle: document.querySelector('.developer-content h2'),
+    developerDesc: document.querySelector('.developer-content p'),
+    contactTitle: document.querySelector('#contact .section-header h2'),
+    contactDesc: document.querySelector('#contact .section-header p'),
+    contactFormTitle: document.querySelector('.contact-title'),
+    contactFormDesc: document.querySelector('.contact-subtitle'),
+    firstName: document.querySelector('label[for="first-name"]'),
+    lastName: document.querySelector('label[for="last-name"]'),
+    email: document.querySelector('label[for="email"]'),
+    message: document.querySelector('label[for="message"]'),
+    sendMessage: document.querySelector('form .btn-primary'),
+    footerDesc: document.querySelector('.footer-brand p')
+  };
+  
+  // Function to update language
+  function updateLanguage(lang) {
+    // Update hero title with HTML to preserve the span
+    if (elementsToUpdate.heroTitle) {
+      if (lang === 'en') {
+        elementsToUpdate.heroTitle.innerHTML = '<span>Innovative</span> Audio Solutions';
+      } else {
+        const parts = content[lang].heroTitle.split(' ');
+        elementsToUpdate.heroTitle.innerHTML = `<span>${parts[0]}</span> ${parts.slice(1).join(' ')}`;
       }
     }
     
-    // Add language switching functionality
-    const languageItems = document.querySelectorAll('.dropdown-item');
-    languageItems.forEach((item, index) => {
-      item.addEventListener('click', function() {
-        const langs = ['en', 'gr', 'es', 'it', 'de'];
-        if (index < langs.length) {
-          updateLanguage(langs[index]);
+    // Update all other text elements
+    for (const [key, element] of Object.entries(elementsToUpdate)) {
+      if (element && key !== 'heroTitle') {
+        if (content[lang][key]) {
+          if (key === 'downloadBtn' || key === 'learnMoreBtn' || key === 'sendMessage') {
+            // For buttons, preserve the SVG if present
+            const svg = element.querySelector('svg');
+            if (svg) {
+              element.innerHTML = '';
+              element.appendChild(svg);
+              element.innerHTML += ' ' + content[lang][key];
+            } else {
+              element.textContent = content[lang][key];
+            }
+          } else {
+            element.textContent = content[lang][key];
+          }
         }
+      }
+    }
+    
+    // Update the language button
+    const langButton = document.querySelector('.lang-button img');
+    if (langButton) {
+      langButton.src = `https://flagcdn.com/${lang}.svg`;
+      langButton.alt = {
+        'en': 'English',
+        'gr': 'Ελληνικά',
+        'es': 'Español',
+        'it': 'Italiano',
+        'de': 'Deutsch',
+        'fr': 'Français',
+        'ru': 'Русский',
+        'ar': 'العربية',
+        'bg': 'Български',
+        'al': 'Shqip',
+        'tr': 'Türkçe',
+        'pt': 'Português',
+        'nl': 'Nederlands',
+        'ja': '日本語',
+        'zh': '中文'
+      }[lang];
+    }
+  }
+  
+  // Add language switching functionality
+  const languageItems = document.querySelectorAll('.dropdown-item');
+  const langs = ['en', 'gr', 'es', 'it', 'de', 'fr', 'ru', 'ar', 'bg', 'al', 'tr', 'pt', 'nl', 'ja', 'zh'];
+  
+  languageItems.forEach((item, index) => {
+    if (index < langs.length) {
+      item.addEventListener('click', function() {
+        updateLanguage(langs[index]);
       });
-    });
+    }
   });
-</script>
+});
