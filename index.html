@@ -11,7 +11,6 @@
       font-family: 'Roboto', sans-serif;
       background-color: #111;
       color: #f4f4f4;
-      padding: 0;
     }
     header {
       display: flex;
@@ -19,20 +18,47 @@
       align-items: center;
       padding: 1rem 2rem;
     }
-    header img {
-      max-width: 140px;
-      height: auto;
+    .logo {
+      text-align: left;
     }
-    .flags {
-      display: flex;
-      gap: 0.5rem;
+    .logo img {
+      max-width: 180px;
     }
-    .flags img {
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .lang-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .lang-button img {
       width: 24px;
       height: 16px;
-      cursor: pointer;
       border: 1px solid #333;
       border-radius: 3px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #222;
+      min-width: 140px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      z-index: 1;
+      padding: 0.5rem;
+      border-radius: 6px;
+    }
+    .dropdown-content img {
+      display: block;
+      width: 24px;
+      height: 16px;
+      margin: 0.3rem;
+      cursor: pointer;
+    }
+    .lang-dropdown:hover .dropdown-content {
+      display: block;
     }
     main {
       text-align: center;
@@ -142,18 +168,23 @@
 </head>
 <body onload="updateLang('en')">
   <header>
-    <img src="Echopais.png" alt="Logo" />
-    <div class="flags">
-      <img src="https://flagcdn.com/gb.svg" alt="English" onclick="updateLang('en')">
-      <img src="https://flagcdn.com/gr.svg" alt="Greek" onclick="updateLang('gr')">
-      <img src="https://flagcdn.com/es.svg" alt="Spanish" onclick="updateLang('es')">
-      <img src="https://flagcdn.com/it.svg" alt="Italian" onclick="updateLang('it')">
-      <img src="https://flagcdn.com/de.svg" alt="German" onclick="updateLang('de')">
-      <img src="https://flagcdn.com/fr.svg" alt="French" onclick="updateLang('fr')">
-      <img src="https://flagcdn.com/ru.svg" alt="Russian" onclick="updateLang('ru')">
-      <img src="https://flagcdn.com/bg.svg" alt="Bulgarian" onclick="updateLang('bg')">
-      <img src="https://flagcdn.com/tr.svg" alt="Turkish" onclick="updateLang('tr')">
-      <img src="https://flagcdn.com/al.svg" alt="Albanian" onclick="updateLang('al')">
+    <div class="logo">
+      <img src="Echopais.png" alt="Echopais Logo" />
+    </div>
+    <div class="lang-dropdown">
+      <button class="lang-button"><img src="https://flagcdn.com/gb.svg" alt="Language" /></button>
+      <div class="dropdown-content">
+        <img src="https://flagcdn.com/gb.svg" onclick="updateLang('en')" />
+        <img src="https://flagcdn.com/gr.svg" onclick="updateLang('gr')" />
+        <img src="https://flagcdn.com/es.svg" onclick="updateLang('es')" />
+        <img src="https://flagcdn.com/it.svg" onclick="updateLang('it')" />
+        <img src="https://flagcdn.com/de.svg" onclick="updateLang('de')" />
+        <img src="https://flagcdn.com/fr.svg" onclick="updateLang('fr')" />
+        <img src="https://flagcdn.com/ru.svg" onclick="updateLang('ru')" />
+        <img src="https://flagcdn.com/bg.svg" onclick="updateLang('bg')" />
+        <img src="https://flagcdn.com/tr.svg" onclick="updateLang('tr')" />
+        <img src="https://flagcdn.com/al.svg" onclick="updateLang('al')" />
+      </div>
     </div>
   </header>
   <main>
