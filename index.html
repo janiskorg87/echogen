@@ -31,23 +31,46 @@
       max-width: 600px;
       margin: 1rem 0;
     }
-    a.button {
-      display: inline-block;
-      background-color: #ff6600;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 1.5rem;
-    }
-    .language-selector {
-      margin-top: 1.5rem;
-    }
     select {
       padding: 0.5rem;
       font-size: 1rem;
       border-radius: 5px;
+    }
+    .language-selector {
+      margin-top: 1.5rem;
+    }
+    .apps-section {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .app-card {
+      background-color: #222;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 300px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .app-card h3 {
+      margin-top: 0;
+      color: #ff6600;
+    }
+    .app-card p {
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+    .app-card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #fff;
+      background: #ff6600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
     }
     footer {
       margin-top: 3rem;
@@ -63,28 +86,58 @@
       en: {
         title: "Echopais MIDI Controller",
         description: "Echopais is a simple yet powerful MIDI controller for musicians, producers and performers who want speed, flexibility and style in every set.",
-        button: "Download on the App Store"
+        apps: "Available Applications"
       },
       gr: {
         title: "Echopais MIDI Controller",
         description: "Το Echopais είναι ένας απλός αλλά ισχυρός MIDI controller για μουσικούς, παραγωγούς και performers που θέλουν ταχύτητα, ευελιξία και στυλ σε κάθε set.",
-        button: "Κατεβάστε από το App Store"
+        apps: "Διαθέσιμες Εφαρμογές"
       },
       es: {
         title: "Controlador MIDI Echopais",
         description: "Echopais es un controlador MIDI simple pero potente para músicos, productores e intérpretes que desean velocidad, flexibilidad y estilo en cada presentación.",
-        button: "Descargar en la App Store"
+        apps: "Aplicaciones Disponibles"
       },
       it: {
         title: "Controller MIDI Echopais",
         description: "Echopais è un controller MIDI semplice ma potente per musicisti, produttori e performer che vogliono velocità, flessibilità e stile in ogni set.",
-        button: "Scarica da App Store"
+        apps: "Applicazioni Disponibili"
+      },
+      de: {
+        title: "Echopais MIDI-Controller",
+        description: "Echopais ist ein einfacher, aber leistungsstarker MIDI-Controller für Musiker, Produzenten und Performer, die Geschwindigkeit, Flexibilität und Stil wollen.",
+        apps: "Verfügbare Apps"
+      },
+      fr: {
+        title: "Contrôleur MIDI Echopais",
+        description: "Echopais est un contrôleur MIDI simple mais puissant pour les musiciens, producteurs et artistes recherchant vitesse, flexibilité et style.",
+        apps: "Applications Disponibles"
+      },
+      ru: {
+        title: "MIDI контроллер Echopais",
+        description: "Echopais — это простой, но мощный MIDI контроллер для музыкантов, продюсеров и исполнителей, которым нужна скорость и гибкость.",
+        apps: "Доступные приложения"
+      },
+      bg: {
+        title: "Echopais MIDI контролер",
+        description: "Echopais е лесен, но мощен MIDI контролер за музиканти, продуценти и изпълнители, които търсят бързина и гъвкавост.",
+        apps: "Налични приложения"
+      },
+      tr: {
+        title: "Echopais MIDI Denetleyicisi",
+        description: "Echopais, müzisyenler, yapımcılar ve sahne sanatçıları için hızlı ve esnek bir MIDI denetleyicisidir.",
+        apps: "Mevcut Uygulamalar"
+      },
+      al: {
+        title: "Kontrolluesi MIDI Echopais",
+        description: "Echopais është një kontrollues i thjeshtë por i fuqishëm për muzikantët, producentët dhe interpretuesit që duan shpejtësi dhe fleksibilitet.",
+        apps: "Aplikacionet në dispozicion"
       }
     };
 
     function updateContent(lang) {
       document.getElementById("desc").textContent = content[lang].description;
-      document.getElementById("download-btn").textContent = content[lang].button;
+      document.getElementById("apps-header").textContent = content[lang].apps;
     }
   </script>
 </head>
@@ -93,7 +146,6 @@
     <img src="Echopais.png" alt="Echopais Logo" />
     <h1>Echopais MIDI Controller</h1>
     <p id="desc"></p>
-    <a class="button" id="download-btn" href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank">Download</a>
     <div class="language-selector">
       <label for="lang">Language:</label>
       <select id="lang" onchange="updateContent(this.value)">
@@ -101,9 +153,25 @@
         <option value="gr">Ελληνικά</option>
         <option value="es">Español</option>
         <option value="it">Italiano</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="ru">Русский</option>
+        <option value="bg">Български</option>
+        <option value="tr">Türkçe</option>
+        <option value="al">Shqip</option>
       </select>
     </div>
   </header>
+
+  <section class="apps-section">
+    <h2 id="apps-header">Available Applications</h2>
+    <div class="app-card">
+      <h3>Echopais Pad Controller</h3>
+      <p>A touch-based MIDI controller app for iOS. Designed for live performance and studio flexibility.</p>
+      <a href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank">View on App Store</a>
+    </div>
+  </section>
+
   <footer>
     <p>
       &copy; 2025 Echopais | <a href="privacy.html">Πολιτική Απορρήτου</a> |
