@@ -4,58 +4,254 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Echopais - Privacy Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --orange-500: #ff6600;
+            --orange-600: #e65c00;
+            --zinc-100: #f4f4f5;
+            --zinc-200: #e4e4e7;
+            --zinc-300: #d4d4d8;
+            --zinc-400: #a1a1aa;
+            --zinc-500: #71717a;
+            --zinc-600: #52525b;
+            --zinc-700: #3f3f46;
+            --zinc-800: #27272a;
+            --zinc-900: #18181b;
+            --black: #09090b;
+        }
+        
+        * {
             margin: 0;
-            padding: 2rem;
-            background-color: #f4f4f4;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, var(--zinc-900), var(--black));
+            color: var(--zinc-100);
+            min-height: 100vh;
+            line-height: 1.5;
+            padding: 0;
+        }
+        
         .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--zinc-800);
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .back-link {
+            color: var(--zinc-300);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: var(--orange-500);
+        }
+        
+        /* Main Content */
+        .privacy-content {
             max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: 3rem auto 5rem;
+            background-color: var(--zinc-800);
+            border: 1px solid var(--zinc-700);
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
         }
-        h1 {
+        
+        .privacy-header {
             text-align: center;
-            color: #0057B8;
+            margin-bottom: 2.5rem;
         }
-        p {
-            line-height: 1.6;
+        
+        .privacy-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--orange-500);
+            margin-bottom: 0.5rem;
         }
+        
+        .privacy-header h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--zinc-100);
+        }
+        
+        .privacy-body {
+            color: var(--zinc-300);
+        }
+        
+        .privacy-body p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .privacy-body a {
+            color: var(--orange-500);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .privacy-body a:hover {
+            color: var(--orange-600);
+            text-decoration: underline;
+        }
+        
+        .contact-section {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background-color: rgba(255, 102, 0, 0.1);
+            border-left: 4px solid var(--orange-500);
+            border-radius: 0.25rem;
+        }
+        
+        .contact-section p {
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        
         .footer {
-            margin-top: 2rem;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--zinc-700);
             font-size: 0.9rem;
+            color: var(--zinc-500);
             text-align: center;
-            color: #777;
+        }
+        
+        /* Footer */
+        .site-footer {
+            background-color: var(--zinc-900);
+            border-top: 1px solid var(--zinc-800);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .site-footer p {
+            color: var(--zinc-500);
+            font-size: 0.9rem;
+        }
+        
+        .site-footer a {
+            color: var(--zinc-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .site-footer a:hover {
+            color: var(--orange-500);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .privacy-content {
+                padding: 1.5rem;
+                margin: 2rem auto 3rem;
+            }
+            
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+            
+            .privacy-header h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Echopais</h1>
-        <h2>Privacy Policy</h2>
-        <p>
-            This app does not collect, store, or share any personal data from users.
-            We do not use any third-party analytics tools, advertising platforms, or data tracking systems.
-            No personal information such as names, emails, phone numbers, or location data is gathered or transmitted.
-        </p>
-        <p>
-            Your privacy is important to us. We are committed to ensuring that your experience is safe, simple, and private.
-        </p>
-        <p>
-            If you have any questions or concerns about this privacy policy, please contact us at:
-        </p>
-        <p>
-            ✉️ Email: <a href="mailto:g.coci@echopais.com">g.coci@echopais.com</a>
-        </p>
-        <div class="footer">
-            Last updated: April 25, 2025
-        </div>
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-453oE7USxaPpEN9Gxb09pEEyWKqwrY.png" alt="Echopais Logo">
+                </a>
+            </div>
+            <a href="index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+                Back to Home
+            </a>
+        </header>
+        
+        <main>
+            <div class="privacy-content">
+                <div class="privacy-header">
+                    <h1>Echopais</h1>
+                    <h2>Privacy Policy</h2>
+                </div>
+                
+                <div class="privacy-body">
+                    <p>
+                        This app does not collect, store, or share any personal data from users.
+                        We do not use any third-party analytics tools, advertising platforms, or data tracking systems.
+                        No personal information such as names, emails, phone numbers, or location data is gathered or transmitted.
+                    </p>
+                    
+                    <p>
+                        Your privacy is important to us. We are committed to ensuring that your experience is safe, simple, and private.
+                    </p>
+                    
+                    <div class="contact-section">
+                        <p>
+                            If you have any questions or concerns about this privacy policy, please contact us at:
+                        </p>
+                        <p>
+                            <a href="mailto:g.coci@echopais.com" class="email-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                </svg>
+                                g.coci@echopais.com
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div class="footer">
+                        Last updated: April 25, 2025
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Echopais. All rights reserved. | <a href="index.html">Home</a></p>
+        </div>
+    </footer>
 </body>
 </html>
