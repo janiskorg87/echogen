@@ -940,47 +940,57 @@
   <section id="contact" class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Get In Touch</h2>
-        <p>Have questions about our products or need technical support? We're here to help.</p>
+        <h2 data-i18n="contact.title">Get In Touch</h2>
+        <p data-i18n="contact.description">Have questions about our products or need technical support? We're here to help.</p>
       </div>
-  
+      
       <div class="contact-form">
-        <form id="contact-form">
-          <div class="form-group">
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" required>
+        <div class="contact-card">
+          <div class="contact-header">
+            <h3 class="contact-title" data-i18n="contact.formTitle">Contact Us</h3>
+            <div class="contact-subtitle" data-i18n="contact.formDescription">
+              Fill out the form below and we'll get back to you as soon as possible.
+            </div>
           </div>
+          
+          <div class="contact-content">
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+              </div>
   
-          <div class="form-group">
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" required>
+              <div class="form-group">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+              </div>
+  
+              <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+  
+              <div class="form-group">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+  
+              <button type="submit">Send</button>
+              <div id="form-message" class="message"></div>
+            </form>
           </div>
-  
-          <div class="form-group">
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-  
-          <div class="form-group">
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-  
-          <button type="submit">Send</button>
-          <div id="form-message" class="message"></div>
-        </form>
+        </div>
       </div>
     </div>
   </section>
   
-  <!-- Add this just before </body> -->
+  <!-- Add this at the bottom of index.html -->
   <script>
     const form = document.getElementById('contact-form');
     const messageDiv = document.getElementById('form-message');
   
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-  
       const formData = new FormData(form);
   
       try {
