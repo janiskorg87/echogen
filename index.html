@@ -936,45 +936,16 @@
     </div>
   </section>
   
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="contact.title">Get In Touch</h2>
-        <p data-i18n="contact.description">
-          Have questions about our products or need technical support? We're here to help.
-        </p>
-      </div>
+  <form action="https://formspree.io/f/xkgrlvnz" method="POST">
+    <label for="email">Your email:</label>
+    <input type="email" name="email" id="email" required>
   
-      <div class="contact-form">
-        <div class="contact-card">
-          <div class="contact-header">
-            <h3 class="contact-title" data-i18n="contact.formTitle">Contact Us</h3>
-            <div class="contact-subtitle" data-i18n="contact.formDescription">
-              Fill out the form below and we'll get back to you as soon as possible.
-            </div>
-          </div>
-          <div class="contact-content">
-            <form action="https://formspree.io/f/xkgrlvnz" method="POST">
-              <label for="email">Your email:</label>
-              <input type="email" name="email" id="email" required>
+    <label for="message">Your message:</label>
+    <textarea name="message" id="message" required></textarea>
   
-              <label for="message">Your message:</label>
-              <textarea name="message" id="message" rows="5" required></textarea>
-  
-              <!-- Hidden anti-spam field -->
-              <input type="text" name="_gotcha" style="display:none">
-  
-              <!-- Optional: redirect after submit -->
-              <!-- <input type="hidden" name="_redirect" value="https://yourwebsite.com/thank-you.html"> -->
-  
-              <button type="submit">Send</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <button type="submit">Send</button>
+  </form>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
