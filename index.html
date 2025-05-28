@@ -1565,6 +1565,39 @@
       </div>
     </div>
   </section>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const messageBox = document.getElementById('form-message');
+    const messageText = document.getElementById('form-feedback');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+  
+      try {
+        const response = await fetch('https://formspree.io/f/xkgrlvnz', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        });
+  
+        if (response.ok) {
+          messageText.textContent = "✅ Your message was sent successfully!";
+          messageBox.style.display = "flex";
+          form.reset();
+        } else {
+          messageText.textContent = "❌ Something went wrong. Please try again.";
+          messageBox.style.display = "flex";
+        }
+      } catch (error) {
+        messageText.textContent = "❌ Network error. Please try again.";
+        messageBox.style.display = "flex";
+      }
+    });
+  </script>
   
   <!-- Footer -->
   <footer class="footer">
