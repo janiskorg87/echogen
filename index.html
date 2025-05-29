@@ -159,6 +159,13 @@
       background-color: var(--zinc-700);
       color: white;
     }
+
+    .dropdown-content {
+      display: none;
+    }
+    .dropdown-content.show {
+      display: block;
+    }
     
     .dropdown-item img {
       width: 20px;
@@ -982,6 +989,27 @@
       </div>
     </header>
   </div>
+
+  <script>
+    // Άνοιγμα/κλείσιμο dropdown με το κουμπί
+    document.getElementById('lang-button').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('dropdown-content').classList.toggle('show');
+    });
+
+    // Κλείσιμο dropdown όταν πατάς εκτός
+    document.addEventListener('click', function(e) {
+      var dropdown = document.getElementById('dropdown-content');
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    // Προαιρετικά: αποτρέπεις το κλείσιμο όταν πατάς μέσα στο dropdown
+    document.getElementById('dropdown-content').addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  </script>
   
   <!-- Hero Section -->
   <section class="container">
