@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Echopais Scaler - Professional Audio Solutions</title>
+  <title>ECHOPAIS - Professional MIDI Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange-500: #ff6600;
       --orange-600: #e65c00;
+      --orange-700: #cc5200;
+      --orange-300: #ff8533;
+      --orange-200: #ffa366;
       --zinc-100: #f4f4f5;
       --zinc-200: #e4e4e7;
       --zinc-300: #d4d4d8;
@@ -32,7 +35,7 @@
       background: linear-gradient(to bottom, var(--zinc-900), var(--black));
       color: var(--zinc-100);
       min-height: 100vh;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     
     .container {
@@ -44,486 +47,354 @@
     
     /* Header */
     header {
+      background-color: rgba(24, 24, 27, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--zinc-800);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
+      padding: 1rem 0;
     }
     
-    .logo {
+    .logo-container {
       display: flex;
       align-items: center;
-      text-decoration: none;
-      color: inherit;
+      gap: 1rem;
     }
     
     .logo-box {
-      width: 60px;
-      height: 60px;
+      width: 48px;
+      height: 48px;
       background-color: var(--orange-500);
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       font-size: 1.5rem;
-    }
-    
-    .logo-text {
-      margin-left: 0.75rem;
-      font-size: 1.25rem;
       font-weight: bold;
-    }
-    
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    
-    nav {
-      display: none;
-    }
-    
-    @media (min-width: 768px) {
-      nav {
-        display: flex;
-        gap: 1.5rem;
-      }
-    }
-    
-    nav a {
-      color: var(--zinc-300);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    
-    nav a:hover {
-      color: var(--orange-500);
-    }
-    
-    .lang-dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    
-    .lang-button {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: none;
-      border: none;
-      color: var(--zinc-300);
-      cursor: pointer;
-      padding: 0.5rem;
-      transition: color 0.2s;
-    }
-    
-    .lang-button:hover {
       color: white;
     }
     
-    .lang-button img {
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
-      border: 1px solid var(--zinc-700);
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin: 0;
     }
     
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      background-color: var(--zinc-800);
-      min-width: 180px;
-      border: 1px solid var(--zinc-700);
+    .logo-text p {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      margin: 0;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: var(--zinc-300);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      padding: 0.5rem 1rem;
       border-radius: 0.5rem;
-      z-index: 1000;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
     
-    .dropdown-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      color: var(--zinc-200);
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    
-    .dropdown-item:hover {
-      background-color: var(--zinc-700);
-      color: white;
-    }
-
-    .dropdown-content {
-      display: none;
-    }
-    .dropdown-content.show {
-      display: block;
-    }
-    
-    .dropdown-item img {
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
-    }
-    
-    .lang-dropdown:hover .dropdown-content {
-      display: block;
+    .nav-link:hover {
+      color: var(--orange-500);
+      background-color: rgba(255, 102, 0, 0.1);
     }
     
     /* Hero Section */
-    .hero {
-      padding: 4rem 0 6rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero {
-        grid-template-columns: 1fr 1fr;
-      }
+    .hero-section {
+      position: relative;
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom right, var(--zinc-800), var(--zinc-900), var(--black));
+      border-radius: 1.5rem;
+      overflow: hidden;
+      margin: 2rem 0 4rem;
     }
     
     .hero-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 48rem;
+      margin: 0 auto;
     }
     
-    .hero h1 {
+    .hero-title {
       font-size: 2.5rem;
       font-weight: 700;
+      margin-bottom: 1.5rem;
       line-height: 1.2;
     }
     
     @media (min-width: 768px) {
-      .hero h1 {
+      .hero-title {
         font-size: 3.5rem;
       }
     }
     
-    @media (min-width: 1024px) {
-      .hero h1 {
-        font-size: 4rem;
-      }
-    }
-    
-    .hero h1 .highlight {
-      color: var(--orange-500);
-    }
-    
-    .hero p {
+    .hero-subtitle {
       font-size: 1.25rem;
       color: var(--zinc-300);
-      line-height: 1.6;
+      margin-bottom: 2rem;
     }
     
-    .hero-image {
-      display: flex;
-      justify-content: center;
+    .hero-description {
+      font-size: 1.125rem;
+      color: var(--zinc-400);
+      margin-bottom: 2.5rem;
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
     }
     
-    .hero-image-container {
-      width: 20rem;
-      height: 20rem;
-      background: linear-gradient(to bottom right, rgba(255, 102, 0, 0.2), var(--zinc-800));
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .hero-logo {
-      width: 4rem;
-      height: 4rem;
-      background-color: var(--orange-500);
-      border-radius: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-    
-    .button-group {
+    .hero-buttons {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-top: 1rem;
+      justify-content: center;
+      max-width: 24rem;
+      margin: 0 auto;
     }
     
     @media (min-width: 640px) {
-      .button-group {
+      .hero-buttons {
         flex-direction: row;
       }
     }
     
-    .btn {
-      display: inline-flex;
+    /* Stats Section */
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    @media (min-width: 768px) {
+      .stats-section {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-icon {
+      width: 4rem;
+      height: 4rem;
+      background-color: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 0.75rem;
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: none;
-      font-size: 1rem;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      color: var(--orange-500);
     }
     
-    .btn-primary {
-      background-color: var(--orange-500);
-      color: white;
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--orange-500);
+      margin-bottom: 0.25rem;
     }
     
-    .btn-primary:hover {
-      background-color: var(--orange-600);
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
     }
     
-    .btn-outline {
-      background-color: transparent;
-      color: var(--zinc-300);
-      border: 1px solid var(--zinc-700);
-    }
-    
-    .btn-outline:hover {
-      color: white;
-      border-color: var(--zinc-500);
-    }
-    
-    .btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    /* Sections */
-    .section {
-      padding: 4rem 0;
-    }
-    
+    /* Featured Products */
     .section-header {
       text-align: center;
       margin-bottom: 3rem;
     }
     
-    .section-header h2 {
-      font-size: 2rem;
+    .section-title {
+      font-size: 2.25rem;
       font-weight: 700;
       margin-bottom: 1rem;
     }
     
-    @media (min-width: 768px) {
-      .section-header h2 {
-        font-size: 2.5rem;
-      }
-    }
-    
-    @media (min-width: 1024px) {
-      .section-header h2 {
-        font-size: 3rem;
-      }
-    }
-    
-    .section-header p {
+    .section-subtitle {
+      font-size: 1.125rem;
       color: var(--zinc-400);
       max-width: 36rem;
       margin: 0 auto;
-      font-size: 1.125rem;
     }
     
-    /* Cards */
-    .card-grid {
+    .featured-products {
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
+      margin-bottom: 4rem;
     }
     
     @media (min-width: 768px) {
-      .card-grid {
+      .featured-products {
         grid-template-columns: repeat(2, 1fr);
       }
     }
     
     @media (min-width: 1024px) {
-      .card-grid {
+      .featured-products {
         grid-template-columns: repeat(3, 1fr);
       }
     }
     
-    .card {
+    .product-card {
       background-color: var(--zinc-800);
       border: 1px solid var(--zinc-700);
       border-radius: 0.75rem;
       overflow: hidden;
-      transition: border-color 0.2s;
+      transition: all 0.3s;
     }
     
-    .card:hover {
-      border-color: var(--zinc-600);
+    .product-card:hover {
+      transform: translateY(-0.25rem);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 102, 0, 0.5);
     }
     
-    .card-image {
+    .product-image-container {
+      position: relative;
       height: 12rem;
-      background: linear-gradient(to bottom right, rgba(255, 102, 0, 0.2), var(--zinc-800));
+      background-color: var(--zinc-700);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--zinc-500);
     }
     
-    .card-icon {
-      width: 4rem;
-      height: 4rem;
-      color: var(--orange-500);
+    .featured-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background-color: var(--orange-500);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
     }
     
-    .card-content {
+    .product-content {
       padding: 1.5rem;
     }
     
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--zinc-100);
-      margin-bottom: 0.5rem;
-    }
-    
-    .card-subtitle {
-      font-size: 0.875rem;
-      color: var(--zinc-400);
-      margin-bottom: 1rem;
-    }
-    
-    .card-description {
-      color: var(--zinc-300);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    
-    .card-footer {
+    .product-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 0.5rem;
     }
     
-    .card-price {
+    .product-category {
+      background-color: var(--zinc-700);
+      color: var(--zinc-300);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+    
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--zinc-300);
+      font-size: 0.875rem;
+    }
+    
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-description {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-price {
       font-size: 1.5rem;
-      font-weight: bold;
+      font-weight: 700;
       color: var(--orange-500);
     }
     
-    /* Downloads */
-    .downloads-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    .product-meta {
+      font-size: 0.875rem;
+      color: var(--zinc-500);
     }
     
-    @media (min-width: 640px) {
-      .downloads-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    @media (min-width: 768px) {
-      .downloads-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    
-    @media (min-width: 1024px) {
-      .downloads-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    
-    .download-card {
-      background-color: var(--zinc-800);
-      border: 1px solid var(--zinc-700);
+    .product-note {
+      font-size: 0.75rem;
+      color: var(--orange-200);
+      background-color: rgba(255, 102, 0, 0.1);
+      border: 1px solid rgba(255, 102, 0, 0.2);
+      padding: 0.75rem;
       border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Hardware Disclaimer */
+    .disclaimer-card {
+      background: linear-gradient(to right, rgba(255, 102, 0, 0.1), rgba(255, 102, 0, 0.05));
+      border: 1px solid rgba(255, 102, 0, 0.2);
+      border-radius: 0.75rem;
       padding: 1.5rem;
-      transition: border-color 0.2s;
+      margin-bottom: 4rem;
     }
     
-    .download-card:hover {
-      border-color: var(--zinc-600);
-    }
-    
-    .download-header {
+    .disclaimer-title {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-    
-    .download-icon-container {
-      width: 2.5rem;
-      height: 2.5rem;
-      background-color: rgba(255, 102, 0, 0.2);
-      border-radius: 0.375rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    
-    .download-icon {
-      width: 1.25rem;
-      height: 1.25rem;
-      color: var(--orange-500);
-    }
-    
-    .download-info {
-      flex: 1;
-      min-width: 0;
-    }
-    
-    .download-title {
+      font-size: 1.25rem;
       font-weight: 600;
-      font-size: 0.875rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 0.25rem;
-    }
-    
-    .download-platform {
-      font-size: 0.75rem;
-      color: var(--zinc-400);
-    }
-    
-    .download-details {
+      color: var(--orange-400);
       margin-bottom: 1rem;
     }
     
-    .download-detail {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.875rem;
-      color: var(--zinc-300);
-      margin-bottom: 0.5rem;
+    .disclaimer-content {
+      color: var(--orange-200);
+      line-height: 1.6;
     }
     
     /* Developer Section */
     .developer-section {
-      background-color: rgba(24, 24, 27, 0.5);
+      background-color: rgba(39, 39, 42, 0.5);
       border-radius: 1rem;
-      padding: 2rem;
-    }
-    
-    @media (min-width: 768px) {
-      .developer-section {
-        padding: 3rem;
-      }
+      padding: 3rem 2rem;
+      margin-bottom: 4rem;
     }
     
     .developer-container {
@@ -545,24 +416,18 @@
       gap: 1.5rem;
     }
     
-    .developer-content h2 {
+    .developer-title {
       font-size: 2rem;
       font-weight: 700;
     }
     
-    @media (min-width: 768px) {
-      .developer-content h2 {
-        font-size: 2.5rem;
-      }
-    }
-    
-    .developer-content h3 {
+    .developer-name {
       font-size: 1.5rem;
       font-weight: 600;
       color: var(--orange-500);
     }
     
-    .developer-content p {
+    .developer-description {
       color: var(--zinc-300);
       line-height: 1.6;
     }
@@ -595,14 +460,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       font-size: 4rem;
       font-weight: bold;
-      border: 4px solid rgba(255, 102, 0, 0.4);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      color: white;
     }
     
     /* Contact Section */
+    .contact-section {
+      margin-bottom: 4rem;
+    }
+    
     .contact-form {
       max-width: 32rem;
       margin: 0 auto;
@@ -657,26 +526,11 @@
       min-height: 8rem;
     }
     
-    .success-message {
-      display: none;
-      background-color: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      color: #4ade80;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin-top: 1rem;
-      text-align: center;
-    }
-    
-    .success-message.show {
-      display: block;
-    }
-    
     /* Footer */
     .footer {
       background-color: var(--zinc-900);
       border-top: 1px solid var(--zinc-800);
-      padding: 3rem 0 2rem;
+      padding: 4rem 0 2rem;
     }
     
     .footer-grid {
@@ -688,7 +542,7 @@
     
     @media (min-width: 768px) {
       .footer-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 2fr 1fr 1fr;
       }
     }
     
@@ -701,6 +555,7 @@
     .footer-logo {
       display: flex;
       align-items: center;
+      gap: 0.75rem;
     }
     
     .footer-logo-box {
@@ -711,47 +566,61 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      font-size: 1.25rem;
       font-weight: bold;
-      font-size: 1rem;
+      color: white;
     }
     
     .footer-logo-text {
-      margin-left: 0.75rem;
       font-size: 1.125rem;
-      font-weight: bold;
+      font-weight: 700;
     }
     
-    .footer-brand p {
+    .footer-description {
       font-size: 0.875rem;
       color: var(--zinc-400);
       line-height: 1.5;
+      max-width: 24rem;
     }
     
-    .footer-links h3 {
+    .footer-column-title {
       font-size: 1rem;
       font-weight: 600;
       color: var(--zinc-200);
       margin-bottom: 1rem;
     }
     
-    .footer-links ul {
+    .footer-links {
       list-style: none;
     }
     
-    .footer-links li {
+    .footer-link {
       margin-bottom: 0.5rem;
     }
     
-    .footer-links a {
+    .footer-link a {
       font-size: 0.875rem;
       color: var(--zinc-400);
       text-decoration: none;
       transition: color 0.2s;
     }
     
-    .footer-links a:hover {
+    .footer-link a:hover {
       color: var(--orange-500);
+    }
+    
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--zinc-400);
+      font-size: 0.875rem;
     }
     
     .footer-separator {
@@ -779,1142 +648,433 @@
       color: var(--zinc-500);
     }
     
-    .footer-legal {
-      display: flex;
-      gap: 1.5rem;
-    }
-    
-    .footer-legal a {
-      font-size: 0.875rem;
-      color: var(--zinc-500);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    
-    .footer-legal a:hover {
-      color: var(--orange-500);
-    }
-    
-    /* Cookie Banner */
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: var(--zinc-800);
-      border-top: 1px solid var(--zinc-700);
-      padding: 1rem;
-      z-index: 1000;
-      display: none;
-    }
-    
-    .cookie-banner.show {
-      display: block;
-    }
-    
-    .cookie-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    @media (min-width: 768px) {
-      .cookie-content {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-    
-    .cookie-text {
-      color: var(--zinc-300);
-      font-size: 0.875rem;
-      flex: 1;
-    }
-    
-    .cookie-buttons {
-      display: flex;
-      gap: 0.75rem;
-    }
-    
-    .cookie-btn {
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
-      font-size: 0.875rem;
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
       font-weight: 500;
+      text-decoration: none;
       cursor: pointer;
       transition: all 0.2s;
+      border: none;
+      font-size: 1rem;
     }
     
-    .cookie-accept {
+    .btn-lg {
+      padding: 0.875rem 2rem;
+      font-size: 1.125rem;
+    }
+    
+    .btn-primary {
       background-color: var(--orange-500);
       color: white;
-      border: none;
     }
     
-    .cookie-accept:hover {
+    .btn-primary:hover {
       background-color: var(--orange-600);
     }
     
-    .cookie-settings {
+    .btn-outline {
       background-color: transparent;
       color: var(--zinc-300);
       border: 1px solid var(--zinc-600);
     }
     
-    .cookie-settings:hover {
+    .btn-outline:hover {
       border-color: var(--zinc-500);
       color: white;
+      background-color: var(--zinc-700);
     }
     
-    /* Icons */
-    .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      stroke-width: 0;
-      stroke: currentColor;
-      fill: currentColor;
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     
-    /* Responsive adjustments */
-    @media (max-width: 767px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .section-header h2 {
-        font-size: 1.75rem;
-      }
-      
-      .developer-avatar {
-        width: 12rem;
-        height: 12rem;
-        font-size: 3rem;
-      }
+    .btn-block {
+      display: flex;
+      width: 100%;
+    }
+    
+    /* Utilities */
+    .text-center {
+      text-align: center;
+    }
+    
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+    
+    .mb-8 {
+      margin-bottom: 2rem;
+    }
+    
+    .mb-12 {
+      margin-bottom: 3rem;
+    }
+    
+    .mb-16 {
+      margin-bottom: 4rem;
+    }
+    
+    .py-12 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    
+    .py-16 {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    
+    .py-20 {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <div class="container">
-    <header>
-      <a href="#" class="logo">
-        <div class="logo-box">
-          <img src="echopais.png" alt="Echopais Logo" style="width: 100%; height: 100%; object-fit: contain;">
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-box">E</div>
+          <div class="logo-text">
+            <h1>ECHOPAIS</h1>
+            <p>Professional MIDI Solutions</p>
+          </div>
         </div>
-        <div class="logo-text">Echopais Midi Controller & App</div>
-      </a>
-      
-      <div class="header-right">
-        <nav>
-          <a href="#products" data-i18n="nav.products">Products</a>
-          <a href="#downloads" data-i18n="nav.downloads">Downloads</a>
-          <a href="#developer" data-i18n="nav.developer">Developer</a>
-          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="privacy.html" class="nav-link">Privacy</a>
+          <a href="terms.html" class="nav-link">Terms</a>
+          <a href="cookies.html" class="nav-link">Cookies</a>
         </nav>
-        
-        <div class="lang-dropdown">
-          <button class="lang-button" id="lang-button">
-            <img src="https://flagcdn.com/gb.svg" alt="English" id="current-lang-flag">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </button>
-          <div class="dropdown-content" id="dropdown-content">
-            <a class="dropdown-item" data-lang="en" data-flag="gb" data-name="English">
-              <img src="https://flagcdn.com/gb.svg" alt="English">
-              <span>English</span>
-            </a>
-            <a class="dropdown-item" data-lang="gr" data-flag="gr" data-name="Ελληνικά">
-              <img src="https://flagcdn.com/gr.svg" alt="Greek">
-              <span>Ελληνικά</span>
-            </a>
-            <a class="dropdown-item" data-lang="de" data-flag="de" data-name="Deutsch">
-              <img src="https://flagcdn.com/de.svg" alt="German">
-              <span>Deutsch</span>
-            </a>
-            <a class="dropdown-item" data-lang="es" data-flag="es" data-name="Español">
-              <img src="https://flagcdn.com/es.svg" alt="Spanish">
-              <span>Español</span>
-            </a>
-            <a class="dropdown-item" data-lang="it" data-flag="it" data-name="Italiano">
-              <img src="https://flagcdn.com/it.svg" alt="Italian">
-              <span>Italiano</span>
-            </a>
-            <a class="dropdown-item" data-lang="fr" data-flag="fr" data-name="Français">
-              <img src="https://flagcdn.com/fr.svg" alt="French">
-              <span>Français</span>
-            </a>
-            <a class="dropdown-item" data-lang="ru" data-flag="ru" data-name="Русский">
-              <img src="https://flagcdn.com/ru.svg" alt="Russian">
-              <span>Русский</span>
-            </a>
-            <a class="dropdown-item" data-lang="ar" data-flag="sa" data-name="العربية">
-              <img src="https://flagcdn.com/sa.svg" alt="Arabic">
-              <span>العربية</span>
-            </a>
-            <a class="dropdown-item" data-lang="bg" data-flag="bg" data-name="Български">
-              <img src="https://flagcdn.com/bg.svg" alt="Bulgarian">
-              <span>Български</span>
-            </a>
-            <a class="dropdown-item" data-lang="al" data-flag="al" data-name="Shqip">
-              <img src="https://flagcdn.com/al.svg" alt="Albanian">
-              <span>Shqip</span>
-            </a>
-            <a class="dropdown-item" data-lang="tr" data-flag="tr" data-name="Türkçe">
-              <img src="https://flagcdn.com/tr.svg" alt="Turkish">
-              <span>Türkçe</span>
-            </a>
-            <a class="dropdown-item" data-lang="pt" data-flag="pt" data-name="Português">
-              <img src="https://flagcdn.com/pt.svg" alt="Portuguese">
-              <span>Português</span>
-            </a>
-            <a class="dropdown-item" data-lang="nl" data-flag="nl" data-name="Nederlands">
-              <img src="https://flagcdn.com/nl.svg" alt="Dutch">
-              <span>Nederlands</span>
-            </a>
-            <a class="dropdown-item" data-lang="ja" data-flag="jp" data-name="日本語">
-              <img src="https://flagcdn.com/jp.svg" alt="Japanese">
-              <span>日本語</span>
-            </a>
-            <a class="dropdown-item" data-lang="zh" data-flag="cn" data-name="中文">
-              <img src="https://flagcdn.com/cn.svg" alt="Chinese">
-              <span>中文</span>
-            </a>
-          </div>
-        </div>
       </div>
-    </header>
-  </div>
+    </div>
+  </header>
 
-  <script>
-    // Άνοιγμα/κλείσιμο dropdown με το κουμπί
-    document.getElementById('lang-button').addEventListener('click', function(e) {
-      e.stopPropagation();
-      document.getElementById('dropdown-content').classList.toggle('show');
-    });
-
-    // Κλείσιμο dropdown όταν πατάς εκτός
-    document.addEventListener('click', function(e) {
-      var dropdown = document.getElementById('dropdown-content');
-      if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-      }
-    });
-
-    // Προαιρετικά: αποτρέπεις το κλείσιμο όταν πατάς μέσα στο dropdown
-    document.getElementById('dropdown-content').addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
-  </script>
-  
-  <!-- Hero Section -->
-  <section class="container">
-    <div class="hero">
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
       <div class="hero-content">
-        <h1><span class="highlight" data-i18n="hero.titleHighlight">Innovative</span> <span data-i18n="hero.title">Audio Solutions</span></h1>
-        <p data-i18n="hero.description">Elevate your music production with professional MIDI controllers and audio applications designed for creators.</p>
-        <div class="button-group">
-          <a href="#downloads" class="btn btn-primary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
+        <h2 class="hero-title">Professional MIDI Controllers & Music Applications</h2>
+        <p class="hero-subtitle">Elevate your music production with our cutting-edge MIDI solutions</p>
+        <p class="hero-description">From professional iOS/Android applications to custom ESP32 hardware controllers, we provide the tools that serious musicians and producers trust.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary btn-lg btn-icon">
+            Shop Now
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
-            <span data-i18n="hero.downloadBtn">Download Now</span>
           </a>
-          <a href="#products" class="btn btn-outline" data-i18n="hero.learnMoreBtn">Learn More</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="hero-image-container">
-          <div class="hero-logo">
-            <img src="echopais.png" alt="Echopais Logo" style="width: 500%; height: 500%; object-fit: contain;">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Products Section -->
-  <section id="products" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="products.title">Our Applications</h2>
-        <p data-i18n="products.description">Professional audio tools designed for musicians, producers, and sound engineers</p>
-      </div>
-      
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-image">
-            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18V5l12-2v13"></path>
-              <circle cx="6" cy="18" r="3"></circle>
-              <circle cx="18" cy="16" r="3"></circle>
+          <a href="#about" class="btn btn-outline btn-lg btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16 10 8"></polygon>
             </svg>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Echopais Pad Controller</h3>
-            <div class="card-subtitle">Touch-based MIDI controller for iOS</div>
-            <p class="card-description">A professional-grade MIDI controller app designed for live performance and studio flexibility. Create, perform, and innovate with intuitive touch controls.</p>
-            <div class="card-footer">
-              <div class="card-price">34.99&nbsp;€</div>
-              <a href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank" class="btn btn-primary">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="7 10 12 15 17 10"/>
-                  <line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                <span data-i18n="downloads.download">Download</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card">
-          <div class="card-image">
-            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v3m6.366-.366-2.12 2.12M21 12h-3m.366 6.366-2.12-2.12M12 21v-3m-6.366.366 2.12-2.12M3 12h3m-.366-6.366 2.12 2.12"></path>
-            </svg>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Echopais Scaler Max</h3>
-            <div class="card-subtitle">Scaler Mircotuning For All Synthesizer</div>
-            <p class="card-description">A complete audio production environment with advanced MIDI capabilities, virtual instruments, and professional mixing tools.</p>
-            <div class="card-footer">
-              <div class="card-price">299.99&nbsp;€</div>
-              <button class="btn btn-outline" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card">
-          <div class="card-image">
-            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 18.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z"></path>
-              <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-              <path d="M12 2v2"></path>
-              <path d="M12 22v-2"></path>
-              <path d="m17 20.66-1-1.73"></path>
-              <path d="M11 10.27 7 3.34"></path>
-              <path d="m20.66 17-1.73-1"></path>
-              <path d="m3.34 7 1.73 1"></path>
-              <path d="M22 12h-2"></path>
-              <path d="M2 12h2"></path>
-              <path d="m20.66 7-1.73 1"></path>
-              <path d="m3.34 17 1.73-1"></path>
-              <path d="m17 3.34-1 1.73"></path>
-              <path d="m7 20.66 1-1.73"></path>
-            </svg>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Echopais Scaler Single</h3>
-            <div class="card-subtitle">Scaler Mircotuning For Synthesizer</div>
-            <p class="card-description">A powerful synthesizer with unique sound design capabilities, perfect for electronic music producers and sound designers.</p>
-            <div class="card-footer">
-              <div class="card-price">99.99&nbsp;€</div>
-              <button class="btn btn-outline" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Downloads Section -->
-  <section id="downloads" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="downloads.title">Download Center</h2>
-        <p data-i18n="downloads.description">Get access to all our applications and tools</p>
-      </div>
-      
-      <div class="downloads-grid">
-        <!-- Download 1 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <path d="M12 18h.01"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Echopais Pad Controller</div>
-              <div class="download-platform">iOS</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>1.2.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>45 MB</span>
-            </div>
-          </div>
-          
-          <a href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank" class="btn btn-primary" style="width: 100%;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span data-i18n="downloads.download">Download</span>
+            Learn More
           </a>
         </div>
-        
-        <!-- Download 2 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <path d="M12 18h.01"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Echopais Pad Controller</div>
-              <div class="download-platform">Android</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>1.1.8</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>52 MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 3 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Echopais Scaler Max</div>
-              <div class="download-platform">Android</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>2.0.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>180 MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 4 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Echopais Scaler Max</div>
-              <div class="download-platform">iOS</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>2.0.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>165 MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 5 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L2 6v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6l-4-4H6Z"></path>
-                <path d="M14 2v4h4"></path>
-                <path d="M3 10h18"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Echopais Synth</div>
-              <div class="download-platform">VST3</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>1.5.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>95 MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 6 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L2 6v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6l-4-4H6Z"></path>
-                <path d="M14 2v4h4"></path>
-                <path d="M3 10h18"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Echopais Synth</div>
-              <div class="download-platform">AU</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>1.5.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>98 MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 7 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L2 6v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6l-4-4H6Z"></path>
-                <path d="M14 2v4h4"></path>
-                <path d="M3 10h18"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">MIDI Controller Firmware</div>
-              <div class="download-platform">ESP32</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>3.1.2</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>2.1 MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 8 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L2 6v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6l-4-4H6Z"></path>
-                <path d="M14 2v4h4"></path>
-                <path d="M3 10h18"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Echopais Utilities</div>
-              <div class="download-platform">Cross-platform</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>1.0.5</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>25 MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Additional download slots (9-20) -->
-        <!-- Download 9 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L2 6v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6l-4-4H6Z"></path>
-                <path d="M14 2v4h4"></path>
-                <path d="M3 10h18"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Future Application 1</div>
-              <div class="download-platform">TBD</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>0.0.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>-- MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 10 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L2 6v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6l-4-4H6Z"></path>
-                <path d="M14 2v4h4"></path>
-                <path d="M3 10h18"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Future Application 2</div>
-              <div class="download-platform">TBD</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>0.0.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>-- MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 11 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L2 6v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6l-4-4H6Z"></path>
-                <path d="M14 2v4h4"></path>
-                <path d="M3 10h18"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Future Application 3</div>
-              <div class="download-platform">TBD</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>0.0.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>-- MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
-        
-        <!-- Download 12 -->
-        <div class="download-card">
-          <div class="download-header">
-            <div class="download-icon-container">
-              <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 2L2 6v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6l-4-4H6Z"></path>
-                <path d="M14 2v4h4"></path>
-                <path d="M3 10h18"></path>
-              </svg>
-            </div>
-            <div class="download-info">
-              <div class="download-title">Future Application 4</div>
-              <div class="download-platform">TBD</div>
-            </div>
-          </div>
-          
-          <div class="download-details">
-            <div class="download-detail">
-              <span data-i18n="downloads.version">Version</span>
-              <span>0.0.0</span>
-            </div>
-            <div class="download-detail">
-              <span data-i18n="downloads.size">Size</span>
-              <span>-- MB</span>
-            </div>
-          </div>
-          
-          <button class="btn btn-outline" style="width: 100%;" disabled data-i18n="downloads.comingSoon">Coming Soon</button>
-        </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Developer Section -->
-  <section id="developer" class="section">
-    <div class="container">
-      <div class="developer-section">
-        <div class="developer-container">
-          <div class="developer-content">
-            <h2 data-i18n="developer.title">Meet the Developer</h2>
-            <h3 data-i18n="developer.name">Giannis Tsotsis (Gentian Coci)</h3>
-            <p data-i18n="developer.description">Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.</p>
-            
-            <div class="developer-details">
-              <p><strong>Address:</strong> Lagesche Str. 54, 33813 Oerlinghausen, Germany</p>
-              <p><strong>Phone:</strong> +49 176 70795385</p>
-              <p><strong>Email:</strong> g.coci@echopais.com</p>
-            </div>
-            
-            <div class="social-links">
-              <a href="#" class="btn btn-outline">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                  <path d="M9 18c-4.51 2-5-2-7-2"/>
-                </svg>
-                GitHub
-              </a>
-              <a href="#" class="btn btn-outline">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect x="2" y="9" width="4" height="12"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-                LinkedIn
-              </a>
-              <a href="mailto:g.coci@echopais.com" class="btn btn-outline">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                Email
-              </a>
-            </div>
-          </div>
-          
-          <div class="developer-image">
-            <div class="developer-avatar">GC</div>
-          </div>
-        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stat-item">
+        <div class="stat-icon">📱</div>
+        <div class="stat-value">50K+</div>
+        <div class="stat-label">Downloads</div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
+      <div class="stat-item">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-value">4.8★</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🌍</div>
+        <div class="stat-value">120+</div>
+        <div class="stat-label">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🎛️</div>
+        <div class="stat-value">Pro</div>
+        <div class="stat-label">Hardware Solutions</div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-section mb-16">
       <div class="section-header">
-        <h2 data-i18n="contact.title">Get In Touch</h2>
-        <p data-i18n="contact.description">Have questions about our products or need technical support? We're here to help.</p>
+        <h3 class="section-title">Featured Products</h3>
+        <p class="section-subtitle">Our most popular and highly-rated solutions</p>
+      </div>
+
+      <div class="featured-products">
+        <!-- Featured Product 1 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>1</span>
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS App</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h4 class="product-title">Echopais Pad Controller V2</h4>
+            <p class="product-description">Advanced pad controller with enhanced features for music production. Intuitive touch interface with customizable layouts.</p>
+            <div class="product-footer">
+              <span class="product-price">€34.99</span>
+              <span class="product-meta">8K+ Downloads</span>
+            </div>
+            <a href="https://apps.apple.com/app/pad-controller-v2" target="_blank" class="btn btn-primary btn-block btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download on App Store
+            </a>
+          </div>
+        </div>
+
+        <!-- Featured Product 2 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>2</span>
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS App</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span>5.0</span>
+              </div>
+            </div>
+            <h4 class="product-title">Echopais Scaler Max</h4>
+            <p class="product-description">Ultimate music scaling and composition suite. Professional-grade tools for advanced music theory and composition.</p>
+            <div class="product-footer">
+              <span class="product-price">€249.99</span>
+              <span class="product-meta">1K+ Downloads</span>
+            </div>
+            <a href="https://apps.apple.com/app/scaler-max" target="_blank" class="btn btn-primary btn-block btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download on App Store
+            </a>
+          </div>
+        </div>
+
+        <!-- Featured Product 3 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>3</span>
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">ESP Hardware</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h4 class="product-title">MIDI Controller 10"</h4>
+            <p class="product-description">10-inch ESP32-based MIDI controller with custom Echopais firmware. Hardware by Waveshare.</p>
+            <div class="product-footer">
+              <span class="product-price">€549.99</span>
+              <span class="product-meta">24 reviews</span>
+            </div>
+            <p class="product-note">Waveshare ESP32 hardware with Echopais MIDI firmware</p>
+            <button class="btn btn-primary btn-block btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              Purchase Hardware
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hardware Disclaimer -->
+    <section class="disclaimer-section mb-16">
+      <div class="disclaimer-card">
+        <div class="disclaimer-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          ESP32 Hardware Information
+        </div>
+        <div class="disclaimer-content">
+          All ESP32 hardware products are manufactured by Waveshare. Echopais provides custom MIDI controller firmware and software only. Hardware rights and warranties belong to Waveshare. Echopais is not responsible for hardware defects or modifications.
+        </div>
+      </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section class="developer-section mb-16" id="about">
+      <div class="developer-container">
+        <div class="developer-content">
+          <h3 class="developer-title">Meet the Developer</h3>
+          <h4 class="developer-name">Giannis Tsotsis (Gentian Coci)</h4>
+          <p class="developer-description">Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.</p>
+          
+          <div class="developer-details">
+            <p><strong>Address:</strong> Lagesche Str. 54, 33813 Oerlinghausen, Germany</p>
+            <p><strong>Phone:</strong> +49 176 70795385</p>
+            <p><strong>Email:</strong> g.coci@echopais.com</p>
+          </div>
+          
+          <div class="social-links">
+            <a href="#" class="btn btn-outline">GitHub</a>
+            <a href="#" class="btn btn-outline">LinkedIn</a>
+            <a href="mailto:g.coci@echopais.com" class="btn btn-outline">Email</a>
+          </div>
+        </div>
+        
+        <div class="developer-image">
+          <div class="developer-avatar">GT</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section mb-16" id="contact">
+      <div class="section-header">
+        <h3 class="section-title">Get In Touch</h3>
+        <p class="section-subtitle">Have questions about our products or need technical support? We're here to help.</p>
       </div>
       
       <div class="contact-form">
         <div class="form-card">
           <form id="contact-form">
             <div class="form-group">
-              <label for="name" class="form-label" data-i18n="contact.name">Name</label>
+              <label for="name" class="form-label">Name</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
             </div>
             
             <div class="form-group">
-              <label for="email" class="form-label" data-i18n="contact.email">Email</label>
+              <label for="email" class="form-label">Email</label>
               <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
             </div>
             
             <div class="form-group">
-              <label for="message" class="form-label" data-i18n="contact.message">Message</label>
+              <label for="message" class="form-label">Message</label>
               <textarea id="message" name="message" class="form-textarea" placeholder="Your message..." required></textarea>
             </div>
             
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                <path d="m22 2-7 20-4-9-9-4Z"/>
-                <path d="M22 2 11 13"/>
+            <button type="submit" class="btn btn-primary btn-block btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
               </svg>
-              <span data-i18n="contact.send">Send Message</span>
+              Send Message
             </button>
           </form>
-          
-          <div class="success-message" id="success-message">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-              <path d="M20 6 9 17l-5-5"/>
-            </svg>
-            Thank you for your message! We'll get back to you soon.
-          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <script>
-    const form = document.getElementById('contact-form');
-    const messageBox = document.getElementById('form-message');
-    const messageText = document.getElementById('form-feedback');
-  
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-  
-      try {
-        const response = await fetch('https://formspree.io/f/xkgrlvnz', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json'
-          },
-          body: formData
-        });
-  
-        if (response.ok) {
-          messageText.textContent = "✅ Your message was sent successfully!";
-          messageBox.style.display = "flex";
-          form.reset();
-        } else {
-          messageText.textContent = "❌ Something went wrong. Please try again.";
-          messageBox.style.display = "flex";
-        }
-      } catch (error) {
-        messageText.textContent = "❌ Network error. Please try again.";
-        messageBox.style.display = "flex";
-      }
-    });
-  </script>
-  
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <div class="footer-logo-box">ES</div>
-            <div class="footer-logo-text">Echopais Scaler</div>
+            <div class="footer-logo-box">E</div>
+            <div>
+              <span class="footer-logo-text">ECHOPAIS</span>
+              <p style="color: var(--zinc-400); font-size: 0.875rem;">Professional MIDI Solutions</p>
+            </div>
           </div>
-          <p data-i18n="footer.description">Creating innovative audio solutions for musicians and producers worldwide.</p>
+          <p class="footer-description">
+            Empowering musicians and producers worldwide with cutting-edge MIDI technology and professional-grade applications.
+          </p>
         </div>
-        
-        <div class="footer-links">
-          <h3 data-i18n="footer.company">Company</h3>
-          <ul>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#downloads">Downloads</a></li>
-            <li><a href="#developer">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+        <div>
+          <h3 class="footer-column-title">Products</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">iOS Applications</a></li>
+            <li class="footer-link"><a href="#">Android Applications</a></li>
+            <li class="footer-link"><a href="#">ESP32 Hardware</a></li>
+            <li class="footer-link"><a href="#">MIDI Controllers</a></li>
           </ul>
         </div>
-        
-        <div class="footer-links">
-          <h3 data-i18n="footer.legal">Legal</h3>
-          <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="cookies.html">Cookie Policy</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-links">
-          <h3 data-i18n="footer.connect">Connect</h3>
-          <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-            <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; background-color: var(--zinc-800); border-radius: 0.5rem; color: var(--zinc-400); transition: all 0.2s;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                <path d="M9 18c-4.51 2-5-2-7-2"/>
+
+        <div>
+          <h3 class="footer-column-title">Contact</h3>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
               </svg>
-            </a>
-            <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; background-color: var(--zinc-800); border-radius: 0.5rem; color: var(--zinc-400); transition: all 0.2s;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                <rect x="2" y="9" width="4" height="12"/>
-                <circle cx="4" cy="4" r="2"/>
+              <span>g.coci@echopais.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
               </svg>
-            </a>
-            <a href="mailto:g.coci@echopais.com" style="display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; background-color: var(--zinc-800); border-radius: 0.5rem; color: var(--zinc-400); transition: all 0.2s;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              <span>www.echopais.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
               </svg>
-            </a>
+              <span>Professional Support</span>
+            </div>
           </div>
         </div>
       </div>
-      
+
       <div class="footer-separator"></div>
-      
+
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2025 Echopais Scaler. <span data-i18n="footer.rights">All rights reserved.</span></p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <a href="cookies.html">Cookies</a>
+        <div class="footer-copyright">
+          <p>© 2024 ECHOPAIS. All rights reserved.</p>
+          <p style="margin-top: 0.25rem;">ESP32 Hardware by Waveshare | MIDI Firmware by Echopais</p>
         </div>
       </div>
     </div>
   </footer>
-  
-  <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookie-banner">
-    <div class="cookie-content">
-      <p class="cookie-text" data-i18n="cookies.bannerText">We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
-      <div class="cookie-buttons">
-        <button class="cookie-btn cookie-settings" onclick="declineCookies()" data-i18n="cookies.settings">Settings</button>
-        <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-i18n="cookies.accept">Accept All</button>
-      </div>
-    </div>
-  </div>
 
   <script>
-    // Translations
-    const translations = {
-      en: {
-        "nav.products": "Products",
-        "nav.about": "About",
-        "nav.developer": "Developer",
-        "nav.contact": "Contact",
-        "nav.downloads": "Downloads",
-        "hero.titleHighlight": "Innovative",
-        "hero.title": "Audio Solutions",
-        "hero.description": "Elevate your music production with professional MIDI controllers and audio applications designed for creators.",
-        "hero.downloadBtn": "Download Now",
-        "hero.learnMoreBtn": "Learn More",
-        "products.title": "Our Applications",
-        "products.description": "Professional audio tools designed for musicians, producers, and sound engineers",
-        "downloads.title": "Download Center",
-        "downloads.description": "Get access to all our applications and tools",
-        "downloads.version": "Version",
-        "downloads.size": "Size",
-        "downloads.platform": "Platform",
-        "downloads.download": "Download",
-        "downloads.comingSoon": "Coming Soon",
-        "developer.title": "Meet the Developer",
-        "developer.name": "Giannis Tsotsis (Gentian Coci)",
-        "developer.description": "Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.",
-        "contact.title": "Get In Touch",
-        "contact.description": "Have questions about our products or need technical support? We're here to help.",
-        "contact.name": "Name",
-        "contact.email": "Email",
-        "contact.message": "Message",
-        "contact.send": "Send Message",
-        "footer.description": "Creating innovative audio solutions for musicians and producers worldwide.",
-        "footer.company": "Company",
-        "footer.legal": "Legal",
-        "footer.connect": "Connect",
-        "footer.rights": "All rights reserved.",
-        "cookies.bannerText": "We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.",
-        "cookies.accept": "Accept All",
-        "cookies.settings": "Settings"
-      },
-      gr: {
-        "nav.products": "Προϊόντα",
-        "nav.about": "Σχετικά",
-        "nav.developer": "Προγραμματιστής",
-        "nav.contact": "Επικοινωνία",
-        "nav.downloads": "Λήψεις",
-        "hero.titleHighlight": "Καινοτόμες",
-        "hero.title": "Λύσεις Ήχου",
-        "hero.description": "Αναβαθμίστε την παραγωγή μουσικής σας με επαγγελματικούς MIDI controllers και εφαρμογές ήχου σχεδιασμένες για δημιουργούς.",
-        "hero.downloadBtn": "Κατεβάστε Τώρα",
-        "hero.learnMoreBtn": "Μάθετε Περισσότερα",
-        "products.title": "Οι Εφαρμογές Μας",
-        "products.description": "Επαγγελματικά εργαλεία ήχου σχεδιασμένα για μουσικούς, παραγωγούς και ηχολήπτες",
-        "downloads.title": "Κέντρο Λήψεων",
-        "downloads.description": "Αποκτήστε πρόσβαση σε όλες τις εφαρμογές και τα εργαλεία μας",
-        "downloads.version": "Έκδοση",
-        "downloads.size": "Μέγεθος",
-        "downloads.platform": "Πλατφόρμα",
-        "downloads.download": "Λήψη",
-        "downloads.comingSoon": "Προσεχώς",
-        "developer.title": "Γνωρίστε τον Προγραμματιστή",
-        "developer.name": "Γιάννης Τσότσης (Gentian Coci)",
-        "developer.description": "Μηχανικός λογισμικού ήχου και μουσικός με πάνω από 10 χρόνια εμπειρίας στην ανάπτυξη επαγγελματικών εφαρμογών ήχου. Ειδικεύεται σε MIDI controllers, επεξεργασία ψηφιακού σήματος και διαδραστικά μουσικά συστήματα.",
-        "contact.title": "Επικοινωνήστε Μαζί Μας",
-        "contact.description": "Έχετε ερωτήσεις σχετικά με τα προϊόντα μας ή χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να βοηθήσουμε.",
-        "contact.name": "Όνομα",
-        "contact.email": "Email",
-        "contact.message": "Μήνυμα",
-        "contact.send": "Αποστολή Μηνύματος",
-        "footer.description": "Δημιουργούμε καινοτόμες λύσεις ήχου για μουσικούς και παραγωγούς παγκοσμίως.",
-        "footer.company": "Εταιρεία",
-        "footer.legal": "Νομικά",
-        "footer.connect": "Σύνδεση",
-        "footer.rights": "Με επιφύλαξη παντός δικαιώματος.",
-        "cookies.bannerText": "Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας στον ιστότοπό μας. Συνεχίζοντας την περιήγηση, συμφωνείτε με τη χρήση των cookies.",
-        "cookies.accept": "Αποδοχή Όλων",
-        "cookies.settings": "Ρυθμίσεις"
-      },
-      de: {
-        "nav.products": "Produkte",
-        "nav.about": "Über uns",
-        "nav.developer": "Entwickler",
-        "nav.contact": "Kontakt",
-        "nav.downloads": "Downloads",
-        "hero.titleHighlight": "Innovative",
-        "hero.title": "Audio-Lösungen",
-        "hero.description": "Verbessern Sie Ihre Musikproduktion mit professionellen MIDI-Controllern und Audio-Anwendungen, die für Kreative entwickelt wurden.",
-        "hero.downloadBtn": "Jetzt Herunterladen",
-        "hero.learnMoreBtn": "Mehr Erfahren",
-        "products.title": "Unsere Anwendungen",
-        "products.description": "Professionelle Audio-Tools für Musiker, Produzenten und Toningenieure",
-        "downloads.title": "Download-Center",
-        "downloads.description": "Erhalten Sie Zugang zu allen unseren Anwendungen und Tools",
-        "downloads.version": "Version",
-        "downloads.size": "Größe",
-        "downloads.platform": "Plattform",
-        "downloads.download": "Herunterladen",
-        "downloads.comingSoon": "Demnächst",
-        "developer.title": "Lernen Sie den Entwickler kennen",
-        "developer.name": "Giannis Tsotsis (Gentian Coci)",
-        "developer.description": "Audio-Softwareingenieur und Musiker mit über 10 Jahren Erfahrung in der Entwicklung professioneller Audio-Anwendungen. Spezialisiert auf MIDI-Controller, digitale Signalverarbeitung und interaktive Musiksysteme.",
-        "contact.title": "Kontaktieren Sie Uns",
-        "contact.description": "Haben Sie Fragen zu unseren Produkten oder benötigen Sie technischen Support? Wir sind hier, um zu helfen.",
-        "contact.name": "Name",
-        "contact.email": "E-Mail",
-        "contact.message": "Nachricht",
-        "contact.send": "Nachricht Senden",
-        "footer.description": "Wir entwickeln innovative Audio-Lösungen für Musiker und Produzenten weltweit.",
-        "footer.company": "Unternehmen",
-        "footer.legal": "Rechtliches",
-        "footer.connect": "Verbinden",
-        "footer.rights": "Alle Rechte vorbehalten.",
-        "cookies.bannerText": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch die weitere Nutzung stimmen Sie der Verwendung von Cookies zu.",
-        "cookies.accept": "Alle Akzeptieren",
-        "cookies.settings": "Einstellungen"
-      }
-    };
-
-    let currentLanguage = 'en';
-
-    // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
-      // Load saved language
-      const savedLang = localStorage.getItem('selectedLanguage');
-      if (savedLang && translations[savedLang]) {
-        currentLanguage = savedLang;
-        updateLanguage(currentLanguage);
-      }
-
-      // Show cookie banner if not accepted
-      const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-      if (!cookiesAccepted) {
-        document.getElementById('cookie-banner').classList.add('show');
-      }
-
-      // Language dropdown functionality
-      const dropdownItems = document.querySelectorAll('.dropdown-item');
-      dropdownItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-          e.preventDefault();
-          const lang = this.getAttribute('data-lang');
-          const flag = this.getAttribute('data-flag');
-          const name = this.getAttribute('data-name');
-          
-          currentLanguage = lang;
-          localStorage.setItem('selectedLanguage', lang);
-          
-          // Update flag
-          const currentFlag = document.getElementById('current-lang-flag');
-          currentFlag.src = `https://flagcdn.com/${flag}.svg`;
-          currentFlag.alt = name;
-          
-          updateLanguage(lang);
-        });
-      });
-
-      // Contact form
-      const contactForm = document.getElementById('contact-form');
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Show success message
-          const successMessage = document.getElementById('success-message');
-          successMessage.classList.add('show');
-          
-          // Reset form
-          contactForm.reset();
-          
-          // Hide success message after 5 seconds
-          setTimeout(() => {
-            successMessage.classList.remove('show');
-          }, 5000);
-        });
-      }
+    // Contact form handling
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
     });
-
-    function updateLanguage(lang) {
-      const elements = document.querySelectorAll('[data-i18n]');
-      elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        const translation = translations[lang] && translations[lang][key] 
-          ? translations[lang][key] 
-          : translations.en[key] || key;
-        
-        if (element.tagName === 'INPUT' && element.type === 'submit') {
-          element.value = translation;
-        } else {
-          element.textContent = translation;
-        }
-      });
-    }
-
-    function acceptCookies() {
-      localStorage.setItem('cookiesAccepted', 'true');
-      document.getElementById('cookie-banner').classList.remove('show');
-    }
-
-    function declineCookies() {
-      localStorage.setItem('cookiesAccepted', 'false');
-      document.getElementById('cookie-banner').classList.remove('show');
-    }
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

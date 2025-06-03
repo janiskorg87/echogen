@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service - Echopais Scaler</title>
+  <title>Terms of Service - ECHOPAIS</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange-500: #ff6600;
       --orange-600: #e65c00;
+      --orange-400: #ff8533;
+      --orange-200: #ffa366;
       --zinc-100: #f4f4f5;
-      --zinc-200: #e4e4e7;
       --zinc-300: #d4d4d8;
       --zinc-400: #a1a1aa;
-      --zinc-500: #71717a;
-      --zinc-600: #52525b;
       --zinc-700: #3f3f46;
       --zinc-800: #27272a;
       --zinc-900: #18181b;
@@ -36,234 +35,197 @@
     }
     
     .container {
-      width: 100%;
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 2rem 1rem;
     }
     
-    /* Header */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--zinc-800);
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
     
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: inherit;
-    }
-    
-    .logo-box {
-      width: 50px;
-      height: 50px;
-      background-color: var(--orange-500);
-      border-radius: 0.5rem;
+    .logo-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 1.25rem;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
     
-    .logo-text {
-      margin-left: 0.75rem;
-      font-size: 1.125rem;
-      font-weight: bold;
-    }
-    
-    .back-link {
-      color: var(--zinc-300);
-      text-decoration: none;
+    .logo-box {
+      width: 48px;
+      height: 48px;
+      background-color: var(--orange-500);
+      border-radius: 0.75rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: color 0.2s;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
     }
     
-    .back-link:hover {
-      color: var(--orange-500);
-    }
-    
-    /* Main Content */
-    .main-content {
-      padding: 3rem 0;
-    }
-    
-    .content-wrapper {
-      max-width: 4xl;
-      margin: 0 auto;
-    }
-    
-    .page-title {
-      font-size: 2.5rem;
+    .logo-text h1 {
+      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--orange-500);
-      margin-bottom: 2rem;
-      text-align: center;
+      color: var(--zinc-100);
+      margin: 0;
     }
     
-    .content-card {
+    .logo-text p {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      margin: 0;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      color: var(--zinc-300);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+    
+    .nav-link:hover {
+      color: var(--orange-500);
+      background-color: rgba(255, 102, 0, 0.1);
+    }
+    
+    .legal-card {
       background-color: var(--zinc-800);
       border: 1px solid var(--zinc-700);
       border-radius: 0.75rem;
-      padding: 2rem;
-      color: var(--zinc-300);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
     
-    .content-card h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .content-card h2:first-child {
-      margin-top: 0;
-    }
-    
-    .content-card h3 {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--zinc-200);
-      margin-bottom: 0.5rem;
-      margin-top: 1rem;
-    }
-    
-    .content-card p {
-      margin-bottom: 1rem;
-    }
-    
-    .content-card ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .content-card li {
-      margin-bottom: 0.25rem;
-    }
-    
-    .contact-info {
+    .legal-header {
       background-color: var(--zinc-700);
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin-top: 1.5rem;
+      padding: 1.5rem 2rem;
     }
     
-    .contact-info p {
-      margin-bottom: 0.25rem;
+    .legal-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--orange-500);
+      margin-bottom: 0.5rem;
     }
     
-    .last-updated {
-      border-top: 1px solid var(--zinc-700);
-      padding-top: 1.5rem;
-      margin-top: 2rem;
+    .legal-date {
       font-size: 0.875rem;
-      color: var(--zinc-500);
+      color: var(--zinc-400);
     }
     
-    @media (max-width: 768px) {
-      .page-title {
-        font-size: 2rem;
-      }
-      
-      .content-card {
-        padding: 1.5rem;
-      }
+    .legal-content {
+      padding: 2rem;
+    }
+    
+    .legal-section {
+      margin-bottom: 2rem;
+    }
+    
+    .legal-section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--zinc-100);
+      margin-bottom: 1rem;
+    }
+    
+    .legal-section-content {
+      color: var(--zinc-300);
+      line-height: 1.6;
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--orange-500);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+    
+    .back-link:hover {
+      color: var(--orange-400);
+      background-color: rgba(255, 102, 0, 0.1);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <a href="index.html" class="logo">
-        <div class="logo-box">ES</div>
-        <div class="logo-text">Echopais Scaler</div>
-      </a>
+    <div class="header">
+      <div class="logo-container">
+        <div class="logo-box">E</div>
+        <div class="logo-text">
+          <h1>ECHOPAIS</h1>
+          <p>Professional MIDI Solutions</p>
+        </div>
+      </div>
       
-      <a href="index.html" class="back-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m12 19-7-7 7-7"/>
-          <path d="M19 12H5"/>
-        </svg>
-        Back to Home
-      </a>
-    </header>
-  </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="privacy.html" class="nav-link">Privacy Policy</a>
+        <a href="terms.html" class="nav-link">Terms of Service</a>
+        <a href="cookies.html" class="nav-link">Cookie Policy</a>
+      </nav>
+    </div>
 
-  <div class="container">
-    <div class="main-content">
-      <div class="content-wrapper">
-        <h1 class="page-title">Terms of Service</h1>
+    <a href="index.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      Back to Home
+    </a>
 
-        <div class="content-card">
-          <h2>1. Introduction</h2>
-          <p>Welcome to Echopais Scaler. These Terms of Service ("Terms") govern your access to and use of our applications, products, and services (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.</p>
-
-          <h2>2. Acceptance of Terms</h2>
-          <p>By downloading, installing, or using any of our applications or services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.</p>
-
-          <h2>3. License and Restrictions</h2>
-          <p>Subject to these Terms, Echopais grants you a limited, non-exclusive, non-transferable, and revocable license to use our Services for your personal or internal business purposes.</p>
-          
-          <h3>You may not:</h3>
-          <ul>
-            <li>Copy, modify, or create derivative works based on our Services</li>
-            <li>Reverse engineer, decompile, or attempt to extract the source code</li>
-            <li>Use our Services for any illegal or unauthorized purpose</li>
-            <li>Distribute, sell, or sublicense our Services to third parties</li>
-            <li>Remove or alter any proprietary notices or labels</li>
-            <li>Use our Services in a way that could damage or impair our systems</li>
-          </ul>
-
-          <h2>4. User Accounts</h2>
-          <p>Some of our Services may require you to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
-
-          <h2>5. Payment and Subscriptions</h2>
-          <p>Certain Services may require payment. All fees are non-refundable unless otherwise stated. Subscription services will automatically renew unless cancelled before the renewal date.</p>
-
-          <h2>6. Intellectual Property</h2>
-          <p>All content, features, and functionality of our Services are owned by Echopais and are protected by copyright, trademark, and other intellectual property laws.</p>
-
-          <h2>7. User Content</h2>
-          <p>You retain ownership of any content you create using our Services. However, you grant us a license to use, store, and process such content as necessary to provide our Services.</p>
-
-          <h2>8. Privacy</h2>
-          <p>Your privacy is important to us. Please review our Privacy Policy, which also governs your use of our Services, to understand our practices.</p>
-
-          <h2>9. Disclaimers</h2>
-          <p>Our Services are provided "as is" without warranties of any kind. We do not guarantee that our Services will be uninterrupted, error-free, or completely secure.</p>
-
-          <h2>10. Limitation of Liability</h2>
-          <p>To the maximum extent permitted by law, Echopais shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our Services.</p>
-
-          <h2>11. Termination</h2>
-          <p>We may terminate or suspend your access to our Services at any time, with or without cause, and with or without notice.</p>
-
-          <h2>12. Governing Law</h2>
-          <p>These Terms are governed by the laws of Germany. Any disputes arising from these Terms will be subject to the exclusive jurisdiction of German courts.</p>
-
-          <h2>13. Changes to Terms</h2>
-          <p>We reserve the right to modify these Terms at any time. We will notify users of any material changes by posting the updated Terms on our website.</p>
-
-          <h2>14. Contact Information</h2>
-          <div class="contact-info">
-            <p><strong>Gentian Coci (Giannis Tsotsis)</strong></p>
-            <p>Lagesche Str. 54</p>
-            <p>33813 Oerlinghausen, Germany</p>
-            <p>Phone: +49 176 70795385</p>
-            <p>Email: g.coci@echopais.com</p>
-          </div>
-
-          <div class="last-updated">
-            <p>Last updated: January 2025</p>
-          </div>
+    <div class="legal-card">
+      <div class="legal-header">
+        <h1 class="legal-title">Terms of Service</h1>
+        <p class="legal-date">Last updated: December 2024</p>
+      </div>
+      <div class="legal-content">
+        <div class="legal-section">
+          <h2 class="legal-section-title">1. Acceptance of Terms</h2>
+          <p class="legal-section-content">By downloading our iOS/Android applications or purchasing ESP32 hardware with Echopais MIDI firmware, you accept these terms. Our apps are subject to App Store/Google Play terms as well.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title">2. Software License</h2>
+          <p class="legal-section-content">Our iOS/Android applications are licensed, not sold. You may use our MIDI firmware on purchased ESP32 hardware for personal and commercial music production. Redistribution of our firmware requires written permission.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title">3. Hardware Disclaimer</h2>
+          <p class="legal-section-content">ESP32 hardware is manufactured by Waveshare. Echopais only provides MIDI controller firmware/software. All hardware warranties, defects, and technical support are Waveshare's responsibility. We are not liable for hardware failures.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title">4. Intellectual Property</h2>
+          <p class="legal-section-content">Echopais owns the MIDI firmware and mobile applications. Waveshare owns the ESP32 hardware. You may not reverse engineer, modify, or redistribute our software without permission.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title">5. App Store Compliance</h2>
+          <p class="legal-section-content">Our iOS apps comply with Apple App Store guidelines. Our Android apps comply with Google Play policies. Any violations should be reported to the respective app stores.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title">6. Limitation of Liability</h2>
+          <p class="legal-section-content">Echopais is only liable for software-related issues. Hardware problems, defects, or damages are Waveshare's responsibility. We provide software 'as-is' without warranty for hardware compatibility.</p>
         </div>
       </div>
     </div>
