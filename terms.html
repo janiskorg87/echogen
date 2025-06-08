@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service - ECHOPAIS</title>
+  <title>Terms of Service - Echopais</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange-500: #ff6600;
       --orange-600: #e65c00;
-      --orange-400: #ff8533;
-      --orange-200: #ffa366;
       --zinc-100: #f4f4f5;
+      --zinc-200: #e4e4e7;
       --zinc-300: #d4d4d8;
       --zinc-400: #a1a1aa;
+      --zinc-500: #71717a;
+      --zinc-600: #52525b;
       --zinc-700: #3f3f46;
       --zinc-800: #27272a;
       --zinc-900: #18181b;
@@ -31,366 +32,972 @@
       background: linear-gradient(to bottom, var(--zinc-900), var(--black));
       color: var(--zinc-100);
       min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.5;
     }
     
     .container {
-      max-width: 800px;
+      width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 0 1rem;
     }
     
-    .header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .logo-container {
+    /* Header */
+    header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
+      padding: 1.5rem 0;
     }
     
-    .logo-box {
-      width: 48px;
-      height: 48px;
-      background-color: var(--orange-500);
-      border-radius: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
+    .logo img {
+      height: 60px;
+      width: auto;
     }
     
-    .logo-text h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--zinc-100);
-      margin: 0;
+    nav {
+      display: none;
     }
     
-    .logo-text p {
-      font-size: 0.875rem;
-      color: var(--zinc-400);
-      margin: 0;
+    @media (min-width: 768px) {
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
     }
     
-    .header-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .nav-link {
+    nav a {
       color: var(--zinc-300);
       text-decoration: none;
-      font-weight: 500;
       transition: color 0.2s;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      white-space: nowrap;
     }
     
-    .nav-link:hover {
+    nav a:hover {
       color: var(--orange-500);
-      background-color: rgba(255, 102, 0, 0.1);
     }
     
-    .language-selector {
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .lang-button {
       display: flex;
-      background-color: var(--zinc-800);
-      border-radius: 0.5rem;
-      padding: 0.25rem;
+      align-items: center;
       gap: 0.25rem;
-    }
-    
-    .lang-btn {
       background: none;
       border: none;
       color: var(--zinc-300);
-      font-weight: 500;
-      padding: 0.5rem 0.75rem;
-      border-radius: 0.25rem;
       cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.875rem;
+      padding: 0.5rem;
     }
     
-    .lang-btn.active {
-      background-color: var(--orange-500);
-      color: white;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    .lang-button img {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      border: 1px solid var(--zinc-700);
     }
     
-    .lang-btn:hover:not(.active) {
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: var(--zinc-800);
+      min-width: 160px;
+      border: 1px solid var(--zinc-700);
+      border-radius: 0.5rem;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      color: var(--zinc-200);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    .dropdown-item:hover {
       background-color: var(--zinc-700);
-      color: var(--zinc-100);
+      color: white;
     }
     
-    .legal-card {
+    .dropdown-item img {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+    }
+    
+    .lang-dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    /* Terms Content */
+    .terms-section {
+      padding: 4rem 0 6rem;
+    }
+    
+    .terms-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .terms-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .terms-header p {
+      color: var(--zinc-400);
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+    
+    .terms-content {
       background-color: var(--zinc-800);
       border: 1px solid var(--zinc-700);
       border-radius: 0.75rem;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
     }
     
-    .legal-header {
-      background-color: var(--zinc-700);
-      padding: 1.5rem 2rem;
-    }
-    
-    .legal-title {
-      font-size: 2rem;
-      font-weight: 700;
+    .terms-content h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
       color: var(--orange-500);
+      margin: 2rem 0 1rem;
+    }
+    
+    .terms-content h2:first-child {
+      margin-top: 0;
+    }
+    
+    .terms-content h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+    }
+    
+    .terms-content p {
+      margin-bottom: 1rem;
+      color: var(--zinc-300);
+    }
+    
+    .terms-content ul, .terms-content ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: var(--zinc-300);
+    }
+    
+    .terms-content li {
       margin-bottom: 0.5rem;
     }
     
-    .legal-date {
+    .terms-content a {
+      color: var(--orange-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .terms-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .last-updated {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--zinc-700);
+      font-size: 0.875rem;
+      color: var(--zinc-500);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--zinc-900);
+      border-top: 1px solid var(--zinc-800);
+      padding: 3rem 0;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .footer-brand img {
+      width: 8.75rem;
+      height: auto;
+    }
+    
+    .footer-brand p {
       font-size: 0.875rem;
       color: var(--zinc-400);
     }
     
-    .legal-content {
-      padding: 2rem;
-    }
-    
-    .legal-section {
-      margin-bottom: 2rem;
-    }
-    
-    .legal-section-title {
-      font-size: 1.25rem;
+    .footer-links h3 {
+      font-size: 1rem;
       font-weight: 600;
-      color: var(--zinc-100);
+      color: var(--zinc-200);
       margin-bottom: 1rem;
     }
     
-    .legal-section-content {
-      color: var(--zinc-300);
-      line-height: 1.6;
+    .footer-links ul {
+      list-style: none;
     }
     
-    .back-link {
-      display: inline-flex;
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--orange-500);
+    }
+    
+    .footer-connect a {
+      display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: var(--orange-500);
-      text-decoration: none;
-      font-weight: 500;
-      margin-bottom: 2rem;
-      transition: color 0.2s;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
     }
     
-    .back-link:hover {
-      color: var(--orange-400);
-      background-color: rgba(255, 102, 0, 0.1);
+    .footer-connect svg {
+      width: 1rem;
+      height: 1rem;
     }
     
-    @media (max-width: 768px) {
-      .header-controls {
-        flex-direction: column;
-        gap: 1rem;
+    .footer-separator {
+      height: 1px;
+      background-color: var(--zinc-800);
+      margin: 2rem 0;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
       }
+    }
+    
+    .footer-copyright {
+      font-size: 0.875rem;
+      color: var(--zinc-500);
+    }
+    
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .footer-legal a {
+      font-size: 0.875rem;
+      color: var(--zinc-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer-legal a:hover {
+      color: var(--orange-500);
+    }
+
+    /* Cookie consent banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--zinc-800);
+      padding: 1rem;
+      border-top: 1px solid var(--zinc-700);
+      z-index: 1000;
+      display: none;
+    }
+
+    .cookie-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .cookie-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .cookie-text {
+      color: var(--zinc-300);
+      font-size: 0.875rem;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .cookie-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .cookie-accept {
+      background-color: var(--orange-500);
+      color: white;
+      border: none;
+    }
+
+    .cookie-accept:hover {
+      background-color: var(--orange-600);
+    }
+
+    .cookie-settings {
+      background-color: transparent;
+      color: var(--zinc-300);
+      border: 1px solid var(--zinc-600);
+    }
+
+    .cookie-settings:hover {
+      border-color: var(--zinc-500);
+      color: white;
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <div class="container">
-    <div class="header">
-      <div class="logo-container">
-        <div class="logo-box">E</div>
-        <div class="logo-text">
-          <h1>ECHOPAIS</h1>
-          <p data-translate="subtitle">Professional MIDI Solutions</p>
-        </div>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-czApP4RXCCNt4gAQa3T7BgajpCO1Am.png" alt="Echopais Logo">
+        </a>
       </div>
       
-      <div class="header-controls">
-        <nav class="nav-links">
-          <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
-          <a href="privacy.html" class="nav-link" data-translate="nav-privacy">Privacy Policy</a>
-          <a href="terms.html" class="nav-link" data-translate="nav-terms">Terms of Service</a>
-          <a href="cookies.html" class="nav-link" data-translate="nav-cookies">Cookie Policy</a>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <nav>
+          <a href="index.html#products" data-i18n="nav.products">Products</a>
+          <a href="index.html#about" data-i18n="nav.about">About</a>
+          <a href="index.html#developer" data-i18n="nav.developer">Developer</a>
+          <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
         </nav>
         
-        <div class="language-selector">
-          <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
-          <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
-          <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+        <div class="lang-dropdown">
+          <button class="lang-button">
+            <img src="https://flagcdn.com/gb.svg" alt="English">
+            <span style="display: none; margin-left: 0.25rem;">English</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="dropdown-content">
+            <a class="dropdown-item" data-lang="en">
+              <img src="https://flagcdn.com/gb.svg" alt="English">
+              <span>English</span>
+            </a>
+            <a class="dropdown-item" data-lang="gr">
+              <img src="https://flagcdn.com/gr.svg" alt="Greek">
+              <span>Ελληνικά</span>
+            </a>
+            <a class="dropdown-item" data-lang="es">
+              <img src="https://flagcdn.com/es.svg" alt="Spanish">
+              <span>Español</span>
+            </a>
+            <a class="dropdown-item" data-lang="it">
+              <img src="https://flagcdn.com/it.svg" alt="Italian">
+              <span>Italiano</span>
+            </a>
+            <a class="dropdown-item" data-lang="de">
+              <img src="https://flagcdn.com/de.svg" alt="German">
+              <span>Deutsch</span>
+            </a>
+            <a class="dropdown-item" data-lang="fr">
+              <img src="https://flagcdn.com/fr.svg" alt="French">
+              <span>Français</span>
+            </a>
+            <a class="dropdown-item" data-lang="ru">
+              <img src="https://flagcdn.com/ru.svg" alt="Russian">
+              <span>Русский</span>
+            </a>
+            <a class="dropdown-item" data-lang="ar">
+              <img src="https://flagcdn.com/sa.svg" alt="Arabic">
+              <span>العربية</span>
+            </a>
+            <a class="dropdown-item" data-lang="bg">
+              <img src="https://flagcdn.com/bg.svg" alt="Bulgarian">
+              <span>Български</span>
+            </a>
+            <a class="dropdown-item" data-lang="al">
+              <img src="https://flagcdn.com/al.svg" alt="Albanian">
+              <span>Shqip</span>
+            </a>
+            <a class="dropdown-item" data-lang="tr">
+              <img src="https://flagcdn.com/tr.svg" alt="Turkish">
+              <span>Türkçe</span>
+            </a>
+            <a class="dropdown-item" data-lang="pt">
+              <img src="https://flagcdn.com/pt.svg" alt="Portuguese">
+              <span>Português</span>
+            </a>
+            <a class="dropdown-item" data-lang="nl">
+              <img src="https://flagcdn.com/nl.svg" alt="Dutch">
+              <span>Nederlands</span>
+            </a>
+            <a class="dropdown-item" data-lang="ja">
+              <img src="https://flagcdn.com/jp.svg" alt="Japanese">
+              <span>日本語</span>
+            </a>
+            <a class="dropdown-item" data-lang="zh">
+              <img src="https://flagcdn.com/cn.svg" alt="Chinese">
+              <span>中文</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  
+  <!-- Terms Section -->
+  <section class="terms-section">
+    <div class="container">
+      <div class="terms-header">
+        <h1 data-i18n="terms.title">Terms of Service</h1>
+        <p data-i18n="terms.subtitle">Please read these terms carefully before using our products and services.</p>
+      </div>
+      
+      <div class="terms-content">
+        <h2 data-i18n="terms.introduction.title">1. Introduction</h2>
+        <p data-i18n="terms.introduction.p1">Welcome to Echopais. These Terms of Service ("Terms") govern your access to and use of Echopais applications, products, and services ("Services"). By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.</p>
+        <p data-i18n="terms.introduction.p2">We may modify these Terms at any time. If we do so, we will notify you by publishing the modified Terms on our website or through the Services. Your continued use of the Services after we publish the modified Terms constitutes your acceptance of the modified Terms.</p>
+        
+        <h2 data-i18n="terms.account.title">2. Account Registration and Security</h2>
+        <p data-i18n="terms.account.p1">To use certain features of our Services, you may need to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
+        <p data-i18n="terms.account.p2">When creating an account, you must provide accurate and complete information. You are solely responsible for the activity that occurs on your account, and you must keep your account password secure.</p>
+        
+        <h2 data-i18n="terms.license.title">3. License and Restrictions</h2>
+        <p data-i18n="terms.license.p1">Subject to these Terms, Echopais grants you a limited, non-exclusive, non-transferable, and revocable license to use our Services for your personal or internal business purposes.</p>
+        <p data-i18n="terms.license.p2">You may not:</p>
+        <ul>
+          <li data-i18n="terms.license.li1">Copy, modify, or create derivative works based on our Services</li>
+          <li data-i18n="terms.license.li2">Reverse engineer, decompile, or attempt to extract the source code of our software</li>
+          <li data-i18n="terms.license.li3">Use our Services in any manner that could damage, disable, overburden, or impair our systems</li>
+          <li data-i18n="terms.license.li4">Attempt to gain unauthorized access to any part of our Services</li>
+          <li data-i18n="terms.license.li5">Use our Services for any illegal purpose or in violation of any applicable laws</li>
+        </ul>
+        
+        <h2 data-i18n="terms.content.title">4. User Content</h2>
+        <p data-i18n="terms.content.p1">Our Services may allow you to create, upload, store, and share content. You retain ownership of any intellectual property rights that you hold in that content. When you upload, store, send, or receive content through our Services, you give Echopais a worldwide license to use, host, store, reproduce, modify, create derivative works, communicate, publish, publicly perform, publicly display, and distribute such content.</p>
+        <p data-i18n="terms.content.p2">You are solely responsible for the content you share through our Services and must ensure that you have all necessary rights to share such content.</p>
+        
+        <h2 data-i18n="terms.privacy.title">5. Privacy</h2>
+        <p data-i18n="terms.privacy.p1">Our <a href="privacy.html">Privacy Policy</a> explains how we collect, use, and protect your personal information. By using our Services, you agree to our Privacy Policy.</p>
+        
+        <h2 data-i18n="terms.payment.title">6. Payment Terms</h2>
+        <p data-i18n="terms.payment.p1">Some of our Services may require payment. By using a paid Service, you agree to pay the fees associated with that Service. All fees are non-refundable unless otherwise specified.</p>
+        <p data-i18n="terms.payment.p2">We may change our fees at any time. If we change our fees, we will provide notice of the change on our website or through the Services. Your continued use of the Services after the fee change becomes effective constitutes your agreement to pay the updated fees.</p>
+        
+        <h2 data-i18n="terms.termination.title">7. Termination</h2>
+        <p data-i18n="terms.termination.p1">We may suspend or terminate your access to our Services at any time, without notice, for any reason, including if we believe you have violated these Terms.</p>
+        <p data-i18n="terms.termination.p2">You may terminate your account at any time by contacting us. Upon termination, your right to use the Services will immediately cease.</p>
+        
+        <h2 data-i18n="terms.disclaimer.title">8. Disclaimer of Warranties</h2>
+        <p data-i18n="terms.disclaimer.p1">OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+        <p data-i18n="terms.disclaimer.p2">WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED OR ERROR-FREE, THAT DEFECTS WILL BE CORRECTED, OR THAT THE SERVICES OR THE SERVERS THAT MAKE THEM AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.</p>
+        
+        <h2 data-i18n="terms.limitation.title">9. Limitation of Liability</h2>
+        <p data-i18n="terms.limitation.p1">TO THE MAXIMUM EXTENT PERMITTED BY LAW, ECHOPAIS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
+        <ul>
+          <li data-i18n="terms.limitation.li1">YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICES</li>
+          <li data-i18n="terms.limitation.li2">ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE SERVICES</li>
+          <li data-i18n="terms.limitation.li3">ANY CONTENT OBTAINED FROM THE SERVICES</li>
+          <li data-i18n="terms.limitation.li4">UNAUTHORIZED ACCESS, USE, OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT</li>
+        </ul>
+        
+        <h2 data-i18n="terms.indemnification.title">10. Indemnification</h2>
+        <p data-i18n="terms.indemnification.p1">You agree to indemnify, defend, and hold harmless Echopais and its officers, directors, employees, agents, and affiliates from and against any and all claims, damages, obligations, losses, liabilities, costs, or debt, and expenses (including but not limited to attorney's fees) arising from:</p>
+        <ul>
+          <li data-i18n="terms.indemnification.li1">Your use of and access to the Services</li>
+          <li data-i18n="terms.indemnification.li2">Your violation of any term of these Terms</li>
+          <li data-i18n="terms.indemnification.li3">Your violation of any third-party right, including without limitation any copyright, property, or privacy right</li>
+          <li data-i18n="terms.indemnification.li4">Any claim that your content caused damage to a third party</li>
+        </ul>
+        
+        <h2 data-i18n="terms.governing.title">11. Governing Law</h2>
+        <p data-i18n="terms.governing.p1">These Terms shall be governed by and construed in accordance with the laws of Greece, without regard to its conflict of law provisions.</p>
+        <p data-i18n="terms.governing.p2">Any dispute arising from or relating to the subject matter of these Terms shall be finally settled by arbitration in Athens, Greece, using the Greek language.</p>
+        
+        <h2 data-i18n="terms.general.title">12. General Terms</h2>
+        <p data-i18n="terms.general.p1">These Terms constitute the entire agreement between you and Echopais regarding the use of our Services.</p>
+        <p data-i18n="terms.general.p2">Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.</p>
+        <p data-i18n="terms.general.p3">If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions of these Terms will remain in effect.</p>
+        
+        <h2 data-i18n="terms.contact.title">13. Contact Us</h2>
+        <p data-i18n="terms.contact.p1">If you have any questions about these Terms, please contact us at <a href="mailto:g.coci@echopais.com">g.coci@echopais.com</a>.</p>
+        
+        <div class="last-updated">
+          <p data-i18n="terms.lastUpdated">Last updated: May 10, 2025</p>
         </div>
       </div>
     </div>
-
-    <a href="index.html" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-      <span data-translate="back-home">Back to Home</span>
-    </a>
-
-    <div class="legal-card">
-      <div class="legal-header">
-        <h1 class="legal-title" data-translate="page-title">Terms of Service</h1>
-        <p class="legal-date" data-translate="last-updated">Last updated: December 2024</p>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-czApP4RXCCNt4gAQa3T7BgajpCO1Am.png" alt="Echopais Logo">
+          <p data-i18n="footer.description">Creating innovative audio solutions for musicians and producers worldwide.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3 data-i18n="footer.products">Products</h3>
+          <ul>
+            <li><a href="index.html#products" data-i18n="footer.padController">Pad Controller</a></li>
+            <li><a href="index.html#products" data-i18n="footer.studio">Studio</a></li>
+            <li><a href="index.html#products" data-i18n="footer.synth">Synth</a></li>
+            <li><a href="#" data-i18n="footer.pricing">Pricing</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3 data-i18n="footer.company">Company</h3>
+          <ul>
+            <li><a href="index.html#about" data-i18n="footer.about">About</a></li>
+            <li><a href="#" data-i18n="footer.blog">Blog</a></li>
+            <li><a href="#" data-i18n="footer.careers">Careers</a></li>
+            <li><a href="#" data-i18n="footer.press">Press</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links footer-connect">
+          <h3 data-i18n="footer.connect">Connect</h3>
+          <ul>
+            <li>
+              <a href="mailto:g.coci@echopais.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                g.coci@echopais.com
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                  <path d="M9 18c-4.51 2-5-2-7-2"/>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="legal-content">
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section1-title">1. Acceptance of Terms</h2>
-          <p class="legal-section-content" data-translate="section1-content">By downloading our iOS/Android applications or purchasing ESP32 hardware with Echopais MIDI firmware, you accept these terms. Our apps are subject to App Store/Google Play terms as well.</p>
+      
+      <div class="footer-separator"></div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 Echopais. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <div class="footer-legal">
+          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
+          <a href="cookies.html" data-i18n="footer.cookies">Cookie Policy</a>
         </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section2-title">2. Software License</h2>
-          <p class="legal-section-content" data-translate="section2-content">Our iOS/Android applications are licensed, not sold. You may use our MIDI firmware on purchased ESP32 hardware for personal and commercial music production. Redistribution of our firmware requires written permission.</p>
-        </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section3-title">3. Hardware Disclaimer</h2>
-          <p class="legal-section-content" data-translate="section3-content">ESP32 hardware is manufactured by Waveshare. Echopais only provides MIDI controller firmware/software. All hardware warranties, defects, and technical support are Waveshare's responsibility. We are not liable for hardware failures.</p>
-        </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section4-title">4. Intellectual Property</h2>
-          <p class="legal-section-content" data-translate="section4-content">Echopais owns the MIDI firmware and mobile applications. Waveshare owns the ESP32 hardware. You may not reverse engineer, modify, or redistribute our software without permission.</p>
-        </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section5-title">5. App Store Compliance</h2>
-          <p class="legal-section-content" data-translate="section5-content">Our iOS apps comply with Apple App Store guidelines. Our Android apps comply with Google Play policies. Any violations should be reported to the respective app stores.</p>
-        </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section6-title">6. Limitation of Liability</h2>
-          <p class="legal-section-content" data-translate="section6-content">Echopais is only liable for software-related issues. Hardware problems, defects, or damages are Waveshare's responsibility. We provide software 'as-is' without warranty for hardware compatibility.</p>
-        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+      <p class="cookie-text" data-i18n="cookies.bannerText">We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
+      <div class="cookie-buttons">
+        <button class="cookie-btn cookie-settings" data-i18n="cookies.settings" onclick="window.location.href='cookies.html'">Settings</button>
+        <button class="cookie-btn cookie-accept" data-i18n="cookies.accept" onclick="acceptCookies()">Accept All</button>
       </div>
     </div>
   </div>
-
+  
   <script>
-    const translations = {
-      en: {
-        'subtitle': 'Professional MIDI Solutions',
-        'nav-home': 'Home',
-        'nav-privacy': 'Privacy Policy',
-        'nav-terms': 'Terms of Service',
-        'nav-cookies': 'Cookie Policy',
-        'back-home': 'Back to Home',
-        'page-title': 'Terms of Service',
-        'last-updated': 'Last updated: December 2024',
-        'section1-title': '1. Acceptance of Terms',
-        'section1-content': 'By downloading our iOS/Android applications or purchasing ESP32 hardware with Echopais MIDI firmware, you accept these terms. Our apps are subject to App Store/Google Play terms as well.',
-        'section2-title': '2. Software License',
-        'section2-content': 'Our iOS/Android applications are licensed, not sold. You may use our MIDI firmware on purchased ESP32 hardware for personal and commercial music production. Redistribution of our firmware requires written permission.',
-        'section3-title': '3. Hardware Disclaimer',
-        'section3-content': 'ESP32 hardware is manufactured by Waveshare. Echopais only provides MIDI controller firmware/software. All hardware warranties, defects, and technical support are Waveshare\'s responsibility. We are not liable for hardware failures.',
-        'section4-title': '4. Intellectual Property',
-        'section4-content': 'Echopais owns the MIDI firmware and mobile applications. Waveshare owns the ESP32 hardware. You may not reverse engineer, modify, or redistribute our software without permission.',
-        'section5-title': '5. App Store Compliance',
-        'section5-content': 'Our iOS apps comply with Apple App Store guidelines. Our Android apps comply with Google Play policies. Any violations should be reported to the respective app stores.',
-        'section6-title': '6. Limitation of Liability',
-        'section6-content': 'Echopais is only liable for software-related issues. Hardware problems, defects, or damages are Waveshare\'s responsibility. We provide software \'as-is\' without warranty for hardware compatibility.'
-      },
-      de: {
-        'subtitle': 'Professionelle MIDI-Lösungen',
-        'nav-home': 'Startseite',
-        'nav-privacy': 'Datenschutzerklärung',
-        'nav-terms': 'Nutzungsbedingungen',
-        'nav-cookies': 'Cookie-Richtlinie',
-        'back-home': 'Zurück zur Startseite',
-        'page-title': 'Nutzungsbedingungen',
-        'last-updated': 'Zuletzt aktualisiert: Dezember 2024',
-        'section1-title': '1. Annahme der Bedingungen',
-        'section1-content': 'Durch das Herunterladen unserer iOS/Android-Anwendungen oder den Kauf von ESP32-Hardware mit Echopais MIDI-Firmware akzeptieren Sie diese Bedingungen. Unsere Apps unterliegen auch den App Store/Google Play-Bedingungen.',
-        'section2-title': '2. Software-Lizenz',
-        'section2-content': 'Unsere iOS/Android-Anwendungen sind lizenziert, nicht verkauft. Sie können unsere MIDI-Firmware auf gekaufter ESP32-Hardware für persönliche und kommerzielle Musikproduktion verwenden. Die Weiterverteilung unserer Firmware erfordert schriftliche Genehmigung.',
-        'section3-title': '3. Hardware-Haftungsausschluss',
-        'section3-content': 'ESP32-Hardware wird von Waveshare hergestellt. Echopais stellt nur MIDI-Controller-Firmware/Software bereit. Alle Hardware-Garantien, Defekte und technischer Support sind Waveshares Verantwortung. Wir haften nicht für Hardware-Ausfälle.',
-        'section4-title': '4. Geistiges Eigentum',
-        'section4-content': 'Echopais besitzt die MIDI-Firmware und mobilen Anwendungen. Waveshare besitzt die ESP32-Hardware. Sie dürfen unsere Software nicht ohne Genehmigung reverse engineeren, modifizieren oder weitervertreiben.',
-        'section5-title': '5. App Store-Konformität',
-        'section5-content': 'Unsere iOS-Apps entsprechen den Apple App Store-Richtlinien. Unsere Android-Apps entsprechen den Google Play-Richtlinien. Verstöße sollten den jeweiligen App Stores gemeldet werden.',
-        'section6-title': '6. Haftungsbeschränkung',
-        'section6-content': 'Echopais haftet nur für software-bezogene Probleme. Hardware-Probleme, Defekte oder Schäden sind Waveshares Verantwortung. Wir stellen Software \'wie besehen\' ohne Garantie für Hardware-Kompatibilität bereit.'
-      },
-      el: {
-        'subtitle': 'Επαγγελματικές MIDI Λύσεις',
-        'nav-home': 'Αρχική',
-        'nav-privacy': 'Πολιτική Απορρήτου',
-        'nav-terms': 'Όροι Χρήσης',
-        'nav-cookies': 'Πολιτική Cookies',
-        'back-home': 'Επιστροφή στην Αρχική',
-        'page-title': 'Όροι Χρήσης',
-        'last-updated': 'Τελευταία ενημέρωση: Δεκέμβριος 2024',
-        'section1-title': '1. Αποδοχή των Όρων',
-        'section1-content': 'Κατεβάζοντας τις iOS/Android εφαρμογές μας ή αγοράζοντας ESP32 hardware με Echopais MIDI firmware, αποδέχεστε αυτούς τους όρους. Οι εφαρμογές μας υπόκεινται επίσης στους όρους App Store/Google Play.',
-        'section2-title': '2. Άδεια Λογισμικού',
-        'section2-content': 'Οι iOS/Android εφαρμογές μας είναι αδειοδοτημένες, όχι πωλημένες. Μπορείτε να χρησιμοποιήσετε το MIDI firmware μας σε αγορασμένο ESP32 hardware για προσωπική και εμπορική μουσική παραγωγή. Η αναδιανομή του firmware μας απαιτεί γραπτή άδεια.',
-        'section3-title': '3. Αποποίηση Ευθύνης Hardware',
-        'section3-content': 'Το ESP32 hardware κατασκευάζεται από τη Waveshare. Η Echopais παρέχει μόνο MIDI controller firmware/λογισμικό. Όλες οι εγγυήσεις hardware, ελαττώματα και τεχνική υποστήριξη είναι ευθύνη της Waveshare. Δεν φέρουμε ευθύνη για αποτυχίες hardware.',
-        'section4-title': '4. Πνευματική Ιδιοκτησία',
-        'section4-content': 'Η Echopais κατέχει το MIDI firmware και τις εφαρμογές κινητών. Η Waveshare κατέχει το ESP32 hardware. Δεν μπορείτε να αντιστρέψετε, να τροποποιήσετε ή να αναδιανείμετε το λογισμικό μας χωρίς άδεια.',
-        'section5-title': '5. Συμμόρφωση App Store',
-        'section5-content': 'Οι iOS εφαρμογές μας συμμορφώνονται με τις οδηγίες Apple App Store. Οι Android εφαρμογές μας συμμορφώνονται με τις πολιτικές Google Play. Παραβιάσεις πρέπει να αναφέρονται στα αντίστοιχα app stores.',
-        'section6-title': '6. Περιορισμός Ευθύνης',
-        'section6-content': 'Η Echopais φέρει ευθύνη μόνο για θέματα που σχετίζονται με λογισμικό. Προβλήματα hardware, ελαττώματα ή ζημίες είναι ευθύνη της Waveshare. Παρέχουμε λογισμικό \'ως έχει\' χωρίς εγγύηση για συμβατότητα hardware.'
-      }
-    };
-
-    let currentLanguage = 'en';
-
-    function changeLanguage(lang) {
-      currentLanguage = lang;
-      
-      // Update active button
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.target.classList.add('active');
-      
-      // Update all translatable elements
-      document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
-          element.textContent = translations[lang][key];
-        }
-      });
-      
-      // Update document language
-      document.documentElement.lang = lang;
-      
-      // Store language preference
-      localStorage.setItem('echopais-language', lang);
-    }
-
-    // Load saved language preference
+    // Wait for the DOM to fully load
     document.addEventListener('DOMContentLoaded', function() {
-      const savedLang = localStorage.getItem('echopais-language') || 'en';
-      if (savedLang !== 'en') {
-        const langBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${savedLang}')"]`);
-        if (langBtn) {
-          langBtn.click();
+      console.log("DOM fully loaded");
+      
+      // Define content for each language
+      const content = {
+        en: {
+          nav: {
+            products: "Products",
+            about: "About",
+            developer: "Developer",
+            contact: "Contact"
+          },
+          terms: {
+            title: "Terms of Service",
+            subtitle: "Please read these terms carefully before using our products and services.",
+            lastUpdated: "Last updated: May 10, 2025",
+            introduction: {
+              title: "1. Introduction",
+              p1: "Welcome to Echopais. These Terms of Service (\"Terms\") govern your access to and use of Echopais applications, products, and services (\"Services\"). By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.",
+              p2: "We may modify these Terms at any time. If we do so, we will notify you by publishing the modified Terms on our website or through the Services. Your continued use of the Services after we publish the modified Terms constitutes your acceptance of the modified Terms."
+            },
+            account: {
+              title: "2. Account Registration and Security",
+              p1: "To use certain features of our Services, you may need to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.",
+              p2: "When creating an account, you must provide accurate and complete information. You are solely responsible for the activity that occurs on your account, and you must keep your account password secure."
+            },
+            license: {
+              title: "3. License and Restrictions",
+              p1: "Subject to these Terms, Echopais grants you a limited, non-exclusive, non-transferable, and revocable license to use our Services for your personal or internal business purposes.",
+              p2: "You may not:",
+              li1: "Copy, modify, or create derivative works based on our Services",
+              li2: "Reverse engineer, decompile, or attempt to extract the source code of our software",
+              li3: "Use our Services in any manner that could damage, disable, overburden, or impair our systems",
+              li4: "Attempt to gain unauthorized access to any part of our Services",
+              li5: "Use our Services for any illegal purpose or in violation of any applicable laws"
+            },
+            content: {
+              title: "4. User Content",
+              p1: "Our Services may allow you to create, upload, store, and share content. You retain ownership of any intellectual property rights that you hold in that content. When you upload, store, send, or receive content through our Services, you give Echopais a worldwide license to use, host, store, reproduce, modify, create derivative works, communicate, publish, publicly perform, publicly display, and distribute such content.",
+              p2: "You are solely responsible for the content you share through our Services and must ensure that you have all necessary rights to share such content."
+            },
+            privacy: {
+              title: "5. Privacy",
+              p1: "Our Privacy Policy explains how we collect, use, and protect your personal information. By using our Services, you agree to our Privacy Policy."
+            },
+            payment: {
+              title: "6. Payment Terms",
+              p1: "Some of our Services may require payment. By using a paid Service, you agree to pay the fees associated with that Service. All fees are non-refundable unless otherwise specified.",
+              p2: "We may change our fees at any time. If we change our fees, we will provide notice of the change on our website or through the Services. Your continued use of the Services after the fee change becomes effective constitutes your agreement to pay the updated fees."
+            },
+            termination: {
+              title: "7. Termination",
+              p1: "We may suspend or terminate your access to our Services at any time, without notice, for any reason, including if we believe you have violated these Terms.",
+              p2: "You may terminate your account at any time by contacting us. Upon termination, your right to use the Services will immediately cease."
+            },
+            disclaimer: {
+              title: "8. Disclaimer of Warranties",
+              p1: "OUR SERVICES ARE PROVIDED \"AS IS\" AND \"AS AVAILABLE\" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.",
+              p2: "WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED OR ERROR-FREE, THAT DEFECTS WILL BE CORRECTED, OR THAT THE SERVICES OR THE SERVERS THAT MAKE THEM AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS."
+            },
+            limitation: {
+              title: "9. Limitation of Liability",
+              p1: "TO THE MAXIMUM EXTENT PERMITTED BY LAW, ECHOPAIS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:",
+              li1: "YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICES",
+              li2: "ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE SERVICES",
+              li3: "ANY CONTENT OBTAINED FROM THE SERVICES",
+              li4: "UNAUTHORIZED ACCESS, USE, OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT"
+            },
+            indemnification: {
+              title: "10. Indemnification",
+              p1: "You agree to indemnify, defend, and hold harmless Echopais and its officers, directors, employees, agents, and affiliates from and against any and all claims, damages, obligations, losses, liabilities, costs, or debt, and expenses (including but not limited to attorney's fees) arising from:",
+              li1: "Your use of and access to the Services",
+              li2: "Your violation of any term of these Terms",
+              li3: "Your violation of any third-party right, including without limitation any copyright, property, or privacy right",
+              li4: "Any claim that your content caused damage to a third party"
+            },
+            governing: {
+              title: "11. Governing Law",
+              p1: "These Terms shall be governed by and construed in accordance with the laws of Greece, without regard to its conflict of law provisions.",
+              p2: "Any dispute arising from or relating to the subject matter of these Terms shall be finally settled by arbitration in Athens, Greece, using the Greek language."
+            },
+            general: {
+              title: "12. General Terms",
+              p1: "These Terms constitute the entire agreement between you and Echopais regarding the use of our Services.",
+              p2: "Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.",
+              p3: "If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions of these Terms will remain in effect."
+            },
+            contact: {
+              title: "13. Contact Us",
+              p1: "If you have any questions about these Terms, please contact us at g.coci@echopais.com."
+            }
+          },
+          footer: {
+            description: "Creating innovative audio solutions for musicians and producers worldwide.",
+            products: "Products",
+            padController: "Pad Controller",
+            studio: "Studio",
+            synth: "Synth",
+            pricing: "Pricing",
+            company: "Company",
+            about: "About",
+            blog: "Blog",
+            careers: "Careers",
+            press: "Press",
+            connect: "Connect",
+            rights: "All rights reserved.",
+            privacy: "Privacy Policy",
+            terms: "Terms of Service",
+            cookies: "Cookie Policy"
+          },
+          cookies: {
+            bannerText: "We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.",
+            settings: "Settings",
+            accept: "Accept All"
+          }
+        },
+        gr: {
+          nav: {
+            products: "Προϊόντα",
+            about: "Σχετικά",
+            developer: "Προγραμματιστής",
+            contact: "Επικοινωνία"
+          },
+          terms: {
+            title: "Όροι Χρήσης",
+            subtitle: "Παρακαλούμε διαβάστε προσεκτικά αυτούς τους όρους πριν χρησιμοποιήσετε τα προϊόντα και τις υπηρεσίες μας.",
+            lastUpdated: "Τελευταία ενημέρωση: 10 Μαΐου 2025",
+            introduction: {
+              title: "1. Εισαγωγή",
+              p1: "Καλώς ήρθατε στην Echopais. Αυτοί οι Όροι Χρήσης (\"Όροι\") διέπουν την πρόσβαση και χρήση των εφαρμογών, προϊόντων και υπηρεσιών της Echopais (\"Υπηρεσίες\"). Με την πρόσβαση ή τη χρήση των Υπηρεσιών μας, συμφωνείτε να δεσμεύεστε από αυτούς τους Όρους. Εάν δεν συμφωνείτε με αυτούς τους Όρους, παρακαλούμε μην χρησιμοποιείτε τις Υπηρεσίες μας.",
+              p2: "Μπορούμε να τροποποιήσουμε αυτούς τους Όρους ανά πάσα στιγμή. Εάν το κάνουμε, θα σας ειδοποιήσουμε δημοσιεύοντας τους τροποποιημένους Όρους στον ιστότοπό μας ή μέσω των Υπηρεσιών. Η συνεχιζόμενη χρήση των Υπηρεσιών μετά τη δημοσίευση των τροποποιημένων Όρων αποτελεί αποδοχή των τροποποιημένων Όρων."
+            },
+            account: {
+              title: "2. Εγγραφή Λογαριασμού και Ασφάλεια",
+              p1: "Για να χρησιμοποιήσετε ορισμένες λειτουργίες των Υπηρεσιών μας, ενδέχεται να χρειαστεί να δημιουργήσετε λογαριασμό. Είστε υπεύθυνοι για τη διατήρηση της εμπιστευτικότητας των διαπιστευτηρίων του λογαριασμού σας και για όλες τις δραστηριότητες που πραγματοποιούνται στον λογαριασμό σας. Συμφωνείτε να μας ειδοποιήσετε αμέσως για οποιαδήποτε μη εξουσιοδοτημένη χρήση του λογαριασμού σας.",
+              p2: "Κατά τη δημιουργία λογαριασμού, πρέπει να παρέχετε ακριβείς και πλήρεις πληροφορίες. Είστε αποκλειστικά υπεύθυνοι για τη δραστηριότητα που συμβαίνει στον λογαριασμό σας και πρέπει να διατηρείτε ασφαλή τον κωδικό πρόσβασης του λογαριασμού σας."
+            },
+            license: {
+              title: "3. Άδεια Χρήσης και Περιορισμοί",
+              p1: "Σύμφωνα με αυτούς τους Όρους, η Echopais σας παρέχει μια περιορισμένη, μη αποκλειστική, μη μεταβιβάσιμη και ανακλητή άδεια χρήσης των Υπηρεσιών μας για προσωπικούς ή εσωτερικούς επιχειρηματικούς σκοπούς.",
+              p2: "Δεν επιτρέπεται να:",
+              li1: "Αντιγράψετε, τροποποιήσετε ή δημιουργήσετε παράγωγα έργα βασισμένα στις Υπηρεσίες μας",
+              li2: "Αντιστρέψετε τη μηχανική, αποσυμπιλήσετε ή προσπαθήσετε να εξαγάγετε τον πηγαίο κώδικα του λογισμικού μας",
+              li3: "Χρησιμοποιήσετε τις Υπηρεσίες μας με οποιονδήποτε τρόπο που θα μπορούσε να βλάψει, απενεργοποιήσει, υπερφορτώσει ή επηρεάσει τα συστήματά μας",
+              li4: "Προσπαθήσετε να αποκτήσετε μη εξουσιοδοτημένη πρόσβαση σε οποιοδήποτε μέρος των Υπηρεσιών μας",
+              li5: "Χρησιμοποιήσετε τις Υπηρεσίες μας για οποιονδήποτε παράνομο σκοπό ή κατά παράβαση οποιωνδήποτε ισχυόντων νόμων"
+            },
+            content: {
+              title: "4. Περιεχόμενο Χρήστη",
+              p1: "Οι Υπηρεσίες μας ενδέχεται να σας επιτρέπουν να δημιουργείτε, να ανεβάζετε, να αποθηκεύετε και να μοιράζεστε περιεχόμενο. Διατηρείτε την κυριότητα οποιωνδήποτε δικαιωμάτων πνευματικής ιδιοκτησίας που κατέχετε σε αυτό το περιεχόμενο. Όταν ανεβάζετε, αποθηκεύετε, στέλνετε ή λαμβάνετε περιεχόμενο μέσω των Υπηρεσιών μας, παρέχετε στην Echopais μια παγκόσμια άδεια χρήσης, φιλοξενίας, αποθήκευσης, αναπαραγωγής, τροποποίησης, δημιουργίας παράγωγων έργων, επικοινωνίας, δημοσίευσης, δημόσιας εκτέλεσης, δημόσιας προβολής και διανομής τέτοιου περιεχομένου.",
+              p2: "Είστε αποκλειστικά υπεύθυνοι για το περιεχόμενο που μοιράζεστε μέσω των Υπηρεσιών μας και πρέπει να διασφαλίζετε ότι έχετε όλα τα απαραίτητα δικαιώματα για να μοιραστείτε τέτοιο περιεχόμενο."
+            },
+            privacy: {
+              title: "5. Απόρρητο",
+              p1: "Η Πολιτική Απορρήτου μας εξηγεί πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα προσωπικά σας δεδομένα. Με τη χρήση των Υπηρεσιών μας, συμφωνείτε με την Πολιτική Απορρήτου μας."
+            },
+            payment: {
+              title: "6. Όροι Πληρωμής",
+              p1: "Ορισμένες από τις Υπηρεσίες μας ενδέχεται να απαιτούν πληρωμή. Με τη χρήση μιας επί πληρωμή Υπηρεσίας, συμφωνείτε να πληρώσετε τις χρεώσεις που σχετίζονται με αυτήν την Υπηρεσία. Όλες οι χρεώσεις δεν επιστρέφονται, εκτός εάν ορίζεται διαφορετικά.",
+              p2: "Μπορούμε να αλλάξουμε τις χρεώσεις μας ανά πάσα στιγμή. Εάν αλλάξουμε τις χρεώσεις μας, θα παρέχουμε ειδοποίηση για την αλλαγή στον ιστότοπό μας ή μέσω των Υπηρεσιών. Η συνεχιζόμενη χρήση των Υπηρεσιών μετά την έναρξη ισχύος της αλλαγής χρεώσεων αποτελεί συμφωνία σας για την πληρωμή των ενημερωμένων χρεώσεων."
+            },
+            termination: {
+              title: "7. Τερματισμός",
+              p1: "Μπορούμε να αναστείλουμε ή να τερματίσουμε την πρόσβασή σας στις Υπηρεσίες μας ανά πάσα στιγμή, χωρίς ειδοποίηση, για οποιονδήποτε λόγο, συμπεριλαμβανομένου εάν πιστεύουμε ότι έχετε παραβιάσει αυτούς τους Όρους.",
+              p2: "Μπορείτε να τερματίσετε τον λογαριασμό σας ανά πάσα στιγμή επικοινωνώντας μαζί μας. Με τον τερματισμό, το δικαίωμά σας να χρησιμοποιείτε τις Υπηρεσίες θα παύσει αμέσως."
+            },
+            disclaimer: {
+              title: "8. Αποποίηση Εγγυήσεων",
+              p1: "ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ ΠΑΡΕΧΟΝΤΑΙ \"ΩΣ ΕΧΟΥΝ\" ΚΑΙ \"ΟΠΩΣ ΕΙΝΑΙ ΔΙΑΘΕΣΙΜΕΣ\" ΧΩΡΙΣ ΕΓΓΥΗΣΕΙΣ ΟΠΟΙΟΥΔΗΠΟΤΕ ΕΙΔΟΥΣ, ΕΙΤΕ ΡΗΤΕΣ ΕΙΤΕ ΣΙΩΠΗΡΕΣ, ΣΥΜΠΕΡΙΛΑΜΒΑΝΟΜΕΝΩΝ, ΑΛΛΑ ΟΧΙ ΠΕΡΙΟΡΙΣΤΙΚΑ, ΤΩΝ ΣΙΩΠΗΡΩΝ ΕΓΓΥΗΣΕΩΝ ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ, ΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ ΚΑΙ ΜΗ ΠΑΡΑΒΙΑΣΗΣ.",
+              p2: "ΔΕΝ ΕΓΓΥΟΜΑΣΤΕ ΟΤΙ ΟΙ ΥΠΗΡΕΣΙΕΣ ΘΑ ΕΙΝΑΙ ΑΔΙΑΛΕΙΠΤΕΣ Ή ΧΩΡΙΣ ΣΦΑΛΜΑΤΑ, ΟΤΙ ΤΑ ΕΛΑΤΤΩΜΑΤΑ ΘΑ ΔΙΟΡΘΩΘΟΥΝ Ή ΟΤΙ ΟΙ ΥΠΗΡΕΣΙΕΣ Ή ΟΙ ΔΙΑΚΟΜΙΣΤΕΣ ΠΟΥ ΤΙΣ ΚΑΘΙΣΤΟΥΝ ΔΙΑΘΕΣΙΜΕΣ ΕΙΝΑΙ ΑΠΑΛΛΑΓΜΕΝΟΙ ΑΠΟ ΙΟΥΣ Ή ΑΛΛΑ ΕΠΙΒΛΑΒΗ ΣΤΟΙΧΕΙΑ."
+            },
+            limitation: {
+              title: "9. Περιορισμός Ευθύνης",
+              p1: "ΣΤΟ ΜΕΓΙΣΤΟ ΒΑΘΜΟ ΠΟΥ ΕΠΙΤΡΕΠΕΤΑΙ ΑΠΟ ΤΟ ΝΟΜΟ, Η ECHOPAIS ΔΕΝ ΘΑ ΕΥΘΥΝΕΤΑΙ ΓΙΑ ΟΠΟΙΕΣΔΗΠΟΤΕ ΕΜΜΕΣΕΣ, ΣΥΜΠΤΩΜΑΤΙΚΕΣ, ΕΙΔΙΚΕΣ, ΕΠΑΚΟΛΟΥΘΕΣ Ή ΤΙΜΩΡΗΤΙΚΕΣ ΖΗΜΙΕΣ, Ή ΟΠΟΙΑΔΗΠΟΤΕ ΑΠΩΛΕΙΑ ΚΕΡΔΩΝ Ή ΕΣΟΔΩΝ, ΕΙΤΕ ΠΡΟΚΥΠΤΟΥΝ ΑΜΕΣΑ ΕΙΤΕ ΕΜΜΕΣΑ, Ή ΟΠΟΙΑΔΗΠΟΤΕ ΑΠΩΛΕΙΑ ΔΕΔΟΜΕΝΩΝ, ΧΡΗΣΗΣ, ΚΑΛΗΣ ΘΕΛΗΣΗΣ Ή ΑΛΛΩΝ ΑΥΛΩΝ ΑΠΩΛΕΙΩΝ, ΠΟΥ ΠΡΟΚΥΠΤΟΥΝ ΑΠΟ:",
+              li1: "ΤΗΝ ΠΡΟΣΒΑΣΗ ΣΑΣ Ή ΤΗ ΧΡΗΣΗ Ή ΤΗΝ ΑΔΥΝΑΜΙΑ ΠΡΟΣΒΑΣΗΣ Ή ΧΡΗΣΗΣ ΤΩΝ ΥΠΗΡΕΣΙΩΝ",
+              li2: "ΟΠΟΙΑΔΗΠΟΤΕ ΣΥΜΠΕΡΙΦΟΡΑ Ή ΠΕΡΙΕΧΟΜΕΝΟ ΟΠΟΙΟΥΔΗΠΟΤΕ ΤΡΙΤΟΥ ΣΤΙΣ ΥΠΗΡΕΣΙΕΣ",
+              li3: "ΟΠΟΙΟΔΗΠΟΤΕ ΠΕΡΙΕΧΟΜΕΝΟ ΠΟΥ ΑΠΟΚΤΗΘΗΚΕ ΑΠΟ ΤΙΣ ΥΠΗΡΕΣΙΕΣ",
+              li4: "ΜΗ ΕΞΟΥΣΙΟΔΟΤΗΜΕΝΗ ΠΡΟΣΒΑΣΗ, ΧΡΗΣΗ Ή ΑΛΛΟΙΩΣΗ ΤΩΝ ΜΕΤΑΔΟΣΕΩΝ Ή ΤΟΥ ΠΕΡΙΕΧΟΜΕΝΟΥ ΣΑΣ"
+            },
+            indemnification: {
+              title: "10. Αποζημίωση",
+              p1: "Συμφωνείτε να αποζημιώσετε, να υπερασπιστείτε και να απαλλάξετε την Echopais και τους αξιωματούχους, διευθυντές, υπαλλήλους, πράκτορες και συνεργάτες της από και έναντι οποιωνδήποτε και όλων των αξιώσεων, ζημιών, υποχρεώσεων, απωλειών, ευθυνών, κόστους ή χρέους, και εξόδων (συμπεριλαμβανομένων, αλλά όχι περιοριστικά, των αμοιβών δικηγόρων) που προκύπτουν από:",
+              li1: "Τη χρήση και την πρόσβασή σας στις Υπηρεσίες",
+              li2: "Την παραβίαση οποιουδήποτε όρου αυτών των Όρων",
+              li3: "Την παραβίαση οποιουδήποτε δικαιώματος τρίτου, συμπεριλαμβανομένων, χωρίς περιορισμό, οποιουδήποτε δικαιώματος πνευματικής ιδιοκτησίας, ιδιοκτησίας ή απορρήτου",
+              li4: "Οποιαδήποτε αξίωση ότι το περιεχόμενό σας προκάλεσε ζημιά σε τρίτο"
+            },
+            governing: {
+              title: "11. Εφαρμοστέο Δίκαιο",
+              p1: "Αυτοί οι Όροι διέπονται και ερμηνεύονται σύμφωνα με τους νόμους της Ελλάδας, χωρίς να λαμβάνονται υπόψη οι διατάξεις περί σύγκρουσης νόμων.",
+              p2: "Οποιαδήποτε διαφορά που προκύπτει από ή σχετίζεται με το αντικείμενο αυτών των Όρων θα επιλύεται τελικά με διαιτησία στην Αθήνα, Ελλάδα, χρησιμοποιώντας την ελληνική γλώσσα."
+            },
+            general: {
+              title: "12. Γενικοί Όροι",
+              p1: "Αυτοί οι Όροι αποτελούν την πλήρη συμφωνία μεταξύ εσάς και της Echopais σχετικά με τη χρήση των Υπηρεσιών μας.",
+              p2: "Η αδυναμία μας να επιβάλουμε οποιοδήποτε δικαίωμα ή διάταξη αυτών των Όρων δεν θα θεωρηθεί παραίτηση από αυτά τα δικαιώματα.",
+              p3: "Εάν οποιαδήποτε διάταξη αυτών των Όρων κριθεί άκυρη ή μη εκτελεστή, οι υπόλοιπες διατάξεις αυτών των Όρων θα παραμείνουν σε ισχύ."
+            },
+            contact: {
+              title: "13. Επικοινωνήστε Μαζί Μας",
+              p1: "Εάν έχετε οποιεσδήποτε ερωτήσεις σχετικά με αυτούς τους Όρους, παρακαλούμε επικοινωνήστε μαζί μας στο g.coci@echopais.com."
+            }
+          },
+          footer: {
+            description: "Δημιουργούμε καινοτόμες λύσεις ήχου για μουσικούς και παραγωγούς παγκοσμίως.",
+            products: "Προϊόντα",
+            padController: "Pad Controller",
+            studio: "Studio",
+            synth: "Synth",
+            pricing: "Τιμολόγηση",
+            company: "Εταιρεία",
+            about: "Σχετικά",
+            blog: "Blog",
+            careers: "Καριέρες",
+            press: "Τύπος",
+            connect: "Σύνδεση",
+            rights: "Με επιφύλαξη παντός δικαιώματος.",
+            privacy: "Πολιτική Απορρήτου",
+            terms: "Όροι Χρήσης",
+            cookies: "Πολιτική Cookies"
+          },
+          cookies: {
+            bannerText: "Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας στον ιστότοπό μας. Συνεχίζοντας την περιήγηση, συμφωνείτε με τη χρήση των cookies.",
+            settings: "Ρυθμίσεις",
+            accept: "Αποδοχή Όλων"
+          }
+        },
+        // Add translations for other languages as needed
+      };
+      
+      // Function to update language
+      function updateLanguage(lang) {
+        console.log("Updating language to:", lang);
+        
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const keys = element.getAttribute('data-i18n').split('.');
+          let value = content[lang];
+          
+          // Navigate through the nested object
+          for (const key of keys) {
+            if (value && value[key]) {
+              value = value[key];
+            } else {
+              console.warn(`Translation missing for ${keys.join('.')} in ${lang}`);
+              return;
+            }
+          }
+          
+          // Special handling for buttons with SVG
+          if (element.tagName === 'BUTTON' || element.tagName === 'A') {
+            const svg = element.querySelector('svg');
+            if (svg) {
+              // Keep the SVG and update only the text
+              const svgClone = svg.cloneNode(true);
+              const textNode = document.createTextNode(' ' + value);
+              element.innerHTML = '';
+              element.appendChild(svgClone);
+              element.appendChild(textNode);
+            } else {
+              element.textContent = value;
+            }
+          } else {
+            element.textContent = value;
+          }
+        });
+        
+        // Update the language button
+        const langButton = document.querySelector('.lang-button img');
+        if (langButton) {
+          langButton.src = `https://flagcdn.com/${lang === 'gr' ? 'gr' : lang}.svg`;
+          const langNames = {
+            'en': 'English',
+            'gr': 'Ελληνικά',
+            'es': 'Español',
+            'it': 'Italiano',
+            'de': 'Deutsch',
+            'fr': 'Français',
+            'ru': 'Русский',
+            'ar': 'العربية',
+            'bg': 'Български',
+            'al': 'Shqip',
+            'tr': 'Türkçe',
+            'pt': 'Português',
+            'nl': 'Nederlands',
+            'ja': '日本語',
+            'zh': '中文'
+          };
+          langButton.alt = langNames[lang] || 'Language';
+        }
+        
+        // Save selected language to localStorage
+        localStorage.setItem('selectedLanguage', lang);
+      }
+      
+      // Add language switching functionality
+      const languageItems = document.querySelectorAll('.dropdown-item');
+      
+      languageItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          const lang = this.getAttribute('data-lang');
+          console.log("Language clicked:", lang);
+          updateLanguage(lang);
+        });
+      });
+      
+      // Load saved language if exists
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      if (savedLanguage && content[savedLanguage]) {
+        console.log("Loading saved language:", savedLanguage);
+        updateLanguage(savedLanguage);
+      }
+      
+      // Cookie consent functionality
+      function showCookieBanner() {
+        const cookieBanner = document.getElementById('cookieBanner');
+        if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
+          cookieBanner.style.display = 'block';
         }
       }
+      
+      function acceptCookies() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        const cookieBanner = document.getElementById('cookieBanner');
+        if (cookieBanner) {
+          cookieBanner.style.display = 'none';
+        }
+      }
+      
+      // Show cookie banner on page load
+      showCookieBanner();
+      
+      // Make acceptCookies function globally available
+      window.acceptCookies = acceptCookies;
     });
   </script>
 </body>
