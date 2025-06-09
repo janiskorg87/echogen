@@ -956,9 +956,11 @@
           </nav>
           
           <div class="language-selector">
-            <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
-            <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+            <select id="lang-select" class="lang-btn" onchange="changeLanguage(this.value)">
+              <option value="en">🇬🇧 English</option>
+              <option value="de">🇩🇪 Deutsch</option>
+              <option value="el">🇬🇷 Ελληνικά</option>
+            </select>
           </div>
         </div>
       </div>
@@ -2922,11 +2924,17 @@
     function changeLanguage(lang) {
       currentLanguage = lang;
       
-      // Update active button
+      // Update active button (if buttons exist)
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
+        if (btn.value === lang || btn.textContent.includes(lang.toUpperCase())) {
+          btn.classList.add('active');
+        }
       });
-      event.target.classList.add('active');
+
+      // Update select value (if select exists)
+      const select = document.getElementById('lang-select');
+      if (select) select.value = lang;
       
       // Update all translatable elements
       document.querySelectorAll('[data-translate]').forEach(element => {
