@@ -62,7 +62,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
+      padding: 1rem 0;
+      flex-wrap: wrap;
       gap: 1rem;
     }
     
@@ -784,29 +785,22 @@
     /* Responsive */
     @media (max-width: 768px) {
       .header-content {
-          flex-direction: row;
-          align-items: center;
-          flex-wrap: nowrap; /* <-- άλλαξε από wrap σε nowrap */
-          gap: 0.5rem;       /* <-- μικρότερο gap */
-        }
-        .header-right {
-          gap: 0.5rem;       /* <-- μικρότερο gap */
-        }
-        .logo-container {
-          gap: 0.5rem;       /* <-- μικρότερο gap */
-        }
-        .language-selector {
-          min-width: unset;
-          max-width: 120px;
-        }
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
       }
-      
-      .hero-section {
-        padding: 4rem 1.5rem;
+      .logo-container {
+        flex-shrink: 0;
       }
-      
-      .hero-title {
-        font-size: 2.5rem;
+      .nav-links {
+        flex: 1 1 auto;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .language-selector {
+        margin-left: auto;
+        flex-shrink: 0;
       }
     }
     /* Cookie Banner */
@@ -945,21 +939,17 @@
             <p data-translate="subtitle">MIDI CONTROLLER SYSTEM</p>
           </div>
         </div>
-        
-        <div class="header-right">
-          <nav class="nav-links">
-            <a href="#products" class="nav-link" data-translate="nav-products">Products</a>
-            <a href="#hardware" class="nav-link" data-translate="nav-hardware">Hardware</a>
-            <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
-          </nav>
-          
-          <div class="language-selector">
-            <select id="lang-select" class="lang-btn" onchange="changeLanguage(this.value)">
-              <option value="en">🇬🇧 English</option>
-              <option value="de">🇩🇪 Deutsch</option>
-              <option value="el">🇬🇷 Ελληνικά</option>
-            </select>
-          </div>
+        <nav class="nav-links">
+          <a href="#products" class="nav-link" data-translate="nav-products">Products</a>
+          <a href="#hardware" class="nav-link" data-translate="nav-hardware">Hardware</a>
+          <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+        </nav>
+        <div class="language-selector">
+          <select id="lang-select" class="lang-btn" onchange="changeLanguage(this.value)">
+            <option value="en">🇬🇧 English</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="el">🇬🇷 Ελληνικά</option>
+          </select>
         </div>
       </div>
     </div>
