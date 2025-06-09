@@ -783,23 +783,24 @@
       align-items: center;
       gap: 1rem;
       padding: 1rem 0;
+      flex-wrap: nowrap;
     }
 
     .nav-links {
       display: flex;
-      justify-content: center;
       gap: 1.5rem;
-      margin-top: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      flex: 1 1 auto;
     }
 
     @media (max-width: 768px) {
       .header-top {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: stretch;
         gap: 0.5rem;
       }
       .nav-links {
-        flex-direction: row;
         justify-content: center;
         gap: 1rem;
         margin-top: 0.5rem;
@@ -942,6 +943,11 @@
             <p data-translate="subtitle">MIDI SYSTEM</p>
           </div>
         </div>
+        <nav class="nav-links">
+          <a href="#products" class="nav-link" data-translate="nav-products">Products</a>
+          <a href="#hardware" class="nav-link" data-translate="nav-hardware">Hardware</a>
+          <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+        </nav>
         <div class="language-selector">
           <select id="lang-select" class="lang-btn" onchange="changeLanguage(this.value)">
             <option value="en">🇬🇧 English</option>
@@ -950,11 +956,6 @@
           </select>
         </div>
       </div>
-      <nav class="nav-links">
-        <a href="#products" class="nav-link" data-translate="nav-products">Products</a>
-        <a href="#hardware" class="nav-link" data-translate="nav-hardware">Hardware</a>
-        <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
-      </nav>
     </div>
   </header>
 
