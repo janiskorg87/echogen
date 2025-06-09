@@ -810,6 +810,25 @@
       .hero-title {
         font-size: 2.5rem;
       }
+      .form-message {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .message.success {
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #22c55e;
+      }
+
+      .message.error {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #ef4444;
+      }
     }
   </style>
 </head>
@@ -2389,7 +2408,8 @@
               </svg>
               <span data-translate="btn-send">Send Message</span>
             </button>
-          </form>
+            </form>
+          <div id="form-message" class="form-message"></div>
         </div>
       </div>
     </section>
@@ -2851,6 +2871,36 @@
         header.style.background = 'rgba(24, 24, 27, 0.98)';
       } else {
         header.style.background = 'rgba(24, 24, 27, 0.95)';
+      }
+    });
+  <script>
+    const form = document.getElementById('contact-form');
+    const messageDiv = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://formspree.io/f/xkgrlvnz', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        });
+
+        if (response.ok) {
+          messageDiv.textContent = '✅ Your message was sent successfully!';
+          messageDiv.className = 'message success';
+          form.reset();
+        } else {
+          messageDiv.textContent = '❌ Something went wrong. Please try again.';
+          messageDiv.className = 'message error';
+        }
+      } catch (error) {
+        messageDiv.textContent = '❌ Network error. Please try again.';
+        messageDiv.className = 'message error';
       }
     });
   </script>
