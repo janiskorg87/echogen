@@ -2370,6 +2370,123 @@
       </p>
     </section>
     
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="contact-title">Get In Touch</h2>
+        <p class="section-subtitle" data-translate="contact-subtitle">
+          Questions about our products? Need technical support? We're here to help with your MIDI needs.
+        </p>
+      </div>
+      
+      <div class="contact-form">
+        <div class="form-card">
+          <!-- Success/Error Message -->
+          <div id="form-message" class="form-message" style="display: none;"></div>
+          
+          <form id="contact-form" action="https://formspree.io/f/xkgrlvnz" method="POST">
+            <div class="form-group">
+              <label for="name" class="form-label" data-translate="form-name">Name</label>
+              <input type="text" id="name" name="name" class="form-input" data-translate-placeholder="form-name-placeholder" placeholder="Your name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject" class="form-label" data-translate="form-subject">Subject</label>
+              <select id="subject" name="subject" class="form-input" required>
+                <option value="" data-translate="form-select-subject">Select a subject</option>
+                <option value="ios-app" data-translate="form-ios-support">iOS App Support</option>
+                <option value="android-app" data-translate="form-android-support">Android App Support</option>
+                <option value="hardware" data-translate="form-hardware-support">Hardware Support</option>
+                <option value="sales" data-translate="form-sales">Sales Inquiry</option>
+                <option value="other" data-translate="form-other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label" data-translate="form-message">Message</label>
+              <textarea id="message" name="message" class="form-textarea" data-translate-placeholder="form-message-placeholder" placeholder="Your message..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block btn-icon" id="submit-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span data-translate="btn-send">Send Message</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  <footer>
+    <p>Echopais MIDI Products, Copyright &copy; 2024</p>
+  </footer>
+
+  <div class="language-switcher">
+    <button class="lang-btn active" onclick="changeLanguage('en')">English</button>
+    <button class="lang-btn" onclick="changeLanguage('de')">Deutsch</button>
+    <button class="lang-btn" onclick="changeLanguage('el')">Ελληνικά</button>
+  </div>
+
+  <script>
+    // Language translations (κρατάμε τα υπάρχοντα translations...)
+    const translations = {
+      en: {
+        'contact-title': 'Get In Touch',
+        'contact-subtitle': 'Questions about our products? Need technical support? We\'re here to help with your MIDI needs.',
+        'form-name': 'Name',
+        'form-name-placeholder': 'Your name',
+        'form-subject': 'Subject',
+        'form-select-subject': 'Select a subject',
+        'form-ios-support': 'iOS App Support',
+        'form-android-support': 'Android App Support',
+        'form-hardware-support': 'Hardware Support',
+        'form-sales': 'Sales Inquiry',
+        'form-other': 'Other',
+        'form-message': 'Message',
+        'form-message-placeholder': 'Your message...',
+        'btn-send': 'Send Message'
+      },
+      de: {
+        'contact-title': 'Kontakt',
+        'contact-subtitle': 'Fragen zu unseren Produkten? Benötigen Sie technischen Support? Wir sind hier, um Ihnen bei Ihren MIDI-Bedürfnissen zu helfen.',
+        'form-name': 'Name',
+        'form-name-placeholder': 'Ihr Name',
+        'form-subject': 'Betreff',
+        'form-select-subject': 'Wählen Sie einen Betreff',
+        'form-ios-support': 'iOS App Support',
+        'form-android-support': 'Android App Support',
+        'form-hardware-support': 'Hardware Support',
+        'form-sales': 'Vertriebsanfrage',
+        'form-other': 'Sonstiges',
+        'form-message': 'Nachricht',
+        'form-message-placeholder': 'Ihre Nachricht...',
+        'btn-send': 'Nachricht Senden'
+      },
+      el: {
+        'contact-title': 'Επικοινωνήστε Μαζί Μας',
+        'contact-subtitle': 'Ερωτήσεις σχετικά με τα προϊόντα μας; Χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να σας βοηθήσουμε με τις ανάγκες σας σε MIDI.',
+        'form-name': 'Όνομα',
+        'form-name-placeholder': 'Το όνομά σας',
+        'form-subject': 'Θέμα',
+        'form-select-subject': 'Επιλέξτε ένα θέμα',
+        'form-ios-support': 'Υποστήριξη iOS App',
+        'form-android-support': 'Υποστήριξη Android App',
+        'form-hardware-support': 'Υποστήριξη Υλικού',
+        'form-sales': 'Ερώτηση Πωλήσεων',
+        'form-other': 'Άλλο',
+        'form-message': 'Μήνυμα',
+        'form-message-placeholder': 'Το μήνυμά σας...',
+        'btn-send': 'Αποστολή Μηνύματος'
+      }
+    };
+
   </main>
 
   <!-- Footer -->
@@ -2748,123 +2865,6 @@
         'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
         'scaler-description': 'Προηγμένος scaler για keyboard synthesizers',
         'footer-hardware-note': 'Hardware από πιστοποιημένους κατασκευαστές & Partners | MIDI Firmware από ECHOPAIS'
-      }
-    };
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-      <div class="section-header">
-        <h2 class="section-title" data-translate="contact-title">Get In Touch</h2>
-        <p class="section-subtitle" data-translate="contact-subtitle">
-          Questions about our products? Need technical support? We're here to help with your MIDI needs.
-        </p>
-      </div>
-      
-      <div class="contact-form">
-        <div class="form-card">
-          <!-- Success/Error Message -->
-          <div id="form-message" class="form-message" style="display: none;"></div>
-          
-          <form id="contact-form" action="https://formspree.io/f/xkgrlvnz" method="POST">
-            <div class="form-group">
-              <label for="name" class="form-label" data-translate="form-name">Name</label>
-              <input type="text" id="name" name="name" class="form-input" data-translate-placeholder="form-name-placeholder" placeholder="Your name" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="subject" class="form-label" data-translate="form-subject">Subject</label>
-              <select id="subject" name="subject" class="form-input" required>
-                <option value="" data-translate="form-select-subject">Select a subject</option>
-                <option value="ios-app" data-translate="form-ios-support">iOS App Support</option>
-                <option value="android-app" data-translate="form-android-support">Android App Support</option>
-                <option value="hardware" data-translate="form-hardware-support">Hardware Support</option>
-                <option value="sales" data-translate="form-sales">Sales Inquiry</option>
-                <option value="other" data-translate="form-other">Other</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="message" class="form-label" data-translate="form-message">Message</label>
-              <textarea id="message" name="message" class="form-textarea" data-translate-placeholder="form-message-placeholder" placeholder="Your message..." required></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-block btn-icon" id="submit-btn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-              <span data-translate="btn-send">Send Message</span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-  <footer>
-    <p>Echopais MIDI Products, Copyright &copy; 2024</p>
-  </footer>
-
-  <div class="language-switcher">
-    <button class="lang-btn active" onclick="changeLanguage('en')">English</button>
-    <button class="lang-btn" onclick="changeLanguage('de')">Deutsch</button>
-    <button class="lang-btn" onclick="changeLanguage('el')">Ελληνικά</button>
-  </div>
-
-  <script>
-    // Language translations (κρατάμε τα υπάρχοντα translations...)
-    const translations = {
-      en: {
-        'contact-title': 'Get In Touch',
-        'contact-subtitle': 'Questions about our products? Need technical support? We\'re here to help with your MIDI needs.',
-        'form-name': 'Name',
-        'form-name-placeholder': 'Your name',
-        'form-subject': 'Subject',
-        'form-select-subject': 'Select a subject',
-        'form-ios-support': 'iOS App Support',
-        'form-android-support': 'Android App Support',
-        'form-hardware-support': 'Hardware Support',
-        'form-sales': 'Sales Inquiry',
-        'form-other': 'Other',
-        'form-message': 'Message',
-        'form-message-placeholder': 'Your message...',
-        'btn-send': 'Send Message'
-      },
-      de: {
-        'contact-title': 'Kontakt',
-        'contact-subtitle': 'Fragen zu unseren Produkten? Benötigen Sie technischen Support? Wir sind hier, um Ihnen bei Ihren MIDI-Bedürfnissen zu helfen.',
-        'form-name': 'Name',
-        'form-name-placeholder': 'Ihr Name',
-        'form-subject': 'Betreff',
-        'form-select-subject': 'Wählen Sie einen Betreff',
-        'form-ios-support': 'iOS App Support',
-        'form-android-support': 'Android App Support',
-        'form-hardware-support': 'Hardware Support',
-        'form-sales': 'Vertriebsanfrage',
-        'form-other': 'Sonstiges',
-        'form-message': 'Nachricht',
-        'form-message-placeholder': 'Ihre Nachricht...',
-        'btn-send': 'Nachricht Senden'
-      },
-      el: {
-        'contact-title': 'Επικοινωνήστε Μαζί Μας',
-        'contact-subtitle': 'Ερωτήσεις σχετικά με τα προϊόντα μας; Χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να σας βοηθήσουμε με τις ανάγκες σας σε MIDI.',
-        'form-name': 'Όνομα',
-        'form-name-placeholder': 'Το όνομά σας',
-        'form-subject': 'Θέμα',
-        'form-select-subject': 'Επιλέξτε ένα θέμα',
-        'form-ios-support': 'Υποστήριξη iOS App',
-        'form-android-support': 'Υποστήριξη Android App',
-        'form-hardware-support': 'Υποστήριξη Υλικού',
-        'form-sales': 'Ερώτηση Πωλήσεων',
-        'form-other': 'Άλλο',
-        'form-message': 'Μήνυμα',
-        'form-message-placeholder': 'Το μήνυμά σας...',
-        'btn-send': 'Αποστολή Μηνύματος'
       }
     };
 
