@@ -726,29 +726,24 @@
 
     function changeLanguage(lang) {
       currentLanguage = lang;
-      
+
       // Update active button
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       event.target.classList.add('active');
-      
-      // Update all translatable elements
+
+      // Update all translatable elements (including lists)
       document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (translations[lang] && translations[lang][key]) {
-          // Handle lists separately
-          if (key.includes('list')) {
-            // Skip list translation for now, as it requires special handling
-            return;
-          }
           element.textContent = translations[lang][key];
         }
       });
-      
+
       // Update document language
       document.documentElement.lang = lang;
-      
+
       // Store language preference
       localStorage.setItem('echopais-language', lang);
     }
