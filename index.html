@@ -777,30 +777,29 @@
       font-size: 0.875rem;
     }
     
-    .header-row {
+    .header-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 0;
       gap: 1rem;
-      flex-wrap: nowrap;
+      padding: 1rem 0;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
-      align-items: center;
       justify-content: center;
-      flex: 1 1 auto;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
     }
 
     @media (max-width: 768px) {
-      .header-row {
-        flex-direction: column;
-        align-items: stretch;
+      .header-top {
+        flex-direction: row;
+        align-items: center;
         gap: 0.5rem;
       }
       .nav-links {
+        flex-direction: row;
         justify-content: center;
         gap: 1rem;
         margin-top: 0.5rem;
@@ -935,7 +934,7 @@
   <!-- Header -->
   <header>
     <div class="container">
-      <div class="header-row">
+      <div class="header-top">
         <div class="logo-container">
           <img src="echopais.png" alt="Echopais Logo" class="logo-box" style="width: 56px; height: 56px;">
           <div class="logo-text">
@@ -943,11 +942,6 @@
             <p data-translate="subtitle">MIDI CONTROLLER SYSTEM</p>
           </div>
         </div>
-        <nav class="nav-links">
-          <a href="#products" class="nav-link" data-translate="nav-products">Products</a>
-          <a href="#hardware" class="nav-link" data-translate="nav-hardware">Hardware</a>
-          <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
-        </nav>
         <div class="language-selector">
           <select id="lang-select" class="lang-btn" onchange="changeLanguage(this.value)">
             <option value="en">🇬🇧 English</option>
@@ -956,6 +950,11 @@
           </select>
         </div>
       </div>
+      <nav class="nav-links">
+        <a href="#products" class="nav-link" data-translate="nav-products">Products</a>
+        <a href="#hardware" class="nav-link" data-translate="nav-hardware">Hardware</a>
+        <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+      </nav>
     </div>
   </header>
 
