@@ -906,6 +906,17 @@
       color: var(--zinc-100);
     }
 
+    .cookie-btn-settings {
+      background: transparent;
+      color: var(--orange-400);
+      border: 1px solid var(--orange-500);
+    }
+
+    .cookie-btn-settings:hover {
+      background: rgba(255, 102, 0, 0.1);
+      color: var(--orange-300);
+    }
+
     @media (max-width: 768px) {
       .cookie-content {
         flex-direction: column;
@@ -2677,6 +2688,7 @@
         'cookie-title': 'We use cookies',
         'cookie-text': 'We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.',
         'cookie-learn-more': 'Learn more',
+        'cookie-settings': 'Settings',
         'cookie-decline': 'Decline',
         'cookie-accept': 'Accept All'
       },
@@ -2786,6 +2798,7 @@
         'cookie-title': 'Wir verwenden Cookies',
         'cookie-text': 'Wir verwenden Cookies, um Ihr Browsing-Erlebnis zu verbessern und unseren Traffic zu analysieren. Durch Klicken auf "Alle akzeptieren" stimmen Sie unserer Verwendung von Cookies zu.',
         'cookie-learn-more': 'Mehr erfahren',
+        'cookie-settings': 'Einstellungen',
         'cookie-decline': 'Ablehnen',
         'cookie-accept': 'Alle akzeptieren'
       },
@@ -2895,6 +2908,7 @@
         'cookie-title': 'Χρησιμοποιούμε cookies',
         'cookie-text': 'Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία περιήγησής σας και να αναλύσουμε την κίνησή μας. Κάνοντας κλικ στο "Αποδοχή όλων", συναινείτε στη χρήση cookies.',
         'cookie-learn-more': 'Μάθετε περισσότερα',
+        'cookie-settings': 'Ρυθμίσεις',
         'cookie-decline': 'Απόρριψη',
         'cookie-accept': 'Αποδοχή όλων'
       }
@@ -3030,6 +3044,23 @@
       }
     }
 
+    function showCookieSettings() {
+      // Απλή έκδοση - μπορείς να την κάνεις πιο σύνθετη αργότερα
+      const settingsMessages = {
+        en: 'Cookie Settings:\n\n✓ Essential cookies (always active)\n✓ Analytics cookies\n✓ Marketing cookies\n\nClick OK to accept all or Cancel to decline optional cookies.',
+        de: 'Cookie-Einstellungen:\n\n✓ Wesentliche Cookies (immer aktiv)\n✓ Analyse-Cookies\n✓ Marketing-Cookies\n\nKlicken Sie OK, um alle zu akzeptieren, oder Abbrechen, um optionale Cookies abzulehnen.',
+        el: 'Ρυθμίσεις Cookies:\n\n✓ Απαραίτητα cookies (πάντα ενεργά)\n✓ Analytics cookies\n✓ Marketing cookies\n\nΚάντε κλικ OK για αποδοχή όλων ή Ακύρωση για απόρριψη προαιρετικών cookies.'
+      };
+      
+      const userChoice = confirm(settingsMessages[currentLanguage] || settingsMessages.en);
+      
+      if (userChoice) {
+        acceptCookies();
+      } else {
+        declineCookies();
+      }
+    }
+
     function acceptCookies() {
       localStorage.setItem('cookies-accepted', 'true');
       hideCookieBanner();
@@ -3065,6 +3096,9 @@
       <div class="cookie-buttons">
         <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()" data-translate="cookie-decline">
           Decline
+        </button>
+        <button class="cookie-btn cookie-btn-settings" onclick="showCookieSettings()" data-translate="cookie-settings">
+          Settings
         </button>
         <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()" data-translate="cookie-accept">
           Accept All
