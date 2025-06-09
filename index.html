@@ -811,6 +811,29 @@
         font-size: 2.5rem;
       }
     }
+    /* Form Messages */
+    .form-message {
+      margin-top: 1.5rem;
+      display: none;
+    }
+
+    .success-message {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #22c55e;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+
+    .error-message {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #ef4444;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -2354,7 +2377,7 @@
       
       <div class="contact-form">
         <div class="form-card">
-          <form id="contact-form">
+          <form id="contact-form" action="https://formpress.org/submit/your-form-id-here" method="POST">
             <div class="form-group">
               <label for="name" class="form-label" data-translate="form-name">Name</label>
               <input type="text" id="name" name="name" class="form-input" data-translate-placeholder="form-name-placeholder" placeholder="Your name" required>
@@ -2390,6 +2413,7 @@
               <span data-translate="btn-send">Send Message</span>
             </button>
           </form>
+          <div id="form-message" class="form-message"></div>
         </div>
       </div>
     </section>
@@ -2857,5 +2881,6 @@
       }
     });
   </script>
+<script src="https://formpress.org/js/fp.js"></script>
 </body>
 </html>
