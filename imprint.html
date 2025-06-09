@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imprint - ECHOPAIS MIDI SYSTEM</title>
-  <meta name="description" content="Legal Notice and Imprint for ECHOPAIS MIDI SYSTEM - Professional MIDI Controllers & Applications">
+  <title>Imprint - ECHOPAIS</title>
+  <meta name="description" content="Legal Notice and Imprint for ECHOPAIS - Professional MIDI Controllers & Applications">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Same CSS as privacy.html */
     :root {
       --orange-500: #ff6600;
       --orange-600: #e65c00;
@@ -168,11 +167,6 @@
       margin-bottom: 0.5rem;
     }
     
-    .legal-subtitle {
-      color: var(--zinc-400);
-      font-size: 1rem;
-    }
-    
     .legal-content {
       padding: 3rem 2rem;
     }
@@ -213,12 +207,12 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      margin: 2rem 0;
+      margin-bottom: 2rem;
     }
     
     @media (min-width: 768px) {
       .info-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
       }
     }
     
@@ -229,33 +223,17 @@
       border: 1px solid var(--zinc-600);
     }
     
-    .info-item h4 {
+    .info-label {
+      font-size: 0.875rem;
       color: var(--orange-400);
-      font-size: 1.1rem;
       font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    
-    .info-item p {
-      color: var(--zinc-300);
       margin-bottom: 0.5rem;
     }
     
-    .highlight-box {
-      background: rgba(255, 102, 0, 0.1);
-      border: 1px solid rgba(255, 102, 0, 0.3);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .highlight-box p {
-      color: var(--orange-200);
-      margin-bottom: 1rem;
-    }
-    
-    .highlight-box p:last-child {
-      margin-bottom: 0;
+    .info-value {
+      font-size: 1rem;
+      color: var(--zinc-100);
+      font-weight: 500;
     }
     
     /* Footer */
@@ -321,7 +299,7 @@
           <div class="logo-box">E</div>
           <div class="logo-text">
             <h1>ECHOPAIS</h1>
-            <p data-translate="subtitle">MIDI SYSTEM</p>
+            <p data-translate="subtitle">Professional MIDI Solutions</p>
           </div>
         </div>
         
@@ -343,101 +321,110 @@
     <div class="legal-card">
       <div class="legal-header">
         <h1 class="legal-title" data-translate="title">Legal Notice / Imprint</h1>
-        <p class="legal-subtitle" data-translate="subtitle-text">Impressum according to German law (§5 TMG)</p>
       </div>
       
       <div class="legal-content">
+        <!-- Company Information -->
         <div class="section">
-          <h2 class="section-title" data-translate="section1-title">Business Information</h2>
+          <h2 class="section-title" data-translate="company-title">Company Information</h2>
           <div class="info-grid">
             <div class="info-item">
-              <h4 data-translate="business-name">Business Name</h4>
-              <p>ECHOPAIS</p>
+              <div class="info-label" data-translate="company-name">Business Name</div>
+              <div class="info-value">Echopais</div>
             </div>
             <div class="info-item">
-              <h4 data-translate="owner">Owner / Managing Director</h4>
-              <p>Gentian Coci</p>
+              <div class="info-label" data-translate="owner">Owner / Managing Director</div>
+              <div class="info-value">Gentian Coci</div>
             </div>
             <div class="info-item">
-              <h4 data-translate="business-type">Business Type</h4>
-              <p data-translate="business-type-value">Sole Proprietorship (Kleinunternehmer)</p>
+              <div class="info-label" data-translate="address">Address</div>
+              <div class="info-value">Lagesche Str. 54<br>33813 Oerlinghausen<br>Germany</div>
             </div>
             <div class="info-item">
-              <h4 data-translate="address">Registered Address</h4>
-              <p>Lagesche Str. 54<br>33813 Oerlinghausen<br>Germany</p>
+              <div class="info-label" data-translate="tax-number">Tax Number</div>
+              <div class="info-value">313/5061/3762</div>
             </div>
             <div class="info-item">
-              <h4 data-translate="contact">Contact Information</h4>
-              <p>Email: g.coci@echopais.com<br>Phone: +49 176 70795385</p>
+              <div class="info-label" data-translate="vat-id">VAT ID</div>
+              <div class="info-value">DE454417717</div>
             </div>
             <div class="info-item">
-              <h4 data-translate="tax">Tax Information</h4>
-              <p data-translate="tax-info">Kleinunternehmerregelung according to §19 UStG<br>USt-IdNr.: DE[XXXXXXXXX]</p>
+              <div class="info-label" data-translate="business-activity">Business Activity</div>
+              <div class="info-value" data-translate="activity-description">App development and online sales</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label" data-translate="start-date">Start Date</div>
+              <div class="info-value">14/05/2025</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label" data-translate="contact-email">Contact Email</div>
+              <div class="info-value">g.coci@echopais.com</div>
             </div>
           </div>
         </div>
 
+        <!-- Business Activities -->
         <div class="section">
-          <h2 class="section-title" data-translate="section2-title">Business Activities</h2>
+          <h2 class="section-title" data-translate="activities-title">Business Activities</h2>
           <div class="section-content">
-            <p data-translate="section2-content">
-              <strong>Primary Activities:</strong> Development and distribution of MIDI software applications for iOS and Android platforms. Modification and resale of ESP32 hardware with custom MIDI firmware.
+            <p data-translate="activities-content1">
+              <strong>Echopais</strong> specializes in the development of professional MIDI applications for iOS and Android platforms, as well as the distribution of custom hardware solutions for music production.
             </p>
-            <p data-translate="section2-content2">
-              <strong>Products & Services:</strong> iOS/Android MIDI applications, Custom MIDI firmware development, ESP32 hardware modification and resale, Technical support for MIDI software.
+            <p data-translate="activities-content2">
+              <strong>Software Development:</strong> We create and maintain professional MIDI applications including scalers, editors, and control interfaces for mobile devices.
+            </p>
+            <p data-translate="activities-content3">
+              <strong>Hardware Distribution:</strong> We source hardware components from various certified manufacturers globally and integrate them with our custom MIDI firmware to create complete solutions for musicians and producers.
             </p>
           </div>
         </div>
 
+        <!-- Product Responsibilities -->
         <div class="section">
-          <h2 class="section-title" data-translate="section3-title">Hardware Business Model</h2>
+          <h2 class="section-title" data-translate="responsibilities-title">Product Responsibilities</h2>
           <div class="section-content">
-            <div class="highlight-box">
-              <p data-translate="hardware-model1">
-                <strong>Independent Hardware Reseller:</strong> ECHOPAIS operates as an independent business that purchases ESP32 hardware from various manufacturers (including Waveshare) through regular commercial channels such as direct purchase, Amazon, and other authorized retailers.
-              </p>
-              <p data-translate="hardware-model2">
-                <strong>Value-Added Reseller:</strong> We modify purchased hardware by installing our proprietary MIDI firmware and software, then resell the complete units as enhanced MIDI controllers. We are not authorized dealers, distributors, or partners of the hardware manufacturers.
-              </p>
-              <p data-translate="hardware-model3">
-                <strong>Legal Compliance:</strong> All hardware is purchased legally through commercial channels. Original manufacturer warranties remain with the manufacturers. ECHOPAIS provides additional warranty only for our custom software modifications.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title" data-translate="section4-title">Intellectual Property</h2>
-          <div class="section-content">
-            <p data-translate="section4-content1">
-              <strong>ECHOPAIS Owned:</strong> All MIDI firmware, software applications, custom code, and software modifications are proprietary intellectual property of ECHOPAIS. Unauthorized copying, modification, or redistribution is prohibited.
+            <p data-translate="responsibilities-content1">
+              <strong>MIDI Software & Applications:</strong> All mobile applications, firmware, and software solutions are developed, maintained, and supported exclusively by Echopais.
             </p>
-            <p data-translate="section4-content2">
-              <strong>Third-Party Owned:</strong> ESP32 hardware designs, manufacturing, and base firmware remain the intellectual property of their respective manufacturers (Waveshare, Espressif, etc.). We respect all third-party intellectual property rights.
+            <p data-translate="responsibilities-content2">
+              <strong>Hardware Components:</strong> Physical hardware components are sourced from various certified manufacturers worldwide. Original hardware warranties and manufacturing support are provided by the respective manufacturers.
+            </p>
+            <p data-translate="responsibilities-content3">
+              <strong>Integrated Solutions:</strong> Echopais provides warranty and support for the integration of custom firmware with hardware components, creating complete MIDI control solutions.
             </p>
           </div>
         </div>
 
+        <!-- Legal Disclaimer -->
         <div class="section">
-          <h2 class="section-title" data-translate="section5-title">Liability & Warranty</h2>
+          <h2 class="section-title" data-translate="disclaimer-title">Legal Disclaimer</h2>
           <div class="section-content">
-            <p data-translate="section5-content1">
-              <strong>Software Liability:</strong> ECHOPAIS is fully responsible for the functionality, support, and warranty of our custom MIDI software and firmware modifications.
+            <p data-translate="disclaimer-content1">
+              <strong>Software Liability:</strong> Echopais is fully responsible for all software functionality, MIDI firmware performance, and application support.
             </p>
-            <p data-translate="section5-content2">
-              <strong>Hardware Liability:</strong> Hardware defects, manufacturing issues, and base hardware functionality remain the responsibility of the original manufacturers. Customers should contact manufacturers directly for hardware-related issues.
+            <p data-translate="disclaimer-content2">
+              <strong>Hardware Liability:</strong> Hardware defects, manufacturing issues, and component-level technical problems are the responsibility of the respective hardware manufacturers.
             </p>
-            <p data-translate="section5-content3">
-              <strong>Limitation:</strong> ECHOPAIS liability is limited to the software modifications and custom firmware we provide. We are not liable for hardware failures or defects in the base hardware products.
+            <p data-translate="disclaimer-content3">
+              <strong>App Store Distribution:</strong> iOS and Android applications are distributed through Apple App Store and Google Play Store respectively, subject to their terms and conditions.
+            </p>
+            <p data-translate="disclaimer-content4">
+              <strong>Information Accuracy:</strong> All information on this website is provided "as is" without warranty. We strive to keep information current and accurate but cannot guarantee completeness.
             </p>
           </div>
         </div>
 
+        <!-- Contact Information -->
         <div class="section">
-          <h2 class="section-title" data-translate="section6-title">Dispute Resolution</h2>
+          <h2 class="section-title" data-translate="contact-title">Contact Information</h2>
           <div class="section-content">
-            <p data-translate="section6-content">
-              <strong>Jurisdiction:</strong> German law applies to all business relationships. Place of jurisdiction is Bielefeld, Germany. We are not obligated to participate in dispute resolution procedures before consumer arbitration boards.
+            <p data-translate="contact-content1">
+              For inquiries regarding our MIDI software, applications, or integrated hardware solutions, please contact us at:
+            </p>
+            <p>
+              <strong>Email:</strong> g.coci@echopais.com<br>
+              <strong data-translate="business-hours">Business Hours:</strong> <span data-translate="hours">Monday - Friday, 9:00 - 17:00 CET</span><br>
+              <strong data-translate="response-time">Response Time:</strong> <span data-translate="response-info">Within 24-48 hours</span>
             </p>
           </div>
         </div>
@@ -455,8 +442,8 @@
           <a href="terms.html" data-translate="nav-terms">Terms of Service</a>
           <a href="cookies.html" data-translate="nav-cookies">Cookie Policy</a>
         </div>
-        <p>© 2024 ECHOPAIS. <span data-translate="footer-rights">All rights reserved</span>.</p>
-        <p data-translate="footer-note">Independent reseller of ESP32 hardware with custom MIDI firmware</p>
+        <p>© 2024 Echopais. <span data-translate="footer-rights">All rights reserved</span>.</p>
+        <p data-translate="footer-note">Professional MIDI solutions and hardware integration</p>
       </div>
     </div>
   </footer>
@@ -464,113 +451,121 @@
   <script>
     const translations = {
       en: {
-        'subtitle': 'MIDI SYSTEM',
+        'subtitle': 'Professional MIDI Solutions',
         'nav-home': 'Home',
         'title': 'Legal Notice / Imprint',
-        'subtitle-text': 'Impressum according to German law (§5 TMG)',
-        'section1-title': 'Business Information',
-        'business-name': 'Business Name',
+        'company-title': 'Company Information',
+        'company-name': 'Business Name',
         'owner': 'Owner / Managing Director',
-        'business-type': 'Business Type',
-        'business-type-value': 'Sole Proprietorship (Kleinunternehmer)',
-        'address': 'Registered Address',
-        'contact': 'Contact Information',
-        'tax': 'Tax Information',
-        'tax-info': 'Kleinunternehmerregelung according to §19 UStG\nUSt-IdNr.: DE[XXXXXXXXX]',
-        'section2-title': 'Business Activities',
-        'section2-content': 'Primary Activities: Development and distribution of MIDI software applications for iOS and Android platforms. Modification and resale of ESP32 hardware with custom MIDI firmware.',
-        'section2-content2': 'Products & Services: iOS/Android MIDI applications, Custom MIDI firmware development, ESP32 hardware modification and resale, Technical support for MIDI software.',
-        'section3-title': 'Hardware Business Model',
-        'hardware-model1': 'Independent Hardware Reseller: ECHOPAIS operates as an independent business that purchases ESP32 hardware from various manufacturers (including Waveshare) through regular commercial channels such as direct purchase, Amazon, and other authorized retailers.',
-        'hardware-model2': 'Value-Added Reseller: We modify purchased hardware by installing our proprietary MIDI firmware and software, then resell the complete units as enhanced MIDI controllers. We are not authorized dealers, distributors, or partners of the hardware manufacturers.',
-        'hardware-model3': 'Legal Compliance: All hardware is purchased legally through commercial channels. Original manufacturer warranties remain with the manufacturers. ECHOPAIS provides additional warranty only for our custom software modifications.',
-        'section4-title': 'Intellectual Property',
-        'section4-content1': 'ECHOPAIS Owned: All MIDI firmware, software applications, custom code, and software modifications are proprietary intellectual property of ECHOPAIS. Unauthorized copying, modification, or redistribution is prohibited.',
-        'section4-content2': 'Third-Party Owned: ESP32 hardware designs, manufacturing, and base firmware remain the intellectual property of their respective manufacturers (Waveshare, Espressif, etc.). We respect all third-party intellectual property rights.',
-        'section5-title': 'Liability & Warranty',
-        'section5-content1': 'Software Liability: ECHOPAIS is fully responsible for the functionality, support, and warranty of our custom MIDI software and firmware modifications.',
-        'section5-content2': 'Hardware Liability: Hardware defects, manufacturing issues, and base hardware functionality remain the responsibility of the original manufacturers. Customers should contact manufacturers directly for hardware-related issues.',
-        'section5-content3': 'Limitation: ECHOPAIS liability is limited to the software modifications and custom firmware we provide. We are not liable for hardware failures or defects in the base hardware products.',
-        'section6-title': 'Dispute Resolution',
-        'section6-content': 'Jurisdiction: German law applies to all business relationships. Place of jurisdiction is Bielefeld, Germany. We are not obligated to participate in dispute resolution procedures before consumer arbitration boards.',
+        'address': 'Address',
+        'tax-number': 'Tax Number',
+        'vat-id': 'VAT ID',
+        'business-activity': 'Business Activity',
+        'activity-description': 'App development and online sales',
+        'start-date': 'Start Date',
+        'contact-email': 'Contact Email',
+        'activities-title': 'Business Activities',
+        'activities-content1': 'Echopais specializes in the development of professional MIDI applications for iOS and Android platforms, as well as the distribution of custom hardware solutions for music production.',
+        'activities-content2': 'Software Development: We create and maintain professional MIDI applications including scalers, editors, and control interfaces for mobile devices.',
+        'activities-content3': 'Hardware Distribution: We source hardware components from various certified manufacturers globally and integrate them with our custom MIDI firmware to create complete solutions for musicians and producers.',
+        'responsibilities-title': 'Product Responsibilities',
+        'responsibilities-content1': 'MIDI Software & Applications: All mobile applications, firmware, and software solutions are developed, maintained, and supported exclusively by Echopais.',
+        'responsibilities-content2': 'Hardware Components: Physical hardware components are sourced from various certified manufacturers worldwide. Original hardware warranties and manufacturing support are provided by the respective manufacturers.',
+        'responsibilities-content3': 'Integrated Solutions: Echopais provides warranty and support for the integration of custom firmware with hardware components, creating complete MIDI control solutions.',
+        'disclaimer-title': 'Legal Disclaimer',
+        'disclaimer-content1': 'Software Liability: Echopais is fully responsible for all software functionality, MIDI firmware performance, and application support.',
+        'disclaimer-content2': 'Hardware Liability: Hardware defects, manufacturing issues, and component-level technical problems are the responsibility of the respective hardware manufacturers.',
+        'disclaimer-content3': 'App Store Distribution: iOS and Android applications are distributed through Apple App Store and Google Play Store respectively, subject to their terms and conditions.',
+        'disclaimer-content4': 'Information Accuracy: All information on this website is provided "as is" without warranty. We strive to keep information current and accurate but cannot guarantee completeness.',
+        'contact-title': 'Contact Information',
+        'contact-content1': 'For inquiries regarding our MIDI software, applications, or integrated hardware solutions, please contact us at:',
+        'business-hours': 'Business Hours',
+        'hours': 'Monday - Friday, 9:00 - 17:00 CET',
+        'response-time': 'Response Time',
+        'response-info': 'Within 24-48 hours',
         'nav-privacy': 'Privacy Policy',
         'nav-terms': 'Terms of Service',
         'nav-cookies': 'Cookie Policy',
         'footer-rights': 'All rights reserved',
-        'footer-note': 'Independent reseller of ESP32 hardware with custom MIDI firmware'
+        'footer-note': 'Professional MIDI solutions and hardware integration'
       },
       de: {
-        'subtitle': 'MIDI SYSTEM',
+        'subtitle': 'Professionelle MIDI-Lösungen',
         'nav-home': 'Startseite',
         'title': 'Impressum',
-        'subtitle-text': 'Impressum nach deutschem Recht (§5 TMG)',
-        'section1-title': 'Unternehmensinformationen',
-        'business-name': 'Unternehmensname',
+        'company-title': 'Firmeninformationen',
+        'company-name': 'Firmenname',
         'owner': 'Inhaber / Geschäftsführer',
-        'business-type': 'Unternehmensform',
-        'business-type-value': 'Einzelunternehmen (Kleinunternehmer)',
-        'address': 'Registrierte Adresse',
-        'contact': 'Kontaktinformationen',
-        'tax': 'Steuerliche Informationen',
-        'tax-info': 'Kleinunternehmerregelung nach §19 UStG\nUSt-IdNr.: DE[XXXXXXXXX]',
-        'section2-title': 'Geschäftstätigkeiten',
-        'section2-content': 'Haupttätigkeiten: Entwicklung und Vertrieb von MIDI-Software-Anwendungen für iOS- und Android-Plattformen. Modifikation und Weiterverkauf von ESP32-Hardware mit benutzerdefinierter MIDI-Firmware.',
-        'section2-content2': 'Produkte & Dienstleistungen: iOS/Android MIDI-Anwendungen, Benutzerdefinierte MIDI-Firmware-Entwicklung, ESP32-Hardware-Modifikation und Weiterverkauf, Technischer Support für MIDI-Software.',
-        'section3-title': 'Hardware-Geschäftsmodell',
-        'hardware-model1': 'Unabhängiger Hardware-Wiederverkäufer: ECHOPAIS operiert als unabhängiges Unternehmen, das ESP32-Hardware von verschiedenen Herstellern (einschließlich Waveshare) über reguläre Handelskanäle wie Direktkauf, Amazon und andere autorisierte Händler erwirbt.',
-        'hardware-model2': 'Value-Added Reseller: Wir modifizieren gekaufte Hardware durch Installation unserer proprietären MIDI-Firmware und -Software und verkaufen dann die kompletten Einheiten als erweiterte MIDI-Controller weiter. Wir sind keine autorisierten Händler, Distributoren oder Partner der Hardware-Hersteller.',
-        'hardware-model3': 'Rechtliche Compliance: Alle Hardware wird legal über Handelskanäle erworben. Ursprüngliche Herstellergarantien verbleiben bei den Herstellern. ECHOPAIS bietet zusätzliche Garantie nur für unsere benutzerdefinierten Software-Modifikationen.',
-        'section4-title': 'Geistiges Eigentum',
-        'section4-content1': 'ECHOPAIS-Eigentum: Alle MIDI-Firmware, Software-Anwendungen, benutzerdefinierter Code und Software-Modifikationen sind proprietäres geistiges Eigentum von ECHOPAIS. Unbefugtes Kopieren, Modifizieren oder Weitervertreiben ist verboten.',
-        'section4-content2': 'Drittanbieter-Eigentum: ESP32-Hardware-Designs, Herstellung und Basis-Firmware bleiben geistiges Eigentum ihrer jeweiligen Hersteller (Waveshare, Espressif, etc.). Wir respektieren alle Rechte an geistigem Eigentum Dritter.',
-        'section5-title': 'Haftung & Garantie',
-        'section5-content1': 'Software-Haftung: ECHOPAIS ist vollständig verantwortlich für die Funktionalität, den Support und die Garantie unserer benutzerdefinierten MIDI-Software und Firmware-Modifikationen.',
-        'section5-content2': 'Hardware-Haftung: Hardware-Defekte, Herstellungsprobleme und Basis-Hardware-Funktionalität bleiben in der Verantwortung der ursprünglichen Hersteller. Kunden sollten Hersteller direkt für hardware-bezogene Probleme kontaktieren.',
-        'section5-content3': 'Beschränkung: Die Haftung von ECHOPAIS ist auf die Software-Modifikationen und benutzerdefinierte Firmware beschränkt, die wir bereitstellen. Wir haften nicht für Hardware-Ausfälle oder Defekte in den Basis-Hardware-Produkten.',
-        'section6-title': 'Streitbeilegung',
-        'section6-content': 'Gerichtsstand: Deutsches Recht gilt für alle Geschäftsbeziehungen. Gerichtsstand ist Bielefeld, Deutschland. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor Verbraucherschlichtungsstellen teilzunehmen.',
+        'address': 'Anschrift',
+        'tax-number': 'Steuernummer',
+        'vat-id': 'USt-IdNr.',
+        'business-activity': 'Gewerbe',
+        'activity-description': 'App-Entwicklung, Online-Verkauf',
+        'start-date': 'Beginn der Tätigkeit',
+        'contact-email': 'Kontakt E-Mail',
+        'activities-title': 'Geschäftstätigkeiten',
+        'activities-content1': 'Echopais spezialisiert sich auf die Entwicklung professioneller MIDI-Anwendungen für iOS- und Android-Plattformen sowie den Vertrieb von benutzerdefinierten Hardware-Lösungen für die Musikproduktion.',
+        'activities-content2': 'Software-Entwicklung: Wir erstellen und pflegen professionelle MIDI-Anwendungen einschließlich Scalern, Editoren und Steuerungsschnittstellen für mobile Geräte.',
+        'activities-content3': 'Hardware-Vertrieb: Wir beziehen Hardware-Komponenten von verschiedenen zertifizierten Herstellern weltweit und integrieren sie mit unserer benutzerdefinierten MIDI-Firmware, um komplette Lösungen für Musiker und Produzenten zu schaffen.',
+        'responsibilities-title': 'Produktverantwortlichkeiten',
+        'responsibilities-content1': 'MIDI-Software & Anwendungen: Alle mobilen Anwendungen, Firmware und Software-Lösungen werden ausschließlich von Echopais entwickelt, gepflegt und unterstützt.',
+        'responsibilities-content2': 'Hardware-Komponenten: Physische Hardware-Komponenten werden von verschiedenen zertifizierten Herstellern weltweit bezogen. Ursprüngliche Hardware-Garantien und Herstellersupport werden von den jeweiligen Herstellern bereitgestellt.',
+        'responsibilities-content3': 'Integrierte Lösungen: Echopais bietet Garantie und Support für die Integration von benutzerdefinierter Firmware mit Hardware-Komponenten und schafft komplette MIDI-Steuerungslösungen.',
+        'disclaimer-title': 'Haftungsausschluss',
+        'disclaimer-content1': 'Software-Haftung: Echopais ist vollständig verantwortlich für alle Software-Funktionalität, MIDI-Firmware-Leistung und Anwendungsunterstützung.',
+        'disclaimer-content2': 'Hardware-Haftung: Hardware-Defekte, Herstellungsprobleme und Probleme auf Komponentenebene liegen in der Verantwortung der jeweiligen Hardware-Hersteller.',
+        'disclaimer-content3': 'App Store-Vertrieb: iOS- und Android-Anwendungen werden über Apple App Store bzw. Google Play Store vertrieben, unterliegen deren Geschäftsbedingungen.',
+        'disclaimer-content4': 'Informationsgenauigkeit: Alle Informationen auf dieser Website werden "wie besehen" ohne Gewähr bereitgestellt. Wir bemühen uns, Informationen aktuell und genau zu halten, können aber keine Vollständigkeit garantieren.',
+        'contact-title': 'Kontaktinformationen',
+        'contact-content1': 'Für Anfragen bezüglich unserer MIDI-Software, Anwendungen oder integrierten Hardware-Lösungen kontaktieren Sie uns bitte unter:',
+        'business-hours': 'Geschäftszeiten',
+        'hours': 'Montag - Freitag, 9:00 - 17:00 MEZ',
+        'response-time': 'Antwortzeit',
+        'response-info': 'Innerhalb von 24-48 Stunden',
         'nav-privacy': 'Datenschutzerklärung',
         'nav-terms': 'Nutzungsbedingungen',
         'nav-cookies': 'Cookie-Richtlinie',
         'footer-rights': 'Alle Rechte vorbehalten',
-        'footer-note': 'Unabhängiger Wiederverkäufer von ESP32-Hardware mit benutzerdefinierter MIDI-Firmware'
+        'footer-note': 'Professionelle MIDI-Lösungen und Hardware-Integration'
       },
       el: {
-        'subtitle': 'MIDI SYSTEM',
+        'subtitle': 'Επαγγελματικές MIDI Λύσεις',
         'nav-home': 'Αρχική',
         'title': 'Νομικές Πληροφορίες / Στοιχεία Επιχείρησης',
-        'subtitle-text': 'Impressum σύμφωνα με το γερμανικό δίκαιο (§5 TMG)',
-        'section1-title': 'Στοιχεία Επιχείρησης',
-        'business-name': 'Όνομα Επιχείρησης',
-        'owner': 'Ιδιοκτήτης / Διευθύνων Σύμβουλος',
-        'business-type': 'Τύπος Επιχείρησης',
-        'business-type-value': 'Ατομική Επιχείρηση (Kleinunternehmer)',
-        'address': 'Εγγεγραμμένη Διεύθυνση',
-        'contact': 'Στοιχεία Επικοινωνίας',
-        'tax': 'Φορολογικές Πληροφορίες',
-        'tax-info': 'Kleinunternehmerregelung σύμφωνα με §19 UStG\nUSt-IdNr.: DE[XXXXXXXXX]',
-        'section2-title': 'Επιχειρηματικές Δραστηριότητες',
-        'section2-content': 'Κύριες Δραστηριότητες: Ανάπτυξη και διανομή MIDI εφαρμογών λογισμικού για iOS και Android πλατφόρμες. Τροποποίηση και μεταπώληση ESP32 hardware με προσαρμοσμένο MIDI firmware.',
-        'section2-content2': 'Προϊόντα & Υπηρεσίες: iOS/Android MIDI εφαρμογές, Ανάπτυξη προσαρμοσμένου MIDI firmware, Τροποποίηση και μεταπώληση ESP32 hardware, Τεχνική υποστήριξη για MIDI λογισμικό.',
-        'section3-title': 'Μοντέλο Επιχείρησης Hardware',
-        'hardware-model1': 'Ανεξάρτητος Μεταπωλητής Hardware: Η ECHOPAIS λειτουργεί ως ανεξάρτητη επιχείρηση που αγοράζει ESP32 hardware από διάφορους κατασκευαστές (συμπεριλαμβανομένης της Waveshare) μέσω κανονικών εμπορικών καναλιών όπως άμεση αγορά, Amazon και άλλους εξουσιοδοτημένους λιανοπωλητές.',
-        'hardware-model2': 'Value-Added Reseller: Τροποποιούμε το αγορασμένο hardware εγκαθιστώντας το ιδιόκτητο MIDI firmware και λογισμικό μας, στη συνέχεια μεταπωλούμε τις πλήρεις μονάδες ως βελτιωμένους MIDI controllers. Δεν είμαστε εξουσιοδοτημένοι έμποροι, διανομείς ή συνεργάτες των κατασκευαστών hardware.',
-        'hardware-model3': 'Νομική Συμμόρφωση: Ό  Δεν είμαστε εξουσιοδοτημένοι έμποροι, διανομείς ή συνεργάτες των κατασκευαστών hardware.',
-        'hardware-model3': 'Νομική Συμμόρφωση: Όλο το hardware αγοράζεται νόμιμα μέσω εμπορικών καναλιών. Οι αρχικές εγγυήσεις κατασκευαστών παραμένουν στους κατασκευαστές. Η ECHOPAIS παρέχει πρόσθετη εγγύηση μόνο για τις προσαρμοσμένες τροποποιήσεις λογισμικού μας.',
-        'section4-title': 'Πνευματική Ιδιοκτησία',
-        'section4-content1': 'Ιδιοκτησία ECHOPAIS: Όλο το MIDI firmware, οι εφαρμογές λογισμικού, ο προσαρμοσμένος κώδικας και οι τροποποιήσεις λογισμικού είναι ιδιόκτητη πνευματική ιδιοκτησία της ECHOPAIS. Η μη εξουσιοδοτημένη αντιγραφή, τροποποίηση ή αναδιανομή απαγορεύεται.',
-        'section4-content2': 'Ιδιοκτησία Τρίτων: Οι σχεδιασμοί ESP32 hardware, η κατασκευή και το βασικό firmware παραμένουν πνευματική ιδιοκτησία των αντίστοιχων κατασκευαστών τους (Waveshare, Espressif, κλπ.). Σεβόμαστε όλα τα δικαιώματα πνευματικής ιδιοκτησίας τρίτων.',
-        'section5-title': 'Ευθύνη & Εγγύηση',
-        'section5-content1': 'Ευθύνη Λογισμικού: Η ECHOPAIS είναι πλήρως υπεύθυνη για τη λειτουργικότητα, την υποστήριξη και την εγγύηση του προσαρμοσμένου MIDI λογισμικού και των τροποποιήσεων firmware μας.',
-        'section5-content2': 'Ευθύνη Hardware: Τα ελαττώματα hardware, τα προβλήματα κατασκευής και η βασική λειτουργικότητα hardware παραμένουν ευθύνη των αρχικών κατασκευαστών. Οι πελάτες πρέπει να επικοινωνούν απευθείας με τους κατασκευαστές για θέματα που σχετίζονται με hardware.',
-        'section5-content3': 'Περιορισμός: Η ευθύνη της ECHOPAIS περιορίζεται στις τροποποιήσεις λογισμικού και το προσαρμοσμένο firmware που παρέχουμε. Δεν φέρουμε ευθύνη για αποτυχίες hardware ή ελαττώματα στα βασικά προϊόντα hardware.',
-        'section6-title': 'Επίλυση Διαφορών',
-        'section6-content': 'Δικαιοδοσία: Το γερμανικό δίκαιο ισχύει για όλες τις επιχειρηματικές σχέσεις. Τόπος δικαιοδοσίας είναι το Bielefeld, Γερμανία. Δεν είμαστε υποχρεωμένοι να συμμετέχουμε σε διαδικασίες επίλυσης διαφορών ενώπιον συμβουλίων διαιτησίας καταναλωτών.',
+        'company-title': 'Στοιχεία Εταιρείας',
+        'company-name': 'Επωνυμία',
+        'owner': 'Ιδιοκτήτης / Διαχειριστής',
+        'address': 'Διεύθυνση',
+        'tax-number': 'ΑΦΜ (Steuernummer)',
+        'vat-id': 'ΑΦΜ Ε.Ε. (USt-IdNr.)',
+        'business-activity': 'Δραστηριότητα',
+        'activity-description': 'Ανάπτυξη εφαρμογών και διαδικτυακές πωλήσεις',
+        'start-date': 'Έναρξη δραστηριότητας',
+        'contact-email': 'Email Επικοινωνίας',
+        'activities-title': 'Επιχειρηματικές Δραστηριότητες',
+        'activities-content1': 'Η Echopais ειδικεύεται στην ανάπτυξη επαγγελματικών MIDI εφαρμογών για πλατφόρμες iOS και Android, καθώς και στη διανομή προσαρμοσμένων hardware λύσεων για μουσική παραγωγή.',
+        'activities-content2': 'Ανάπτυξη Λογισμικού: Δημιουργούμε και συντηρούμε επαγγελματικές MIDI εφαρμογές συμπεριλαμβανομένων scalers, editors και interfaces ελέγχου για mobile συσκευές.',
+        'activities-content3': 'Διανομή Hardware: Προμηθευόμαστε hardware components από διάφορους πιστοποιημένους κατασκευαστές παγκοσμίως και τα ενσωματώνουμε με το προσαρμοσμένο MIDI firmware μας για να δημιουργήσουμε πλήρεις λύσεις για μουσικούς και παραγωγούς.',
+        'responsibilities-title': 'Ευθύνες Προϊόντων',
+        'responsibilities-content1': 'MIDI Λογισμικό & Εφαρμογές: Όλες οι mobile εφαρμογές, firmware και software λύσεις αναπτύσσονται, συντηρούνται και υποστηρίζονται αποκλειστικά από την Echopais.',
+        'responsibilities-content2': 'Hardware Components: Τα φυσικά hardware components προμηθεύονται από διάφορους πιστοποιημένους κατασκευαστές παγκοσμίως. Οι αρχικές hardware εγγυήσεις και η υποστήριξη κατασκευής παρέχονται από τους αντίστοιχους κατασκευαστές.',
+        'responsibilities-content3': 'Ενσωματωμένες Λύσεις: Η Echopais παρέχει εγγύηση και υποστήριξη για την ενσωμάτωση προσαρμοσμένου firmware με hardware components, δημιουργώντας πλήρεις MIDI λύσεις ελέγχου.',
+        'disclaimer-title': 'Αποποίηση Ευθύνης',
+        'disclaimer-content1': 'Ευθύνη Λογισμικού: Η Echopais είναι πλήρως υπεύθυνη για όλη τη λειτουργικότητα λογισμικού, την απόδοση MIDI firmware και την υποστήριξη εφαρμογών.',
+        'disclaimer-content2': 'Ευθύνη Hardware: Ελαττώματα hardware, προβλήματα κατασκευής και τεχνικά προβλήματα σε επίπεδο components είναι ευθύνη των αντίστοιχων κατασκευαστών hardware.',
+        'disclaimer-content3': 'Διανομή App Store: Οι iOS και Android εφαρμογές διανέμονται μέσω Apple App Store και Google Play Store αντίστοιχα, υπόκεινται στους όρους και προϋποθέσεις τους.',
+        'disclaimer-content4': 'Ακρίβεια Πληροφοριών: Όλες οι πληροφορίες σε αυτή την ιστοσελίδα παρέχονται "ως έχουν" χωρίς εγγύηση. Προσπαθούμε να διατηρούμε τις πληροφορίες ενημερωμένες και ακριβείς αλλά δεν μπορούμε να εγγυηθούμε την πληρότητα.',
+        'contact-title': 'Στοιχεία Επικοινωνίας',
+        'contact-content1': 'Για ερωτήματα σχετικά με το MIDI λογισμικό, τις εφαρμογές ή τις ενσωματωμένες hardware λύσεις μας, παρακαλώ επικοινωνήστε μαζί μας στο:',
+        'business-hours': 'Ώρες Λειτουργίας',
+        'hours': 'Δευτέρα - Παρασκευή, 9:00 - 17:00 CET',
+        'response-time': 'Χρόνος Απάντησης',
+        'response-info': 'Εντός 24-48 ωρών',
         'nav-privacy': 'Πολιτική Απορρήτου',
         'nav-terms': 'Όροι Χρήσης',
         'nav-cookies': 'Πολιτική Cookies',
         'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
-        'footer-note': 'Ανεξάρτητος μεταπωλητής ESP32 hardware με προσαρμοσμένο MIDI firmware'
+        'footer-note': 'Επαγγελματικές MIDI λύσεις και ενσωμάτωση hardware'
       }
     };
 
