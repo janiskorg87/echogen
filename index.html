@@ -2674,6 +2674,11 @@
         'footer-rights': 'All rights reserved',
         'scaler-description': 'Advanced scaler for keyboard synthesizers',
         'footer-hardware-note': 'Hardware by certified manufacturers & Partners | MIDI Firmware by ECHOPAIS'
+        'cookie-title': 'We use cookies',
+        'cookie-text': 'We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.',
+        'cookie-learn-more': 'Learn more',
+        'cookie-decline': 'Decline',
+        'cookie-accept': 'Accept All',
       },
       de: {
         'subtitle': 'MIDI CONTROLLER SYSTEM',
@@ -2778,6 +2783,11 @@
         'footer-rights': 'Alle Rechte vorbehalten',
         'scaler-description': 'Erweiterte Scaler für Keyboard-Synthesizer',
         'footer-hardware-note': 'Hardware von zertifizierten Herstellern & Partnern | MIDI-Firmware von ECHOPAIS'
+        'cookie-title': 'Wir verwenden Cookies',
+        'cookie-text': 'Wir verwenden Cookies, um Ihr Browsing-Erlebnis zu verbessern und unseren Traffic zu analysieren. Durch Klicken auf "Alle akzeptieren" stimmen Sie unserer Verwendung von Cookies zu.',
+        'cookie-learn-more': 'Mehr erfahren',
+        'cookie-decline': 'Ablehnen',
+        'cookie-accept': 'Alle akzeptieren',
       },
       el: {
         'subtitle': 'MIDI SYSTEM',
@@ -2882,6 +2892,11 @@
         'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
         'scaler-description': 'Προηγμένος scaler για keyboard synthesizers',
         'footer-hardware-note': 'Hardware από πιστοποιημένους κατασκευαστές & Partners | MIDI Firmware από ECHOPAIS'
+        'cookie-title': 'Χρησιμοποιούμε cookies',
+        'cookie-text': 'Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία περιήγησής σας και να αναλύσουμε την κίνησή μας. Κάνοντας κλικ στο "Αποδοχή όλων", συναινείτε στη χρήση cookies.',
+        'cookie-learn-more': 'Μάθετε περισσότερα',
+        'cookie-decline': 'Απόρριψη',
+        'cookie-accept': 'Αποδοχή όλων',
       }
     };
 
@@ -2997,6 +3012,42 @@
         header.style.background = 'rgba(24, 24, 27, 0.98)';
       } else {
         header.style.background = 'rgba(24, 24, 27, 0.95)';
+      }
+    });
+
+    // Cookie Banner Functions
+    function showCookieBanner() {
+      const banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.add('show');
+      }
+    }
+
+    function hideCookieBanner() {
+      const banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('show');
+      }
+    }
+
+    function acceptCookies() {
+      localStorage.setItem('cookies-accepted', 'true');
+      hideCookieBanner();
+      // Εδώ μπορείς να ενεργοποιήσεις Google Analytics κλπ
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookies-accepted', 'false');
+      hideCookieBanner();
+      // Εδώ μπορείς να απενεργοποιήσεις cookies
+    }
+
+    // Check cookie consent on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const cookiesAccepted = localStorage.getItem('cookies-accepted');
+      if (cookiesAccepted === null) {
+        // Εμφάνισε το banner μετά από 1 δευτερόλεπτο
+        setTimeout(showCookieBanner, 1000);
       }
     });
   </script>
