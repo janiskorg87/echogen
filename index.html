@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ECHOPAIS MIDI SYSTEM - Professional MIDI Controllers & Applications</title>
-  <meta name="description" content="Professional MIDI controllers, iOS/Android applications, and custom hardware solutions by ECHOPAIS MIDI SYSTEM">
+  <meta name="description" content="Professional MIDI controllers, iOS/Android applications, and custom ESP32 hardware solutions by ECHOPAIS MIDI SYSTEM">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -412,6 +412,15 @@
       border: 1px solid var(--zinc-600);
     }
     
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--orange-400);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    
     .product-title {
       font-size: 1.5rem;
       font-weight: 700;
@@ -810,7 +819,7 @@
     <div class="container">
       <div class="header-content">
         <div class="logo-container">
-          <div class="logo-box">E</div>
+          <img src="echopais.png" alt="Echopais Logo" class="logo-box" style="width: 56px; height: 56px;">
           <div class="logo-text">
             <h1>ECHOPAIS</h1>
             <p data-translate="subtitle">MIDI SYSTEM</p>
@@ -878,7 +887,7 @@
     <section class="stats-section">
       <div class="stat-item">
         <div class="stat-icon">📱</div>
-        <div class="stat-value">28</div>
+        <div class="stat-value">12</div>
         <div class="stat-label" data-translate="stat-apps">Mobile Apps</div>
       </div>
       <div class="stat-item">
@@ -905,27 +914,27 @@
         <p class="section-subtitle" data-translate="ios-subtitle">Professional MIDI applications for iPhone and iPad</p>
       </div>
 
+      <!-- Scaler Series -->
       <div class="products-grid">
-        <!-- iOS App 1 -->
+        <!-- Scaler K.K -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>1</span>
-            <span class="product-badge" data-translate="featured">Featured</span>
+            <img src="echopais.png" alt="Scaler K.K" style="max-width: 80%; max-height: 80%;">
           </div>
           <div class="product-content">
             <div class="product-header">
-              <span class="product-category">iOS</span>
+              <span class="product-category">iOS - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
             </div>
-            <h3 class="product-title">MIDI Scaler Pro</h3>
-            <p class="product-description" data-translate="ios-app1-desc">
-              Advanced scaler for all keyboard synthesizers with 3 modes and 3 types. Professional MIDI control with step sequencing.
+            <h3 class="product-title">Scaler K.K</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
             </p>
-            <ul class="product-features">
-              <li data-translate="feature-scaler">Scaler for all keyboards</li>
-              <li data-translate="feature-modes">3 Modes: Momentary/Toggle/OneShot</li>
-              <li data-translate="feature-types">3 Types: CC/Note/SysEx</li>
-              <li data-translate="feature-step">Step sequencing support</li>
-            </ul>
             <div class="product-footer">
               <span class="product-price">€24.99</span>
             </div>
@@ -938,30 +947,242 @@
                 </svg>
                 <span data-translate="btn-appstore">App Store</span>
               </a>
-              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
             </div>
           </div>
         </div>
 
-        <!-- iOS App 2 -->
+        <!-- Scaler K.N -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>2</span>
+            <img src="echopais.png" alt="Scaler K.N" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler K.N</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler K.P -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler K.P" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler K.P</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler K.M -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler K.M" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler K.M</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler Max -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler Max" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler Max</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler Duo -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler Duo" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler Duo</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler Triple -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler Triple" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler Triple</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Individual Apps -->
+      <div class="products-grid">
+        <!-- MIDI Key Editor -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="MIDI Key Editor" style="max-width: 80%; max-height: 80%;">
           </div>
           <div class="product-content">
             <div class="product-header">
               <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
             </div>
-            <h3 class="product-title">MIDI Editor Pro</h3>
-            <p class="product-description" data-translate="ios-app2-desc">
-              Professional key note editor with advanced MIDI control capabilities and real-time parameter adjustment.
+            <h3 class="product-title">MIDI Key Editor</h3>
+            <p class="product-description">
+              Professional key note editor.
             </p>
-            <ul class="product-features">
-              <li data-translate="feature-editor">Key note editor</li>
-              <li data-translate="feature-realtime">Real-time control</li>
-              <li data-translate="feature-parameters">Parameter adjustment</li>
-              <li data-translate="feature-professional">Professional grade</li>
-            </ul>
             <div class="product-footer">
               <span class="product-price">€19.99</span>
             </div>
@@ -974,26 +1195,31 @@
                 </svg>
                 <span data-translate="btn-appstore">App Store</span>
               </a>
-              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
             </div>
           </div>
         </div>
 
-        <!-- iOS App 3 -->
+        <!-- Playtone -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>3</span>
+            <img src="echopais.png" alt="Playtone" style="max-width: 80%; max-height: 80%;">
           </div>
           <div class="product-content">
             <div class="product-header">
               <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
             </div>
-            <h3 class="product-title">MIDI Controller Suite</h3>
-            <p class="product-description" data-translate="ios-app3-desc">
-              Complete MIDI controller suite with customizable interfaces and advanced automation features.
+            <h3 class="product-title">Playtone</h3>
+            <p class="product-description">
+              Professional key note editor.
             </p>
             <div class="product-footer">
-              <span class="product-price">€29.99</span>
+              <span class="product-price">€19.99</span>
             </div>
             <div class="product-buttons">
               <a href="#" class="btn btn-primary btn-block btn-icon">
@@ -1004,7 +1230,289 @@
                 </svg>
                 <span data-translate="btn-appstore">App Store</span>
               </a>
-              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pad Controller V2.2 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Pad Controller V2.2" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">Pad Controller V2.2</h3>
+            <p class="product-description">
+              Professional key note editor.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Pro -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Invoice Pro" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">Invoice Pro</h3>
+            <p class="product-description">
+              Professional key note editor.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Echodosia -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Echodosia" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">Echodosia</h3>
+            <p class="product-description">
+              Professional key note editor.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo Apps -->
+      <div class="products-grid">
+        <!-- Demo 1 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 1" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 1</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 2 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 2" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 2</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 3 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 3" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 3</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 4 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 4" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 4</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 5 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 5" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 5</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
             </div>
           </div>
         </div>
@@ -1018,23 +1526,29 @@
         <p class="section-subtitle" data-translate="android-subtitle">Professional MIDI applications for Android devices</p>
       </div>
 
+      <!-- Scaler Series -->
       <div class="products-grid">
-        <!-- Android App 1 -->
+        <!-- Scaler K.K -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>1</span>
-            <span class="product-badge" data-translate="featured">Featured</span>
+            <img src="echopais.png" alt="Scaler K.K" style="max-width: 80%; max-height: 80%;">
           </div>
           <div class="product-content">
             <div class="product-header">
-              <span class="product-category">Android</span>
+              <span class="product-category">Android - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
             </div>
-            <h3 class="product-title">MIDI Scaler Android</h3>
-            <p class="product-description" data-translate="android-app1-desc">
-              Android version of our professional MIDI scaler with full feature parity and optimized performance.
+            <h3 class="product-title">Scaler K.K</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€22.99</span>
+              <span class="product-price">€24.99</span>
             </div>
             <div class="product-buttons">
               <a href="#" class="btn btn-primary btn-block btn-icon">
@@ -1045,26 +1559,31 @@
                 </svg>
                 <span data-translate="btn-playstore">Google Play</span>
               </a>
-              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
             </div>
           </div>
         </div>
 
-        <!-- Android App 2 -->
+        <!-- Scaler K.N -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>2</span>
+            <img src="echopais.png" alt="Scaler K.N" style="max-width: 80%; max-height: 80%;">
           </div>
           <div class="product-content">
             <div class="product-header">
-              <span class="product-category">Android</span>
+              <span class="product-category">Android - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
             </div>
-            <h3 class="product-title">MIDI Editor Android</h3>
-            <p class="product-description" data-translate="android-app2-desc">
-              Professional MIDI editor for Android with advanced editing capabilities and real-time control.
+            <h3 class="product-title">Scaler K.N</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€18.99</span>
+              <span class="product-price">€24.99</span>
             </div>
             <div class="product-buttons">
               <a href="#" class="btn btn-primary btn-block btn-icon">
@@ -1075,26 +1594,31 @@
                 </svg>
                 <span data-translate="btn-playstore">Google Play</span>
               </a>
-              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
             </div>
           </div>
         </div>
 
-        <!-- Android App 3 -->
+        <!-- Scaler K.P -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>3</span>
+            <img src="echopais.png" alt="Scaler K.P" style="max-width: 80%; max-height: 80%;">
           </div>
           <div class="product-content">
             <div class="product-header">
-              <span class="product-category">Android</span>
+              <span class="product-category">Android - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
             </div>
-            <h3 class="product-title">MIDI Suite Android</h3>
-            <p class="product-description" data-translate="android-app3-desc">
-              Complete MIDI control suite for Android with professional features and customizable interface.
+            <h3 class="product-title">Scaler K.P</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
             </p>
             <div class="product-footer">
-              <span class="product-price">€27.99</span>
+              <span class="product-price">€24.99</span>
             </div>
             <div class="product-buttons">
               <a href="#" class="btn btn-primary btn-block btn-icon">
@@ -1105,7 +1629,502 @@
                 </svg>
                 <span data-translate="btn-playstore">Google Play</span>
               </a>
-              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler K.M -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler K.M" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler K.M</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler Max -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler Max" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler Max</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler Duo -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler Duo" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler Duo</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scaler Triple -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Scaler Triple" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Scaler</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">Scaler Triple</h3>
+            <p class="product-description">
+              Advanced scaler for keyboard synthesizers.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Individual Apps -->
+      <div class="products-grid">
+        <!-- MIDI Key Editor -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="MIDI Key Editor" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Key Editor</h3>
+            <p class="product-description">
+              Professional key note editor.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Playtone -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Playtone" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">Playtone</h3>
+            <p class="product-description">
+              Professional key note editor.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pad Controller V2.2 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Pad Controller V2.2" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">Pad Controller V2.2</h3>
+            <p class="product-description">
+              Professional key note editor.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Pro -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Invoice Pro" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">Invoice Pro</h3>
+            <p class="product-description">
+              Professional key note editor.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Echodosia -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Echodosia" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">Echodosia</h3>
+            <p class="product-description">
+              Professional key note editor.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo Apps -->
+      <div class="products-grid">
+        <!-- Demo 1 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 1" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 1</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 2 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 2" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 2</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 3 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 3" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 3</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 4 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 4" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 4</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 5 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="echopais.png" alt="Demo 5" style="max-width: 80%; max-height: 80%;">
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android - Demo</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">Demo 5</h3>
+            <p class="product-description">
+              Demo application.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">Free</span>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
             </div>
           </div>
         </div>
@@ -1116,23 +2135,29 @@
     <section class="products-section" id="hardware">
       <div class="section-header">
         <h2 class="section-title" data-translate="hardware-title">MIDI Hardware Controllers</h2>
-        <p class="section-subtitle" data-translate="hardware-subtitle">Professional based MIDI controllers with ECHOPAIS firmware</p>
+        <p class="section-subtitle" data-translate="hardware-subtitle">Professional MIDI controllers with ECHOPAIS firmware</p>
       </div>
 
       <div class="products-grid">
         <!-- Hardware 10" -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>10"</span>
+            <img src="midi10.png" alt="MIDI Controller 10&quot;">
             <span class="product-badge" data-translate="professional">Professional</span>
           </div>
           <div class="product-content">
             <div class="product-header">
-              <span class="product-category">Midi Hardware</span>
+              <span class="product-category">Hardware</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
             </div>
             <h3 class="product-title">MIDI Controller 10"</h3>
             <p class="product-description" data-translate="hardware-10-desc">
-              Professional 10-inch touchscreen MIDI controller with ECHOPAIS firmware.
+              Professional 10-inch touchscreen MIDI controller with advanced processor and ECHOPAIS firmware.
             </p>
             
             <div class="hardware-specs">
@@ -1156,8 +2181,9 @@
             </div>
             
             <div class="product-footer">
-              <span class="product-price">€549.99</span>
+              <span class="product-price">€649.99</span>
               <div class="product-meta">
+                <div>Hardware by certified manufacturers</div>
                 <div>Firmware by ECHOPAIS</div>
               </div>
             </div>
@@ -1178,12 +2204,18 @@
         <!-- Hardware 7" -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>7"</span>
+            <img src="midi7.png" alt="MIDI Controller 7&quot;">
             <span class="product-badge" data-translate="popular">Popular</span>
           </div>
           <div class="product-content">
             <div class="product-header">
-              <span class="product-category">Midi Hardware</span>
+              <span class="product-category">Hardware</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
             </div>
             <h3 class="product-title">MIDI Controller 7"</h3>
             <p class="product-description" data-translate="hardware-7-desc">
@@ -1210,6 +2242,7 @@
             <div class="product-footer">
               <span class="product-price">€449.99</span>
               <div class="product-meta">
+                <div>Hardware by certified manufacturers</div>
                 <div>Firmware by ECHOPAIS</div>
               </div>
             </div>
@@ -1230,12 +2263,18 @@
         <!-- Hardware 4.3" -->
         <div class="product-card">
           <div class="product-image-container">
-            <span>4.3"</span>
+            <img src="midi43.png" alt="MIDI Controller 4.3&quot;">
             <span class="product-badge" data-translate="compact">Compact</span>
           </div>
           <div class="product-content">
             <div class="product-header">
-              <span class="product-category">Midi Hardware</span>
+              <span class="product-category">Hardware</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
             </div>
             <h3 class="product-title">MIDI Controller 4.3"</h3>
             <p class="product-description" data-translate="hardware-43-desc">
@@ -1260,8 +2299,9 @@
             </div>
             
             <div class="product-footer">
-              <span class="product-price">€349.99</span>
+              <span class="product-price">€249.99</span>
               <div class="product-meta">
+                <div>Hardware by certified manufacturers</div>
                 <div>Firmware by ECHOPAIS</div>
               </div>
             </div>
@@ -1290,7 +2330,7 @@
         <span data-translate="legal-title">Hardware Legal Information</span>
       </h3>
       <p data-translate="legal-content1">
-        <strong>ECHOPAIS MIDI SYSTEM</strong> operates as an authorized reseller of hardware manufactured by other certified manufacturers. All hardware products are purchased through official channels and resold with custom ECHOPAIS MIDI firmware pre-installed.
+        <strong>ECHOPAIS MIDI SYSTEM</strong> operates as an authorized reseller of hardware manufactured by certified manufacturers globally. All hardware products are purchased through official channels and resold with custom ECHOPAIS MIDI firmware pre-installed.
       </p>
       <p data-translate="legal-content2">
         <strong>Hardware Rights:</strong> Original hardware design, manufacturing, and base warranties remain with the respective manufacturers. ECHOPAIS provides additional firmware warranty and support for the custom MIDI software only.
@@ -1361,7 +2401,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <div class="footer-logo-box">E</div>
+            <img src="echopais.png" alt="Echopais Logo" class="footer-logo-box" style="width: 3.5rem; height: 3.5rem;">
             <div>
               <span class="footer-logo-text">ECHOPAIS</span>
               <p style="color: var(--zinc-400); font-size: 0.875rem;" data-translate="subtitle">MIDI SYSTEM</p>
@@ -1387,6 +2427,7 @@
           <h3 class="footer-column-title" data-translate="footer-hardware-title">Hardware</h3>
           <ul class="footer-links">
             <li class="footer-link"><a href="#" data-translate="footer-midi-controllers">MIDI Controllers</a></li>
+            <li class="footer-link"><a href="#" data-translate="footer-esp32">Hardware</a></li>
             <li class="footer-link"><a href="#" data-translate="footer-firmware">Custom Firmware</a></li>
             <li class="footer-link"><a href="#" data-translate="footer-hardware-support">Hardware Support</a></li>
           </ul>
@@ -1398,7 +2439,7 @@
             <li class="footer-link"><a href="privacy.html" data-translate="footer-privacy">Privacy Policy</a></li>
             <li class="footer-link"><a href="terms.html" data-translate="footer-terms">Terms of Service</a></li>
             <li class="footer-link"><a href="cookies.html" data-translate="footer-cookies">Cookie Policy</a></li>
-            <li class="footer-link"><a href="imprint.html" data-translate="footer-imprint">Imprint</a></li>
+            <li class="footer-link"><a href="#contact" data-translate="footer-contact">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -1407,12 +2448,9 @@
 
       <div class="footer-bottom">
         <div class="footer-copyright">
-          <p>© 2024 ECHOPAIS. <span data-translate="footer-rights">All rights reserved</span>.</p>
+          <p>© 2024 ECHOPAIS MIDI SYSTEM. <span data-translate="footer-rights">All rights reserved</span>.</p>
           <p style="margin-top: 0.5rem;" data-translate="footer-hardware-note">
-            MIDI Firmware by ECHOPAIS
-          </p>
-          <p style="margin-top: 0.5rem;">
-            Kleinunternehmer according to §19 UStG
+            Hardware by certified manufacturers & Partners | MIDI Firmware by ECHOPAIS
           </p>
         </div>
       </div>
@@ -1441,11 +2479,12 @@
         'ios-title': 'iOS Applications',
         'ios-subtitle': 'Professional MIDI applications for iPhone and iPad',
         'featured': 'Featured',
-        'ios-app1-desc': 'Advanced scaler for all keyboard synthesizers with 3 modes an 3 types. Professional MIDI control with step sequencing.',
+        'ios-app1-desc': 'Advanced scaler for all keyboard synthesizers with 3 modes and 3 types. Professional MIDI control with step sequencing.',
         'feature-scaler': 'Scaler for all keyboards',
         'feature-modes': '3 Modes: Momentary/Toggle/OneShot',
         'feature-types': '3 Types: CC/Note/SysEx',
         'feature-step': 'Step sequencing support',
+        'downloads': 'downloads',
         'btn-appstore': 'App Store',
         'btn-tutorial': 'Tutorial',
         'ios-app2-desc': 'Professional key note editor with advanced MIDI control capabilities and real-time parameter adjustment.',
@@ -1461,9 +2500,9 @@
         'android-app2-desc': 'Professional MIDI editor for Android with advanced editing capabilities and real-time control.',
         'android-app3-desc': 'Complete MIDI control suite for Android with professional features and customizable interface.',
         'hardware-title': 'MIDI Hardware Controllers',
-        'hardware-subtitle': 'Professional based MIDI controllers with ECHOPAIS firmware',
+        'hardware-subtitle': 'Professional MIDI controllers with ECHOPAIS firmware',
         'professional': 'Professional',
-        'hardware-10-desc': 'Professional 10-inch touchscreen MIDI controller with ECHOPAIS firmware.',
+        'hardware-10-desc': 'Professional 10-inch touchscreen MIDI controller with advanced processor and ECHOPAIS firmware.',
         'specifications': 'Specifications',
         'spec-scaler': 'Scaler for all keyboard synthesizers',
         'spec-editor': 'Editor key note with 3 modes',
@@ -1487,7 +2526,7 @@
         'spec-essential': 'Essential MIDI features',
         'spec-affordable': 'Affordable entry point',
         'legal-title': 'Hardware Legal Information',
-        'legal-content1': 'ECHOPAIS MIDI SYSTEM operates as an authorized reseller of hardware manufactured by other certified manufacturers. All hardware products are purchased through official channels and resold with custom ECHOPAIS MIDI firmware pre-installed.',
+        'legal-content1': 'ECHOPAIS MIDI SYSTEM operates as an authorized reseller of hardware manufactured by certified manufacturers globally. All hardware products are purchased through official channels and resold with custom ECHOPAIS MIDI firmware pre-installed.',
         'legal-content2': 'Hardware Rights: Original hardware design, manufacturing, and base warranties remain with the respective manufacturers. ECHOPAIS provides additional firmware warranty and support for the custom MIDI software only.',
         'legal-content3': 'Firmware Rights: All ECHOPAIS MIDI firmware, software code, and custom applications are proprietary intellectual property of ECHOPAIS MIDI SYSTEM. Unauthorized copying, modification, or redistribution is prohibited.',
         'legal-content4': 'Support & Warranty: Hardware defects and manufacturing issues are covered by original manufacturer warranty. MIDI firmware issues, software bugs, and custom feature support are provided exclusively by ECHOPAIS MIDI SYSTEM.',
@@ -1513,15 +2552,16 @@
         'footer-support': 'App Support',
         'footer-hardware-title': 'Hardware',
         'footer-midi-controllers': 'MIDI Controllers',
+        'footer-esp32': 'Hardware',
         'footer-firmware': 'Custom Firmware',
         'footer-hardware-support': 'Hardware Support',
         'footer-legal': 'Legal',
         'footer-privacy': 'Privacy Policy',
         'footer-terms': 'Terms of Service',
         'footer-cookies': 'Cookie Policy',
-        'footer-imprint': 'Imprint',
+        'footer-contact': 'Contact',
         'footer-rights': 'All rights reserved',
-        'footer-hardware-note': 'MIDI Firmware by ECHOPAIS'
+        'footer-hardware-note': 'Hardware by certified manufacturers & Partners | MIDI Firmware by ECHOPAIS'
       },
       de: {
         'subtitle': 'MIDI SYSTEM',
@@ -1547,6 +2587,7 @@
         'feature-modes': '3 Modi: Momentary/Toggle/OneShot',
         'feature-types': '3 Typen: CC/Note/SysEx',
         'feature-step': 'Step-Sequencing-Unterstützung',
+        'downloads': 'Downloads',
         'btn-appstore': 'App Store',
         'btn-tutorial': 'Tutorial',
         'ios-app2-desc': 'Professioneller Key-Note-Editor mit erweiterten MIDI-Kontrollfähigkeiten und Echtzeit-Parameteranpassung.',
@@ -1562,9 +2603,9 @@
         'android-app2-desc': 'Professioneller MIDI-Editor für Android mit erweiterten Bearbeitungsfähigkeiten und Echtzeit-Kontrolle.',
         'android-app3-desc': 'Komplette MIDI-Kontroll-Suite für Android mit professionellen Funktionen und anpassbarer Oberfläche.',
         'hardware-title': 'MIDI-Hardware-Controller',
-        'hardware-subtitle': 'Professionelle basierte MIDI-Controller mit ECHOPAIS-Firmware',
+        'hardware-subtitle': 'Professionelle MIDI-Controller mit ECHOPAIS-Firmware',
         'professional': 'Professionell',
-        'hardware-10-desc': 'Professioneller 10-Zoll-Touchscreen-MIDI-Controller mit ECHOPAIS-Firmware.',
+        'hardware-10-desc': 'Professioneller 10-Zoll-Touchscreen-MIDI-Controller mit erweitertem Prozessor und ECHOPAIS-Firmware.',
         'specifications': 'Spezifikationen',
         'spec-scaler': 'Scaler für alle Keyboard-Synthesizer',
         'spec-editor': 'Editor Key Note mit 3 Modi',
@@ -1588,8 +2629,8 @@
         'spec-essential': 'Wesentliche MIDI-Features',
         'spec-affordable': 'Erschwinglicher Einstiegspunkt',
         'legal-title': 'Hardware-Rechtsinformationen',
-        'legal-content1': 'ECHOPAIS MIDI SYSTEM fungiert als autorisierter Wiederverkäufer von Hardware, die von anderen zertifizierten Herstellern produziert wird. Alle Hardware-Produkte werden über offizielle Kanäle gekauft und mit vorinstallierter benutzerdefinierter ECHOPAIS MIDI-Firmware weiterverkauft.',
-        'legal-content2': 'Hardware-Rechte: Ursprüngliches Hardware-Design, Herstellung und Grundgarantien verbleiben bei den jeweiligen Herstellern ECHOPAIS bietet zusätzliche Firmware-Garantie und Support nur für die benutzerdefinierte MIDI-Software.',
+        'legal-content1': 'ECHOPAIS MIDI SYSTEM fungiert als autorisierter Wiederverkäufer von Hardware, die von zertifizierten Herstellern weltweit produziert wird. Alle Hardware-Produkte werden über offizielle Kanäle gekauft und mit vorinstallierter benutzerdefinierter ECHOPAIS MIDI-Firmware weiterverkauft.',
+        'legal-content2': 'Hardware-Rechte: Ursprüngliches Hardware-Design, Herstellung und Grundgarantien verbleiben bei den jeweiligen Herstellern. ECHOPAIS bietet zusätzliche Firmware-Garantie und Support nur für die benutzerdefinierte MIDI-Software.',
         'legal-content3': 'Firmware-Rechte: Alle ECHOPAIS MIDI-Firmware, Software-Code und benutzerdefinierten Anwendungen sind proprietäres geistiges Eigentum von ECHOPAIS MIDI SYSTEM. Unbefugtes Kopieren, Modifizieren oder Weitervertreiben ist verboten.',
         'legal-content4': 'Support & Garantie: Hardware-Defekte und Herstellungsprobleme sind durch die ursprüngliche Herstellergarantie abgedeckt. MIDI-Firmware-Probleme, Software-Bugs und benutzerdefinierte Feature-Unterstützung werden ausschließlich von ECHOPAIS MIDI SYSTEM bereitgestellt.',
         'contact-title': 'Kontaktieren Sie Uns',
@@ -1614,15 +2655,16 @@
         'footer-support': 'App Support',
         'footer-hardware-title': 'Hardware',
         'footer-midi-controllers': 'MIDI-Controller',
+        'footer-esp32': 'Hardware',
         'footer-firmware': 'Benutzerdefinierte Firmware',
         'footer-hardware-support': 'Hardware Support',
         'footer-legal': 'Rechtliches',
         'footer-privacy': 'Datenschutzerklärung',
         'footer-terms': 'Nutzungsbedingungen',
         'footer-cookies': 'Cookie-Richtlinie',
-        'footer-imprint': 'Impressum',
+        'footer-contact': 'Kontakt',
         'footer-rights': 'Alle Rechte vorbehalten',
-        'footer-hardware-note': 'MIDI-Firmware von ECHOPAIS'
+        'footer-hardware-note': 'Hardware von zertifizierten Herstellern & Partnern | MIDI-Firmware von ECHOPAIS'
       },
       el: {
         'subtitle': 'MIDI SYSTEM',
@@ -1633,7 +2675,7 @@
         'hero-badge': 'Επαγγελματικές MIDI Λύσεις',
         'hero-title': 'ECHOPAIS MIDI SYSTEM',
         'hero-subtitle': 'Επαγγελματικοί MIDI Controllers & Εφαρμογές',
-        'hero-description': 'Προηγμένες iOS/Android εφαρμογές και προσαρμοσμένους hardware controllers για επαγγελματική μουσική παραγωγή. Με scalers, editors και πλήρεις MIDI λύσεις ελέγχου.',
+        'hero-description': 'Προηγμένες iOS/Android εφαρμογές και προσαρμοσμένους Hardware controllers για επαγγελματική μουσική παραγωγή. Με scalers, editors και πλήρεις MIDI λύσεις ελέγχου.',
         'btn-explore': 'Εξερευνήστε Προϊόντα',
         'btn-hardware': 'Δείτε Hardware',
         'stat-apps': 'Mobile Apps',
@@ -1648,6 +2690,7 @@
         'feature-modes': '3 Modes: Momentary/Toggle/OneShot',
         'feature-types': '3 Types: CC/Note/SysEx',
         'feature-step': 'Υποστήριξη step sequencing',
+        'downloads': 'λήψεις',
         'btn-appstore': 'App Store',
         'btn-tutorial': 'Tutorial',
         'ios-app2-desc': 'Επαγγελματικός key note editor με προηγμένες MIDI δυνατότητες ελέγχου και real-time parameter adjustment.',
@@ -1663,9 +2706,9 @@
         'android-app2-desc': 'Επαγγελματικός MIDI editor για Android με προηγμένες δυνατότητες επεξεργασίας και real-time έλεγχο.',
         'android-app3-desc': 'Πλήρης MIDI control suite για Android με επαγγελματικά features και προσαρμόσιμο interface.',
         'hardware-title': 'MIDI Hardware Controllers',
-        'hardware-subtitle': 'Επαγγελματικοί based MIDI controllers με ECHOPAIS firmware',
+        'hardware-subtitle': 'Επαγγελματικοί MIDI controllers με ECHOPAIS firmware',
         'professional': 'Επαγγελματικό',
-        'hardware-10-desc': 'Επαγγελματικός 10-inch touchscreen MIDI controller με ECHOPAIS firmware.',
+        'hardware-10-desc': 'Επαγγελματικός 10-inch touchscreen MIDI controller με προηγμένο επεξεργαστή και ECHOPAIS firmware.',
         'specifications': 'Προδιαγραφές',
         'spec-scaler': 'Scaler για όλους τους keyboard synthesizers',
         'spec-editor': 'Editor key note με 3 modes',
@@ -1689,10 +2732,10 @@
         'spec-essential': 'Βασικά MIDI features',
         'spec-affordable': 'Προσιτό σημείο εισόδου',
         'legal-title': 'Νομικές Πληροφορίες Hardware',
-        'legal-content1': 'Το ECHOPAIS MIDI SYSTEM λειτουργεί ως μεταπωλητής των hardware που κατασκευάζονται από τους άλλους πιστοποιημένους κατασκευαστές. Όλα τα hardware προϊόντα αγοράζονται μέσω επίσημων καναλιών και μεταπωλούνται με προεγκατεστημένο προσαρμοσμένο ECHOPAIS MIDI firmware.',
-        'legal-content2': 'Δικαιώματα Hardware: Ο αρχικός σχεδιασμός hardware, η κατασκευή και οι βασικές εγγυήσεις παραμένουν στους αντίστοιχους κατασκευαστές. Η ECHOPAIS παρέχει πρόσθετη εγγύηση firmware και υποστήριξη μόνο για το προσαρμοσμένο MIDI λογισμικό.',
+        'legal-content1': 'Το ECHOPAIS MIDI SYSTEM λειτουργεί ως εξουσιοδοτημένος μεταπωλητής Hardware που κατασκευάζεται από πιστοποιημένους κατασκευαστές παγκοσμίως. Όλα τα Hardware προϊόντα αγοράζονται μέσω επίσημων καναλιών και μεταπωλούνται με προεγκατεστημένο προσαρμοσμένο ECHOPAIS MIDI firmware.',
+        'legal-content2': 'Δικαιώματα Hardware: Ο αρχικός σχεδιασμός Hardware, η κατασκευή και οι βασικές εγγυήσεις παραμένουν στους αντίστοιχους κατασκευαστές. Η ECHOPAIS παρέχει πρόσθετη εγγύηση firmware και υποστήριξη μόνο για το προσαρμοσμένο MIDI λογισμικό.',
         'legal-content3': 'Δικαιώματα Firmware: Όλο το ECHOPAIS MIDI firmware, ο κώδικας λογισμικού και οι προσαρμοσμένες εφαρμογές είναι ιδιόκτητη πνευματική ιδιοκτησία του ECHOPAIS MIDI SYSTEM. Η μη εξουσιοδοτημένη αντιγραφή, τροποποίηση ή αναδιανομή απαγορεύεται.',
-        'legal-content4': 'Υποστήριξη & Εγγύηση: Τα ελαττώματα hardware και τα προβλήματα κατασκευής καλύπτονται από την αρχική εγγύηση κατασκευαστή. Τα προβλήματα MIDI firmware, τα bugs λογισμικού και η υποστήριξη προσαρμοσμένων features παρέχονται αποκλειστικά από το ECHOPAIS MIDI SYSTEM.',
+        'legal-content4': 'Υποστήριξη & Εγγύηση: Τα ελαττώματα Hardware και τα προβλήματα κατασκευής καλύπτονται από την αρχική εγγύηση κατασκευαστή. Τα προβλήματα MIDI firmware, τα bugs λογισμικού και η υποστήριξη προσαρμοσμένων features παρέχονται αποκλειστικά από το ECHOPAIS MIDI SYSTEM.',
         'contact-title': 'Επικοινωνήστε Μαζί Μας',
         'contact-subtitle': 'Ερωτήσεις για τα προϊόντα μας; Χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να βοηθήσουμε με τις MIDI ανάγκες σας.',
         'form-name': 'Όνομα',
@@ -1707,7 +2750,7 @@
         'form-message': 'Μήνυμα',
         'form-message-placeholder': 'Το μήνυμά σας...',
         'btn-send': 'Αποστολή Μηνύματος',
-        'footer-description': 'Επαγγελματικοί MIDI controllers, iOS/Android εφαρμογές και προσαρμοσμένες hardware λύσεις. Ενδυναμώνουμε μουσικούς και παραγωγούς παγκοσμίως με προηγμένη MIDI τεχνολογία.',
+        'footer-description': 'Επαγγελματικοί MIDI controllers, iOS/Android εφαρμογές και προσαρμοσμένες Hardware λύσεις. Ενδυναμώνουμε μουσικούς και παραγωγούς παγκοσμίως με προηγμένη MIDI τεχνολογία.',
         'footer-mobile': 'Mobile Apps',
         'footer-ios-apps': 'iOS Εφαρμογές',
         'footer-android-apps': 'Android Εφαρμογές',
@@ -1715,15 +2758,16 @@
         'footer-support': 'Υποστήριξη App',
         'footer-hardware-title': 'Hardware',
         'footer-midi-controllers': 'MIDI Controllers',
+        'footer-esp32': 'Hardware',
         'footer-firmware': 'Προσαρμοσμένο Firmware',
         'footer-hardware-support': 'Υποστήριξη Hardware',
         'footer-legal': 'Νομικά',
         'footer-privacy': 'Πολιτική Απορρήτου',
         'footer-terms': 'Όροι Χρήσης',
         'footer-cookies': 'Πολιτική Cookies',
-        'footer-imprint': 'Στοιχεία Επιχείρησης',
+        'footer-contact': 'Επικοινωνία',
         'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
-        'footer-hardware-note': 'MIDI Firmware από ECHOPAIS'
+        'footer-hardware-note': 'Hardware από πιστοποιημένους κατασκευαστές & Partners | MIDI Firmware από ECHOPAIS'
       }
     };
 
