@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cookie Policy - Echopais</title>
+  <title>Cookie Policy - ECHOPAIS</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange-500: #ff6600;
       --orange-600: #e65c00;
+      --orange-400: #ff8533;
+      --orange-200: #ffa366;
       --zinc-100: #f4f4f5;
-      --zinc-200: #e4e4e7;
       --zinc-300: #d4d4d8;
       --zinc-400: #a1a1aa;
-      --zinc-500: #71717a;
-      --zinc-600: #52525b;
       --zinc-700: #3f3f46;
       --zinc-800: #27272a;
       --zinc-900: #18181b;
@@ -32,698 +31,354 @@
       background: linear-gradient(to bottom, var(--zinc-900), var(--black));
       color: var(--zinc-100);
       min-height: 100vh;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     
     .container {
-      width: 100%;
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 2rem 1rem;
     }
     
-    /* Header */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 0;
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
     
-    .logo img {
-      height: 60px;
-      width: auto;
-    }
-    
-    nav {
-      display: none;
-    }
-    
-    @media (min-width: 768px) {
-      nav {
-        display: flex;
-        gap: 1.5rem;
-      }
-    }
-    
-    nav a {
-      color: var(--zinc-300);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    
-    nav a:hover {
-      color: var(--orange-500);
-    }
-    
-    .lang-dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    
-    .lang-button {
+    .logo-container {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
-      background: none;
-      border: none;
-      color: var(--zinc-300);
-      cursor: pointer;
-      padding: 0.5rem;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
     
-    .lang-button img {
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
-      border: 1px solid var(--zinc-700);
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      background-color: var(--zinc-800);
-      min-width: 160px;
-      border: 1px solid var(--zinc-700);
-      border-radius: 0.5rem;
-      z-index: 1;
-      overflow: hidden;
-    }
-    
-    .dropdown-item {
+    .logo-box {
+      width: 48px;
+      height: 48px;
+      background-color: var(--orange-500);
+      border-radius: 0.75rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1rem;
-      color: var(--zinc-200);
-      text-decoration: none;
-      cursor: pointer;
-    }
-    
-    .dropdown-item:hover {
-      background-color: var(--zinc-700);
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1.5rem;
+      font-weight: bold;
       color: white;
     }
     
-    .dropdown-item img {
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
-    }
-    
-    .lang-dropdown:hover .dropdown-content {
-      display: block;
-    }
-    
-    /* Content */
-    .content {
-      padding: 2rem 0 6rem;
-    }
-    
-    .content h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      color: var(--orange-500);
-    }
-    
-    .content h2 {
+    .logo-text h1 {
       font-size: 1.5rem;
-      font-weight: 600;
-      margin: 2rem 0 1rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin: 0;
+    }
+    
+    .logo-text p {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      margin: 0;
+    }
+    
+    .header-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      color: var(--zinc-300);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      white-space: nowrap;
+    }
+    
+    .nav-link:hover {
+      color: var(--orange-500);
+      background-color: rgba(255, 102, 0, 0.1);
+    }
+    
+    .language-selector {
+      display: flex;
+      background-color: var(--zinc-800);
+      border-radius: 0.5rem;
+      padding: 0.25rem;
+      gap: 0.25rem;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--zinc-300);
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.875rem;
+    }
+    
+    .lang-btn.active {
+      background-color: var(--orange-500);
+      color: white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .lang-btn:hover:not(.active) {
+      background-color: var(--zinc-700);
       color: var(--zinc-100);
     }
     
-    .content p {
-      margin-bottom: 1rem;
-      color: var(--zinc-300);
+    .legal-card {
+      background-color: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
     
-    .content ul, .content ol {
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
-      color: var(--zinc-300);
+    .legal-header {
+      background-color: var(--zinc-700);
+      padding: 1.5rem 2rem;
     }
     
-    .content li {
+    .legal-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--orange-500);
       margin-bottom: 0.5rem;
     }
     
-    .content a {
-      color: var(--orange-500);
-      text-decoration: none;
-    }
-    
-    .content a:hover {
-      text-decoration: underline;
-    }
-    
-    .last-updated {
-      margin-top: 3rem;
-      font-size: 0.875rem;
-      color: var(--zinc-500);
-    }
-    
-    /* Footer */
-    .footer {
-      background-color: var(--zinc-900);
-      border-top: 1px solid var(--zinc-800);
-      padding: 3rem 0;
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    
-    @media (min-width: 768px) {
-      .footer-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-    
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    .footer-brand img {
-      width: 8.75rem;
-      height: auto;
-    }
-    
-    .footer-brand p {
+    .legal-date {
       font-size: 0.875rem;
       color: var(--zinc-400);
     }
     
-    .footer-links h3 {
-      font-size: 1rem;
+    .legal-content {
+      padding: 2rem;
+    }
+    
+    .legal-section {
+      margin-bottom: 2rem;
+    }
+    
+    .legal-section-title {
+      font-size: 1.25rem;
       font-weight: 600;
-      color: var(--zinc-200);
+      color: var(--zinc-100);
       margin-bottom: 1rem;
     }
     
-    .footer-links ul {
-      list-style: none;
+    .legal-section-content {
+      color: var(--zinc-300);
+      line-height: 1.6;
     }
     
-    .footer-links li {
-      margin-bottom: 0.5rem;
-    }
-    
-    .footer-links a {
-      font-size: 0.875rem;
-      color: var(--zinc-400);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    
-    .footer-links a:hover {
-      color: var(--orange-500);
-    }
-    
-    .footer-connect a {
-      display: flex;
+    .back-link {
+      display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-    }
-    
-    .footer-connect svg {
-      width: 1rem;
-      height: 1rem;
-    }
-    
-    .footer-separator {
-      height: 1px;
-      background-color: var(--zinc-800);
-      margin: 2rem 0;
-    }
-    
-    .footer-bottom {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-    }
-    
-    @media (min-width: 768px) {
-      .footer-bottom {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    }
-    
-    .footer-copyright {
-      font-size: 0.875rem;
-      color: var(--zinc-500);
-    }
-    
-    .footer-legal {
-      display: flex;
-      gap: 1.5rem;
-    }
-    
-    .footer-legal a {
-      font-size: 0.875rem;
-      color: var(--zinc-500);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    
-    .footer-legal a:hover {
       color: var(--orange-500);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+    
+    .back-link:hover {
+      color: var(--orange-400);
+      background-color: rgba(255, 102, 0, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .header-controls {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <div class="container">
-    <header>
-      <div class="logo">
-        <a href="index.html">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-czApP4RXCCNt4gAQa3T7BgajpCO1Am.png" alt="Echopais Logo">
-        </a>
+    <div class="header">
+      <div class="logo-container">
+        <div class="logo-box">E</div>
+        <div class="logo-text">
+          <h1>ECHOPAIS</h1>
+          <p data-translate="subtitle">Professional MIDI Solutions</p>
+        </div>
       </div>
       
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <nav>
-          <a href="index.html#products" data-i18n="nav.products">Products</a>
-          <a href="index.html#about" data-i18n="nav.about">About</a>
-          <a href="index.html#developer" data-i18n="nav.developer">Developer</a>
-          <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+      <div class="header-controls">
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+          <a href="privacy.html" class="nav-link" data-translate="nav-privacy">Privacy Policy</a>
+          <a href="terms.html" class="nav-link" data-translate="nav-terms">Terms of Service</a>
+          <a href="cookies.html" class="nav-link" data-translate="nav-cookies">Cookie Policy</a>
         </nav>
         
-        <div class="lang-dropdown">
-          <button class="lang-button">
-            <img src="https://flagcdn.com/gb.svg" alt="English">
-            <span style="display: none; margin-left: 0.25rem;">English</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </button>
-          <div class="dropdown-content">
-            <a class="dropdown-item" data-lang="en">
-              <img src="https://flagcdn.com/gb.svg" alt="English">
-              <span>English</span>
-            </a>
-            <a class="dropdown-item" data-lang="gr">
-              <img src="https://flagcdn.com/gr.svg" alt="Greek">
-              <span>Ελληνικά</span>
-            </a>
-            <a class="dropdown-item" data-lang="es">
-              <img src="https://flagcdn.com/es.svg" alt="Spanish">
-              <span>Español</span>
-            </a>
-            <a class="dropdown-item" data-lang="it">
-              <img src="https://flagcdn.com/it.svg" alt="Italian">
-              <span>Italiano</span>
-            </a>
-            <a class="dropdown-item" data-lang="de">
-              <img src="https://flagcdn.com/de.svg" alt="German">
-              <span>Deutsch</span>
-            </a>
-            <a class="dropdown-item" data-lang="fr">
-              <img src="https://flagcdn.com/fr.svg" alt="French">
-              <span>Français</span>
-            </a>
-            <a class="dropdown-item" data-lang="ru">
-              <img src="https://flagcdn.com/ru.svg" alt="Russian">
-              <span>Русский</span>
-            </a>
-            <a class="dropdown-item" data-lang="ar">
-              <img src="https://flagcdn.com/sa.svg" alt="Arabic">
-              <span>العربية</span>
-            </a>
-            <a class="dropdown-item" data-lang="bg">
-              <img src="https://flagcdn.com/bg.svg" alt="Bulgarian">
-              <span>Български</span>
-            </a>
-            <a class="dropdown-item" data-lang="al">
-              <img src="https://flagcdn.com/al.svg" alt="Albanian">
-              <span>Shqip</span>
-            </a>
-            <a class="dropdown-item" data-lang="tr">
-              <img src="https://flagcdn.com/tr.svg" alt="Turkish">
-              <span>Türkçe</span>
-            </a>
-            <a class="dropdown-item" data-lang="pt">
-              <img src="https://flagcdn.com/pt.svg" alt="Portuguese">
-              <span>Português</span>
-            </a>
-            <a class="dropdown-item" data-lang="nl">
-              <img src="https://flagcdn.com/nl.svg" alt="Dutch">
-              <span>Nederlands</span>
-            </a>
-            <a class="dropdown-item" data-lang="ja">
-              <img src="https://flagcdn.com/jp.svg" alt="Japanese">
-              <span>日本語</span>
-            </a>
-            <a class="dropdown-item" data-lang="zh">
-              <img src="https://flagcdn.com/cn.svg" alt="Chinese">
-              <span>中文</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
-  </div>
-  
-  <!-- Content -->
-  <div class="container">
-    <div class="content">
-      <h1 data-i18n="cookies.title">Cookie Policy</h1>
-      
-      <div id="en-content">
-        <p>This Cookie Policy explains how Echopais ("we", "us", or "our") uses cookies and similar technologies on our website. By using our website, you consent to the use of cookies as described in this policy.</p>
-        
-        <h2>1. What Are Cookies?</h2>
-        <p>Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They are widely used to make websites work more efficiently, provide a better user experience, and give website owners information about how their site is being used.</p>
-        
-        <h2>2. Types of Cookies We Use</h2>
-        <p>We use the following types of cookies on our website:</p>
-        
-        <h3>2.1 Essential Cookies</h3>
-        <p>These cookies are necessary for the website to function properly. They enable basic functions like page navigation and access to secure areas of the website. The website cannot function properly without these cookies.</p>
-        
-        <h3>2.2 Preference Cookies</h3>
-        <p>These cookies allow the website to remember choices you make (such as your preferred language or the region you are in) and provide enhanced, more personal features.</p>
-        
-        <h3>2.3 Analytics Cookies</h3>
-        <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. They help us improve the way our website works.</p>
-        
-        <h3>2.4 Marketing Cookies</h3>
-        <p>These cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user.</p>
-        
-        <h2>3. Third-Party Cookies</h2>
-        <p>Some cookies are placed by third parties on our website. These third parties may include analytics providers, advertising networks, and social media platforms. These third parties may use cookies, web beacons, and similar technologies to collect information about your use of our website and other websites.</p>
-        
-        <h2>4. How to Control Cookies</h2>
-        <p>Most web browsers allow you to control cookies through their settings preferences. However, if you limit the ability of websites to set cookies, you may worsen your overall user experience, as it will no longer be personalized to you. It may also stop you from saving customized settings like login information.</p>
-        
-        <p>To manage your cookie preferences, you can:</p>
-        <ul>
-          <li>Adjust your browser settings to notify you when you receive a cookie, or to refuse cookies altogether</li>
-          <li>Use our cookie consent tool when you first visit our website</li>
-          <li>Delete cookies that have already been set</li>
-        </ul>
-        
-        <h2>5. Specific Browser Instructions</h2>
-        <p>Here are links to cookie management instructions for common browsers:</p>
-        <ul>
-          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
-          <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank">Mozilla Firefox</a></li>
-          <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Safari</a></li>
-          <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank">Microsoft Edge</a></li>
-        </ul>
-        
-        <h2>6. Changes to This Cookie Policy</h2>
-        <p>We may update this Cookie Policy from time to time to reflect changes in technology, regulation, or our business practices. Any changes will be posted on this page, and if the changes are significant, we will provide a more prominent notice.</p>
-        
-        <h2>7. Contact Us</h2>
-        <p>If you have any questions about our use of cookies, please contact us at <a href="mailto:g.coci@echopais.com">g.coci@echopais.com</a>.</p>
-        
-        <p class="last-updated" data-i18n="cookies.lastUpdated">Last Updated: May 10, 2025</p>
-      </div>
-      
-      <div id="gr-content" style="display: none;">
-        <!-- Greek content will be loaded dynamically -->
-      </div>
-      
-      <!-- Other language content divs will be added dynamically -->
-    </div>
-  </div>
-  
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-czApP4RXCCNt4gAQa3T7BgajpCO1Am.png" alt="Echopais Logo">
-          <p data-i18n="footer.description">Creating innovative audio solutions for musicians and producers worldwide.</p>
-        </div>
-        
-        <div class="footer-links">
-          <h3 data-i18n="footer.products">Products</h3>
-          <ul>
-            <li><a href="index.html#products" data-i18n="footer.padController">Pad Controller</a></li>
-            <li><a href="index.html#products" data-i18n="footer.studio">Studio</a></li>
-            <li><a href="index.html#products" data-i18n="footer.synth">Synth</a></li>
-            <li><a href="#" data-i18n="footer.pricing">Pricing</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-links">
-          <h3 data-i18n="footer.company">Company</h3>
-          <ul>
-            <li><a href="index.html#about" data-i18n="footer.about">About</a></li>
-            <li><a href="#" data-i18n="footer.blog">Blog</a></li>
-            <li><a href="#" data-i18n="footer.careers">Careers</a></li>
-            <li><a href="#" data-i18n="footer.press">Press</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-links footer-connect">
-          <h3 data-i18n="footer.connect">Connect</h3>
-          <ul>
-            <li>
-              <a href="mailto:g.coci@echopais.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                g.coci@echopais.com
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                  <path d="M9 18c-4.51 2-5-2-7-2"/>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect x="2" y="9" width="4" height="12"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-                LinkedIn
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-separator"></div>
-      
-      <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2025 Echopais. <span data-i18n="footer.rights">All rights reserved.</span></p>
-        <div class="footer-legal">
-          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
-          <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
-          <a href="cookies.html" data-i18n="footer.cookies">Cookie Policy</a>
+        <div class="language-selector">
+          <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+          <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+          <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
         </div>
       </div>
     </div>
-  </footer>
-  
+
+    <a href="index.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      <span data-translate="back-home">Back to Home</span>
+    </a>
+
+    <div class="legal-card">
+      <div class="legal-header">
+        <h1 class="legal-title" data-translate="page-title">Cookie Policy</h1>
+        <p class="legal-date" data-translate="last-updated">Last updated: December 2024</p>
+      </div>
+      <div class="legal-content">
+        <div class="legal-section">
+          <h2 class="legal-section-title" data-translate="section1-title">What are Cookies?</h2>
+          <p class="legal-section-content" data-translate="section1-content">Cookies are small text files placed on your device when you visit our website. We use cookies to improve your experience, remember preferences, and analyze website traffic for our MIDI software and ESP32 hardware store.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title" data-translate="section2-title">How We Use Cookies</h2>
+          <p class="legal-section-content" data-translate="section2-content">We use cookies to enhance your browsing experience, remember your language preferences, track product views, and analyze which MIDI applications and ESP32 controllers are most popular with our users.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title" data-translate="section3-title">Types of Cookies We Use</h2>
+          <p class="legal-section-content" data-translate="section3-content">Essential Cookies: Required for website functionality and shopping cart. Analytics Cookies: Help us understand user behavior and improve our product offerings. Preference Cookies: Remember your settings and language choices.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title" data-translate="section4-title">Third-Party Cookies</h2>
+          <p class="legal-section-content" data-translate="section4-content">We may use analytics services to understand how users interact with our MIDI software information and ESP32 hardware listings. These services may place their own cookies on your device.</p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section-title" data-translate="section5-title">Managing Cookies</h2>
+          <p class="legal-section-content" data-translate="section5-content">You can control cookies through your browser settings. Note that disabling certain cookies may affect website functionality, including the ability to view product details and make purchases.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Wait for the DOM to fully load
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log("DOM fully loaded");
-      
-      // Define content for each language
-      const content = {
-        en: {
-          nav: {
-            products: "Products",
-            about: "About",
-            developer: "Developer",
-            contact: "Contact"
-          },
-          cookies: {
-            title: "Cookie Policy",
-            lastUpdated: "Last Updated: May 10, 2025"
-          },
-          footer: {
-            description: "Creating innovative audio solutions for musicians and producers worldwide.",
-            products: "Products",
-            padController: "Pad Controller",
-            studio: "Studio",
-            synth: "Synth",
-            pricing: "Pricing",
-            company: "Company",
-            about: "About",
-            blog: "Blog",
-            careers: "Careers",
-            press: "Press",
-            connect: "Connect",
-            rights: "All rights reserved.",
-            privacy: "Privacy Policy",
-            terms: "Terms of Service",
-            cookies: "Cookie Policy"
-          }
-        },
-        gr: {
-          nav: {
-            products: "Προϊόντα",
-            about: "Σχετικά",
-            developer: "Προγραμματιστής",
-            contact: "Επικοινωνία"
-          },
-          cookies: {
-            title: "Πολιτική Cookies",
-            lastUpdated: "Τελευταία Ενημέρωση: 10 Μαΐου 2025"
-          },
-          footer: {
-            description: "Δημιουργούμε καινοτόμες λύσεις ήχου για μουσικούς και παραγωγούς παγκοσμίως.",
-            products: "Προϊόντα",
-            padController: "Pad Controller",
-            studio: "Studio",
-            synth: "Synth",
-            pricing: "Τιμολόγηση",
-            company: "Εταιρεία",
-            about: "Σχετικά",
-            blog: "Blog",
-            careers: "Καριέρες",
-            press: "Τύπος",
-            connect: "Σύνδεση",
-            rights: "Με επιφύλαξη παντός δικαιώματος.",
-            privacy: "Πολιτική Απορρήτου",
-            terms: "Όροι Χρήσης",
-            cookies: "Πολιτική Cookies"
-          }
-        },
-        // Add more languages as needed
-      };
-      
-      // Cookie policy content for each language
-      const cookiesContent = {
-        gr: `
-          <p>Αυτή η Πολιτική Cookies εξηγεί πώς η Echopais ("εμείς", "εμάς" ή "μας") χρησιμοποιεί cookies και παρόμοιες τεχνολογίες στον ιστότοπό μας. Χρησιμοποιώντας τον ιστότοπό μας, συναινείτε στη χρήση cookies όπως περιγράφεται σε αυτήν την πολιτική.</p>
-          
-          <h2>1. Τι Είναι τα Cookies;</h2>
-          <p>Τα cookies είναι μικρά αρχεία κειμένου που αποθηκεύονται στη συσκευή σας (υπολογιστής, tablet ή κινητό) όταν επισκέπτεστε έναν ιστότοπο. Χρησιμοποιούνται ευρέως για να κάνουν τους ιστότοπους να λειτουργούν πιο αποτελεσματικά, να παρέχουν καλύτερη εμπειρία χρήστη και να δίνουν στους ιδιοκτήτες ιστοτόπων πληροφορίες σχετικά με τον τρόπο χρήσης του ιστοτόπου τους.</p>
-          
-          <h2>2. Τύποι Cookies που Χρησιμοποιούμε</h2>
-          <p>Χρησιμοποιούμε τους ακόλουθους τύπους cookies στον ιστότοπό μας:</p>
-          
-          <h3>2.1 Απαραίτητα Cookies</h3>
-          <p>Αυτά τα cookies είναι απαραίτητα για τη σωστή λειτουργία του ιστότοπου. Επιτρέπουν βασικές λειτουργίες όπως η πλοήγηση στις σελίδες και η πρόσβαση σε ασφαλείς περιοχές του ιστότοπου. Ο ιστότοπος δεν μπορεί να λειτουργήσει σωστά χωρίς αυτά τα cookies.</p>
-          
-          <h3>2.2 Cookies Προτιμήσεων</h3>
-          <p>Αυτά τα cookies επιτρέπουν στον ιστότοπο να θυμάται επιλογές που κάνετε (όπως η προτιμώμενη γλώσσα σας ή η περιοχή στην οποία βρίσκεστε) και παρέχουν βελτιωμένες, πιο προσωπικές λειτουργίες.</p>
-          
-          <h3>2.3 Cookies Ανάλυσης</h3>
-          <p>Αυτά τα cookies μας βοηθούν να κατανοήσουμε πώς οι επισκέπτες αλληλεπιδρούν με τον ιστότοπό μας συλλέγοντας και αναφέροντας πληροφορίες ανώνυμα. Μας βοηθούν να βελτιώσουμε τον τρόπο λειτουργίας του ιστότοπού μας.</p>
-          
-          <h3>2.4 Cookies Μάρκετινγκ</h3>
-          <p>Αυτά τα cookies χρησιμοποιούνται για την παρακολούθηση των επισκεπτών σε διάφορους ιστότοπους. Ο σκοπός είναι να εμφανίζονται διαφημίσεις που είναι σχετικές και ελκυστικές για τον μεμονωμένο χρήστη.</p>
-          
-          <h2>3. Cookies Τρίτων</h2>
-          <p>Ορισμένα cookies τοποθετούνται από τρίτους στον ιστότοπό μας. Αυτοί οι τρίτοι μπορεί να περιλαμβάνουν παρόχους αναλύσεων, διαφημιστικά δίκτυα και πλατφόρμες κοινωνικών μέσων. Αυτοί οι τρίτοι μπορεί να χρησιμοποιούν cookies, web beacons και παρόμοιες τεχνολογίες για τη συλλογή πληροφοριών σχετικά με τη χρήση του ιστότοπού μας και άλλων ιστότοπων.</p>
-          
-          <h2>4. Πώς να Ελέγχετε τα Cookies</h2>
-          <p>Τα περισσότερα προγράμματα περιήγησης ιστού σάς επιτρέπουν να ελέγχετε τα cookies μέσω των ρυθμίσεων προτιμήσεών τους. Ωστόσο, εάν περιορίσετε τη δυνατότητα των ιστότοπων να ορίζουν cookies, μπορεί να επιδεινώσετε τη συνολική εμπειρία χρήστη, καθώς δεν θα είναι πλέον εξατομικευμένη για εσάς. Μπορεί επίσης να σας εμποδίσει να αποθηκεύσετε προσαρμοσμένες ρυθμίσεις όπως πληροφορίες σύνδεσης.</p>
-          
-          <p>Για να διαχειριστείτε τις προτιμήσεις σας για τα cookies, μπορείτε:</p>
-          <ul>
-            <li>Να προσαρμόσετε τις ρυθμίσεις του προγράμματος περιήγησής σας ώστε να σας ειδοποιεί όταν λαμβάνετε ένα cookie ή να απορρίπτετε εντελώς τα cookies</li>
-            <li>Να χρησιμοποιήσετε το εργαλείο συγκατάθεσης cookies όταν επισκέπτεστε για πρώτη φορά τον ιστότοπό μας</li>
-            <li>Να διαγράψετε cookies που έχουν ήδη οριστεί</li>
-          </ul>
-          
-          <h2>5. Συγκεκριμένες Οδηγίες για Προγράμματα Περιήγησης</h2>
-          <p>Εδώ είναι σύνδεσμοι για οδηγίες διαχείρισης cookies για κοινά προγράμματα περιήγησης:</p>
-          <ul>
-            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
-            <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank">Mozilla Firefox</a></li>
-            <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Safari</a></li>
-            <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank">Microsoft Edge</a></li>
-          </ul>
-          
-          <h2>6. Αλλαγές σε Αυτήν την Πολιτική Cookies</h2>
-          <p>Μπορεί να ενημερώνουμε αυτήν την Πολιτική Cookies από καιρό σε καιρό για να αντικατοπτρίζει αλλαγές στην τεχνολογία, τους κανονισμούς ή τις επιχειρηματικές μας πρακτικές. Οποιεσδήποτε αλλαγές θα αναρτώνται σε αυτήν τη σελίδα και, εάν οι αλλαγές είναι σημαντικές, θα παρέχουμε μια πιο εμφανή ειδοποίηση.</p>
-          
-          <h2>7. Επικοινωνήστε Μαζί μας</h2>
-          <p>Εάν έχετε οποιεσδήποτε ερωτήσεις σχετικά με τη χρήση των cookies από εμάς, επικοινωνήστε μαζί μας στο <a href="mailto:g.coci@echopais.com">g.coci@echopais.com</a>.</p>
-        `
-      };
-      
-      // Function to update language
-      function updateLanguage(lang) {
-        console.log("Updating language to:", lang);
-        
-        // Update all elements with data-i18n attribute
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-          const keys = element.getAttribute('data-i18n').split('.');
-          let value = content[lang];
-          
-          // Navigate through the nested object
-          for (const key of keys) {
-            if (value && value[key]) {
-              value = value[key];
-            } else {
-              console.warn(`Translation missing for ${keys.join('.')} in ${lang}`);
-              return;
-            }
-          }
-          
-          element.textContent = value;
-        });
-        
-        // Update the language button
-        const langButton = document.querySelector('.lang-button img');
-        if (langButton) {
-          langButton.src = `https://flagcdn.com/${lang === 'gr' ? 'gr' : lang}.svg`;
-        }
-        
-        // Show the appropriate content based on language
-        document.querySelectorAll('[id$="-content"]').forEach(element => {
-          element.style.display = 'none';
-        });
-        
-        const contentElement = document.getElementById(`${lang}-content`);
-        if (contentElement) {
-          contentElement.style.display = 'block';
-          
-          // If the content is empty and we have a translation, fill it
-          if (contentElement.innerHTML.trim() === '' && cookiesContent[lang]) {
-            contentElement.innerHTML = cookiesContent[lang];
-          }
-        } else {
-          // If we don't have a specific language div, show English as fallback
-          document.getElementById('en-content').style.display = 'block';
-        }
-        
-        // Save selected language to localStorage
-        localStorage.setItem('selectedLanguage', lang);
+    const translations = {
+      en: {
+        'subtitle': 'Professional MIDI Solutions',
+        'nav-home': 'Home',
+        'nav-privacy': 'Privacy Policy',
+        'nav-terms': 'Terms of Service',
+        'nav-cookies': 'Cookie Policy',
+        'back-home': 'Back to Home',
+        'page-title': 'Cookie Policy',
+        'last-updated': 'Last updated: December 2024',
+        'section1-title': 'What are Cookies?',
+        'section1-content': 'Cookies are small text files placed on your device when you visit our website. We use cookies to improve your experience, remember preferences, and analyze website traffic for our MIDI software and ESP32 hardware store.',
+        'section2-title': 'How We Use Cookies',
+        'section2-content': 'We use cookies to enhance your browsing experience, remember your language preferences, track product views, and analyze which MIDI applications and ESP32 controllers are most popular with our users.',
+        'section3-title': 'Types of Cookies We Use',
+        'section3-content': 'Essential Cookies: Required for website functionality and shopping cart. Analytics Cookies: Help us understand user behavior and improve our product offerings. Preference Cookies: Remember your settings and language choices.',
+        'section4-title': 'Third-Party Cookies',
+        'section4-content': 'We may use analytics services to understand how users interact with our MIDI software information and ESP32 hardware listings. These services may place their own cookies on your device.',
+        'section5-title': 'Managing Cookies',
+        'section5-content': 'You can control cookies through your browser settings. Note that disabling certain cookies may affect website functionality, including the ability to view product details and make purchases.'
+      },
+      de: {
+        'subtitle': 'Professionelle MIDI-Lösungen',
+        'nav-home': 'Startseite',
+        'nav-privacy': 'Datenschutzerklärung',
+        'nav-terms': 'Nutzungsbedingungen',
+        'nav-cookies': 'Cookie-Richtlinie',
+        'back-home': 'Zurück zur Startseite',
+        'page-title': 'Cookie-Richtlinie',
+        'last-updated': 'Zuletzt aktualisiert: Dezember 2024',
+        'section1-title': 'Was sind Cookies?',
+        'section1-content': 'Cookies sind kleine Textdateien, die auf Ihrem Gerät platziert werden, wenn Sie unsere Website besuchen. Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, Präferenzen zu merken und Website-Traffic für unseren MIDI-Software- und ESP32-Hardware-Shop zu analysieren.',
+        'section2-title': 'Wie wir Cookies verwenden',
+        'section2-content': 'Wir verwenden Cookies, um Ihr Browsing-Erlebnis zu verbessern, Ihre Sprachpräferenzen zu merken, Produktansichten zu verfolgen und zu analysieren, welche MIDI-Anwendungen und ESP32-Controller bei unseren Benutzern am beliebtesten sind.',
+        'section3-title': 'Arten von Cookies, die wir verwenden',
+        'section3-content': 'Wesentliche Cookies: Erforderlich für Website-Funktionalität und Warenkorb. Analytics-Cookies: Helfen uns, Benutzerverhalten zu verstehen und unsere Produktangebote zu verbessern. Präferenz-Cookies: Merken sich Ihre Einstellungen und Sprachauswahl.',
+        'section4-title': 'Drittanbieter-Cookies',
+        'section4-content': 'Wir können Analytics-Dienste verwenden, um zu verstehen, wie Benutzer mit unseren MIDI-Software-Informationen und ESP32-Hardware-Auflistungen interagieren. Diese Dienste können ihre eigenen Cookies auf Ihrem Gerät platzieren.',
+        'section5-title': 'Cookies verwalten',
+        'section5-content': 'Sie können Cookies über Ihre Browser-Einstellungen kontrollieren. Beachten Sie, dass das Deaktivieren bestimmter Cookies die Website-Funktionalität beeinträchtigen kann, einschließlich der Möglichkeit, Produktdetails anzuzeigen und Käufe zu tätigen.'
+      },
+      el: {
+        'subtitle': 'Επαγγελματικές MIDI Λύσεις',
+        'nav-home': 'Αρχική',
+        'nav-privacy': 'Πολιτική Απορρήτου',
+        'nav-terms': 'Όροι Χρήσης',
+        'nav-cookies': 'Πολιτική Cookies',
+        'back-home': 'Επιστροφή στην Αρχική',
+        'page-title': 'Πολιτική Cookies',
+        'last-updated': 'Τελευταία ενημέρωση: Δεκέμβριος 2024',
+        'section1-title': 'Τι είναι τα Cookies;',
+        'section1-content': 'Τα Cookies είναι μικρά αρχεία κειμένου που τοποθετούνται στη συσκευή σας όταν επισκέπτεστε την ιστοσελίδα μας. Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας, να θυμόμαστε προτιμήσεις και να αναλύουμε την κίνηση της ιστοσελίδας για το κατάστημα MIDI λογισμικού και ESP32 hardware μας.',
+        'section2-title': 'Πώς Χρησιμοποιούμε τα Cookies',
+        'section2-content': 'Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία περιήγησής σας, να θυμόμαστε τις γλωσσικές σας προτιμήσεις, να παρακολουθούμε προβολές προϊόντων και να αναλύουμε ποιες MIDI εφαρμογές και ESP32 controllers είναι πιο δημοφιλή στους χρήστες μας.',
+        'section3-title': 'Τύποι Cookies που Χρησιμοποιούμε',
+        'section3-content': 'Βασικά Cookies: Απαιτούνται για τη λειτουργικότητα της ιστοσελίδας και το καλάθι αγορών. Analytics Cookies: Μας βοηθούν να κατανοήσουμε τη συμπεριφορά χρηστών και να βελτιώσουμε τις προσφορές προϊόντων μας. Cookies Προτιμήσεων: Θυμούνται τις ρυθμίσεις και γλωσσικές επιλογές σας.',
+        'section4-title': 'Cookies Τρίτων',
+        'section4-content': 'Μπορεί να χρησιμοποιούμε υπηρεσίες αναλυτικών για να κατανοήσουμε πώς οι χρήστες αλληλεπιδρούν με τις πληροφορίες MIDI λογισμικού και τις καταχωρήσεις ESP32 hardware μας. Αυτές οι υπηρεσίες μπορεί να τοποθετήσουν τα δικά τους cookies στη συσκευή σας.',
+        'section5-title': 'Διαχείριση Cookies',
+        'section5-content': 'Μπορείτε να ελέγχετε τα cookies μέσω των ρυθμίσεων του browser σας. Σημειώστε ότι η απενεργοποίηση ορισμένων cookies μπορεί να επηρεάσει τη λειτουργικότητα της ιστοσελίδας, συμπεριλαμβανομένης της δυνατότητας προβολής λεπτομερειών προϊόντων και πραγματοποίησης αγορών.'
       }
+    };
+
+    let currentLanguage = 'en';
+
+    function changeLanguage(lang) {
+      currentLanguage = lang;
       
-      // Add language switching functionality
-      const languageItems = document.querySelectorAll('.dropdown-item');
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
       
-      languageItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-          e.preventDefault();
-          const lang = this.getAttribute('data-lang');
-          console.log("Language clicked:", lang);
-          updateLanguage(lang);
-        });
+      // Update all translatable elements
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
       });
       
-      // Load saved language if exists
-      const savedLanguage = localStorage.getItem('selectedLanguage');
-      if (savedLanguage && content[savedLanguage]) {
-        console.log("Loading saved language:", savedLanguage);
-        updateLanguage(savedLanguage);
+      // Update document language
+      document.documentElement.lang = lang;
+      
+      // Store language preference
+      localStorage.setItem('echopais-language', lang);
+    }
+
+    // Load saved language preference
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('echopais-language') || 'en';
+      if (savedLang !== 'en') {
+        const langBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${savedLang}')"]`);
+        if (langBtn) {
+          langBtn.click();
+        }
       }
     });
   </script>

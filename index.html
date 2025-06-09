@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Echopais - Professional Audio Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>ECHOPAIS MIDI SYSTEM - Professional MIDI Controllers & Applications</title>
+  <meta name="description" content="Professional MIDI controllers, iOS/Android applications, and custom ESP32 hardware solutions by ECHOPAIS MIDI SYSTEM">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange-500: #ff6600;
       --orange-600: #e65c00;
+      --orange-700: #cc5200;
+      --orange-400: #ff8533;
+      --orange-300: #ffa366;
+      --orange-200: #ffcc99;
       --zinc-100: #f4f4f5;
       --zinc-200: #e4e4e7;
       --zinc-300: #d4d4d8;
@@ -29,531 +34,669 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, var(--zinc-900), var(--black));
+      background: linear-gradient(135deg, var(--zinc-900) 0%, var(--black) 100%);
       color: var(--zinc-100);
       min-height: 100vh;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 1rem;
     }
     
     /* Header */
     header {
+      background: rgba(24, 24, 27, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--zinc-800);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     
-    .logo img {
-      height: 60px;
-      width: auto;
-    }
-    
-    nav {
-      display: none;
-    }
-    
-    @media (min-width: 768px) {
-      nav {
-        display: flex;
-        gap: 1.5rem;
-      }
-    }
-    
-    nav a {
-      color: var(--zinc-300);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    
-    nav a:hover {
-      color: var(--orange-500);
-    }
-    
-    .lang-dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    
-    .lang-button {
+    .logo-container {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
-      background: none;
-      border: none;
-      color: var(--zinc-300);
-      cursor: pointer;
-      padding: 0.5rem;
+      gap: 1rem;
     }
     
-    .lang-button img {
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
-      border: 1px solid var(--zinc-700);
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      background-color: var(--zinc-800);
-      min-width: 160px;
-      border: 1px solid var(--zinc-700);
-      border-radius: 0.5rem;
-      z-index: 1;
-      overflow: hidden;
-    }
-    
-    .dropdown-item {
+    .logo-box {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-radius: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1rem;
-      color: var(--zinc-200);
-      text-decoration: none;
-      cursor: pointer;
-    }
-    
-    .dropdown-item:hover {
-      background-color: var(--zinc-700);
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
+      font-size: 1.75rem;
+      font-weight: 800;
       color: white;
     }
     
-    .dropdown-item img {
-      width: 20px;
-      height: 14px;
-      border-radius: 2px;
+    .logo-text h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--zinc-100);
+      margin: 0;
+      letter-spacing: -0.025em;
     }
     
-    .lang-dropdown:hover .dropdown-content {
-      display: block;
+    .logo-text p {
+      font-size: 0.875rem;
+      color: var(--orange-400);
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .nav-link {
+      color: var(--zinc-300);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      white-space: nowrap;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--orange-400);
+      background: rgba(255, 102, 0, 0.1);
+      transform: translateY(-1px);
+    }
+    
+    /* Language Selector */
+    .language-selector {
+      display: flex;
+      background: var(--zinc-800);
+      border-radius: 0.75rem;
+      padding: 0.25rem;
+      gap: 0.25rem;
+      border: 1px solid var(--zinc-700);
+    }
+    
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--zinc-300);
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.875rem;
+      min-width: 45px;
+    }
+    
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: white;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+      transform: translateY(-1px);
+    }
+    
+    .lang-btn:hover:not(.active) {
+      background: var(--zinc-700);
+      color: var(--zinc-100);
+      transform: translateY(-1px);
     }
     
     /* Hero Section */
-    .hero {
-      padding: 4rem 0 6rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    
-    @media (min-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr 1fr;
-      }
+    .hero-section {
+      position: relative;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--zinc-800) 0%, var(--zinc-900) 50%, var(--black) 100%);
+      border-radius: 2rem;
+      overflow: hidden;
+      margin: 2rem 0 4rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
     
     .hero-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 56rem;
+      margin: 0 auto;
     }
     
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.2;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 102, 0, 0.1);
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      color: var(--orange-400);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      background: linear-gradient(135deg, var(--zinc-100), var(--orange-300));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     @media (min-width: 768px) {
-      .hero h1 {
-        font-size: 3.5rem;
+      .hero-title {
+        font-size: 4rem;
       }
     }
     
-    .hero h1 span {
-      color: var(--orange-500);
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--orange-400);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
     }
     
-    .hero p {
+    .hero-description {
       font-size: 1.25rem;
       color: var(--zinc-300);
+      margin-bottom: 3rem;
+      max-width: 48rem;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
     }
     
-    .hero-image {
-      display: flex;
-      justify-content: center;
-    }
-    
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-    }
-    
-    .button-group {
+    .hero-buttons {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-top: 1rem;
+      justify-content: center;
+      max-width: 28rem;
+      margin: 0 auto;
     }
     
     @media (min-width: 640px) {
-      .button-group {
+      .hero-buttons {
         flex-direction: row;
       }
     }
     
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .btn-primary {
-      background-color: var(--orange-500);
-      color: white;
-      border: none;
-    }
-    
-    .btn-primary:hover {
-      background-color: var(--orange-600);
-    }
-    
-    .btn-outline {
-      background-color: transparent;
-      color: var(--zinc-300);
-      border: 1px solid var(--zinc-700);
-    }
-    
-    .btn-outline:hover {
-      color: white;
-      border-color: var(--zinc-500);
-    }
-    
-    .btn svg {
-      margin-right: 0.5rem;
-      width: 1rem;
-      height: 1rem;
-    }
-    
-    /* Products Section */
-    .section {
-      padding: 4rem 0;
-    }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .section-header h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+    /* Stats Section */
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-bottom: 6rem;
     }
     
     @media (min-width: 768px) {
-      .section-header h2 {
-        font-size: 2.5rem;
+      .stats-section {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
     
-    .section-header p {
-      color: var(--zinc-400);
-      max-width: 36rem;
-      margin: 0 auto;
+    .stat-item {
+      text-align: center;
+      padding: 2rem;
+      background: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      transition: all 0.3s ease;
     }
     
-    .card-grid {
+    .stat-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 102, 0, 0.3);
+    }
+    
+    .stat-icon {
+      width: 4rem;
+      height: 4rem;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.75rem;
+      color: white;
+      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--orange-400);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      font-weight: 500;
+    }
+    
+    /* Products Section */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--zinc-100), var(--orange-300));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: var(--zinc-400);
+      max-width: 42rem;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .products-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
+      margin-bottom: 6rem;
     }
     
     @media (min-width: 768px) {
-      .card-grid {
+      .products-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
     
     @media (min-width: 1024px) {
-      .card-grid {
+      .products-grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
     
-    .card {
-      background-color: var(--zinc-800);
+    .product-card {
+      background: var(--zinc-800);
       border: 1px solid var(--zinc-700);
-      border-radius: 0.75rem;
+      border-radius: 1.5rem;
       overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
     }
     
-    .card-image {
-      height: 12rem;
-      background: linear-gradient(to bottom right, rgba(255, 102, 0, 0.2), var(--zinc-800));
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 102, 0, 0.5);
+    }
+    
+    .product-image-container {
+      position: relative;
+      height: 14rem;
+      background: linear-gradient(135deg, var(--zinc-700), var(--zinc-800));
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--zinc-500);
+      overflow: hidden;
     }
     
-    .card-image svg {
-      width: 4rem;
-      height: 4rem;
-      color: var(--orange-500);
-    }
-    
-    .card-header {
-      padding: 1.5rem 1.5rem 0.75rem;
-    }
-    
-    .card-title {
-      font-size: 1.25rem;
+    .product-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: white;
+      font-size: 0.75rem;
       font-weight: 600;
-      color: var(--zinc-100);
-      margin-bottom: 0.25rem;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
     }
     
-    .card-subtitle {
-      font-size: 0.875rem;
-      color: var(--zinc-400);
+    .product-content {
+      padding: 2rem;
     }
     
-    .card-content {
-      padding: 0 1.5rem 1.5rem;
-    }
-    
-    .card-content p {
-      color: var(--zinc-300);
-      font-size: 0.9375rem;
-    }
-    
-    .card-footer {
-      padding: 1.5rem;
+    .product-header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .product-category {
+      background: var(--zinc-700);
+      color: var(--orange-400);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--zinc-600);
+    }
+    
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--orange-400);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    
+    .product-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--zinc-100);
+    }
+    
+    .product-description {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    
+    .product-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    
+    .product-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--zinc-300);
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-features li::before {
+      content: "✓";
+      color: var(--orange-400);
+      font-weight: bold;
+    }
+    
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
       border-top: 1px solid var(--zinc-700);
     }
     
-    /* Developer Section */
-    .developer {
-      padding: 4rem 0;
-      background-color: rgba(24, 24, 27, 0.5);
-      border-radius: 0.75rem;
-    }
-    
-    .developer-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    
-    @media (min-width: 768px) {
-      .developer-container {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    
-    .developer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      max-width: 36rem;
-    }
-    
-    .developer-content h2 {
+    .product-price {
       font-size: 2rem;
-      font-weight: 700;
+      font-weight: 800;
+      color: var(--orange-400);
     }
     
-    .developer-content h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--orange-500);
-    }
-    
-    .developer-content p {
-      color: var(--zinc-300);
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .developer-image {
-      display: flex;
-      justify-content: center;
-    }
-    
-    .developer-image img {
-      width: 16rem;
-      height: 16rem;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--orange-500);
-    }
-    
-    /* Contact Section */
-    .contact-form {
-      max-width: 28rem;
-      margin: 0 auto;
-    }
-    
-    .contact-card {
-      background-color: var(--zinc-800);
-      border: 1px solid var(--zinc-700);
-      border-radius: 0.75rem;
-      overflow: hidden;
-    }
-    
-    .contact-header {
-      padding: 1.5rem 1.5rem 0.75rem;
-    }
-    
-    .contact-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--zinc-100);
-      margin-bottom: 0.25rem;
-    }
-    
-    .contact-subtitle {
+    .product-meta {
       font-size: 0.875rem;
-      color: var(--zinc-400);
+      color: var(--zinc-500);
+      text-align: right;
     }
     
-    .contact-content {
-      padding: 0.75rem 1.5rem 1.5rem;
-    }
-    
-    .form {
+    .product-buttons {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.75rem;
     }
     
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    /* Hardware Specs */
+    .hardware-specs {
+      background: rgba(255, 102, 0, 0.05);
+      border: 1px solid rgba(255, 102, 0, 0.2);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
     }
     
-    .form-group {
+    .hardware-specs h4 {
+      color: var(--orange-400);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 0.5rem;
     }
     
-    .form-label {
+    .hardware-specs ul {
+      list-style: none;
       font-size: 0.875rem;
-      color: var(--zinc-400);
+      color: var(--orange-200);
+    }
+    
+    .hardware-specs li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    
+    .hardware-specs li::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      color: var(--orange-400);
+    }
+    
+    /* Legal Disclaimer */
+    .legal-disclaimer {
+      background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 102, 0, 0.05));
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .legal-disclaimer h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--orange-400);
+      margin-bottom: 1.5rem;
+    }
+    
+    .legal-disclaimer p {
+      color: var(--orange-200);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    
+    .legal-disclaimer strong {
+      color: var(--orange-300);
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      margin-bottom: 6rem;
+    }
+    
+    .contact-form {
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+    
+    .form-card {
+      background: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .form-group {
+      margin-bottom: 2rem;
+    }
+    
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--zinc-300);
+      margin-bottom: 0.75rem;
     }
     
     .form-input,
     .form-textarea {
       width: 100%;
-      padding: 0.75rem;
-      background-color: var(--zinc-700);
+      padding: 1rem 1.25rem;
+      background: var(--zinc-700);
       border: 1px solid var(--zinc-600);
-      border-radius: 0.375rem;
-      color: var(--zinc-100);
+      border-radius: 0.75rem;
+      color: white;
       font-family: inherit;
       font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--zinc-400);
     }
     
     .form-input:focus,
     .form-textarea:focus {
       outline: none;
-      box-shadow: 0 0 0 2px var(--orange-500);
+      border-color: var(--orange-500);
+      box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+      background: var(--zinc-600);
     }
     
     .form-textarea {
       resize: vertical;
-      min-height: 6rem;
+      min-height: 8rem;
     }
     
     /* Footer */
     .footer {
-      background-color: var(--zinc-900);
+      background: var(--zinc-900);
       border-top: 1px solid var(--zinc-800);
-      padding: 3rem 0;
+      padding: 4rem 0 2rem;
     }
     
     .footer-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 3rem;
+      margin-bottom: 3rem;
     }
     
     @media (min-width: 768px) {
       .footer-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 2fr 1fr 1fr 1fr;
       }
     }
     
     .footer-brand {
       display: flex;
       flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
       gap: 1rem;
     }
     
-    .footer-brand img {
-      width: 8.75rem;
-      height: auto;
+    .footer-logo-box {
+      width: 3.5rem;
+      height: 3.5rem;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: white;
     }
     
-    .footer-brand p {
+    .footer-logo-text {
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+    
+    .footer-description {
       font-size: 0.875rem;
       color: var(--zinc-400);
+      line-height: 1.6;
+      max-width: 28rem;
     }
     
-    .footer-links h3 {
-      font-size: 1rem;
-      font-weight: 600;
+    .footer-column-title {
+      font-size: 1.125rem;
+      font-weight: 700;
       color: var(--zinc-200);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     
-    .footer-links ul {
+    .footer-links {
       list-style: none;
     }
     
-    .footer-links li {
-      margin-bottom: 0.5rem;
+    .footer-link {
+      margin-bottom: 0.75rem;
     }
     
-    .footer-links a {
+    .footer-link a {
       font-size: 0.875rem;
       color: var(--zinc-400);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.3s ease;
     }
     
-    .footer-links a:hover {
-      color: var(--orange-500);
-    }
-    
-    .footer-connect a {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .footer-connect svg {
-      width: 1rem;
-      height: 1rem;
+    .footer-link a:hover {
+      color: var(--orange-400);
     }
     
     .footer-separator {
       height: 1px;
-      background-color: var(--zinc-800);
-      margin: 2rem 0;
+      background: var(--zinc-800);
+      margin: 3rem 0;
     }
     
     .footer-bottom {
@@ -561,12 +704,14 @@
       flex-direction: column;
       gap: 1rem;
       align-items: center;
+      text-align: center;
     }
     
     @media (min-width: 768px) {
       .footer-bottom {
         flex-direction: row;
         justify-content: space-between;
+        text-align: left;
       }
     }
     
@@ -575,1146 +720,1183 @@
       color: var(--zinc-500);
     }
     
-    .footer-legal {
-      display: flex;
-      gap: 1.5rem;
-    }
-    
-    .footer-legal a {
-      font-size: 0.875rem;
-      color: var(--zinc-500);
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
       text-decoration: none;
-      transition: color 0.2s;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
     }
     
-    .footer-legal a:hover {
-      color: var(--orange-500);
+    .btn-lg {
+      padding: 1.25rem 2.5rem;
+      font-size: 1.125rem;
     }
-
-    /* Cookie consent banner */
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: var(--zinc-800);
-      padding: 1rem;
-      border-top: 1px solid var(--zinc-700);
-      z-index: 1000;
-      display: none;
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: white;
+      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
     }
-
-    .cookie-content {
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.4);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--zinc-300);
+      border: 2px solid var(--zinc-600);
+    }
+    
+    .btn-outline:hover {
+      border-color: var(--orange-500);
+      color: var(--orange-400);
+      background: rgba(255, 102, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .btn-block {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      width: 100%;
     }
-
-    @media (min-width: 768px) {
-      .cookie-content {
-        flex-direction: row;
-        align-items: center;
+    
+    .btn-sm {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .header-right {
         justify-content: space-between;
       }
-    }
-
-    .cookie-text {
-      color: var(--zinc-300);
-      font-size: 0.875rem;
-    }
-
-    .cookie-buttons {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .cookie-btn {
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    .cookie-accept {
-      background-color: var(--orange-500);
-      color: white;
-      border: none;
-    }
-
-    .cookie-accept:hover {
-      background-color: var(--orange-600);
-    }
-
-    .cookie-settings {
-      background-color: transparent;
-      color: var(--zinc-300);
-      border: 1px solid var(--zinc-600);
-    }
-
-    .cookie-settings:hover {
-      border-color: var(--zinc-500);
-      color: white;
-    }
-
-    /* Success message */
-    .success-message {
-      display: none;
-      background-color: rgba(22, 163, 74, 0.2);
-      border: 1px solid rgba(22, 163, 74, 0.5);
-      color: #4ade80;
-      padding: 1rem;
-      border-radius: 0.375rem;
-      margin-top: 1rem;
-      text-align: center;
+      
+      .nav-links {
+        order: 2;
+        justify-content: center;
+      }
+      
+      .language-selector {
+        order: 1;
+        align-self: flex-end;
+      }
+      
+      .hero-section {
+        padding: 4rem 1.5rem;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <div class="container">
-    <header>
-      <div class="logo">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-czApP4RXCCNt4gAQa3T7BgajpCO1Am.png" alt="Echopais Logo">
-      </div>
-      
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <nav>
-          <a href="#products" data-i18n="nav.products">Products</a>
-          <a href="#about" data-i18n="nav.about">About</a>
-          <a href="#developer" data-i18n="nav.developer">Developer</a>
-          <a href="#contact" data-i18n="nav.contact">Contact</a>
-        </nav>
-        
-        <div class="lang-dropdown">
-          <button class="lang-button">
-            <img src="https://flagcdn.com/gb.svg" alt="English">
-            <span style="display: none; margin-left: 0.25rem;">English</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </button>
-          <div class="dropdown-content">
-            <a class="dropdown-item" data-lang="en">
-              <img src="https://flagcdn.com/gb.svg" alt="English">
-              <span>English</span>
-            </a>
-            <a class="dropdown-item" data-lang="gr">
-              <img src="https://flagcdn.com/gr.svg" alt="Greek">
-              <span>Ελληνικά</span>
-            </a>
-            <a class="dropdown-item" data-lang="es">
-              <img src="https://flagcdn.com/es.svg" alt="Spanish">
-              <span>Español</span>
-            </a>
-            <a class="dropdown-item" data-lang="it">
-              <img src="https://flagcdn.com/it.svg" alt="Italian">
-              <span>Italiano</span>
-            </a>
-            <a class="dropdown-item" data-lang="de">
-              <img src="https://flagcdn.com/de.svg" alt="German">
-              <span>Deutsch</span>
-            </a>
-            <a class="dropdown-item" data-lang="fr">
-              <img src="https://flagcdn.com/fr.svg" alt="French">
-              <span>Français</span>
-            </a>
-            <a class="dropdown-item" data-lang="ru">
-              <img src="https://flagcdn.com/ru.svg" alt="Russian">
-              <span>Русский</span>
-            </a>
-            <a class="dropdown-item" data-lang="ar">
-              <img src="https://flagcdn.com/sa.svg" alt="Arabic">
-              <span>العربية</span>
-            </a>
-            <a class="dropdown-item" data-lang="bg">
-              <img src="https://flagcdn.com/bg.svg" alt="Bulgarian">
-              <span>Български</span>
-            </a>
-            <a class="dropdown-item" data-lang="al">
-              <img src="https://flagcdn.com/al.svg" alt="Albanian">
-              <span>Shqip</span>
-            </a>
-            <a class="dropdown-item" data-lang="tr">
-              <img src="https://flagcdn.com/tr.svg" alt="Turkish">
-              <span>Türkçe</span>
-            </a>
-            <a class="dropdown-item" data-lang="pt">
-              <img src="https://flagcdn.com/pt.svg" alt="Portuguese">
-              <span>Português</span>
-            </a>
-            <a class="dropdown-item" data-lang="nl">
-              <img src="https://flagcdn.com/nl.svg" alt="Dutch">
-              <span>Nederlands</span>
-            </a>
-            <a class="dropdown-item" data-lang="ja">
-              <img src="https://flagcdn.com/jp.svg" alt="Japanese">
-              <span>日本語</span>
-            </a>
-            <a class="dropdown-item" data-lang="zh">
-              <img src="https://flagcdn.com/cn.svg" alt="Chinese">
-              <span>中文</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
-  </div>
-  
-  <!-- Hero Section -->
-  <section class="hero">
+  <header>
     <div class="container">
-      <div class="hero">
-        <div class="hero-content">
-          <h1><span data-i18n="hero.titleHighlight">Innovative</span> <span data-i18n="hero.title">Audio Solutions</span></h1>
-          <p data-i18n="hero.description">Elevate your music production with professional MIDI controllers and audio applications designed for creators.</p>
-          <div class="button-group">
-            <a href="#" class="btn btn-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              <span data-i18n="hero.downloadBtn">Download Now</span>
-            </a>
-            <a href="#" class="btn btn-outline" data-i18n="hero.learnMoreBtn">Learn More</a>
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-box">E</div>
+          <div class="logo-text">
+            <h1>ECHOPAIS</h1>
+            <p data-translate="subtitle">MIDI SYSTEM</p>
           </div>
         </div>
-        <div class="hero-image">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-czApP4RXCCNt4gAQa3T7BgajpCO1Am.png" alt="Echopais MIDI Controller">
+        
+        <div class="header-right">
+          <nav class="nav-links">
+            <a href="#products" class="nav-link" data-translate="nav-products">Products</a>
+            <a href="#hardware" class="nav-link" data-translate="nav-hardware">Hardware</a>
+            <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+            <a href="privacy.html" class="nav-link" data-translate="nav-privacy">Privacy</a>
+          </nav>
+          
+          <div class="language-selector">
+            <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+            <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+          </div>
         </div>
       </div>
     </div>
-  </section>
-  
-  <!-- Products Section -->
-  <section id="products" class="section">
-    <div class="container">
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span data-translate="hero-badge">Professional MIDI Solutions</span>
+        </div>
+        
+        <h1 class="hero-title" data-translate="hero-title">ECHOPAIS MIDI SYSTEM</h1>
+        <p class="hero-subtitle" data-translate="hero-subtitle">Professional MIDI Controllers & Applications</p>
+        <p class="hero-description" data-translate="hero-description">
+          Advanced iOS/Android applications and custom ESP32 hardware controllers for professional music production. 
+          Featuring scalers, editors, and complete MIDI control solutions.
+        </p>
+        
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary btn-lg btn-icon">
+            <span data-translate="btn-explore">Explore Products</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#hardware" class="btn btn-outline btn-lg btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span data-translate="btn-hardware">View Hardware</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stat-item">
+        <div class="stat-icon">📱</div>
+        <div class="stat-value">28</div>
+        <div class="stat-label" data-translate="stat-apps">Mobile Apps</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🎛️</div>
+        <div class="stat-value">3</div>
+        <div class="stat-label" data-translate="stat-hardware">Hardware Models</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-value">4.9★</div>
+        <div class="stat-label" data-translate="stat-rating">Average Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🌍</div>
+        <div class="stat-value">150+</div>
+        <div class="stat-label" data-translate="stat-countries">Countries</div>
+      </div>
+    </section>
+
+    <!-- iOS Apps Section -->
+    <section class="products-section" id="products">
       <div class="section-header">
-        <h2 data-i18n="products.title">Our Applications</h2>
-        <p data-i18n="products.description">Professional audio tools designed for musicians, producers, and sound engineers</p>
+        <h2 class="section-title" data-translate="ios-title">iOS Applications</h2>
+        <p class="section-subtitle" data-translate="ios-subtitle">Professional MIDI applications for iPhone and iPad</p>
       </div>
-      
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-image">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 10a8 8 0 0 1 16 0v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10Z"/>
-              <path d="M6 2v8"/>
-              <path d="M18 2v8"/>
-              <path d="M4 14h16"/>
-            </svg>
+
+      <div class="products-grid">
+        <!-- iOS App 1 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>1</span>
+            <span class="product-badge" data-translate="featured">Featured</span>
           </div>
-          <div class="card-header">
-            <h3 class="card-title" data-i18n="products.pad.title">Echopais Pad Controller</h3>
-            <div class="card-subtitle" data-i18n="products.pad.subtitle">Touch-based MIDI controller for iOS</div>
-          </div>
-          <div class="card-content">
-            <p data-i18n="products.pad.description">A professional-grade MIDI controller app designed for live performance and studio flexibility. Create, perform, and innovate with intuitive touch controls.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;" data-i18n="products.learnMore">Learn More</a>
-            <a href="https://apps.apple.com/us/app/echopaispadcontroller/id6745111666" target="_blank" class="btn btn-primary" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-              <span data-i18n="products.appStore">App Store</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="card">
-          <div class="card-image">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 10a8 8 0 0 1 16 0v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10Z"/>
-              <path d="M6 2v8"/>
-              <path d="M18 2v8"/>
-              <path d="M4 14h16"/>
-            </svg>
-          </div>
-          <div class="card-header">
-            <h3 class="card-title" data-i18n="products.studio.title">Echopais Studio</h3>
-            <div class="card-subtitle" data-i18n="products.studio.subtitle">Professional audio workstation</div>
-          </div>
-          <div class="card-content">
-            <p data-i18n="products.studio.description">A complete audio production environment with advanced MIDI capabilities, virtual instruments, and professional mixing tools.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;" data-i18n="products.learnMore">Learn More</a>
-            <a href="#" class="btn btn-primary" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              <span data-i18n="products.comingSoon">Coming Soon</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="card">
-          <div class="card-image">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 10a8 8 0 0 1 16 0v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10Z"/>
-              <path d="M6 2v8"/>
-              <path d="M18 2v8"/>
-              <path d="M4 14h16"/>
-            </svg>
-          </div>
-          <div class="card-header">
-            <h3 class="card-title" data-i18n="products.synth.title">Echopais Synth</h3>
-            <div class="card-subtitle" data-i18n="products.synth.subtitle">Advanced synthesizer plugin</div>
-          </div>
-          <div class="card-content">
-            <p data-i18n="products.synth.description">A powerful synthesizer with unique sound design capabilities, perfect for electronic music producers and sound designers.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;" data-i18n="products.learnMore">Learn More</a>
-            <a href="#" class="btn btn-primary" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              <span data-i18n="products.comingSoon">Coming Soon</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Developer Section -->
-  <section id="developer" class="section developer">
-    <div class="container">
-      <div class="developer-container">
-        <div class="developer-content order-2">
-          <h2 data-i18n="developer.title">Meet the Developer</h2>
-          <h3 data-i18n="developer.name">Giannis Tsotsis</h3>
-          <p data-i18n="developer.description">Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems.</p>
-          <div class="social-links">
-            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                <path d="M9 18c-4.51 2-5-2-7-2"/>
-              </svg>
-              GitHub
-            </a>
-            <a href="#" class="btn btn-outline" style="padding: 0.5rem 0.75rem; font-size: 0.875rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                <rect x="2" y="9" width="4" height="12"/>
-                <circle cx="4" cy="4" r="2"/>
-              </svg>
-              LinkedIn
-            </a>
-          </div>
-        </div>
-        <div class="developer-image order-1">
-          <div style="width: 16rem; height: 16rem; border-radius: 50%; background: #111; display: flex; align-items: center; justify-content: center; border: 4px solid #ff6600; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); overflow: hidden; position: relative;">
-            <div style="position: absolute; width: 100%; height: 100%; opacity: 0.2;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="#ff6600" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 18V5l12-2v13"></path>
-                <circle cx="6" cy="18" r="3"></circle>
-                <circle cx="18" cy="16" r="3"></circle>
-              </svg>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
             </div>
-            <div style="text-align: center; z-index: 1;">
-              <div style="font-size: 2.5rem; font-weight: bold; color: white; text-shadow: 0 0 10px rgba(255, 102, 0, 0.7);">GIANNIS</div>
-              <div style="font-size: 2.5rem; font-weight: bold; color: #ff6600; margin-top: -0.5rem;">TSOTSIS</div>
-              <div style="width: 80%; height: 2px; background: linear-gradient(90deg, transparent, #ff6600, transparent); margin: 0.5rem auto;"></div>
-              <div style="font-size: 1rem; color: #ccc;">Audio Engineer</div>
-              <div style="font-size: 1rem; color: #ccc;">& Developer</div>
+            <h3 class="product-title">MIDI Scaler Pro</h3>
+            <p class="product-description" data-translate="ios-app1-desc">
+              Advanced scaler for all keyboard synthesizers with 3 modes and 3 types. Professional MIDI control with step sequencing.
+            </p>
+            <ul class="product-features">
+              <li data-translate="feature-scaler">Scaler for all keyboards</li>
+              <li data-translate="feature-modes">3 Modes: Momentary/Toggle/OneShot</li>
+              <li data-translate="feature-types">3 Types: CC/Note/SysEx</li>
+              <li data-translate="feature-step">Step sequencing support</li>
+            </ul>
+            <div class="product-footer">
+              <span class="product-price">€24.99</span>
+              <div class="product-meta">
+                <div>12K+ <span data-translate="downloads">downloads</span></div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- iOS App 2 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>2</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Editor Pro</h3>
+            <p class="product-description" data-translate="ios-app2-desc">
+              Professional key note editor with advanced MIDI control capabilities and real-time parameter adjustment.
+            </p>
+            <ul class="product-features">
+              <li data-translate="feature-editor">Key note editor</li>
+              <li data-translate="feature-realtime">Real-time control</li>
+              <li data-translate="feature-parameters">Parameter adjustment</li>
+              <li data-translate="feature-professional">Professional grade</li>
+            </ul>
+            <div class="product-footer">
+              <span class="product-price">€19.99</span>
+              <div class="product-meta">
+                <div>8K+ <span data-translate="downloads">downloads</span></div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- iOS App 3 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>3</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">iOS</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Controller Suite</h3>
+            <p class="product-description" data-translate="ios-app3-desc">
+              Complete MIDI controller suite with customizable interfaces and advanced automation features.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€29.99</span>
+              <div class="product-meta">
+                <div>5K+ <span data-translate="downloads">downloads</span></div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-appstore">App Store</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
+    </section>
+
+    <!-- Android Apps Section -->
+    <section class="products-section">
       <div class="section-header">
-        <h2 data-i18n="contact.title">Get In Touch</h2>
-        <p data-i18n="contact.description">Have questions about our products or need technical support? We're here to help.</p>
+        <h2 class="section-title" data-translate="android-title">Android Applications</h2>
+        <p class="section-subtitle" data-translate="android-subtitle">Professional MIDI applications for Android devices</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Android App 1 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>1</span>
+            <span class="product-badge" data-translate="featured">Featured</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Scaler Android</h3>
+            <p class="product-description" data-translate="android-app1-desc">
+              Android version of our professional MIDI scaler with full feature parity and optimized performance.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€22.99</span>
+              <div class="product-meta">
+                <div>9K+ <span data-translate="downloads">downloads</span></div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Android App 2 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>2</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Editor Android</h3>
+            <p class="product-description" data-translate="android-app2-desc">
+              Professional MIDI editor for Android with advanced editing capabilities and real-time control.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€18.99</span>
+              <div class="product-meta">
+                <div>6K+ <span data-translate="downloads">downloads</span></div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Android App 3 -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>3</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">Android</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.6</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Suite Android</h3>
+            <p class="product-description" data-translate="android-app3-desc">
+              Complete MIDI control suite for Android with professional features and customizable interface.
+            </p>
+            <div class="product-footer">
+              <span class="product-price">€27.99</span>
+              <div class="product-meta">
+                <div>4K+ <span data-translate="downloads">downloads</span></div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span data-translate="btn-playstore">Google Play</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-tutorial">Tutorial</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hardware Section -->
+    <section class="products-section" id="hardware">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="hardware-title">MIDI Hardware Controllers</h2>
+        <p class="section-subtitle" data-translate="hardware-subtitle">Professional ESP32-based MIDI controllers with ECHOPAIS firmware</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Hardware 10" -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>10"</span>
+            <span class="product-badge" data-translate="professional">Professional</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">ESP32 Hardware</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Controller 10"</h3>
+            <p class="product-description" data-translate="hardware-10-desc">
+              Professional 10-inch touchscreen MIDI controller with ESP32S3 processor and ECHOPAIS firmware.
+            </p>
+            
+            <div class="hardware-specs">
+              <h4>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span data-translate="specifications">Specifications</span>
+              </h4>
+              <ul>
+                <li data-translate="spec-scaler">Scaler for all keyboard synthesizers</li>
+                <li data-translate="spec-editor">Editor key note with 3 modes</li>
+                <li data-translate="spec-types">Types: Control Change / Note / SysEx</li>
+                <li data-translate="spec-modes">Modes: Momentary / Toggle / OneShot</li>
+                <li data-translate="spec-step">Step mode for all functions</li>
+                <li data-translate="spec-firmware">ECHOPAIS MIDI firmware</li>
+                <li data-translate="spec-features">Boot / Update / Security / Reset</li>
+              </ul>
+            </div>
+            
+            <div class="product-footer">
+              <span class="product-price">€649.99</span>
+              <div class="product-meta">
+                <div>Hardware by Waveshare</div>
+                <div>Firmware by ECHOPAIS</div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span data-translate="btn-order">Order Now</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-specs">Full Specs</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hardware 7" -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>7"</span>
+            <span class="product-badge" data-translate="popular">Popular</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">ESP32 Hardware</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Controller 7"</h3>
+            <p class="product-description" data-translate="hardware-7-desc">
+              Compact 7-inch MIDI controller perfect for desktop setups and mobile production.
+            </p>
+            
+            <div class="hardware-specs">
+              <h4>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span data-translate="specifications">Specifications</span>
+              </h4>
+              <ul>
+                <li data-translate="spec-compact">Compact 7-inch design</li>
+                <li data-translate="spec-portable">Portable and lightweight</li>
+                <li data-translate="spec-full-features">Full ECHOPAIS features</li>
+                <li data-translate="spec-desktop">Perfect for desktop use</li>
+              </ul>
+            </div>
+            
+            <div class="product-footer">
+              <span class="product-price">€449.99</span>
+              <div class="product-meta">
+                <div>Hardware by Waveshare</div>
+                <div>Firmware by ECHOPAIS</div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span data-translate="btn-order">Order Now</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-specs">Full Specs</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hardware 4.3" -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <span>4.3"</span>
+            <span class="product-badge" data-translate="compact">Compact</span>
+          </div>
+          <div class="product-content">
+            <div class="product-header">
+              <span class="product-category">ESP32 Hardware</span>
+              <div class="product-rating">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="product-title">MIDI Controller 4.3"</h3>
+            <p class="product-description" data-translate="hardware-43-desc">
+              Ultra-compact 4.3-inch MIDI controller for minimal setups and travel production.
+            </p>
+            
+            <div class="hardware-specs">
+              <h4>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span data-translate="specifications">Specifications</span>
+              </h4>
+              <ul>
+                <li data-translate="spec-ultra-compact">Ultra-compact design</li>
+                <li data-translate="spec-travel">Perfect for travel</li>
+                <li data-translate="spec-essential">Essential MIDI features</li>
+                <li data-translate="spec-affordable">Affordable entry point</li>
+              </ul>
+            </div>
+            
+            <div class="product-footer">
+              <span class="product-price">€249.99</span>
+              <div class="product-meta">
+                <div>Hardware by Waveshare</div>
+                <div>Firmware by ECHOPAIS</div>
+              </div>
+            </div>
+            <div class="product-buttons">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span data-translate="btn-order">Order Now</span>
+              </a>
+              <a href="#" class="btn btn-outline btn-block btn-sm" data-translate="btn-specs">Full Specs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legal Disclaimer -->
+    <section class="legal-disclaimer">
+      <h3>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span data-translate="legal-title">Hardware Legal Information</span>
+      </h3>
+      <p data-translate="legal-content1">
+        <strong>ECHOPAIS MIDI SYSTEM</strong> operates as an authorized reseller of ESP32 hardware manufactured by <strong>Waveshare</strong> and other certified manufacturers. All hardware products are purchased through official channels and resold with custom ECHOPAIS MIDI firmware pre-installed.
+      </p>
+      <p data-translate="legal-content2">
+        <strong>Hardware Rights:</strong> Original hardware design, manufacturing, and base warranties remain with the respective manufacturers (Waveshare, etc.). ECHOPAIS provides additional firmware warranty and support for the custom MIDI software only.
+      </p>
+      <p data-translate="legal-content3">
+        <strong>Firmware Rights:</strong> All ECHOPAIS MIDI firmware, software code, and custom applications are proprietary intellectual property of ECHOPAIS MIDI SYSTEM. Unauthorized copying, modification, or redistribution is prohibited.
+      </p>
+      <p data-translate="legal-content4">
+        <strong>Support & Warranty:</strong> Hardware defects and manufacturing issues are covered by original manufacturer warranty. MIDI firmware issues, software bugs, and custom feature support are provided exclusively by ECHOPAIS MIDI SYSTEM.
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title" data-translate="contact-title">Get In Touch</h2>
+        <p class="section-subtitle" data-translate="contact-subtitle">
+          Questions about our products? Need technical support? We're here to help with your MIDI needs.
+        </p>
       </div>
       
       <div class="contact-form">
-        <div class="contact-card">
-          <div class="contact-header">
-            <h3 class="contact-title" data-i18n="contact.formTitle">Contact Us</h3>
-            <div class="contact-subtitle" data-i18n="contact.formDescription">
-              Fill out the form below and we'll get back to you as soon as possible.
+        <div class="form-card">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label" data-translate="form-name">Name</label>
+              <input type="text" id="name" name="name" class="form-input" data-translate-placeholder="form-name-placeholder" placeholder="Your name" required>
             </div>
-          </div>
-          
-          <div class="contact-content">
-            <form id="contact-form">
-              <div class="form-group">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
-              </div>
-  
-              <div class="form-group">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
-              </div>
-  
-              <div class="form-group">
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-  
-              <div class="form-group">
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-              </div>
-  
-              <button type="submit">Send</button>
-              <div id="form-message" class="message"></div>
-            </form>
-          </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject" class="form-label" data-translate="form-subject">Subject</label>
+              <select id="subject" name="subject" class="form-input" required>
+                <option value="" data-translate="form-select-subject">Select a subject</option>
+                <option value="ios-app" data-translate="form-ios-support">iOS App Support</option>
+                <option value="android-app" data-translate="form-android-support">Android App Support</option>
+                <option value="hardware" data-translate="form-hardware-support">Hardware Support</option>
+                <option value="sales" data-translate="form-sales">Sales Inquiry</option>
+                <option value="other" data-translate="form-other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label" data-translate="form-message">Message</label>
+              <textarea id="message" name="message" class="form-textarea" data-translate-placeholder="form-message-placeholder" placeholder="Your message..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block btn-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span data-translate="btn-send">Send Message</span>
+            </button>
+          </form>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Add this at the bottom of index.html -->
-  <script>
-    const form = document.getElementById('contact-form');
-    const messageDiv = document.getElementById('form-message');
-  
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-  
-      try {
-        const response = await fetch('https://formspree.io/f/xkgrlvnz', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json'
-          },
-          body: formData
-        });
-  
-        if (response.ok) {
-          messageDiv.textContent = '✅ Your message was sent successfully!';
-          messageDiv.className = 'message success';
-          form.reset();
-        } else {
-          messageDiv.textContent = '❌ Something went wrong. Please try again.';
-          messageDiv.className = 'message error';
-        }
-      } catch (error) {
-        messageDiv.textContent = '❌ Network error. Please try again.';
-        messageDiv.className = 'message error';
-      }
-    });
-  </script>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Echopais-czApP4RXCCNt4gAQa3T7BgajpCO1Am.png" alt="Echopais Logo">
-          <p data-i18n="footer.description">Creating innovative audio solutions for musicians and producers worldwide.</p>
+          <div class="footer-logo">
+            <div class="footer-logo-box">E</div>
+            <div>
+              <span class="footer-logo-text">ECHOPAIS</span>
+              <p style="color: var(--zinc-400); font-size: 0.875rem;" data-translate="subtitle">MIDI SYSTEM</p>
+            </div>
+          </div>
+          <p class="footer-description" data-translate="footer-description">
+            Professional MIDI controllers, iOS/Android applications, and custom ESP32 hardware solutions. 
+            Empowering musicians and producers worldwide with cutting-edge MIDI technology.
+          </p>
         </div>
-        
-        <div class="footer-links">
-          <h3 data-i18n="footer.products">Products</h3>
-          <ul>
-            <li><a href="#products" data-i18n="footer.padController">Pad Controller</a></li>
-            <li><a href="#products" data-i18n="footer.studio">Studio</a></li>
-            <li><a href="#products" data-i18n="footer.synth">Synth</a></li>
-            <li><a href="#" data-i18n="footer.pricing">Pricing</a></li>
+
+        <div>
+          <h3 class="footer-column-title" data-translate="footer-mobile">Mobile Apps</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#" data-translate="footer-ios-apps">iOS Applications</a></li>
+            <li class="footer-link"><a href="#" data-translate="footer-android-apps">Android Applications</a></li>
+            <li class="footer-link"><a href="#" data-translate="footer-tutorials">Tutorials</a></li>
+            <li class="footer-link"><a href="#" data-translate="footer-support">App Support</a></li>
           </ul>
         </div>
-        
-        <div class="footer-links">
-          <h3 data-i18n="footer.company">Company</h3>
-          <ul>
-            <li><a href="#about" data-i18n="footer.about">About</a></li>
-            <li><a href="#" data-i18n="footer.blog">Blog</a></li>
-            <li><a href="#" data-i18n="footer.careers">Careers</a></li>
-            <li><a href="#" data-i18n="footer.press">Press</a></li>
+
+        <div>
+          <h3 class="footer-column-title" data-translate="footer-hardware-title">Hardware</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#" data-translate="footer-midi-controllers">MIDI Controllers</a></li>
+            <li class="footer-link"><a href="#" data-translate="footer-esp32">ESP32 Hardware</a></li>
+            <li class="footer-link"><a href="#" data-translate="footer-firmware">Custom Firmware</a></li>
+            <li class="footer-link"><a href="#" data-translate="footer-hardware-support">Hardware Support</a></li>
           </ul>
         </div>
-        
-        <div class="footer-links footer-connect">
-          <h3 data-i18n="footer.connect">Connect</h3>
-          <ul>
-            <li>
-              <a href="mailto:g.coci@echopais.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                g.coci@echopais.com
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-                  <path d="M9 18c-4.51 2-5-2-7-2"/>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect x="2" y="9" width="4" height="12"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-                LinkedIn
-              </a>
-            </li>
+
+        <div>
+          <h3 class="footer-column-title" data-translate="footer-legal">Legal</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="privacy.html" data-translate="footer-privacy">Privacy Policy</a></li>
+            <li class="footer-link"><a href="terms.html" data-translate="footer-terms">Terms of Service</a></li>
+            <li class="footer-link"><a href="cookies.html" data-translate="footer-cookies">Cookie Policy</a></li>
+            <li class="footer-link"><a href="#contact" data-translate="footer-contact">Contact</a></li>
           </ul>
         </div>
       </div>
-      
+
       <div class="footer-separator"></div>
-      
+
       <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2025 Echopais. <span data-i18n="footer.rights">All rights reserved.</span></p>
-        <div class="footer-legal">
-          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
-          <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
-          <a href="cookies.html" data-i18n="footer.cookies">Cookie Policy</a>
+        <div class="footer-copyright">
+          <p>© 2024 ECHOPAIS MIDI SYSTEM. <span data-translate="footer-rights">All rights reserved</span>.</p>
+          <p style="margin-top: 0.5rem;" data-translate="footer-hardware-note">
+            ESP32 Hardware by Waveshare & Partners | MIDI Firmware by ECHOPAIS
+          </p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Cookie Consent Banner -->
-  <div class="cookie-banner" id="cookieBanner">
-    <div class="cookie-content">
-      <p class="cookie-text" data-i18n="cookies.bannerText">We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
-      <div class="cookie-buttons">
-        <button class="cookie-btn cookie-settings" data-i18n="cookies.settings" onclick="window.location.href='cookies.html'">Settings</button>
-        <button class="cookie-btn cookie-accept" data-i18n="cookies.accept" onclick="acceptCookies()">Accept All</button>
-      </div>
-    </div>
-  </div>
-  
- <script>
-  // Wait for the DOM to fully load
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded");
-    
-    // Define content for each language
-    const content = {
+  <script>
+    // Language translations
+    const translations = {
       en: {
-        nav: {
-          products: "Products",
-          about: "About",
-          developer: "Developer",
-          contact: "Contact"
-        },
-        hero: {
-          titleHighlight: "Innovative",
-          title: "Audio Solutions",
-          description: "Elevate your music production with professional MIDI controllers and audio applications designed for creators.",
-          downloadBtn: "Download Now",
-          learnMoreBtn: "Learn More"
-        },
-        products: {
-          title: "Our Applications",
-          description: "Professional audio tools designed for musicians, producers, and sound engineers",
-          learnMore: "Learn More",
-          appStore: "App Store",
-          comingSoon: "Coming Soon",
-          pad: {
-            title: "Echopais Pad Controller",
-            subtitle: "Touch-based MIDI controller for iOS",
-            description: "A professional-grade MIDI controller app designed for live performance and studio flexibility. Create, perform, and innovate with intuitive touch controls."
-          },
-          studio: {
-            title: "Echopais Studio",
-            subtitle: "Professional audio workstation",
-            description: "A complete audio production environment with advanced MIDI capabilities, virtual instruments, and professional mixing tools."
-          },
-          synth: {
-            title: "Echopais Synth",
-            subtitle: "Advanced synthesizer plugin",
-            description: "A powerful synthesizer with unique sound design capabilities, perfect for electronic music producers and sound designers."
-          }
-        },
-        developer: {
-          title: "Meet the Developer",
-          name: "Giannis Tsotsis",
-          description: "Audio software engineer and musician with over 10 years of experience in developing professional audio applications. Specializing in MIDI controllers, digital signal processing, and interactive music systems."
-        },
-        contact: {
-          title: "Get In Touch",
-          description: "Have questions about our products or need technical support? We're here to help.",
-          formTitle: "Contact Us",
-          formDescription: "Fill out the form below and we'll get back to you as soon as possible.",
-          firstName: "First name",
-          lastName: "Last name",
-          email: "Email",
-          message: "Message",
-          sendMessage: "Send Message",
-          successMessage: "Thank you for your message! We'll get back to you soon."
-        },
-        footer: {
-          description: "Creating innovative audio solutions for musicians and producers worldwide.",
-          products: "Products",
-          padController: "Pad Controller",
-          studio: "Studio",
-          synth: "Synth",
-          pricing: "Pricing",
-          company: "Company",
-          about: "About",
-          blog: "Blog",
-          careers: "Careers",
-          press: "Press",
-          connect: "Connect",
-          rights: "All rights reserved.",
-          privacy: "Privacy Policy",
-          terms: "Terms of Service",
-          cookies: "Cookie Policy"
-        },
-        cookies: {
-          bannerText: "We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.",
-          settings: "Settings",
-          accept: "Accept All"
-        }
-      },
-      gr: {
-        nav: {
-          products: "Προϊόντα",
-          about: "Σχετικά",
-          developer: "Προγραμματιστής",
-          contact: "Επικοινωνία"
-        },
-        hero: {
-          titleHighlight: "Καινοτόμες",
-          title: "Λύσεις Ήχου",
-          description: "Αναβαθμίστε την παραγωγή μουσικής σας με επαγγελματικούς MIDI controllers και εφαρμογές ήχου σχεδιασμένες για δημιουργούς.",
-          downloadBtn: "Κατεβάστε Τώρα",
-          learnMoreBtn: "Μάθετε Περισσότερα"
-        },
-        products: {
-          title: "Οι Εφαρμογές Μας",
-          description: "Επαγγελματικά εργαλεία ήχου σχεδιασμένα για μουσικούς, παραγωγούς και ηχολήπτες",
-          learnMore: "Μάθετε Περισσότερα",
-          appStore: "App Store",
-          comingSoon: "Προσεχώς",
-          pad: {
-            title: "Echopais Pad Controller",
-            subtitle: "MIDI controller αφής για iOS",
-            description: "Μια επαγγελματική εφαρμογή MIDI controller σχεδιασμένη για ζωντανές εμφανίσεις και ευελιξία στο στούντιο. Δημιουργήστε, εκτελέστε και καινοτομήστε με διαισθητικά χειριστήρια αφής."
-          },
-          studio: {
-            title: "Echopais Studio",
-            subtitle: "Επαγγελματικός σταθμός εργασίας ήχου",
-            description: "Ένα ολοκληρωμένο περιβάλλον παραγωγής ήχου με προηγμένες δυνατότητες MIDI, εικονικά όργανα και επαγγελματικά εργαλεία μίξης."
-          },
-          synth: {
-            title: "Echopais Synth",
-            subtitle: "Προηγμένο plugin συνθεσάιζερ",
-            description: "Ένας ισχυρός συνθεσάιζερ με μοναδικές δυνατότητες σχεδιασμού ήχου, ιδανικός για παραγωγούς ηλεκτρονικής μουσικής και σχεδιαστές ήχου."
-          }
-        },
-        developer: {
-          title: "Γνωρίστε τον Προγραμματιστή",
-          name: "Γιάννης Τσότσης",
-          description: "Μηχανικός λογισμικού ήχου και μουσικός με πάνω από 10 χρόνια εμπειρίας στην ανάπτυξη επαγγελματικών εφαρμογών ήχου. Ειδικεύεται σε MIDI controllers, επεξεργασία ψηφιακού σήματος και διαδραστικά μουσικά συστήματα."
-        },
-        contact: {
-          title: "Επικοινωνήστε Μαζί Μας",
-          description: "Έχετε ερωτήσεις σχετικά με τα προϊόντα μας ή χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να βοηθήσουμε.",
-          formTitle: "Επικοινωνία",
-          formDescription: "Συμπληρώστε την παρακάτω φόρμα και θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό.",
-          firstName: "Όνομα",
-          lastName: "Επώνυμο",
-          email: "Email",
-          message: "Μήνυμα",
-          sendMessage: "Αποστολή Μηνύματος",
-          successMessage: "Ευχαριστούμε για το μήνυμά σας! Θα επικοινωνήσουμε μαζί σας σύντομα."
-        },
-        footer: {
-          description: "Δημιουργούμε καινοτόμες λύσεις ήχου για μουσικούς και παραγωγούς παγκοσμίως.",
-          products: "Προϊόντα",
-          padController: "Pad Controller",
-          studio: "Studio",
-          synth: "Synth",
-          pricing: "Τιμολόγηση",
-          company: "Εταιρεία",
-          about: "Σχετικά",
-          blog: "Blog",
-          careers: "Καριέρες",
-          press: "Τύπος",
-          connect: "Σύνδεση",
-          rights: "Με επιφύλαξη παντός δικαιώματος.",
-          privacy: "Πολιτική Απορρήτου",
-          terms: "Όροι Χρήσης",
-          cookies: "Πολιτική Cookies"
-        },
-        cookies: {
-          bannerText: "Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας στον ιστότοπό μας. Συνεχίζοντας την περιήγηση, συμφωνείτε με τη χρήση των cookies.",
-          settings: "Ρυθμίσεις",
-          accept: "Αποδοχή Όλων"
-        }
-      },
-      es: {
-        nav: {
-          products: "Productos",
-          about: "Acerca de",
-          developer: "Desarrollador",
-          contact: "Contacto"
-        },
-        hero: {
-          titleHighlight: "Innovadoras",
-          title: "Soluciones de Audio",
-          description: "Eleve su producción musical con controladores MIDI profesionales y aplicaciones de audio diseñadas para creadores.",
-          downloadBtn: "Descargar Ahora",
-          learnMoreBtn: "Más Información"
-        },
-        products: {
-          title: "Nuestras Aplicaciones",
-          description: "Herramientas de audio profesionales diseñadas para músicos, productores e ingenieros de sonido",
-          learnMore: "Más Información",
-          appStore: "App Store",
-          comingSoon: "Próximamente",
-          pad: {
-            title: "Echopais Pad Controller",
-            subtitle: "Controlador MIDI táctil para iOS",
-            description: "Una aplicación de controlador MIDI profesional diseñada para actuaciones en vivo y flexibilidad en el estudio. Cree, actúe e innove con controles táctiles intuitivos."
-          },
-          studio: {
-            title: "Echopais Studio",
-            subtitle: "Estación de trabajo de audio profesional",
-            description: "Un entorno completo de producción de audio con capacidades MIDI avanzadas, instrumentos virtuales y herramientas de mezcla profesionales."
-          },
-          synth: {
-            title: "Echopais Synth",
-            subtitle: "Plugin de sintetizador avanzado",
-            description: "Un potente sintetizador con capacidades únicas de diseño de sonido, perfecto para productores de música electrónica y diseñadores de sonido."
-          }
-        },
-        developer: {
-          title: "Conozca al Desarrollador",
-          name: "Giannis Tsotsis",
-          description: "Ingeniero de software de audio y músico con más de 10 años de experiencia en el desarrollo de aplicaciones de audio profesionales. Especializado en controladores MIDI, procesamiento de señales digitales y sistemas musicales interactivos."
-        },
-        contact: {
-          title: "Póngase en Contacto",
-          description: "¿Tiene preguntas sobre nuestros productos o necesita soporte técnico? Estamos aquí para ayudar.",
-          formTitle: "Contáctenos",
-          formDescription: "Complete el formulario a continuación y nos pondremos en contacto con usted lo antes posible.",
-          firstName: "Nombre",
-          lastName: "Apellido",
-          email: "Correo electrónico",
-          message: "Mensaje",
-          sendMessage: "Enviar Mensaje",
-          successMessage: "¡Gracias por su mensaje! Nos pondremos en contacto con usted pronto."
-        },
-        footer: {
-          description: "Creando soluciones de audio innovadoras para músicos y productores en todo el mundo.",
-          products: "Productos",
-          padController: "Pad Controller",
-          studio: "Studio",
-          synth: "Synth",
-          pricing: "Precios",
-          company: "Empresa",
-          about: "Acerca de",
-          blog: "Blog",
-          careers: "Carreras",
-          press: "Prensa",
-          connect: "Conectar",
-          rights: "Todos los derechos reservados.",
-          privacy: "Política de Privacidad",
-          terms: "Términos de Servicio",
-          cookies: "Política de Cookies"
-        },
-        cookies: {
-          bannerText: "Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Al continuar navegando, acepta nuestro uso de cookies.",
-          settings: "Configuración",
-          accept: "Aceptar Todo"
-        }
-      },
-      it: {
-        nav: {
-          products: "Prodotti",
-          about: "Chi Siamo",
-          developer: "Sviluppatore",
-          contact: "Contatti"
-        },
-        hero: {
-          titleHighlight: "Innovative",
-          title: "Soluzioni Audio",
-          description: "Migliora la tua produzione musicale con controller MIDI professionali e applicazioni audio progettate per i creatori.",
-          downloadBtn: "Scarica Ora",
-          learnMoreBtn: "Scopri di Più"
-        },
-        products: {
-          title: "Le Nostre Applicazioni",
-          description: "Strumenti audio professionali progettati per musicisti, produttori e ingegneri del suono",
-          learnMore: "Scopri di Più",
-          appStore: "App Store",
-          comingSoon: "Prossimamente",
-          pad: {
-            title: "Echopais Pad Controller",
-            subtitle: "Controller MIDI touch per iOS",
-            description: "Un'app controller MIDI professionale progettata per performance dal vivo e flessibilità in studio. Crea, esegui e innova con controlli touch intuitivi."
-          },
-          studio: {
-            title: "Echopais Studio",
-            subtitle: "Workstation audio professionale",
-            description: "Un ambiente completo di produzione audio con funzionalità MIDI avanzate, strumenti virtuali e strumenti di mixaggio professionali."
-          },
-          synth: {
-            title: "Echopais Synth",
-            subtitle: "Plugin sintetizzatore avanzato",
-            description: "Un potente sintetizzatore con capacità uniche di sound design, perfetto per produttori di musica elettronica e sound designer."
-          }
-        },
-        developer: {
-          title: "Incontra lo Sviluppatore",
-          name: "Giannis Tsotsis",
-          description: "Ingegnere software audio e musicista con oltre 10 anni di esperienza nello sviluppo di applicazioni audio professionali. Specializzato in controller MIDI, elaborazione di segnali digitali e sistemi musicali interattivi."
-        },
-        contact: {
-          title: "Contattaci",
-          description: "Hai domande sui nostri prodotti o hai bisogno di supporto tecnico? Siamo qui per aiutarti.",
-          formTitle: "Contattaci",
-          formDescription: "Compila il modulo sottostante e ti risponderemo il prima possibile.",
-          firstName: "Nome",
-          lastName: "Cognome",
-          email: "Email",
-          message: "Messaggio",
-          sendMessage: "Invia Messaggio",
-          successMessage: "Grazie per il tuo messaggio! Ti risponderemo presto."
-        },
-        footer: {
-          description: "Creiamo soluzioni audio innovative per musicisti e produttori in tutto il mondo.",
-          products: "Prodotti",
-          padController: "Pad Controller",
-          studio: "Studio",
-          synth: "Synth",
-          pricing: "Prezzi",
-          company: "Azienda",
-          about: "Chi Siamo",
-          blog: "Blog",
-          careers: "Carriere",
-          press: "Stampa",
-          connect: "Connettiti",
-          rights: "Tutti i diritti riservati.",
-          privacy: "Informativa sulla Privacy",
-          terms: "Termini di Servizio",
-          cookies: "Politica dei Cookie"
-        },
-        cookies: {
-          bannerText: "Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito web. Continuando a navigare, accetti il nostro utilizzo dei cookie.",
-          settings: "Impostazioni",
-          accept: "Accetta Tutti"
-        }
+        'subtitle': 'MIDI SYSTEM',
+        'nav-products': 'Products',
+        'nav-hardware': 'Hardware',
+        'nav-contact': 'Contact',
+        'nav-privacy': 'Privacy',
+        'hero-badge': 'Professional MIDI Solutions',
+        'hero-title': 'ECHOPAIS MIDI SYSTEM',
+        'hero-subtitle': 'Professional MIDI Controllers & Applications',
+        'hero-description': 'Advanced iOS/Android applications and custom ESP32 hardware controllers for professional music production. Featuring scalers, editors, and complete MIDI control solutions.',
+        'btn-explore': 'Explore Products',
+        'btn-hardware': 'View Hardware',
+        'stat-apps': 'Mobile Apps',
+        'stat-hardware': 'Hardware Models',
+        'stat-rating': 'Average Rating',
+        'stat-countries': 'Countries',
+        'ios-title': 'iOS Applications',
+        'ios-subtitle': 'Professional MIDI applications for iPhone and iPad',
+        'featured': 'Featured',
+        'ios-app1-desc': 'Advanced scaler for all keyboard synthesizers with 3 modes and 3 types. Professional MIDI control with step sequencing.',
+        'feature-scaler': 'Scaler for all keyboards',
+        'feature-modes': '3 Modes: Momentary/Toggle/OneShot',
+        'feature-types': '3 Types: CC/Note/SysEx',
+        'feature-step': 'Step sequencing support',
+        'downloads': 'downloads',
+        'btn-appstore': 'App Store',
+        'btn-tutorial': 'Tutorial',
+        'ios-app2-desc': 'Professional key note editor with advanced MIDI control capabilities and real-time parameter adjustment.',
+        'feature-editor': 'Key note editor',
+        'feature-realtime': 'Real-time control',
+        'feature-parameters': 'Parameter adjustment',
+        'feature-professional': 'Professional grade',
+        'ios-app3-desc': 'Complete MIDI controller suite with customizable interfaces and advanced automation features.',
+        'android-title': 'Android Applications',
+        'android-subtitle': 'Professional MIDI applications for Android devices',
+        'android-app1-desc': 'Android version of our professional MIDI scaler with full feature parity and optimized performance.',
+        'btn-playstore': 'Google Play',
+        'android-app2-desc': 'Professional MIDI editor for Android with advanced editing capabilities and real-time control.',
+        'android-app3-desc': 'Complete MIDI control suite for Android with professional features and customizable interface.',
+        'hardware-title': 'MIDI Hardware Controllers',
+        'hardware-subtitle': 'Professional ESP32-based MIDI controllers with ECHOPAIS firmware',
+        'professional': 'Professional',
+        'hardware-10-desc': 'Professional 10-inch touchscreen MIDI controller with ESP32S3 processor and ECHOPAIS firmware.',
+        'specifications': 'Specifications',
+        'spec-scaler': 'Scaler for all keyboard synthesizers',
+        'spec-editor': 'Editor key note with 3 modes',
+        'spec-types': 'Types: Control Change / Note / SysEx',
+        'spec-modes': 'Modes: Momentary / Toggle / OneShot',
+        'spec-step': 'Step mode for all functions',
+        'spec-firmware': 'ECHOPAIS MIDI firmware',
+        'spec-features': 'Boot / Update / Security / Reset',
+        'btn-order': 'Order Now',
+        'btn-specs': 'Full Specs',
+        'popular': 'Popular',
+        'hardware-7-desc': 'Compact 7-inch MIDI controller perfect for desktop setups and mobile production.',
+        'spec-compact': 'Compact 7-inch design',
+        'spec-portable': 'Portable and lightweight',
+        'spec-full-features': 'Full ECHOPAIS features',
+        'spec-desktop': 'Perfect for desktop use',
+        'compact': 'Compact',
+        'hardware-43-desc': 'Ultra-compact 4.3-inch MIDI controller for minimal setups and travel production.',
+        'spec-ultra-compact': 'Ultra-compact design',
+        'spec-travel': 'Perfect for travel',
+        'spec-essential': 'Essential MIDI features',
+        'spec-affordable': 'Affordable entry point',
+        'legal-title': 'Hardware Legal Information',
+        'legal-content1': 'ECHOPAIS MIDI SYSTEM operates as an authorized reseller of ESP32 hardware manufactured by Waveshare and other certified manufacturers. All hardware products are purchased through official channels and resold with custom ECHOPAIS MIDI firmware pre-installed.',
+        'legal-content2': 'Hardware Rights: Original hardware design, manufacturing, and base warranties remain with the respective manufacturers (Waveshare, etc.). ECHOPAIS provides additional firmware warranty and support for the custom MIDI software only.',
+        'legal-content3': 'Firmware Rights: All ECHOPAIS MIDI firmware, software code, and custom applications are proprietary intellectual property of ECHOPAIS MIDI SYSTEM. Unauthorized copying, modification, or redistribution is prohibited.',
+        'legal-content4': 'Support & Warranty: Hardware defects and manufacturing issues are covered by original manufacturer warranty. MIDI firmware issues, software bugs, and custom feature support are provided exclusively by ECHOPAIS MIDI SYSTEM.',
+        'contact-title': 'Get In Touch',
+        'contact-subtitle': 'Questions about our products? Need technical support? We\'re here to help with your MIDI needs.',
+        'form-name': 'Name',
+        'form-name-placeholder': 'Your name',
+        'form-subject': 'Subject',
+        'form-select-subject': 'Select a subject',
+        'form-ios-support': 'iOS App Support',
+        'form-android-support': 'Android App Support',
+        'form-hardware-support': 'Hardware Support',
+        'form-sales': 'Sales Inquiry',
+        'form-other': 'Other',
+        'form-message': 'Message',
+        'form-message-placeholder': 'Your message...',
+        'btn-send': 'Send Message',
+        'footer-description': 'Professional MIDI controllers, iOS/Android applications, and custom ESP32 hardware solutions. Empowering musicians and producers worldwide with cutting-edge MIDI technology.',
+        'footer-mobile': 'Mobile Apps',
+        'footer-ios-apps': 'iOS Applications',
+        'footer-android-apps': 'Android Applications',
+        'footer-tutorials': 'Tutorials',
+        'footer-support': 'App Support',
+        'footer-hardware-title': 'Hardware',
+        'footer-midi-controllers': 'MIDI Controllers',
+        'footer-esp32': 'ESP32 Hardware',
+        'footer-firmware': 'Custom Firmware',
+        'footer-hardware-support': 'Hardware Support',
+        'footer-legal': 'Legal',
+        'footer-privacy': 'Privacy Policy',
+        'footer-terms': 'Terms of Service',
+        'footer-cookies': 'Cookie Policy',
+        'footer-contact': 'Contact',
+        'footer-rights': 'All rights reserved',
+        'footer-hardware-note': 'ESP32 Hardware by Waveshare & Partners | MIDI Firmware by ECHOPAIS'
       },
       de: {
-        nav: {
-          products: "Produkte",
-          about: "Über uns",
-          developer: "Entwickler",
-          contact: "Kontakt"
-        },
-        hero: {
-          titleHighlight: "Innovative",
-          title: "Audio-Lösungen",
-          description: "Verbessern Sie Ihre Musikproduktion mit professionellen MIDI-Controllern und Audio-Anwendungen, die für Kreative entwickelt wurden.",
-          downloadBtn: "Jetzt Herunterladen",
-          learnMoreBtn: "Mehr Erfahren"
-        },
-        products: {
-          title: "Unsere Anwendungen",
-          description: "Professionelle Audio-Tools für Musiker, Produzenten und Toningenieure",
-          learnMore: "Mehr Erfahren",
-          appStore: "App Store",
-          comingSoon: "Demnächst",
-          pad: {
-            title: "Echopais Pad Controller",
-            subtitle: "Touch-basierter MIDI-Controller für iOS",
-            description: "Eine professionelle MIDI-Controller-App für Live-Auftritte und Flexibilität im Studio. Erstellen, performen und innovieren Sie mit intuitiven Touch-Bedienelementen."
-          },
-          studio: {
-            title: "Echopais Studio",
-            subtitle: "Professionelle Audio-Workstation",
-            description: "Eine komplette Audio-Produktionsumgebung mit erweiterten MIDI-Funktionen, virtuellen Instrumenten und professionellen Mixing-Tools."
-          },
-          synth: {
-            title: "Echopais Synth",
-            subtitle: "Fortschrittliches Synthesizer-Plugin",
-            description: "Ein leistungsstarker Synthesizer mit einzigartigen Sound-Design-Möglichkeiten, perfekt für Produzenten elektronischer Musik und Sound-Designer."
-          }
-        },
-        developer: {
-          title: "Lernen Sie den Entwickler kennen",
-          name: "Giannis Tsotsis",
-          description: "Audio-Softwareingenieur und Musiker mit über 10 Jahren Erfahrung in der Entwicklung professioneller Audio-Anwendungen. Spezialisiert auf MIDI-Controller, digitale Signalverarbeitung und interaktive Musiksysteme."
-        },
-        contact: {
-          title: "Kontaktieren Sie Uns",
-          description: "Haben Sie Fragen zu unseren Produkten oder benötigen Sie technischen Support? Wir sind hier, um zu helfen.",
-          formTitle: "Kontakt",
-          formDescription: "Füllen Sie das untenstehende Formular aus und wir werden uns so schnell wie möglich bei Ihnen melden.",
-          firstName: "Vorname",
-          lastName: "Nachname",
-          email: "E-Mail",
-          message: "Nachricht",
-          sendMessage: "Nachricht Senden",
-          successMessage: "Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze bei Ihnen melden."
-        },
-        footer: {
-          description: "Wir entwickeln innovative Audio-Lösungen für Musiker und Produzenten weltweit.",
-          products: "Produkte",
-          padController: "Pad Controller",
-          studio: "Studio",
-          synth: "Synth",
-          pricing: "Preise",
-          company: "Unternehmen",
-          about: "Über uns",
-          blog: "Blog",
-          careers: "Karriere",
-          press: "Presse",
-          connect: "Verbinden",
-          rights: "Alle Rechte vorbehalten.",
-          privacy: "Datenschutzrichtlinie",
-          terms: "Nutzungsbedingungen",
-          cookies: "Cookie-Richtlinie"
-        },
-        cookies: {
-          bannerText: "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch die weitere Nutzung stimmen Sie der Verwendung von Cookies zu.",
-          settings: "Einstellungen",
-          accept: "Alle Akzeptieren"
-        }
+        'subtitle': 'MIDI SYSTEM',
+        'nav-products': 'Produkte',
+        'nav-hardware': 'Hardware',
+        'nav-contact': 'Kontakt',
+        'nav-privacy': 'Datenschutz',
+        'hero-badge': 'Professionelle MIDI-Lösungen',
+        'hero-title': 'ECHOPAIS MIDI SYSTEM',
+        'hero-subtitle': 'Professionelle MIDI-Controller & Anwendungen',
+        'hero-description': 'Erweiterte iOS/Android-Anwendungen und benutzerdefinierte ESP32-Hardware-Controller für professionelle Musikproduktion. Mit Scalern, Editoren und kompletten MIDI-Kontrolllösungen.',
+        'btn-explore': 'Produkte Erkunden',
+        'btn-hardware': 'Hardware Ansehen',
+        'stat-apps': 'Mobile Apps',
+        'stat-hardware': 'Hardware-Modelle',
+        'stat-rating': 'Durchschnittsbewertung',
+        'stat-countries': 'Länder',
+        'ios-title': 'iOS-Anwendungen',
+        'ios-subtitle': 'Professionelle MIDI-Anwendungen für iPhone und iPad',
+        'featured': 'Empfohlen',
+        'ios-app1-desc': 'Erweiterte Scaler für alle Keyboard-Synthesizer mit 3 Modi und 3 Typen. Professionelle MIDI-Kontrolle mit Step-Sequencing.',
+        'feature-scaler': 'Scaler für alle Keyboards',
+        'feature-modes': '3 Modi: Momentary/Toggle/OneShot',
+        'feature-types': '3 Typen: CC/Note/SysEx',
+        'feature-step': 'Step-Sequencing-Unterstützung',
+        'downloads': 'Downloads',
+        'btn-appstore': 'App Store',
+        'btn-tutorial': 'Tutorial',
+        'ios-app2-desc': 'Professioneller Key-Note-Editor mit erweiterten MIDI-Kontrollfähigkeiten und Echtzeit-Parameteranpassung.',
+        'feature-editor': 'Key-Note-Editor',
+        'feature-realtime': 'Echtzeit-Kontrolle',
+        'feature-parameters': 'Parameter-Anpassung',
+        'feature-professional': 'Professionelle Qualität',
+        'ios-app3-desc': 'Komplette MIDI-Controller-Suite mit anpassbaren Oberflächen und erweiterten Automatisierungsfunktionen.',
+        'android-title': 'Android-Anwendungen',
+        'android-subtitle': 'Professionelle MIDI-Anwendungen für Android-Geräte',
+        'android-app1-desc': 'Android-Version unseres professionellen MIDI-Scalers mit vollständiger Feature-Parität und optimierter Leistung.',
+        'btn-playstore': 'Google Play',
+        'android-app2-desc': 'Professioneller MIDI-Editor für Android mit erweiterten Bearbeitungsfähigkeiten und Echtzeit-Kontrolle.',
+        'android-app3-desc': 'Komplette MIDI-Kontroll-Suite für Android mit professionellen Funktionen und anpassbarer Oberfläche.',
+        'hardware-title': 'MIDI-Hardware-Controller',
+        'hardware-subtitle': 'Professionelle ESP32-basierte MIDI-Controller mit ECHOPAIS-Firmware',
+        'professional': 'Professionell',
+        'hardware-10-desc': 'Professioneller 10-Zoll-Touchscreen-MIDI-Controller mit ESP32S3-Prozessor und ECHOPAIS-Firmware.',
+        'specifications': 'Spezifikationen',
+        'spec-scaler': 'Scaler für alle Keyboard-Synthesizer',
+        'spec-editor': 'Editor Key Note mit 3 Modi',
+        'spec-types': 'Typen: Control Change / Note / SysEx',
+        'spec-modes': 'Modi: Momentary / Toggle / OneShot',
+        'spec-step': 'Step-Modus für alle Funktionen',
+        'spec-firmware': 'ECHOPAIS MIDI-Firmware',
+        'spec-features': 'Boot / Update / Security / Reset',
+        'btn-order': 'Jetzt Bestellen',
+        'btn-specs': 'Vollständige Specs',
+        'popular': 'Beliebt',
+        'hardware-7-desc': 'Kompakter 7-Zoll-MIDI-Controller perfekt für Desktop-Setups und mobile Produktion.',
+        'spec-compact': 'Kompaktes 7-Zoll-Design',
+        'spec-portable': 'Tragbar und leicht',
+        'spec-full-features': 'Vollständige ECHOPAIS-Features',
+        'spec-desktop': 'Perfekt für Desktop-Nutzung',
+        'compact': 'Kompakt',
+        'hardware-43-desc': 'Ultra-kompakter 4,3-Zoll-MIDI-Controller für minimale Setups und Reiseproduktion.',
+        'spec-ultra-compact': 'Ultra-kompaktes Design',
+        'spec-travel': 'Perfekt für Reisen',
+        'spec-essential': 'Wesentliche MIDI-Features',
+        'spec-affordable': 'Erschwinglicher Einstiegspunkt',
+        'legal-title': 'Hardware-Rechtsinformationen',
+        'legal-content1': 'ECHOPAIS MIDI SYSTEM fungiert als autorisierter Wiederverkäufer von ESP32-Hardware, die von Waveshare und anderen zertifizierten Herstellern produziert wird. Alle Hardware-Produkte werden über offizielle Kanäle gekauft und mit vorinstallierter benutzerdefinierter ECHOPAIS MIDI-Firmware weiterverkauft.',
+        'legal-content2': 'Hardware-Rechte: Ursprüngliches Hardware-Design, Herstellung und Grundgarantien verbleiben bei den jeweiligen Herstellern (Waveshare, etc.). ECHOPAIS bietet zusätzliche Firmware-Garantie und Support nur für die benutzerdefinierte MIDI-Software.',
+        'legal-content3': 'Firmware-Rechte: Alle ECHOPAIS MIDI-Firmware, Software-Code und benutzerdefinierten Anwendungen sind proprietäres geistiges Eigentum von ECHOPAIS MIDI SYSTEM. Unbefugtes Kopieren, Modifizieren oder Weitervertreiben ist verboten.',
+        'legal-content4': 'Support & Garantie: Hardware-Defekte und Herstellungsprobleme sind durch die ursprüngliche Herstellergarantie abgedeckt. MIDI-Firmware-Probleme, Software-Bugs und benutzerdefinierte Feature-Unterstützung werden ausschließlich von ECHOPAIS MIDI SYSTEM bereitgestellt.',
+        'contact-title': 'Kontaktieren Sie Uns',
+        'contact-subtitle': 'Fragen zu unseren Produkten? Benötigen Sie technischen Support? Wir sind hier, um bei Ihren MIDI-Bedürfnissen zu helfen.',
+        'form-name': 'Name',
+        'form-name-placeholder': 'Ihr Name',
+        'form-subject': 'Betreff',
+        'form-select-subject': 'Betreff auswählen',
+        'form-ios-support': 'iOS App Support',
+        'form-android-support': 'Android App Support',
+        'form-hardware-support': 'Hardware Support',
+        'form-sales': 'Verkaufsanfrage',
+        'form-other': 'Andere',
+        'form-message': 'Nachricht',
+        'form-message-placeholder': 'Ihre Nachricht...',
+        'btn-send': 'Nachricht Senden',
+        'footer-description': 'Professionelle MIDI-Controller, iOS/Android-Anwendungen und benutzerdefinierte ESP32-Hardware-Lösungen. Wir unterstützen Musiker und Produzenten weltweit mit modernster MIDI-Technologie.',
+        'footer-mobile': 'Mobile Apps',
+        'footer-ios-apps': 'iOS-Anwendungen',
+        'footer-android-apps': 'Android-Anwendungen',
+        'footer-tutorials': 'Tutorials',
+        'footer-support': 'App Support',
+        'footer-hardware-title': 'Hardware',
+        'footer-midi-controllers': 'MIDI-Controller',
+        'footer-esp32': 'ESP32-Hardware',
+        'footer-firmware': 'Benutzerdefinierte Firmware',
+        'footer-hardware-support': 'Hardware Support',
+        'footer-legal': 'Rechtliches',
+        'footer-privacy': 'Datenschutzerklärung',
+        'footer-terms': 'Nutzungsbedingungen',
+        'footer-cookies': 'Cookie-Richtlinie',
+        'footer-contact': 'Kontakt',
+        'footer-rights': 'Alle Rechte vorbehalten',
+        'footer-hardware-note': 'ESP32-Hardware von Waveshare & Partnern | MIDI-Firmware von ECHOPAIS'
       },
-      fr: {
-        nav: {
-          products: "Produits",
-          about: "À propos",
-          developer: "Développeur",
-          contact: "Contact"
-        },
-        hero: {
-          titleHighlight: "Innovantes",
-          title: "Solutions Audio",
-          description: "Améliorez votre production musicale avec des contrôleurs MIDI professionnels et des applications audio conçues pour les créateurs.",
-          downloadBtn: "Télécharger Maintenant",
-          learnMoreBtn: "En Savoir Plus"
-        },
-        products: {
-          title: "Nos Applications",
-          description: "Outils audio professionnels conçus pour les musiciens, les producteurs et les ingénieurs du son",
-          learnMore: "En Savoir Plus",
-          appStore: "App Store",
-          comingSoon: "Bientôt Disponible",
-          pad: {
-            title: "Echopais Pad Controller",
-            subtitle: "Contrôleur MIDI tactile pour iOS",
-            description: "Une application de contrôleur MIDI professionnelle conçue pour les performances en direct et la flexibilité en studio. Créez, performez et innovez avec des commandes tactiles intuitives."
-          },
-          studio: {
-            title: "Echopais Studio",
-            subtitle: "Station de travail audio professionnelle",
-            description: "Un environnement complet de production audio avec des capacités MIDI avancées, des instruments virtuels et des outils de mixage professionnels."
-          },
-          synth: {
-            title: "Echopais Synth",
-            subtitle: "Plugin de synthétiseur avancé",
-            description: "Un synthétiseur puissant avec des capacités uniques de conception sonore, parfait pour les producteurs de musique électronique et les concepteurs sonores."
-          }
-        },
-        developer: {
-          title: "Rencontrez le Développeur",
-          name: "Giannis Tsotsis",
-          description: "Ingénieur logiciel audio et musicien avec plus de 10 ans d'expérience dans le développement d'applications audio professionnelles. Spécialisé dans les contrôleurs MIDI, le traitement du signal numérique et les systèmes musicaux interactifs."
-        },
-        contact: {
-          title: "Contactez-Nous",
-          description: "Vous avez des questions sur nos produits ou besoin d'un support technique ? Nous sommes là pour vous aider.",
-          formTitle: "Contact",
-          formDescription: "Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
-          firstName: "Prénom",
-          lastName: "Nom",
-          email: "Email",
-          message: "Message",
-          sendMessage: "Envoyer le Message",
-          successMessage: "Merci pour votre message ! Nous vous répondrons bientôt."
-        },
-        footer: {
-          description: "Nous créons des solutions audio innovantes pour les musiciens et les producteurs du monde entier.",
-          products: "Produits",
-          padController: "Pad Controller",
-          studio: "Studio",
-          synth: "Synth",
-          pricing: "Tarification",
-          company: "Entreprise",
-          about: "À propos",
-          blog: "Blog",
-          careers: "Carrières",
-          press: "Presse",
-          connect: "Connexion",
-          rights: "Tous droits réservés.",
-          privacy: "Politique de Confidentialité",
-          terms: "Conditions d'Utilisation",
-          cookies: "Politique de Cookies"
-        },
-        cookies: {
-          bannerText: "Nous utilisons des cookies pour améliorer votre expérience sur notre site web. En continuant à naviguer, vous acceptez notre utilisation des cookies.",
-          settings: "Paramètres",
-          accept: "Tout Accepter"
-        }
-      },
-      // Add more languages as needed
+      el: {
+        'subtitle': 'MIDI SYSTEM',
+        'nav-products': 'Προϊόντα',
+        'nav-hardware': 'Hardware',
+        'nav-contact': 'Επικοινωνία',
+        'nav-privacy': 'Απόρρητο',
+        'hero-badge': 'Επαγγελματικές MIDI Λύσεις',
+        'hero-title': 'ECHOPAIS MIDI SYSTEM',
+        'hero-subtitle': 'Επαγγελματικοί MIDI Controllers & Εφαρμογές',
+        'hero-description': 'Προηγμένες iOS/Android εφαρμογές και προσαρμοσμένους ESP32 hardware controllers για επαγγελματική μουσική παραγωγή. Με scalers, editors και πλήρεις MIDI λύσεις ελέγχου.',
+        'btn-explore': 'Εξερευνήστε Προϊόντα',
+        'btn-hardware': 'Δείτε Hardware',
+        'stat-apps': 'Mobile Apps',
+        'stat-hardware': 'Μοντέλα Hardware',
+        'stat-rating': 'Μέση Βαθμολογία',
+        'stat-countries': 'Χώρες',
+        'ios-title': 'iOS Εφαρμογές',
+        'ios-subtitle': 'Επαγγελματικές MIDI εφαρμογές για iPhone και iPad',
+        'featured': 'Προτεινόμενο',
+        'ios-app1-desc': 'Προηγμένος scaler για όλους τους keyboard synthesizers με 3 modes και 3 types. Επαγγελματικός MIDI έλεγχος με step sequencing.',
+        'feature-scaler': 'Scaler για όλα τα keyboards',
+        'feature-modes': '3 Modes: Momentary/Toggle/OneShot',
+        'feature-types': '3 Types: CC/Note/SysEx',
+        'feature-step': 'Υποστήριξη step sequencing',
+        'downloads': 'λήψεις',
+        'btn-appstore': 'App Store',
+        'btn-tutorial': 'Tutorial',
+        'ios-app2-desc': 'Επαγγελματικός key note editor με προηγμένες MIDI δυνατότητες ελέγχου και real-time parameter adjustment.',
+        'feature-editor': 'Key note editor',
+        'feature-realtime': 'Real-time έλεγχος',
+        'feature-parameters': 'Parameter adjustment',
+        'feature-professional': 'Επαγγελματική ποιότητα',
+        'ios-app3-desc': 'Πλήρης MIDI controller suite με προσαρμόσιμα interfaces και προηγμένα automation features.',
+        'android-title': 'Android Εφαρμογές',
+        'android-subtitle': 'Επαγγελματικές MIDI εφαρμογές για Android συσκευές',
+        'android-app1-desc': 'Android έκδοση του επαγγελματικού μας MIDI scaler με πλήρη feature parity και βελτιστοποιημένη απόδοση.',
+        'btn-playstore': 'Google Play',
+        'android-app2-desc': 'Επαγγελματικός MIDI editor για Android με προηγμένες δυνατότητες επεξεργασίας και real-time έλεγχο.',
+        'android-app3-desc': 'Πλήρης MIDI control suite για Android με επαγγελματικά features και προσαρμόσιμο interface.',
+        'hardware-title': 'MIDI Hardware Controllers',
+        'hardware-subtitle': 'Επαγγελματικοί ESP32-based MIDI controllers με ECHOPAIS firmware',
+        'professional': 'Επαγγελματικό',
+        'hardware-10-desc': 'Επαγγελματικός 10-inch touchscreen MIDI controller με ESP32S3 επεξεργαστή και ECHOPAIS firmware.',
+        'specifications': 'Προδιαγραφές',
+        'spec-scaler': 'Scaler για όλους τους keyboard synthesizers',
+        'spec-editor': 'Editor key note με 3 modes',
+        'spec-types': 'Types: Control Change / Note / SysEx',
+        'spec-modes': 'Modes: Momentary / Toggle / OneShot',
+        'spec-step': 'Step mode για όλες τις λειτουργίες',
+        'spec-firmware': 'ECHOPAIS MIDI firmware',
+        'spec-features': 'Boot / Update / Security / Reset',
+        'btn-order': 'Παραγγείλετε Τώρα',
+        'btn-specs': 'Πλήρεις Προδιαγραφές',
+        'popular': 'Δημοφιλές',
+        'hardware-7-desc': 'Συμπαγής 7-inch MIDI controller ιδανικός για desktop setups και mobile παραγωγή.',
+        'spec-compact': 'Συμπαγής 7-inch σχεδιασμός',
+        'spec-portable': 'Φορητό και ελαφρύ',
+        'spec-full-features': 'Πλήρη ECHOPAIS features',
+        'spec-desktop': 'Ιδανικό για desktop χρήση',
+        'compact': 'Συμπαγές',
+        'hardware-43-desc': 'Ultra-συμπαγής 4.3-inch MIDI controller για minimal setups και travel παραγωγή.',
+        'spec-ultra-compact': 'Ultra-συμπαγής σχεδιασμός',
+        'spec-travel': 'Ιδανικό για ταξίδια',
+        'spec-essential': 'Βασικά MIDI features',
+        'spec-affordable': 'Προσιτό σημείο εισόδου',
+        'legal-title': 'Νομικές Πληροφορίες Hardware',
+        'legal-content1': 'Το ECHOPAIS MIDI SYSTEM λειτουργεί ως εξουσιοδοτημένος μεταπωλητής ESP32 hardware που κατασκευάζεται από τη Waveshare και άλλους πιστοποιημένους κατασκευαστές. Όλα τα hardware προϊόντα αγοράζονται μέσω επίσημων καναλιών και μεταπωλούνται με προεγκατεστημένο προσαρμοσμένο ECHOPAIS MIDI firmware.',
+        'legal-content2': 'Δικαιώματα Hardware: Ο αρχικός σχεδιασμός hardware, η κατασκευή και οι βασικές εγγυήσεις παραμένουν στους αντίστοιχους κατασκευαστές (Waveshare, κλπ.). Η ECHOPAIS παρέχει πρόσθετη εγγύηση firmware και υποστήριξη μόνο για το προσαρμοσμένο MIDI λογισμικό.',
+        'legal-content3': 'Δικαιώματα Firmware: Όλο το ECHOPAIS MIDI firmware, ο κώδικας λογισμικού και οι προσαρμοσμένες εφαρμογές είναι ιδιόκτητη πνευματική ιδιοκτησία του ECHOPAIS MIDI SYSTEM. Η μη εξουσιοδοτημένη αντιγραφή, τροποποίηση ή αναδιανομή απαγορεύεται.',
+        'legal-content4': 'Υποστήριξη & Εγγύηση: Τα ελαττώματα hardware και τα προβλήματα κατασκευής καλύπτονται από την αρχική εγγύηση κατασκευαστή. Τα προβλήματα MIDI firmware, τα bugs λογισμικού και η υποστήριξη προσαρμοσμένων features παρέχονται αποκλειστικά από το ECHOPAIS MIDI SYSTEM.',
+        'contact-title': 'Επικοινωνήστε Μαζί Μας',
+        'contact-subtitle': 'Ερωτήσεις για τα προϊόντα μας; Χρειάζεστε τεχνική υποστήριξη; Είμαστε εδώ για να βοηθήσουμε με τις MIDI ανάγκες σας.',
+        'form-name': 'Όνομα',
+        'form-name-placeholder': 'Το όνομά σας',
+        'form-subject': 'Θέμα',
+        'form-select-subject': 'Επιλέξτε θέμα',
+        'form-ios-support': 'Υποστήριξη iOS App',
+        'form-android-support': 'Υποστήριξη Android App',
+        'form-hardware-support': 'Υποστήριξη Hardware',
+        'form-sales': 'Ερώτημα Πωλήσεων',
+        'form-other': 'Άλλο',
+        'form-message': 'Μήνυμα',
+        'form-message-placeholder': 'Το μήνυμά σας...',
+        'btn-send': 'Αποστολή Μηνύματος',
+        'footer-description': 'Επαγγελματικοί MIDI controllers, iOS/Android εφαρμογές και προσαρμοσμένες ESP32 hardware λύσεις. Ενδυναμώνουμε μουσικούς και παραγωγούς παγκοσμίως με προηγμένη MIDI τεχνολογία.',
+        'footer-mobile': 'Mobile Apps',
+        'footer-ios-apps': 'iOS Εφαρμογές',
+        'footer-android-apps': 'Android Εφαρμογές',
+        'footer-tutorials': 'Tutorials',
+        'footer-support': 'Υποστήριξη App',
+        'footer-hardware-title': 'Hardware',
+        'footer-midi-controllers': 'MIDI Controllers',
+        'footer-esp32': 'ESP32 Hardware',
+        'footer-firmware': 'Προσαρμοσμένο Firmware',
+        'footer-hardware-support': 'Υποστήριξη Hardware',
+        'footer-legal': 'Νομικά',
+        'footer-privacy': 'Πολιτική Απορρήτου',
+        'footer-terms': 'Όροι Χρήσης',
+        'footer-cookies': 'Πολιτική Cookies',
+        'footer-contact': 'Επικοινωνία',
+        'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
+        'footer-hardware-note': 'ESP32 Hardware από Waveshare & Partners | MIDI Firmware από ECHOPAIS'
+      }
     };
-    
-    // Function to update language
-    function updateLanguage(lang) {
-      console.log("Updating language to:", lang);
+
+    let currentLanguage = 'en';
+
+    function changeLanguage(lang) {
+      currentLanguage = lang;
       
-      // Update all elements with data-i18n attribute
-      document.querySelectorAll('[data-i18n]').forEach(element => {
-        const keys = element.getAttribute('data-i18n').split('.');
-        let value = content[lang];
-        
-        // Navigate through the nested object
-        for (const key of keys) {
-          if (value && value[key]) {
-            value = value[key];
-          } else {
-            console.warn(`Translation missing for ${keys.join('.')} in ${lang}`);
-            return;
-          }
-        }
-        
-        // Special handling for buttons with SVG
-        if (element.tagName === 'BUTTON' || element.tagName === 'A') {
-          const svg = element.querySelector('svg');
-          if (svg) {
-            // Keep the SVG and update only the text
-            const svgClone = svg.cloneNode(true);
-            const textNode = document.createTextNode(' ' + value);
-            element.innerHTML = '';
-            element.appendChild(svgClone);
-            element.appendChild(textNode);
-          } else {
-            element.textContent = value;
-          }
-        } else {
-          element.textContent = value;
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update all translatable elements
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
         }
       });
       
-      // Update the language button
-      const langButton = document.querySelector('.lang-button img');
-      if (langButton) {
-        langButton.src = `https://flagcdn.com/${lang === 'gr' ? 'gr' : lang}.svg`;
-        const langNames = {
-          'en': 'English',
-          'gr': 'Ελληνικά',
-          'es': 'Español',
-          'it': 'Italiano',
-          'de': 'Deutsch',
-          'fr': 'Français',
-          'ru': 'Русский',
-          'ar': 'العربية',
-          'bg': 'Български',
-          'al': 'Shqip',
-          'tr': 'Türkçe',
-          'pt': 'Português',
-          'nl': 'Nederlands',
-          'ja': '日本語',
-          'zh': '中文'
-        };
-        langButton.alt = langNames[lang] || 'Language';
-      }
+      // Update placeholders
+      document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-translate-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          element.placeholder = translations[lang][key];
+        }
+      });
       
-      // Save selected language to localStorage
-      localStorage.setItem('selectedLanguage', lang);
+      // Update document language
+      document.documentElement.lang = lang;
+      
+      // Store language preference
+      localStorage.setItem('echopais-language', lang);
     }
-    
-    // Add language switching functionality
-    const languageItems = document.querySelectorAll('.dropdown-item');
-    
-    languageItems.forEach(item => {
-      item.addEventListener('click', function(e) {
+
+    // Load saved language preference
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('echopais-language') || 'en';
+      if (savedLang !== 'en') {
+        const langBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${savedLang}')"]`);
+        if (langBtn) {
+          langBtn.click();
+        }
+      }
+    });
+
+    // Contact form handling
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const messages = {
+        en: 'Thank you for your message! We will get back to you within 24 hours.',
+        de: 'Vielen Dank für Ihre Nachricht! Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.',
+        el: 'Ευχαριστούμε για το μήνυμά σας! Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.'
+      };
+      
+      alert(messages[currentLanguage] || messages.en);
+      this.reset();
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const lang = this.getAttribute('data-lang');
-        console.log("Language clicked:", lang);
-        updateLanguage(lang);
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
     });
-    
-    // Load saved language if exists
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage && content[savedLanguage]) {
-      console.log("Loading saved language:", savedLanguage);
-      updateLanguage(savedLanguage);
-    }
-    
-    // Contact form functionality
-    const contactForm = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-    
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const formDataObj = {};
-        formData.forEach((value, key) => {
-          formDataObj[key] = value;
-        });
-        
-        // In a real implementation, you would send this data to a server
-        console.log("Form submitted:", formDataObj);
-        
-        // Simulate sending email to g.coci@echopais.com
-        // In a real implementation, you would use a server-side script or service
-        
-        // Show success message
-        successMessage.style.display = 'block';
-        
-        // Reset form
-        contactForm.reset();
-        
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          successMessage.style.display = 'none';
-        }, 5000);
-      });
-    }
-    
-    // Cookie consent functionality
-    function showCookieBanner() {
-      const cookieBanner = document.getElementById('cookieBanner');
-      if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
-        cookieBanner.style.display = 'block';
+
+    // Add scroll effect to header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(24, 24, 27, 0.98)';
+      } else {
+        header.style.background = 'rgba(24, 24, 27, 0.95)';
       }
-    }
-    
-    function acceptCookies() {
-      localStorage.setItem('cookiesAccepted', 'true');
-      const cookieBanner = document.getElementById('cookieBanner');
-      if (cookieBanner) {
-        cookieBanner.style.display = 'none';
-      }
-    }
-    
-    // Show cookie banner on page load
-    showCookieBanner();
-    
-    // Make acceptCookies function globally available
-    window.acceptCookies = acceptCookies;
-  });
-</script>
+    });
+  </script>
+</body>
+</html>
