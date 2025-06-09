@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imprint - ECHOPAIS MIDI SYSTEM</title>
+  <meta name="description" content="Legal Notice and Imprint for ECHOPAIS MIDI SYSTEM - Professional MIDI Controllers & Applications">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Same CSS as privacy.html */
+    :root {
+      --orange-500: #ff6600;
+      --orange-600: #e65c00;
+      --orange-400: #ff8533;
+      --orange-300: #ffa366;
+      --orange-200: #ffcc99;
+      --zinc-100: #f4f4f5;
+      --zinc-200: #e4e4e7;
+      --zinc-300: #d4d4d8;
+      --zinc-400: #a1a1aa;
+      --zinc-500: #71717a;
+      --zinc-600: #52525b;
+      --zinc-700: #3f3f46;
+      --zinc-800: #27272a;
+      --zinc-900: #18181b;
+      --black: #09090b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--zinc-900) 0%, var(--black) 100%);
+      color: var(--zinc-100);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Header */
+    header {
+      background: rgba(24, 24, 27, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--zinc-800);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo-box {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--zinc-100);
+      margin: 0;
+    }
+    
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--orange-400);
+      margin: 0;
+    }
+    
+    .nav-link {
+      color: var(--zinc-300);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--orange-400);
+      background: rgba(255, 102, 0, 0.1);
+    }
+    
+    /* Language Selector */
+    .language-selector {
+      display: flex;
+      background: var(--zinc-800);
+      border-radius: 0.5rem;
+      padding: 0.25rem;
+      gap: 0.25rem;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--zinc-300);
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.875rem;
+    }
+    
+    .lang-btn.active {
+      background: var(--orange-500);
+      color: white;
+    }
+    
+    .lang-btn:hover:not(.active) {
+      background: var(--zinc-700);
+      color: var(--zinc-100);
+    }
+    
+    /* Main Content */
+    main {
+      padding: 4rem 0;
+    }
+    
+    .legal-card {
+      background: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .legal-header {
+      background: var(--zinc-700);
+      padding: 2rem;
+      border-bottom: 1px solid var(--zinc-600);
+    }
+    
+    .legal-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--orange-400);
+      margin-bottom: 0.5rem;
+    }
+    
+    .legal-subtitle {
+      color: var(--zinc-400);
+      font-size: 1rem;
+    }
+    
+    .legal-content {
+      padding: 3rem 2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--orange-500);
+    }
+    
+    .section-content {
+      color: var(--zinc-300);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+    
+    .section-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-content strong {
+      color: var(--orange-300);
+      font-weight: 600;
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    @media (min-width: 768px) {
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .info-item {
+      background: var(--zinc-700);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid var(--zinc-600);
+    }
+    
+    .info-item h4 {
+      color: var(--orange-400);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .info-item p {
+      color: var(--zinc-300);
+      margin-bottom: 0.5rem;
+    }
+    
+    .highlight-box {
+      background: rgba(255, 102, 0, 0.1);
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .highlight-box p {
+      color: var(--orange-200);
+      margin-bottom: 1rem;
+    }
+    
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--zinc-900);
+      border-top: 1px solid var(--zinc-800);
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      text-align: center;
+      color: var(--zinc-500);
+      font-size: 0.875rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--zinc-400);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--orange-400);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .legal-title {
+        font-size: 2rem;
+      }
+      
+      .legal-content {
+        padding: 2rem 1.5rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-box">E</div>
+          <div class="logo-text">
+            <h1>ECHOPAIS</h1>
+            <p data-translate="subtitle">MIDI SYSTEM</p>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 2rem;">
+          <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+          
+          <div class="language-selector">
+            <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+            <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="legal-card">
+      <div class="legal-header">
+        <h1 class="legal-title" data-translate="title">Legal Notice / Imprint</h1>
+        <p class="legal-subtitle" data-translate="subtitle-text">Impressum according to German law (§5 TMG)</p>
+      </div>
+      
+      <div class="legal-content">
+        <div class="section">
+          <h2 class="section-title" data-translate="section1-title">Business Information</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <h4 data-translate="business-name">Business Name</h4>
+              <p>ECHOPAIS</p>
+            </div>
+            <div class="info-item">
+              <h4 data-translate="owner">Owner / Managing Director</h4>
+              <p>Gentian Coci</p>
+            </div>
+            <div class="info-item">
+              <h4 data-translate="business-type">Business Type</h4>
+              <p data-translate="business-type-value">Sole Proprietorship (Kleinunternehmer)</p>
+            </div>
+            <div class="info-item">
+              <h4 data-translate="address">Registered Address</h4>
+              <p>Lagesche Str. 54<br>33813 Oerlinghausen<br>Germany</p>
+            </div>
+            <div class="info-item">
+              <h4 data-translate="contact">Contact Information</h4>
+              <p>Email: g.coci@echopais.com<br>Phone: +49 176 70795385</p>
+            </div>
+            <div class="info-item">
+              <h4 data-translate="tax">Tax Information</h4>
+              <p data-translate="tax-info">Kleinunternehmerregelung according to §19 UStG<br>USt-IdNr.: DE[XXXXXXXXX]</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title" data-translate="section2-title">Business Activities</h2>
+          <div class="section-content">
+            <p data-translate="section2-content">
+              <strong>Primary Activities:</strong> Development and distribution of MIDI software applications for iOS and Android platforms. Modification and resale of ESP32 hardware with custom MIDI firmware.
+            </p>
+            <p data-translate="section2-content2">
+              <strong>Products & Services:</strong> iOS/Android MIDI applications, Custom MIDI firmware development, ESP32 hardware modification and resale, Technical support for MIDI software.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title" data-translate="section3-title">Hardware Business Model</h2>
+          <div class="section-content">
+            <div class="highlight-box">
+              <p data-translate="hardware-model1">
+                <strong>Independent Hardware Reseller:</strong> ECHOPAIS operates as an independent business that purchases ESP32 hardware from various manufacturers (including Waveshare) through regular commercial channels such as direct purchase, Amazon, and other authorized retailers.
+              </p>
+              <p data-translate="hardware-model2">
+                <strong>Value-Added Reseller:</strong> We modify purchased hardware by installing our proprietary MIDI firmware and software, then resell the complete units as enhanced MIDI controllers. We are not authorized dealers, distributors, or partners of the hardware manufacturers.
+              </p>
+              <p data-translate="hardware-model3">
+                <strong>Legal Compliance:</strong> All hardware is purchased legally through commercial channels. Original manufacturer warranties remain with the manufacturers. ECHOPAIS provides additional warranty only for our custom software modifications.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title" data-translate="section4-title">Intellectual Property</h2>
+          <div class="section-content">
+            <p data-translate="section4-content1">
+              <strong>ECHOPAIS Owned:</strong> All MIDI firmware, software applications, custom code, and software modifications are proprietary intellectual property of ECHOPAIS. Unauthorized copying, modification, or redistribution is prohibited.
+            </p>
+            <p data-translate="section4-content2">
+              <strong>Third-Party Owned:</strong> ESP32 hardware designs, manufacturing, and base firmware remain the intellectual property of their respective manufacturers (Waveshare, Espressif, etc.). We respect all third-party intellectual property rights.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title" data-translate="section5-title">Liability & Warranty</h2>
+          <div class="section-content">
+            <p data-translate="section5-content1">
+              <strong>Software Liability:</strong> ECHOPAIS is fully responsible for the functionality, support, and warranty of our custom MIDI software and firmware modifications.
+            </p>
+            <p data-translate="section5-content2">
+              <strong>Hardware Liability:</strong> Hardware defects, manufacturing issues, and base hardware functionality remain the responsibility of the original manufacturers. Customers should contact manufacturers directly for hardware-related issues.
+            </p>
+            <p data-translate="section5-content3">
+              <strong>Limitation:</strong> ECHOPAIS liability is limited to the software modifications and custom firmware we provide. We are not liable for hardware failures or defects in the base hardware products.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title" data-translate="section6-title">Dispute Resolution</h2>
+          <div class="section-content">
+            <p data-translate="section6-content">
+              <strong>Jurisdiction:</strong> German law applies to all business relationships. Place of jurisdiction is Bielefeld, Germany. We are not obligated to participate in dispute resolution procedures before consumer arbitration boards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="index.html" data-translate="nav-home">Home</a>
+          <a href="privacy.html" data-translate="nav-privacy">Privacy Policy</a>
+          <a href="terms.html" data-translate="nav-terms">Terms of Service</a>
+          <a href="cookies.html" data-translate="nav-cookies">Cookie Policy</a>
+        </div>
+        <p>© 2024 ECHOPAIS. <span data-translate="footer-rights">All rights reserved</span>.</p>
+        <p data-translate="footer-note">Independent reseller of ESP32 hardware with custom MIDI firmware</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        'subtitle': 'MIDI SYSTEM',
+        'nav-home': 'Home',
+        'title': 'Legal Notice / Imprint',
+        'subtitle-text': 'Impressum according to German law (§5 TMG)',
+        'section1-title': 'Business Information',
+        'business-name': 'Business Name',
+        'owner': 'Owner / Managing Director',
+        'business-type': 'Business Type',
+        'business-type-value': 'Sole Proprietorship (Kleinunternehmer)',
+        'address': 'Registered Address',
+        'contact': 'Contact Information',
+        'tax': 'Tax Information',
+        'tax-info': 'Kleinunternehmerregelung according to §19 UStG\nUSt-IdNr.: DE[XXXXXXXXX]',
+        'section2-title': 'Business Activities',
+        'section2-content': 'Primary Activities: Development and distribution of MIDI software applications for iOS and Android platforms. Modification and resale of ESP32 hardware with custom MIDI firmware.',
+        'section2-content2': 'Products & Services: iOS/Android MIDI applications, Custom MIDI firmware development, ESP32 hardware modification and resale, Technical support for MIDI software.',
+        'section3-title': 'Hardware Business Model',
+        'hardware-model1': 'Independent Hardware Reseller: ECHOPAIS operates as an independent business that purchases ESP32 hardware from various manufacturers (including Waveshare) through regular commercial channels such as direct purchase, Amazon, and other authorized retailers.',
+        'hardware-model2': 'Value-Added Reseller: We modify purchased hardware by installing our proprietary MIDI firmware and software, then resell the complete units as enhanced MIDI controllers. We are not authorized dealers, distributors, or partners of the hardware manufacturers.',
+        'hardware-model3': 'Legal Compliance: All hardware is purchased legally through commercial channels. Original manufacturer warranties remain with the manufacturers. ECHOPAIS provides additional warranty only for our custom software modifications.',
+        'section4-title': 'Intellectual Property',
+        'section4-content1': 'ECHOPAIS Owned: All MIDI firmware, software applications, custom code, and software modifications are proprietary intellectual property of ECHOPAIS. Unauthorized copying, modification, or redistribution is prohibited.',
+        'section4-content2': 'Third-Party Owned: ESP32 hardware designs, manufacturing, and base firmware remain the intellectual property of their respective manufacturers (Waveshare, Espressif, etc.). We respect all third-party intellectual property rights.',
+        'section5-title': 'Liability & Warranty',
+        'section5-content1': 'Software Liability: ECHOPAIS is fully responsible for the functionality, support, and warranty of our custom MIDI software and firmware modifications.',
+        'section5-content2': 'Hardware Liability: Hardware defects, manufacturing issues, and base hardware functionality remain the responsibility of the original manufacturers. Customers should contact manufacturers directly for hardware-related issues.',
+        'section5-content3': 'Limitation: ECHOPAIS liability is limited to the software modifications and custom firmware we provide. We are not liable for hardware failures or defects in the base hardware products.',
+        'section6-title': 'Dispute Resolution',
+        'section6-content': 'Jurisdiction: German law applies to all business relationships. Place of jurisdiction is Bielefeld, Germany. We are not obligated to participate in dispute resolution procedures before consumer arbitration boards.',
+        'nav-privacy': 'Privacy Policy',
+        'nav-terms': 'Terms of Service',
+        'nav-cookies': 'Cookie Policy',
+        'footer-rights': 'All rights reserved',
+        'footer-note': 'Independent reseller of ESP32 hardware with custom MIDI firmware'
+      },
+      de: {
+        'subtitle': 'MIDI SYSTEM',
+        'nav-home': 'Startseite',
+        'title': 'Impressum',
+        'subtitle-text': 'Impressum nach deutschem Recht (§5 TMG)',
+        'section1-title': 'Unternehmensinformationen',
+        'business-name': 'Unternehmensname',
+        'owner': 'Inhaber / Geschäftsführer',
+        'business-type': 'Unternehmensform',
+        'business-type-value': 'Einzelunternehmen (Kleinunternehmer)',
+        'address': 'Registrierte Adresse',
+        'contact': 'Kontaktinformationen',
+        'tax': 'Steuerliche Informationen',
+        'tax-info': 'Kleinunternehmerregelung nach §19 UStG\nUSt-IdNr.: DE[XXXXXXXXX]',
+        'section2-title': 'Geschäftstätigkeiten',
+        'section2-content': 'Haupttätigkeiten: Entwicklung und Vertrieb von MIDI-Software-Anwendungen für iOS- und Android-Plattformen. Modifikation und Weiterverkauf von ESP32-Hardware mit benutzerdefinierter MIDI-Firmware.',
+        'section2-content2': 'Produkte & Dienstleistungen: iOS/Android MIDI-Anwendungen, Benutzerdefinierte MIDI-Firmware-Entwicklung, ESP32-Hardware-Modifikation und Weiterverkauf, Technischer Support für MIDI-Software.',
+        'section3-title': 'Hardware-Geschäftsmodell',
+        'hardware-model1': 'Unabhängiger Hardware-Wiederverkäufer: ECHOPAIS operiert als unabhängiges Unternehmen, das ESP32-Hardware von verschiedenen Herstellern (einschließlich Waveshare) über reguläre Handelskanäle wie Direktkauf, Amazon und andere autorisierte Händler erwirbt.',
+        'hardware-model2': 'Value-Added Reseller: Wir modifizieren gekaufte Hardware durch Installation unserer proprietären MIDI-Firmware und -Software und verkaufen dann die kompletten Einheiten als erweiterte MIDI-Controller weiter. Wir sind keine autorisierten Händler, Distributoren oder Partner der Hardware-Hersteller.',
+        'hardware-model3': 'Rechtliche Compliance: Alle Hardware wird legal über Handelskanäle erworben. Ursprüngliche Herstellergarantien verbleiben bei den Herstellern. ECHOPAIS bietet zusätzliche Garantie nur für unsere benutzerdefinierten Software-Modifikationen.',
+        'section4-title': 'Geistiges Eigentum',
+        'section4-content1': 'ECHOPAIS-Eigentum: Alle MIDI-Firmware, Software-Anwendungen, benutzerdefinierter Code und Software-Modifikationen sind proprietäres geistiges Eigentum von ECHOPAIS. Unbefugtes Kopieren, Modifizieren oder Weitervertreiben ist verboten.',
+        'section4-content2': 'Drittanbieter-Eigentum: ESP32-Hardware-Designs, Herstellung und Basis-Firmware bleiben geistiges Eigentum ihrer jeweiligen Hersteller (Waveshare, Espressif, etc.). Wir respektieren alle Rechte an geistigem Eigentum Dritter.',
+        'section5-title': 'Haftung & Garantie',
+        'section5-content1': 'Software-Haftung: ECHOPAIS ist vollständig verantwortlich für die Funktionalität, den Support und die Garantie unserer benutzerdefinierten MIDI-Software und Firmware-Modifikationen.',
+        'section5-content2': 'Hardware-Haftung: Hardware-Defekte, Herstellungsprobleme und Basis-Hardware-Funktionalität bleiben in der Verantwortung der ursprünglichen Hersteller. Kunden sollten Hersteller direkt für hardware-bezogene Probleme kontaktieren.',
+        'section5-content3': 'Beschränkung: Die Haftung von ECHOPAIS ist auf die Software-Modifikationen und benutzerdefinierte Firmware beschränkt, die wir bereitstellen. Wir haften nicht für Hardware-Ausfälle oder Defekte in den Basis-Hardware-Produkten.',
+        'section6-title': 'Streitbeilegung',
+        'section6-content': 'Gerichtsstand: Deutsches Recht gilt für alle Geschäftsbeziehungen. Gerichtsstand ist Bielefeld, Deutschland. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor Verbraucherschlichtungsstellen teilzunehmen.',
+        'nav-privacy': 'Datenschutzerklärung',
+        'nav-terms': 'Nutzungsbedingungen',
+        'nav-cookies': 'Cookie-Richtlinie',
+        'footer-rights': 'Alle Rechte vorbehalten',
+        'footer-note': 'Unabhängiger Wiederverkäufer von ESP32-Hardware mit benutzerdefinierter MIDI-Firmware'
+      },
+      el: {
+        'subtitle': 'MIDI SYSTEM',
+        'nav-home': 'Αρχική',
+        'title': 'Νομικές Πληροφορίες / Στοιχεία Επιχείρησης',
+        'subtitle-text': 'Impressum σύμφωνα με το γερμανικό δίκαιο (§5 TMG)',
+        'section1-title': 'Στοιχεία Επιχείρησης',
+        'business-name': 'Όνομα Επιχείρησης',
+        'owner': 'Ιδιοκτήτης / Διευθύνων Σύμβουλος',
+        'business-type': 'Τύπος Επιχείρησης',
+        'business-type-value': 'Ατομική Επιχείρηση (Kleinunternehmer)',
+        'address': 'Εγγεγραμμένη Διεύθυνση',
+        'contact': 'Στοιχεία Επικοινωνίας',
+        'tax': 'Φορολογικές Πληροφορίες',
+        'tax-info': 'Kleinunternehmerregelung σύμφωνα με §19 UStG\nUSt-IdNr.: DE[XXXXXXXXX]',
+        'section2-title': 'Επιχειρηματικές Δραστηριότητες',
+        'section2-content': 'Κύριες Δραστηριότητες: Ανάπτυξη και διανομή MIDI εφαρμογών λογισμικού για iOS και Android πλατφόρμες. Τροποποίηση και μεταπώληση ESP32 hardware με προσαρμοσμένο MIDI firmware.',
+        'section2-content2': 'Προϊόντα & Υπηρεσίες: iOS/Android MIDI εφαρμογές, Ανάπτυξη προσαρμοσμένου MIDI firmware, Τροποποίηση και μεταπώληση ESP32 hardware, Τεχνική υποστήριξη για MIDI λογισμικό.',
+        'section3-title': 'Μοντέλο Επιχείρησης Hardware',
+        'hardware-model1': 'Ανεξάρτητος Μεταπωλητής Hardware: Η ECHOPAIS λειτουργεί ως ανεξάρτητη επιχείρηση που αγοράζει ESP32 hardware από διάφορους κατασκευαστές (συμπεριλαμβανομένης της Waveshare) μέσω κανονικών εμπορικών καναλιών όπως άμεση αγορά, Amazon και άλλους εξουσιοδοτημένους λιανοπωλητές.',
+        'hardware-model2': 'Value-Added Reseller: Τροποποιούμε το αγορασμένο hardware εγκαθιστώντας το ιδιόκτητο MIDI firmware και λογισμικό μας, στη συνέχεια μεταπωλούμε τις πλήρεις μονάδες ως βελτιωμένους MIDI controllers. Δεν είμαστε εξουσιοδοτημένοι έμποροι, διανομείς ή συνεργάτες των κατασκευαστών hardware.',
+        'hardware-model3': 'Νομική Συμμόρφωση: Ό  Δεν είμαστε εξουσιοδοτημένοι έμποροι, διανομείς ή συνεργάτες των κατασκευαστών hardware.',
+        'hardware-model3': 'Νομική Συμμόρφωση: Όλο το hardware αγοράζεται νόμιμα μέσω εμπορικών καναλιών. Οι αρχικές εγγυήσεις κατασκευαστών παραμένουν στους κατασκευαστές. Η ECHOPAIS παρέχει πρόσθετη εγγύηση μόνο για τις προσαρμοσμένες τροποποιήσεις λογισμικού μας.',
+        'section4-title': 'Πνευματική Ιδιοκτησία',
+        'section4-content1': 'Ιδιοκτησία ECHOPAIS: Όλο το MIDI firmware, οι εφαρμογές λογισμικού, ο προσαρμοσμένος κώδικας και οι τροποποιήσεις λογισμικού είναι ιδιόκτητη πνευματική ιδιοκτησία της ECHOPAIS. Η μη εξουσιοδοτημένη αντιγραφή, τροποποίηση ή αναδιανομή απαγορεύεται.',
+        'section4-content2': 'Ιδιοκτησία Τρίτων: Οι σχεδιασμοί ESP32 hardware, η κατασκευή και το βασικό firmware παραμένουν πνευματική ιδιοκτησία των αντίστοιχων κατασκευαστών τους (Waveshare, Espressif, κλπ.). Σεβόμαστε όλα τα δικαιώματα πνευματικής ιδιοκτησίας τρίτων.',
+        'section5-title': 'Ευθύνη & Εγγύηση',
+        'section5-content1': 'Ευθύνη Λογισμικού: Η ECHOPAIS είναι πλήρως υπεύθυνη για τη λειτουργικότητα, την υποστήριξη και την εγγύηση του προσαρμοσμένου MIDI λογισμικού και των τροποποιήσεων firmware μας.',
+        'section5-content2': 'Ευθύνη Hardware: Τα ελαττώματα hardware, τα προβλήματα κατασκευής και η βασική λειτουργικότητα hardware παραμένουν ευθύνη των αρχικών κατασκευαστών. Οι πελάτες πρέπει να επικοινωνούν απευθείας με τους κατασκευαστές για θέματα που σχετίζονται με hardware.',
+        'section5-content3': 'Περιορισμός: Η ευθύνη της ECHOPAIS περιορίζεται στις τροποποιήσεις λογισμικού και το προσαρμοσμένο firmware που παρέχουμε. Δεν φέρουμε ευθύνη για αποτυχίες hardware ή ελαττώματα στα βασικά προϊόντα hardware.',
+        'section6-title': 'Επίλυση Διαφορών',
+        'section6-content': 'Δικαιοδοσία: Το γερμανικό δίκαιο ισχύει για όλες τις επιχειρηματικές σχέσεις. Τόπος δικαιοδοσίας είναι το Bielefeld, Γερμανία. Δεν είμαστε υποχρεωμένοι να συμμετέχουμε σε διαδικασίες επίλυσης διαφορών ενώπιον συμβουλίων διαιτησίας καταναλωτών.',
+        'nav-privacy': 'Πολιτική Απορρήτου',
+        'nav-terms': 'Όροι Χρήσης',
+        'nav-cookies': 'Πολιτική Cookies',
+        'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
+        'footer-note': 'Ανεξάρτητος μεταπωλητής ESP32 hardware με προσαρμοσμένο MIDI firmware'
+      }
+    };
+
+    let currentLanguage = 'en';
+
+    function changeLanguage(lang) {
+      currentLanguage = lang;
+      
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update all translatable elements
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      
+      // Update document language
+      document.documentElement.lang = lang;
+      
+      // Store language preference
+      localStorage.setItem('echopais-language', lang);
+    }
+
+    // Load saved language preference
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('echopais-language') || 'en';
+      if (savedLang !== 'en') {
+        const langBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${savedLang}')"]`);
+        if (langBtn) {
+          langBtn.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

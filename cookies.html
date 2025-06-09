@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cookie Policy - ECHOPAIS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Cookie Policy - ECHOPAIS MIDI SYSTEM</title>
+  <meta name="description" content="Cookie Policy and Settings for ECHOPAIS MIDI SYSTEM - Professional MIDI Controllers & Applications">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange-500: #ff6600;
       --orange-600: #e65c00;
       --orange-400: #ff8533;
-      --orange-200: #ffa366;
+      --orange-300: #ffa366;
+      --orange-200: #ffcc99;
       --zinc-100: #f4f4f5;
+      --zinc-200: #e4e4e7;
       --zinc-300: #d4d4d8;
       --zinc-400: #a1a1aa;
+      --zinc-500: #71717a;
+      --zinc-600: #52525b;
       --zinc-700: #3f3f46;
       --zinc-800: #27272a;
       --zinc-900: #18181b;
@@ -28,92 +33,87 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, var(--zinc-900), var(--black));
+      background: linear-gradient(135deg, var(--zinc-900) 0%, var(--black) 100%);
       color: var(--zinc-100);
       min-height: 100vh;
       line-height: 1.6;
     }
     
     .container {
-      max-width: 800px;
+      width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 0 1rem;
     }
     
-    .header {
-      text-align: center;
-      margin-bottom: 3rem;
+    /* Header */
+    header {
+      background: rgba(24, 24, 27, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--zinc-800);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
     }
     
     .logo-container {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 1rem;
-      margin-bottom: 2rem;
     }
     
     .logo-box {
       width: 48px;
       height: 48px;
-      background-color: var(--orange-500);
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
       border-radius: 0.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       font-size: 1.5rem;
-      font-weight: bold;
+      font-weight: 800;
       color: white;
     }
     
     .logo-text h1 {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--zinc-100);
       margin: 0;
     }
     
     .logo-text p {
-      font-size: 0.875rem;
-      color: var(--zinc-400);
+      font-size: 0.75rem;
+      color: var(--orange-400);
       margin: 0;
-    }
-    
-    .header-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
     }
     
     .nav-link {
       color: var(--zinc-300);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
-      white-space: nowrap;
+      transition: all 0.3s ease;
     }
     
     .nav-link:hover {
-      color: var(--orange-500);
-      background-color: rgba(255, 102, 0, 0.1);
+      color: var(--orange-400);
+      background: rgba(255, 102, 0, 0.1);
     }
     
+    /* Language Selector */
     .language-selector {
       display: flex;
-      background-color: var(--zinc-800);
+      background: var(--zinc-800);
       border-radius: 0.5rem;
       padding: 0.25rem;
       gap: 0.25rem;
@@ -123,90 +123,345 @@
       background: none;
       border: none;
       color: var(--zinc-300);
-      font-weight: 500;
+      font-weight: 600;
       padding: 0.5rem 0.75rem;
       border-radius: 0.25rem;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
       font-size: 0.875rem;
     }
     
     .lang-btn.active {
-      background-color: var(--orange-500);
+      background: var(--orange-500);
       color: white;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
     
     .lang-btn:hover:not(.active) {
-      background-color: var(--zinc-700);
+      background: var(--zinc-700);
       color: var(--zinc-100);
+    }
+    
+    /* Main Content */
+    main {
+      padding: 4rem 0;
     }
     
     .legal-card {
-      background-color: var(--zinc-800);
+      background: var(--zinc-800);
       border: 1px solid var(--zinc-700);
-      border-radius: 0.75rem;
+      border-radius: 1.5rem;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      margin-bottom: 3rem;
     }
     
     .legal-header {
-      background-color: var(--zinc-700);
-      padding: 1.5rem 2rem;
+      background: var(--zinc-700);
+      padding: 2rem;
+      border-bottom: 1px solid var(--zinc-600);
     }
     
     .legal-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--orange-500);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--orange-400);
       margin-bottom: 0.5rem;
     }
     
-    .legal-date {
-      font-size: 0.875rem;
+    .legal-subtitle {
       color: var(--zinc-400);
+      font-size: 1rem;
     }
     
     .legal-content {
+      padding: 3rem 2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--orange-500);
+    }
+    
+    .section-content {
+      color: var(--zinc-300);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+    
+    .section-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-content strong {
+      color: var(--orange-300);
+      font-weight: 600;
+    }
+    
+    /* Cookie Settings */
+    .cookie-settings {
+      background: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cookie-category {
+      border-bottom: 1px solid var(--zinc-700);
       padding: 2rem;
     }
     
-    .legal-section {
-      margin-bottom: 2rem;
+    .cookie-category:last-child {
+      border-bottom: none;
     }
     
-    .legal-section-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--zinc-100);
+    .cookie-category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 1rem;
     }
     
-    .legal-section-content {
-      color: var(--zinc-300);
-      line-height: 1.6;
+    .cookie-category-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--zinc-100);
     }
     
-    .back-link {
+    .cookie-toggle {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    
+    .cookie-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--zinc-600);
+      transition: .4s;
+      border-radius: 34px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: var(--orange-500);
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+    
+    .slider.disabled {
+      background-color: var(--zinc-500);
+      cursor: not-allowed;
+    }
+    
+    .cookie-category-description {
+      color: var(--zinc-400);
+      margin-bottom: 1rem;
+    }
+    
+    .cookie-details {
+      background: var(--zinc-700);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .cookie-details h4 {
+      color: var(--orange-400);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .cookie-details ul {
+      list-style: none;
+      color: var(--zinc-300);
+    }
+    
+    .cookie-details li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    
+    .cookie-details li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--orange-400);
+    }
+    
+    .cookie-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 1rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      color: var(--orange-500);
-      text-decoration: none;
-      font-weight: 500;
-      margin-bottom: 2rem;
-      transition: color 0.2s;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+      justify-content: center;
     }
     
-    .back-link:hover {
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: white;
+      box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 102, 0, 0.4);
+    }
+    
+    .btn-secondary {
+      background: var(--zinc-700);
+      color: var(--zinc-300);
+      border: 1px solid var(--zinc-600);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--zinc-600);
+      color: var(--zinc-100);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--zinc-300);
+      border: 2px solid var(--zinc-600);
+    }
+    
+    .btn-outline:hover {
+      border-color: var(--orange-500);
       color: var(--orange-400);
-      background-color: rgba(255, 102, 0, 0.1);
+      background: rgba(255, 102, 0, 0.1);
+      transform: translateY(-2px);
     }
     
+    .status-message {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #22c55e;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      margin-top: 2rem;
+      text-align: center;
+      display: none;
+    }
+    
+    .status-message.show {
+      display: block;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--zinc-900);
+      border-top: 1px solid var(--zinc-800);
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      text-align: center;
+      color: var(--zinc-500);
+      font-size: 0.875rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--zinc-400);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--orange-400);
+    }
+    
+    /* Responsive */
     @media (max-width: 768px) {
-      .header-controls {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .legal-title {
+        font-size: 2rem;
+      }
+      
+      .legal-content {
+        padding: 2rem 1.5rem;
+      }
+      
+      .cookie-category {
+        padding: 1.5rem;
+      }
+      
+      .cookie-category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .cookie-actions {
+        flex-direction: column;
+      }
+      
+      .footer-links {
         flex-direction: column;
         gap: 1rem;
       }
@@ -214,134 +469,345 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="logo-container">
-        <div class="logo-box">E</div>
-        <div class="logo-text">
-          <h1>ECHOPAIS</h1>
-          <p data-translate="subtitle">Professional MIDI Solutions</p>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-box">E</div>
+          <div class="logo-text">
+            <h1>ECHOPAIS</h1>
+            <p data-translate="subtitle">MIDI SYSTEM</p>
+          </div>
         </div>
-      </div>
-      
-      <div class="header-controls">
-        <nav class="nav-links">
-          <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
-          <a href="privacy.html" class="nav-link" data-translate="nav-privacy">Privacy Policy</a>
-          <a href="terms.html" class="nav-link" data-translate="nav-terms">Terms of Service</a>
-          <a href="cookies.html" class="nav-link" data-translate="nav-cookies">Cookie Policy</a>
-        </nav>
         
-        <div class="language-selector">
-          <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
-          <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
-          <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+        <div style="display: flex; align-items: center; gap: 2rem;">
+          <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+          
+          <div class="language-selector">
+            <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+            <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+          </div>
         </div>
       </div>
     </div>
+  </header>
 
-    <a href="index.html" class="back-link">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-      <span data-translate="back-home">Back to Home</span>
-    </a>
-
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Cookie Policy Information -->
     <div class="legal-card">
       <div class="legal-header">
-        <h1 class="legal-title" data-translate="page-title">Cookie Policy</h1>
-        <p class="legal-date" data-translate="last-updated">Last updated: December 2024</p>
+        <h1 class="legal-title" data-translate="title">Cookie Policy & Settings</h1>
+        <p class="legal-subtitle" data-translate="last-updated">Last updated: December 2024</p>
       </div>
+      
       <div class="legal-content">
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section1-title">What are Cookies?</h2>
-          <p class="legal-section-content" data-translate="section1-content">Cookies are small text files placed on your device when you visit our website. We use cookies to improve your experience, remember preferences, and analyze website traffic for our MIDI software and ESP32 hardware store.</p>
+        <div class="section">
+          <h2 class="section-title" data-translate="section1-title">What are Cookies?</h2>
+          <div class="section-content">
+            <p data-translate="section1-content">
+              Cookies are small text files placed on your device when you visit our website. We use cookies to improve your experience, remember preferences, and analyze website traffic for our MIDI software and ESP32 hardware information.
+            </p>
+          </div>
         </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section2-title">How We Use Cookies</h2>
-          <p class="legal-section-content" data-translate="section2-content">We use cookies to enhance your browsing experience, remember your language preferences, track product views, and analyze which MIDI applications and ESP32 controllers are most popular with our users.</p>
+
+        <div class="section">
+          <h2 class="section-title" data-translate="section2-title">How We Use Cookies</h2>
+          <div class="section-content">
+            <p data-translate="section2-content">
+              We use cookies to enhance your browsing experience, remember your language preferences, track product views, and analyze which MIDI applications and ESP32 controllers are most popular with our users. We do not use cookies to track personal information or audio data.
+            </p>
+          </div>
         </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section3-title">Types of Cookies We Use</h2>
-          <p class="legal-section-content" data-translate="section3-content">Essential Cookies: Required for website functionality and shopping cart. Analytics Cookies: Help us understand user behavior and improve our product offerings. Preference Cookies: Remember your settings and language choices.</p>
-        </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section4-title">Third-Party Cookies</h2>
-          <p class="legal-section-content" data-translate="section4-content">We may use analytics services to understand how users interact with our MIDI software information and ESP32 hardware listings. These services may place their own cookies on your device.</p>
-        </div>
-        
-        <div class="legal-section">
-          <h2 class="legal-section-title" data-translate="section5-title">Managing Cookies</h2>
-          <p class="legal-section-content" data-translate="section5-content">You can control cookies through your browser settings. Note that disabling certain cookies may affect website functionality, including the ability to view product details and make purchases.</p>
+
+        <div class="section">
+          <h2 class="section-title" data-translate="section3-title">Your Cookie Choices</h2>
+          <div class="section-content">
+            <p data-translate="section3-content">
+              You have full control over which cookies we use. Use the settings below to customize your cookie preferences. You can change these settings at any time by returning to this page.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- Cookie Settings -->
+    <div class="cookie-settings">
+      <!-- Essential Cookies -->
+      <div class="cookie-category">
+        <div class="cookie-category-header">
+          <h3 class="cookie-category-title" data-translate="essential-title">Essential Cookies</h3>
+          <label class="cookie-toggle">
+            <input type="checkbox" id="essential-cookies" checked disabled>
+            <span class="slider disabled"></span>
+          </label>
+        </div>
+        <p class="cookie-category-description" data-translate="essential-description">
+          These cookies are necessary for the website to function properly. They enable basic features like page navigation, language selection, and security. These cannot be disabled.
+        </p>
+        <div class="cookie-details">
+          <h4 data-translate="essential-details-title">Essential Cookies Include:</h4>
+          <ul>
+            <li data-translate="essential-item1">Language preference storage</li>
+            <li data-translate="essential-item2">Session management</li>
+            <li data-translate="essential-item3">Security tokens</li>
+            <li data-translate="essential-item4">Basic website functionality</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Analytics Cookies -->
+      <div class="cookie-category">
+        <div class="cookie-category-header">
+          <h3 class="cookie-category-title" data-translate="analytics-title">Analytics Cookies</h3>
+          <label class="cookie-toggle">
+            <input type="checkbox" id="analytics-cookies">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p class="cookie-category-description" data-translate="analytics-description">
+          These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our MIDI product information and user experience.
+        </p>
+        <div class="cookie-details">
+          <h4 data-translate="analytics-details-title">Analytics Information:</h4>
+          <ul>
+            <li data-translate="analytics-item1">Page views and popular content</li>
+            <li data-translate="analytics-item2">Time spent on different sections</li>
+            <li data-translate="analytics-item3">Device and browser information</li>
+            <li data-translate="analytics-item4">Geographic location (country level)</li>
+            <li data-translate="analytics-item5">Referral sources</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Functional Cookies -->
+      <div class="cookie-category">
+        <div class="cookie-category-header">
+          <h3 class="cookie-category-title" data-translate="functional-title">Functional Cookies</h3>
+          <label class="cookie-toggle">
+            <input type="checkbox" id="functional-cookies">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p class="cookie-category-description" data-translate="functional-description">
+          These cookies enable enhanced functionality and personalization, such as remembering your preferences for MIDI product categories and improving your browsing experience.
+        </p>
+        <div class="cookie-details">
+          <h4 data-translate="functional-details-title">Functional Features:</h4>
+          <ul>
+            <li data-translate="functional-item1">Product category preferences</li>
+            <li data-translate="functional-item2">Display settings and layout</li>
+            <li data-translate="functional-item3">Contact form preferences</li>
+            <li data-translate="functional-item4">Recently viewed products</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Marketing Cookies -->
+      <div class="cookie-category">
+        <div class="cookie-category-header">
+          <h3 class="cookie-category-title" data-translate="marketing-title">Marketing Cookies</h3>
+          <label class="cookie-toggle">
+            <input type="checkbox" id="marketing-cookies">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p class="cookie-category-description" data-translate="marketing-description">
+          These cookies are used to track visitors across websites to display relevant advertisements about our MIDI products and services. We do not sell personal data to third parties.
+        </p>
+        <div class="cookie-details">
+          <h4 data-translate="marketing-details-title">Marketing Activities:</h4>
+          <ul>
+            <li data-translate="marketing-item1">Relevant MIDI product recommendations</li>
+            <li data-translate="marketing-item2">Cross-platform advertising coordination</li>
+            <li data-translate="marketing-item3">Campaign effectiveness measurement</li>
+            <li data-translate="marketing-item4">Social media integration</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cookie Actions -->
+      <div class="cookie-actions">
+        <button class="btn btn-primary" onclick="acceptSelected()" data-translate="btn-accept-selected">Accept Selected</button>
+        <button class="btn btn-secondary" onclick="acceptAll()" data-translate="btn-accept-all">Accept All</button>
+        <button class="btn btn-outline" onclick="rejectAll()" data-translate="btn-reject-all">Reject All</button>
+      </div>
+
+      <div class="status-message" id="status-message">
+        <span data-translate="settings-saved">Your cookie preferences have been saved successfully!</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="index.html" data-translate="nav-home">Home</a>
+          <a href="privacy.html" data-translate="nav-privacy">Privacy Policy</a>
+          <a href="terms.html" data-translate="nav-terms">Terms of Service</a>
+          <a href="imprint.html" data-translate="nav-imprint">Imprint</a>
+        </div>
+        <p>© 2024 ECHOPAIS. <span data-translate="footer-rights">All rights reserved</span>.</p>
+        <p data-translate="footer-note">Independent reseller of ESP32 hardware with custom MIDI firmware</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     const translations = {
       en: {
-        'subtitle': 'Professional MIDI Solutions',
+        'subtitle': 'MIDI SYSTEM',
         'nav-home': 'Home',
-        'nav-privacy': 'Privacy Policy',
-        'nav-terms': 'Terms of Service',
-        'nav-cookies': 'Cookie Policy',
-        'back-home': 'Back to Home',
-        'page-title': 'Cookie Policy',
+        'title': 'Cookie Policy & Settings',
         'last-updated': 'Last updated: December 2024',
         'section1-title': 'What are Cookies?',
-        'section1-content': 'Cookies are small text files placed on your device when you visit our website. We use cookies to improve your experience, remember preferences, and analyze website traffic for our MIDI software and ESP32 hardware store.',
+        'section1-content': 'Cookies are small text files placed on your device when you visit our website. We use cookies to improve your experience, remember preferences, and analyze website traffic for our MIDI software and ESP32 hardware information.',
         'section2-title': 'How We Use Cookies',
-        'section2-content': 'We use cookies to enhance your browsing experience, remember your language preferences, track product views, and analyze which MIDI applications and ESP32 controllers are most popular with our users.',
-        'section3-title': 'Types of Cookies We Use',
-        'section3-content': 'Essential Cookies: Required for website functionality and shopping cart. Analytics Cookies: Help us understand user behavior and improve our product offerings. Preference Cookies: Remember your settings and language choices.',
-        'section4-title': 'Third-Party Cookies',
-        'section4-content': 'We may use analytics services to understand how users interact with our MIDI software information and ESP32 hardware listings. These services may place their own cookies on your device.',
-        'section5-title': 'Managing Cookies',
-        'section5-content': 'You can control cookies through your browser settings. Note that disabling certain cookies may affect website functionality, including the ability to view product details and make purchases.'
+        'section2-content': 'We use cookies to enhance your browsing experience, remember your language preferences, track product views, and analyze which MIDI applications and ESP32 controllers are most popular with our users. We do not use cookies to track personal information or audio data.',
+        'section3-title': 'Your Cookie Choices',
+        'section3-content': 'You have full control over which cookies we use. Use the settings below to customize your cookie preferences. You can change these settings at any time by returning to this page.',
+        'essential-title': 'Essential Cookies',
+        'essential-description': 'These cookies are necessary for the website to function properly. They enable basic features like page navigation, language selection, and security. These cannot be disabled.',
+        'essential-details-title': 'Essential Cookies Include:',
+        'essential-item1': 'Language preference storage',
+        'essential-item2': 'Session management',
+        'essential-item3': 'Security tokens',
+        'essential-item4': 'Basic website functionality',
+        'analytics-title': 'Analytics Cookies',
+        'analytics-description': 'These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our MIDI product information and user experience.',
+        'analytics-details-title': 'Analytics Information:',
+        'analytics-item1': 'Page views and popular content',
+        'analytics-item2': 'Time spent on different sections',
+        'analytics-item3': 'Device and browser information',
+        'analytics-item4': 'Geographic location (country level)',
+        'analytics-item5': 'Referral sources',
+        'functional-title': 'Functional Cookies',
+        'functional-description': 'These cookies enable enhanced functionality and personalization, such as remembering your preferences for MIDI product categories and improving your browsing experience.',
+        'functional-details-title': 'Functional Features:',
+        'functional-item1': 'Product category preferences',
+        'functional-item2': 'Display settings and layout',
+        'functional-item3': 'Contact form preferences',
+        'functional-item4': 'Recently viewed products',
+        'marketing-title': 'Marketing Cookies',
+        'marketing-description': 'These cookies are used to track visitors across websites to display relevant advertisements about our MIDI products and services. We do not sell personal data to third parties.',
+        'marketing-details-title': 'Marketing Activities:',
+        'marketing-item1': 'Relevant MIDI product recommendations',
+        'marketing-item2': 'Cross-platform advertising coordination',
+        'marketing-item3': 'Campaign effectiveness measurement',
+        'marketing-item4': 'Social media integration',
+        'btn-accept-selected': 'Accept Selected',
+        'btn-accept-all': 'Accept All',
+        'btn-reject-all': 'Reject All',
+        'settings-saved': 'Your cookie preferences have been saved successfully!',
+        'nav-privacy': 'Privacy Policy',
+        'nav-terms': 'Terms of Service',
+        'nav-imprint': 'Imprint',
+        'footer-rights': 'All rights reserved',
+        'footer-note': 'Independent reseller of ESP32 hardware with custom MIDI firmware'
       },
       de: {
-        'subtitle': 'Professionelle MIDI-Lösungen',
+        'subtitle': 'MIDI SYSTEM',
         'nav-home': 'Startseite',
-        'nav-privacy': 'Datenschutzerklärung',
-        'nav-terms': 'Nutzungsbedingungen',
-        'nav-cookies': 'Cookie-Richtlinie',
-        'back-home': 'Zurück zur Startseite',
-        'page-title': 'Cookie-Richtlinie',
+        'title': 'Cookie-Richtlinie & Einstellungen',
         'last-updated': 'Zuletzt aktualisiert: Dezember 2024',
         'section1-title': 'Was sind Cookies?',
-        'section1-content': 'Cookies sind kleine Textdateien, die auf Ihrem Gerät platziert werden, wenn Sie unsere Website besuchen. Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, Präferenzen zu merken und Website-Traffic für unseren MIDI-Software- und ESP32-Hardware-Shop zu analysieren.',
+        'section1-content': 'Cookies sind kleine Textdateien, die auf Ihrem Gerät platziert werden, wenn Sie unsere Website besuchen. Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, Präferenzen zu speichern und Website-Traffic für unsere MIDI-Software und ESP32-Hardware-Informationen zu analysieren.',
         'section2-title': 'Wie wir Cookies verwenden',
-        'section2-content': 'Wir verwenden Cookies, um Ihr Browsing-Erlebnis zu verbessern, Ihre Sprachpräferenzen zu merken, Produktansichten zu verfolgen und zu analysieren, welche MIDI-Anwendungen und ESP32-Controller bei unseren Benutzern am beliebtesten sind.',
-        'section3-title': 'Arten von Cookies, die wir verwenden',
-        'section3-content': 'Wesentliche Cookies: Erforderlich für Website-Funktionalität und Warenkorb. Analytics-Cookies: Helfen uns, Benutzerverhalten zu verstehen und unsere Produktangebote zu verbessern. Präferenz-Cookies: Merken sich Ihre Einstellungen und Sprachauswahl.',
-        'section4-title': 'Drittanbieter-Cookies',
-        'section4-content': 'Wir können Analytics-Dienste verwenden, um zu verstehen, wie Benutzer mit unseren MIDI-Software-Informationen und ESP32-Hardware-Auflistungen interagieren. Diese Dienste können ihre eigenen Cookies auf Ihrem Gerät platzieren.',
-        'section5-title': 'Cookies verwalten',
-        'section5-content': 'Sie können Cookies über Ihre Browser-Einstellungen kontrollieren. Beachten Sie, dass das Deaktivieren bestimmter Cookies die Website-Funktionalität beeinträchtigen kann, einschließlich der Möglichkeit, Produktdetails anzuzeigen und Käufe zu tätigen.'
+        'section2-content': 'Wir verwenden Cookies, um Ihr Browsing-Erlebnis zu verbessern, Ihre Sprachpräferenzen zu speichern, Produktansichten zu verfolgen und zu analysieren, welche MIDI-Anwendungen und ESP32-Controller bei unseren Benutzern am beliebtesten sind. Wir verwenden keine Cookies, um persönliche Informationen oder Audiodaten zu verfolgen.',
+        'section3-title': 'Ihre Cookie-Auswahl',
+        'section3-content': 'Sie haben die volle Kontrolle darüber, welche Cookies wir verwenden. Verwenden Sie die unten stehenden Einstellungen, um Ihre Cookie-Präferenzen anzupassen. Sie können diese Einstellungen jederzeit ändern, indem Sie zu dieser Seite zurückkehren.',
+        'essential-title': 'Wesentliche Cookies',
+        'essential-description': 'Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich. Sie ermöglichen grundlegende Funktionen wie Seitennavigation, Sprachauswahl und Sicherheit. Diese können nicht deaktiviert werden.',
+        'essential-details-title': 'Wesentliche Cookies umfassen:',
+        'essential-item1': 'Sprachpräferenz-Speicherung',
+        'essential-item2': 'Session-Management',
+        'essential-item3': 'Sicherheits-Token',
+        'essential-item4': 'Grundlegende Website-Funktionalität',
+        'analytics-title': 'Analytics-Cookies',
+        'analytics-description': 'Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen anonym sammeln und berichten. Dies hilft uns, unsere MIDI-Produktinformationen und Benutzererfahrung zu verbessern.',
+        'analytics-details-title': 'Analytics-Informationen:',
+        'analytics-item1': 'Seitenaufrufe und beliebte Inhalte',
+        'analytics-item2': 'Zeit in verschiedenen Bereichen verbracht',
+        'analytics-item3': 'Geräte- und Browser-Informationen',
+        'analytics-item4': 'Geografische Lage (Länderebene)',
+        'analytics-item5': 'Verweis-Quellen',
+        'functional-title': 'Funktionale Cookies',
+        'functional-description': 'Diese Cookies ermöglichen erweiterte Funktionalität und Personalisierung, wie das Merken Ihrer Präferenzen für MIDI-Produktkategorien und die Verbesserung Ihres Browsing-Erlebnisses.',
+        'functional-details-title': 'Funktionale Features:',
+        'functional-item1': 'Produktkategorie-Präferenzen',
+        'functional-item2': 'Anzeige-Einstellungen und Layout',
+        'functional-item3': 'Kontaktformular-Präferenzen',
+        'functional-item4': 'Kürzlich angesehene Produkte',
+        'marketing-title': 'Marketing-Cookies',
+        'marketing-description': 'Diese Cookies werden verwendet, um Besucher über Websites hinweg zu verfolgen, um relevante Werbung über unsere MIDI-Produkte und -Dienstleistungen anzuzeigen. Wir verkaufen keine persönlichen Daten an Dritte.',
+        'marketing-details-title': 'Marketing-Aktivitäten:',
+        'marketing-item1': 'Relevante MIDI-Produktempfehlungen',
+        'marketing-item2': 'Plattformübergreifende Werbekoordination',
+        'marketing-item3': 'Kampagnen-Effektivitätsmessung',
+        'marketing-item4': 'Social Media-Integration',
+        'btn-accept-selected': 'Ausgewählte Akzeptieren',
+        'btn-accept-all': 'Alle Akzeptieren',
+        'btn-reject-all': 'Alle Ablehnen',
+        'settings-saved': 'Ihre Cookie-Präferenzen wurden erfolgreich gespeichert!',
+        'nav-privacy': 'Datenschutzerklärung',
+        'nav-terms': 'Nutzungsbedingungen',
+        'nav-imprint': 'Impressum',
+        'footer-rights': 'Alle Rechte vorbehalten',
+        'footer-note': 'Unabhängiger Wiederverkäufer von ESP32-Hardware mit benutzerdefinierter MIDI-Firmware'
       },
       el: {
-        'subtitle': 'Επαγγελματικές MIDI Λύσεις',
+        'subtitle': 'MIDI SYSTEM',
         'nav-home': 'Αρχική',
-        'nav-privacy': 'Πολιτική Απορρήτου',
-        'nav-terms': 'Όροι Χρήσης',
-        'nav-cookies': 'Πολιτική Cookies',
-        'back-home': 'Επιστροφή στην Αρχική',
-        'page-title': 'Πολιτική Cookies',
+        'title': 'Πολιτική Cookies & Ρυθμίσεις',
         'last-updated': 'Τελευταία ενημέρωση: Δεκέμβριος 2024',
         'section1-title': 'Τι είναι τα Cookies;',
-        'section1-content': 'Τα Cookies είναι μικρά αρχεία κειμένου που τοποθετούνται στη συσκευή σας όταν επισκέπτεστε την ιστοσελίδα μας. Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας, να θυμόμαστε προτιμήσεις και να αναλύουμε την κίνηση της ιστοσελίδας για το κατάστημα MIDI λογισμικού και ESP32 hardware μας.',
+        'section1-content': 'Τα Cookies είναι μικρά αρχεία κειμένου που τοποθετούνται στη συσκευή σας όταν επισκέπτεστε την ιστοσελίδα μας. Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας, να θυμόμαστε προτιμήσεις και να αναλύουμε την κίνηση της ιστοσελίδας για το MIDI λογισμικό και τις πληροφορίες ESP32 hardware μας.',
         'section2-title': 'Πώς Χρησιμοποιούμε τα Cookies',
-        'section2-content': 'Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία περιήγησής σας, να θυμόμαστε τις γλωσσικές σας προτιμήσεις, να παρακολουθούμε προβολές προϊόντων και να αναλύουμε ποιες MIDI εφαρμογές και ESP32 controllers είναι πιο δημοφιλή στους χρήστες μας.',
-        'section3-title': 'Τύποι Cookies που Χρησιμοποιούμε',
-        'section3-content': 'Βασικά Cookies: Απαιτούνται για τη λειτουργικότητα της ιστοσελίδας και το καλάθι αγορών. Analytics Cookies: Μας βοηθούν να κατανοήσουμε τη συμπεριφορά χρηστών και να βελτιώσουμε τις προσφορές προϊόντων μας. Cookies Προτιμήσεων: Θυμούνται τις ρυθμίσεις και γλωσσικές επιλογές σας.',
-        'section4-title': 'Cookies Τρίτων',
-        'section4-content': 'Μπορεί να χρησιμοποιούμε υπηρεσίες αναλυτικών για να κατανοήσουμε πώς οι χρήστες αλληλεπιδρούν με τις πληροφορίες MIDI λογισμικού και τις καταχωρήσεις ESP32 hardware μας. Αυτές οι υπηρεσίες μπορεί να τοποθετήσουν τα δικά τους cookies στη συσκευή σας.',
-        'section5-title': 'Διαχείριση Cookies',
-        'section5-content': 'Μπορείτε να ελέγχετε τα cookies μέσω των ρυθμίσεων του browser σας. Σημειώστε ότι η απενεργοποίηση ορισμένων cookies μπορεί να επηρεάσει τη λειτουργικότητα της ιστοσελίδας, συμπεριλαμβανομένης της δυνατότητας προβολής λεπτομερειών προϊόντων και πραγματοποίησης αγορών.'
+        'section2-content': 'Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία περιήγησής σας, να θυμόμαστε τις γλωσσικές σας προτιμήσεις, να παρακολουθούμε προβολές προϊόντων και να αναλύουμε ποιες MIDI εφαρμογές και ESP32 controllers είναι πιο δημοφιλή στους χρήστες μας. Δεν χρησιμοποιούμε cookies για να παρακολουθούμε προσωπικές πληροφορίες ή δεδομένα ήχου.',
+        'section3-title': 'Οι Επιλογές σας για Cookies',
+        'section3-content': 'Έχετε πλήρη έλεγχο σχετικά με τα cookies που χρησιμοποιούμε. Χρησιμοποιήστε τις παρακάτω ρυθμίσεις για να προσαρμόσετε τις προτιμήσεις cookies σας. Μπορείτε να αλλάξετε αυτές τις ρυθμίσεις ανά πάσα στιγμή επιστρέφοντας σε αυτή τη σελίδα.',
+        'essential-title': 'Βασικά Cookies',
+        'essential-description': 'Αυτά τα cookies είναι απαραίτητα για τη σωστή λειτουργία της ιστοσελίδας. Ενεργοποιούν βασικά χαρακτηριστικά όπως η πλοήγηση σελίδων, η επιλογή γλώσσας και η ασφάλεια. Αυτά δεν μπορούν να απενεργοποιηθούν.',
+        'essential-details-title': 'Τα Βασικά Cookies Περιλαμβάνουν:',
+        'essential-item1': 'Αποθήκευση προτίμησης γλώσσας',
+        'essential-item2': 'Διαχείριση συνεδρίας',
+        'essential-item3': 'Tokens ασφαλείας',
+        'essential-item4': 'Βασική λειτουργικότητα ιστοσελίδας',
+        'analytics-title': 'Analytics Cookies',
+        'analytics-description': 'Αυτά τα cookies μας βοηθούν να κατανοήσουμε πώς οι επισκέπτες αλληλεπιδρούν με την ιστοσελίδα μας συλλέγοντας και αναφέροντας πληροφορίες ανώνυμα. Αυτό μας βοηθά να βελτιώσουμε τις πληροφορίες MIDI προϊόντων μας και την εμπειρία χρήστη.',
+        'analytics-details-title': 'Πληροφορίες Analytics:',
+        'analytics-item1': 'Προβολές σελίδων και δημοφιλές περιεχόμενο',
+        'analytics-item2': 'Χρόνος που περνάει σε διαφορετικές ενότητες',
+        'analytics-item3': 'Πληροφορίες συσκευής και browser',
+        'analytics-item4': 'Γεωγραφική τοποθεσία (επίπεδο χώρας)',
+        'analytics-item5': 'Πηγές παραπομπής',
+        'functional-title': 'Λειτουργικά Cookies',
+        'functional-description': 'Αυτά τα cookies ενεργοποιούν βελτιωμένη λειτουργικότητα και εξατομίκευση, όπως το να θυμούνται τις προτιμήσεις σας για κατηγορίες MIDI προϊόντων και τη βελτίωση της εμπειρίας περιήγησής σας.',
+        'functional-details-title': 'Λειτουργικά Χαρακτηριστικά:',
+        'functional-item1': 'Προτιμήσεις κατηγορίας προϊόντων',
+        'functional-item2': 'Ρυθμίσεις εμφάνισης και διάταξη',
+        'functional-item3': 'Προτιμήσεις φόρμας επικοινωνίας',
+        'functional-item4': 'Πρόσφατα προβληθέντα προϊόντα',
+        'marketing-title': 'Marketing Cookies',
+        'marketing-description': 'Αυτά τα cookies χρησιμοποιούνται για να παρακολουθούν επισκέπτες σε ιστοσελίδες για να εμφανίζουν σχετικές διαφημίσεις σχετικά με τα MIDI προϊόντα και υπηρεσίες μας. Δεν πουλάμε προσωπικά δεδομένα σε τρίτους.',
+        'marketing-details-title': 'Δραστηριότητες Marketing:',
+        'marketing-item1': 'Σχετικές συστάσεις MIDI προϊόντων',
+        'marketing-item2': 'Συντονισμός διαφήμισης μεταξύ πλατφορμών',
+        'marketing-item3': 'Μέτρηση αποτελεσματικότητας καμπάνιας',
+        'marketing-item4': 'Ενσωμάτωση social media',
+        'btn-accept-selected': 'Αποδοχή Επιλεγμένων',
+        'btn-accept-all': 'Αποδοχή Όλων',
+        'btn-reject-all': 'Απόρριψη Όλων',
+        'settings-saved': 'Οι προτιμήσεις cookies σας αποθηκεύτηκαν επιτυχώς!',
+        'nav-privacy': 'Πολιτική Απορρήτου',
+        'nav-terms': 'Όροι Χρήσης',
+        'nav-imprint': 'Στοιχεία Επιχείρησης',
+        'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
+        'footer-note': 'Ανεξάρτητος μεταπωλητής ESP32 hardware με προσαρμοσμένο MIDI firmware'
       }
     };
 
@@ -371,7 +837,55 @@
       localStorage.setItem('echopais-language', lang);
     }
 
-    // Load saved language preference
+    // Cookie management functions
+    function loadCookiePreferences() {
+      const preferences = localStorage.getItem('echopais-cookie-preferences');
+      if (preferences) {
+        const prefs = JSON.parse(preferences);
+        document.getElementById('analytics-cookies').checked = prefs.analytics || false;
+        document.getElementById('functional-cookies').checked = prefs.functional || false;
+        document.getElementById('marketing-cookies').checked = prefs.marketing || false;
+      }
+    }
+
+    function saveCookiePreferences() {
+      const preferences = {
+        essential: true, // Always true
+        analytics: document.getElementById('analytics-cookies').checked,
+        functional: document.getElementById('functional-cookies').checked,
+        marketing: document.getElementById('marketing-cookies').checked,
+        timestamp: new Date().toISOString()
+      };
+      
+      localStorage.setItem('echopais-cookie-preferences', JSON.stringify(preferences));
+      
+      // Show success message
+      const statusMessage = document.getElementById('status-message');
+      statusMessage.classList.add('show');
+      setTimeout(() => {
+        statusMessage.classList.remove('show');
+      }, 3000);
+    }
+
+    function acceptSelected() {
+      saveCookiePreferences();
+    }
+
+    function acceptAll() {
+      document.getElementById('analytics-cookies').checked = true;
+      document.getElementById('functional-cookies').checked = true;
+      document.getElementById('marketing-cookies').checked = true;
+      saveCookiePreferences();
+    }
+
+    function rejectAll() {
+      document.getElementById('analytics-cookies').checked = false;
+      document.getElementById('functional-cookies').checked = false;
+      document.getElementById('marketing-cookies').checked = false;
+      saveCookiePreferences();
+    }
+
+    // Load saved language preference and cookie preferences
     document.addEventListener('DOMContentLoaded', function() {
       const savedLang = localStorage.getItem('echopais-language') || 'en';
       if (savedLang !== 'en') {
@@ -380,6 +894,8 @@
           langBtn.click();
         }
       }
+      
+      loadCookiePreferences();
     });
   </script>
 </body>
