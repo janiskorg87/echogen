@@ -811,6 +811,117 @@
         font-size: 2.5rem;
       }
     }
+    /* Cookie Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(24, 24, 27, 0.98);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--zinc-700);
+      padding: 1.5rem;
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .cookie-banner.show {
+      transform: translateY(0);
+    }
+
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cookie-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .cookie-text h4 {
+      color: var(--orange-400);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .cookie-text p {
+      color: var(--zinc-300);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .cookie-text a {
+      color: var(--orange-400);
+      text-decoration: none;
+    }
+
+    .cookie-text a:hover {
+      text-decoration: underline;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cookie-btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .cookie-btn-accept {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: white;
+    }
+
+    .cookie-btn-accept:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+    }
+
+    .cookie-btn-decline {
+      background: transparent;
+      color: var(--zinc-300);
+      border: 1px solid var(--zinc-600);
+    }
+
+    .cookie-btn-decline:hover {
+      background: var(--zinc-700);
+      color: var(--zinc-100);
+    }
+
+    @media (max-width: 768px) {
+      .cookie-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .cookie-buttons {
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .cookie-btn {
+        flex: 1;
+        min-width: 120px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -939,7 +1050,7 @@
               <span class="product-price">€99.99</span>
             </div>
             <div class="product-buttons">
-              <a href="#" class="btn btn-primary btn-block btn-icon">
+              <a href="https://apps.apple.com/de/app/scaler-k-k-v1-2/id6746811172" class="btn btn-primary btn-block btn-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
@@ -1551,7 +1662,7 @@
               <span class="product-price">€99.99</span>
             </div>
             <div class="product-buttons">
-              <a href="https://apps.apple.com/de/app/scaler-k-k-v1-2/id6746811172" class="btn btn-primary btn-block btn-icon">
+              <a href="#" class="btn btn-primary btn-block btn-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
@@ -2889,5 +3000,26 @@
       }
     });
   </script>
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <h4 data-translate="cookie-title">We use cookies</h4>
+        <p data-translate="cookie-text">
+          We use cookies to enhance your browsing experience and analyze our traffic. 
+          By clicking "Accept All", you consent to our use of cookies. 
+          <a href="cookies.html" data-translate="cookie-learn-more">Learn more</a>
+        </p>
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()" data-translate="cookie-decline">
+          Decline
+        </button>
+        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()" data-translate="cookie-accept">
+          Accept All
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
