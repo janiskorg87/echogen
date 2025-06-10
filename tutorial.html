@@ -520,7 +520,7 @@
       </p>
       
       <div class="app-badges">
-        <a href="#" class="badge">
+        <a href="#" class="badge" id="download-ios">
           <span>📱</span>
           <span data-translate="badge-ios">Download for iOS</span>
         </a>
@@ -767,16 +767,7 @@
       </div>
     </div>
   </main>
-
-  <div class="container" style="text-align: center; margin-bottom: 2rem;">
-    <a href="tutorial-en.pdf" class="badge" download>
-      <span>🇬🇧</span> Download PDF (EN)
-    </a>
-    <a href="tutorial-gr.pdf" class="badge" download>
-      <span>🇬🇷</span> Λήψη PDF (GR)
-    </a>
-  </div>
-
+  
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -984,6 +975,15 @@
 
     let currentLanguage = 'en';
 
+    function updateIosDownloadLink() {
+      const iosBtn = document.getElementById('download-ios');
+      if (!iosBtn) return;
+      let pdf = 'tutorial-en.pdf';
+      if (currentLanguage === 'el') pdf = 'tutorial-gr.pdf';
+      iosBtn.setAttribute('href', pdf);
+      iosBtn.setAttribute('download', pdf);
+    }
+
     function changeLanguage(lang) {
       currentLanguage = lang;
       
@@ -1006,6 +1006,7 @@
       
       // Store language preference
       localStorage.setItem('echopais-language', lang);
+      updateIosDownloadLink();
     }
 
     // Load saved language preference
@@ -1017,6 +1018,7 @@
           langBtn.click();
         }
       }
+      updateIosDownloadLink();
     });
   </script>
 </body>
