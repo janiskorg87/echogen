@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECHOPAIS Scaler Tutorial - Professional MIDI Tuning App</title>
+  <meta name="description" content="Complete tutorial for ECHOPAIS Scaler - Professional MIDI tuning application for iOS and Android">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange-500: #ff6600;
+      --orange-600: #e65c00;
+      --orange-400: #ff8533;
+      --orange-300: #ffa366;
+      --orange-200: #ffcc99;
+      --zinc-100: #f4f4f5;
+      --zinc-200: #e4e4e7;
+      --zinc-300: #d4d4d8;
+      --zinc-400: #a1a1aa;
+      --zinc-500: #71717a;
+      --zinc-600: #52525b;
+      --zinc-700: #3f3f46;
+      --zinc-800: #27272a;
+      --zinc-900: #18181b;
+      --black: #09090b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--zinc-900) 0%, var(--black) 100%);
+      color: var(--zinc-100);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Header */
+    header {
+      background: rgba(24, 24, 27, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--zinc-800);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo-box {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--zinc-100);
+      margin: 0;
+    }
+    
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--orange-400);
+      margin: 0;
+    }
+    
+    .nav-link {
+      color: var(--zinc-300);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--orange-400);
+      background: rgba(255, 102, 0, 0.1);
+    }
+    
+    /* Language Selector */
+    .language-selector {
+      display: flex;
+      background: var(--zinc-800);
+      border-radius: 0.5rem;
+      padding: 0.25rem;
+      gap: 0.25rem;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--zinc-300);
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.875rem;
+    }
+    
+    .lang-btn.active {
+      background: var(--orange-500);
+      color: white;
+    }
+    
+    .lang-btn:hover:not(.active) {
+      background: var(--zinc-700);
+      color: var(--zinc-100);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, var(--zinc-800) 0%, var(--zinc-900) 100%);
+      border-radius: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--orange-400), var(--orange-600));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--zinc-300);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .app-badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--zinc-700);
+      border-radius: 0.75rem;
+      color: var(--zinc-200);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 1px solid var(--zinc-600);
+    }
+    
+    .badge:hover {
+      background: var(--orange-500);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    /* Main Content */
+    main {
+      padding: 2rem 0;
+    }
+    
+    .tutorial-card {
+      background: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      margin-bottom: 2rem;
+    }
+    
+    .tutorial-header {
+      background: var(--zinc-700);
+      padding: 2rem;
+      border-bottom: 1px solid var(--zinc-600);
+    }
+    
+    .tutorial-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--orange-400);
+      margin-bottom: 0.5rem;
+    }
+    
+    .tutorial-subtitle {
+      color: var(--zinc-400);
+      font-size: 1rem;
+    }
+    
+    .tutorial-content {
+      padding: 2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--orange-500);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .section-icon {
+      width: 2rem;
+      height: 2rem;
+      background: var(--orange-500);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+    }
+    
+    .section-content {
+      color: var(--zinc-300);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+    
+    .section-content p {
+      margin-bottom: 1rem;
+    }
+    
+    .section-content strong {
+      color: var(--orange-300);
+      font-weight: 600;
+    }
+    
+    .step-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .step-item {
+      background: var(--zinc-700);
+      border: 1px solid var(--zinc-600);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .step-number {
+      position: absolute;
+      top: -0.75rem;
+      left: 1.5rem;
+      background: var(--orange-500);
+      color: white;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.875rem;
+    }
+    
+    .step-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--zinc-100);
+      margin-bottom: 0.5rem;
+      margin-top: 0.25rem;
+    }
+    
+    .step-description {
+      color: var(--zinc-300);
+      line-height: 1.6;
+    }
+    
+    .connection-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .method-card {
+      background: var(--zinc-700);
+      border: 1px solid var(--zinc-600);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .method-icon {
+      width: 4rem;
+      height: 4rem;
+      background: var(--orange-500);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      color: white;
+    }
+    
+    .method-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin-bottom: 1rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .feature-card {
+      background: var(--zinc-700);
+      border: 1px solid var(--zinc-600);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .feature-number {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--orange-500);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .feature-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--zinc-100);
+      margin-bottom: 0.5rem;
+    }
+    
+    .feature-description {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      line-height: 1.5;
+    }
+    
+    .note-box {
+      background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 102, 0, 0.05));
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .note-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--orange-300);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .note-content {
+      color: var(--orange-200);
+      line-height: 1.6;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--zinc-900);
+      border-top: 1px solid var(--zinc-800);
+      padding: 2rem 0;
+      margin-top: 4rem;
+      text-align: center;
+    }
+    
+    .footer-content {
+      color: var(--zinc-500);
+      font-size: 0.875rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--zinc-400);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--orange-400);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .tutorial-content {
+        padding: 1.5rem;
+      }
+      
+      .connection-methods {
+        grid-template-columns: 1fr;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-box">E</div>
+          <div class="logo-text">
+            <h1>ECHOPAIS</h1>
+            <p data-translate="subtitle">Professional MIDI Solutions</p>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 2rem;">
+          <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+          
+          <div class="language-selector">
+            <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+            <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="container">
+    <section class="hero">
+      <h1 data-translate="hero-title">ECHOPAIS Scaler Tutorial</h1>
+      <p data-translate="hero-description">
+        Complete guide for professional MIDI tuning and scale control. Learn how to connect and use the most advanced MIDI tuning application.
+      </p>
+      
+      <div class="app-badges">
+        <a href="#" class="badge">
+          <span>📱</span>
+          <span data-translate="badge-ios">Download for iOS</span>
+        </a>
+        <a href="#" class="badge">
+          <span>🤖</span>
+          <span data-translate="badge-android">Download for Android</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Connection Guide -->
+    <div class="tutorial-card">
+      <div class="tutorial-header">
+        <h2 class="tutorial-title" data-translate="connection-title">Connection Guide</h2>
+        <p class="tutorial-subtitle" data-translate="connection-subtitle">Learn how to connect your device to MIDI instruments</p>
+      </div>
+      
+      <div class="tutorial-content">
+        <div class="connection-methods">
+          <!-- USB Connection -->
+          <div class="method-card">
+            <div class="method-icon">🔌</div>
+            <h3 class="method-title" data-translate="usb-title">A. USB Cable Connection</h3>
+            
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-number">1</div>
+                <h4 class="step-title" data-translate="usb-step1-title">Cable Connection</h4>
+                <p class="step-description" data-translate="usb-step1-desc">
+                  Connect a USB-C or Lightning cable (with appropriate adapter) from your mobile device/tablet to the USB port of your instrument.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">2</div>
+                <h4 class="step-title" data-translate="usb-step2-title">Launch Application</h4>
+                <p class="step-description" data-translate="usb-step2-desc">
+                  Once the cable is connected, open the application. Go to the "Device Connect" list.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">3</div>
+                <h4 class="step-title" data-translate="usb-step3-title">Device Selection</h4>
+                <p class="step-description" data-translate="usb-step3-desc">
+                  In the list, the connected device will appear. Select it. The application will be ready and immediately functional.
+                </p>
+              </li>
+            </ul>
+            
+            <div class="note-box">
+              <div class="note-title">
+                <span>💡</span>
+                <span data-translate="note-title">Note</span>
+              </div>
+              <p class="note-content" data-translate="usb-note">
+                No additional setup is required in either the application or the instrument.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bluetooth Connection -->
+          <div class="method-card">
+            <div class="method-icon">📶</div>
+            <h3 class="method-title" data-translate="bluetooth-title">B. Bluetooth Connection</h3>
+            
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-number">1</div>
+                <h4 class="step-title" data-translate="bt-step1-title">Requirements</h4>
+                <p class="step-description" data-translate="bt-step1-desc">
+                  You need a Yamaha BT-01 (or BD-01) Bluetooth adapter connected to your instrument.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">2</div>
+                <h4 class="step-title" data-translate="bt-step2-title">Enable Bluetooth MIDI</h4>
+                <p class="step-description" data-translate="bt-step2-desc">
+                  Install and open the "midimittr" app (or similar Bluetooth MIDI tool) on your device.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">3</div>
+                <h4 class="step-title" data-translate="bt-step3-title">Device Pairing</h4>
+                <p class="step-description" data-translate="bt-step3-desc">
+                  In midimittr, search for available Bluetooth MIDI devices. Once the Yamaha BT-01 adapter is connected to the instrument, it will appear in the list. Select it to connect.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">4</div>
+                <h4 class="step-title" data-translate="bt-step4-title">App Connection</h4>
+                <p class="step-description" data-translate="bt-step4-desc">
+                  Open the Scaler app, go to the "Device Connect" list and select the Yamaha BT-01 from available devices. The app connects immediately and is ready for use.
+                </p>
+              </li>
+            </ul>
+            
+            <div class="note-box">
+              <div class="note-title">
+                <span>💡</span>
+                <span data-translate="note-title">Note</span>
+              </div>
+              <p class="note-content" data-translate="bt-note">
+                No additional setup is required in the application or instrument.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Usage Guide -->
+    <div class="tutorial-card">
+      <div class="tutorial-header">
+        <h2 class="tutorial-title" data-translate="usage-title">App Usage Guide</h2>
+        <p class="tutorial-subtitle" data-translate="usage-subtitle">Master all features of the ECHOPAIS Scaler application</p>
+      </div>
+      
+      <div class="tutorial-content">
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-number">1</div>
+            <h3 class="feature-title" data-translate="feature1-title">Tuning Box</h3>
+            <p class="feature-description" data-translate="feature1-desc">
+              12 tuning boxes (for each note C-B). Manually adjust tuning for each note.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-number">2</div>
+            <h3 class="feature-title" data-translate="feature2-title">Stepper Value</h3>
+            <p class="feature-description" data-translate="feature2-desc">
+              Minus (−): Decrease tuning • Zero (0): Reset tuning • Plus (+): Increase tuning
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-number">3</div>
+            <h3 class="feature-title" data-translate="feature3-title">Save/Load Scale</h3>
+            <p class="feature-description" data-translate="feature3-desc">
+              12 keys/notes (12 storage positions). Press "Save" to select note for storing settings. Press "Load" to select note for loading settings.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-number">4</div>
+            <h3 class="feature-title" data-translate="feature4-title">Note Keys</h3>
+            <p class="feature-description" data-translate="feature4-desc">
+              12 note keys. When active: -60 default tuning. If active, remain enabled even when changing sounds.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card">
+            <div class="feature-number">5</div>
+            <h3 class="feature-title" data-translate="feature5-title">Step Display</h3>
+            <p class="feature-description" data-translate="feature5-desc">
+              View real-time tuning value for each step.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card">
+            <div class="feature-number">6</div>
+            <h3 class="feature-title" data-translate="feature6-title">Scaler On/Off Switch</h3>
+            <p class="feature-description" data-translate="feature6-desc">
+              Enabling Scaler (ON) allows manual tuning adjustment for each note.
+            </p>
+          </div>
+
+          <!-- Feature 7 -->
+          <div class="feature-card">
+            <div class="feature-number">7</div>
+            <h3 class="feature-title" data-translate="feature7-title">Device Connection</h3>
+            <p class="feature-description" data-translate="feature7-desc">
+              Displays list of available devices for connection.
+            </p>
+          </div>
+
+          <!-- Feature 8 -->
+          <div class="feature-card">
+            <div class="feature-number">8</div>
+            <h3 class="feature-title" data-translate="feature8-title">Reset All Notes</h3>
+            <p class="feature-description" data-translate="feature8-desc">
+              Disables all active notes.
+            </p>
+          </div>
+
+          <!-- Feature 9 -->
+          <div class="feature-card">
+            <div class="feature-number">9</div>
+            <h3 class="feature-title" data-translate="feature9-title">About/Version</h3>
+            <p class="feature-description" data-translate="feature9-desc">
+              View version information and new features.
+            </p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-title">
+            <span>🎵</span>
+            <span data-translate="final-note-title">Important Note</span>
+          </div>
+          <p class="note-content" data-translate="final-note-content">
+            The ECHOPAIS Scaler application requires no additional settings in either the app or your instrument – simply connect and play!
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="index.html" data-translate="nav-home">Home</a>
+          <a href="privacy.html" data-translate="nav-privacy">Privacy Policy</a>
+          <a href="terms.html" data-translate="nav-terms">Terms of Service</a>
+          <a href="cookies.html" data-translate="nav-cookies">Cookie Policy</a>
+          <a href="imprint.html" data-translate="nav-imprint">Imprint</a>
+        </div>
+        <p>© 2024 ECHOPAIS. <span data-translate="footer-rights">All rights reserved</span>.</p>
+        <p data-translate="footer-note">Professional MIDI solutions and tuning applications</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        'subtitle': 'Professional MIDI Solutions',
+        'nav-home': 'Home',
+        'hero-title': 'ECHOPAIS Scaler Tutorial',
+        'hero-description': 'Complete guide for professional MIDI tuning and scale control. Learn how to connect and use the most advanced MIDI tuning application.',
+        'badge-ios': 'Download for iOS',
+        'badge-android': 'Download for Android',
+        'connection-title': 'Connection Guide',
+        'connection-subtitle': 'Learn how to connect your device to MIDI instruments',
+        'usb-title': 'A. USB Cable Connection',
+        'usb-step1-title': 'Cable Connection',
+        'usb-step1-desc': 'Connect a USB-C or Lightning cable (with appropriate adapter) from your mobile device/tablet to the USB port of your instrument.',
+        'usb-step2-title': 'Launch Application',
+        'usb-step2-desc': 'Once the cable is connected, open the application. Go to the "Device Connect" list.',
+        'usb-step3-title': 'Device Selection',
+        'usb-step3-desc': 'In the list, the connected device will appear. Select it. The application will be ready and immediately functional.',
+        'note-title': 'Note',
+        'usb-note': 'No additional setup is required in either the application or the instrument.',
+        'bluetooth-title': 'B. Bluetooth Connection',
+        'bt-step1-title': 'Requirements',
+        'bt-step1-desc': 'You need a Yamaha BT-01 (or BD-01) Bluetooth adapter connected to your instrument.',
+        'bt-step2-title': 'Enable Bluetooth MIDI',
+        'bt-step2-desc': 'Install and open the "midimittr" app (or similar Bluetooth MIDI tool) on your device.',
+        'bt-step3-title': 'Device Pairing',
+        'bt-step3-desc': 'In midimittr, search for available Bluetooth MIDI devices. Once the Yamaha BT-01 adapter is connected to the instrument, it will appear in the list. Select it to connect.',
+        'bt-step4-title': 'App Connection',
+        'bt-step4-desc': 'Open the Scaler app, go to the "Device Connect" list and select the Yamaha BT-01 from available devices. The app connects immediately and is ready for use.',
+        'bt-note': 'No additional setup is required in the application or instrument.',
+        'usage-title': 'App Usage Guide',
+        'usage-subtitle': 'Master all features of the ECHOPAIS Scaler application',
+        'feature1-title': 'Tuning Box',
+        'feature1-desc': '12 tuning boxes (for each note C-B). Manually adjust tuning for each note.',
+        'feature2-title': 'Stepper Value',
+        'feature2-desc': 'Minus (−): Decrease tuning • Zero (0): Reset tuning • Plus (+): Increase tuning',
+        'feature3-title': 'Save/Load Scale',
+        'feature3-desc': '12 keys/notes (12 storage positions). Press "Save" to select note for storing settings. Press "Load" to select note for loading settings.',
+        'feature4-title': 'Note Keys',
+        'feature4-desc': '12 note keys. When active: -60 default tuning. If active, remain enabled even when changing sounds.',
+        'feature5-title': 'Step Display',
+        'feature5-desc': 'View real-time tuning value for each step.',
+        'feature6-title': 'Scaler On/Off Switch',
+        'feature6-desc': 'Enabling Scaler (ON) allows manual tuning adjustment for each note.',
+        'feature7-title': 'Device Connection',
+        'feature7-desc': 'Displays list of available devices for connection.',
+        'feature8-title': 'Reset All Notes',
+        'feature8-desc': 'Disables all active notes.',
+        'feature9-title': 'About/Version',
+        'feature9-desc': 'View version information and new features.',
+        'final-note-title': 'Important Note',
+        'final-note-content': 'The ECHOPAIS Scaler application requires no additional settings in either the app or your instrument – simply connect and play!',
+        'nav-privacy': 'Privacy Policy',
+        'nav-terms': 'Terms of Service',
+        'nav-cookies': 'Cookie Policy',
+        'nav-imprint': 'Imprint',
+        'footer-rights': 'All rights reserved',
+        'footer-note': 'Professional MIDI solutions and tuning applications'
+      },
+      de: {
+        'subtitle': 'Professionelle MIDI-Lösungen',
+        'nav-home': 'Startseite',
+        'hero-title': 'ECHOPAIS Scaler Tutorial',
+        'hero-description': 'Vollständige Anleitung für professionelle MIDI-Stimmung und Skalenkontrolle. Lernen Sie, wie Sie die fortschrittlichste MIDI-Stimmungsanwendung verbinden und verwenden.',
+        'badge-ios': 'Für iOS herunterladen',
+        'badge-android': 'Für Android herunterladen',
+        'connection-title': 'Verbindungsanleitung',
+        'connection-subtitle': 'Lernen Sie, wie Sie Ihr Gerät mit MIDI-Instrumenten verbinden',
+        'usb-title': 'A. USB-Kabelverbindung',
+        'usb-step1-title': 'Kabelverbindung',
+        'usb-step1-desc': 'Verbinden Sie ein USB-C- oder Lightning-Kabel (mit entsprechendem Adapter) von Ihrem Mobilgerät/Tablet mit dem USB-Anschluss Ihres Instruments.',
+        'usb-step2-title': 'Anwendung starten',
+        'usb-step2-desc': 'Sobald das Kabel verbunden ist, öffnen Sie die Anwendung. Gehen Sie zur Liste "Device Connect".',
+        'usb-step3-title': 'Geräteauswahl',
+        'usb-step3-desc': 'In der Liste wird das verbundene Gerät angezeigt. Wählen Sie es aus. Die Anwendung ist bereit und sofort funktionsfähig.',
+        'note-title': 'Hinweis',
+        'usb-note': 'Es ist keine zusätzliche Einrichtung in der Anwendung oder im Instrument erforderlich.',
+        'bluetooth-title': 'B. Bluetooth-Verbindung',
+        'bt-step1-title': 'Anforderungen',
+        'bt-step1-desc': 'Sie benötigen einen Yamaha BT-01 (oder BD-01) Bluetooth-Adapter, der mit Ihrem Instrument verbunden ist.',
+        'bt-step2-title': 'Bluetooth MIDI aktivieren',
+        'bt-step2-desc': 'Installieren und öffnen Sie die "midimittr"-App (oder ein ähnliches Bluetooth MIDI-Tool) auf Ihrem Gerät.',
+        'bt-step3-title': 'Gerätekopplung',
+        'bt-step3-desc': 'Suchen Sie in midimittr nach verfügbaren Bluetooth MIDI-Geräten. Sobald der Yamaha BT-01-Adapter mit dem Instrument verbunden ist, erscheint er in der Liste. Wählen Sie ihn zur Verbindung aus.',
+        'bt-step4-title': 'App-Verbindung',
+        'bt-step4-desc': 'Öffnen Sie die Scaler-App, gehen Sie zur Liste "Device Connect" und wählen Sie den Yamaha BT-01 aus den verfügbaren Geräten aus. Die App verbindet sich sofort und ist einsatzbereit.',
+        'bt-note': 'Es ist keine zusätzliche Einrichtung in der Anwendung oder im Instrument erforderlich.',
+        'usage-title': 'App-Nutzungsanleitung',
+        'usage-subtitle': 'Meistern Sie alle Funktionen der ECHOPAIS Scaler-Anwendung',
+        'feature1-title': 'Stimmungsbox',
+        'feature1-desc': '12 Stimmungsboxen (für jede Note C-B). Stimmung für jede Note manuell anpassen.',
+        'feature2-title': 'Schrittwerт',
+        'feature2-desc': 'Minus (−): Stimmung verringern • Null (0): Stimmung zurücksetzen • Plus (+): Stimmung erhöhen',
+        'feature3-title': 'Skala speichern/laden',
+        'feature3-desc': '12 Tasten/Noten (12 Speicherpositionen). "Speichern" drücken, um Note zum Speichern der Einstellungen auszuwählen. "Laden" drücken, um Note zum Laden der Einstellungen auszuwählen.',
+        'feature4-title': 'Notentasten',
+        'feature4-desc': '12 Notentasten. Wenn aktiv: -60 Standard-Stimmung. Wenn aktiv, bleiben sie auch beim Wechseln der Klänge aktiviert.',
+        'feature5-title': 'Schritt-Anzeige',
+        'feature5-desc': 'Echtzeit-Stimmungswert für jeden Schritt anzeigen.',
+        'feature6-title': 'Scaler Ein/Aus-Schalter',
+        'feature6-desc': 'Aktivierung des Scalers (EIN) ermöglicht manuelle Stimmungsanpassung für jede Note.',
+        'feature7-title': 'Geräteverbindung',
+        'feature7-desc': 'Zeigt Liste der verfügbaren Geräte für die Verbindung an.',
+        'feature8-title': 'Alle Noten zurücksetzen',
+        'feature8-desc': 'Deaktiviert alle aktiven Noten.',
+        'feature9-title': 'Über/Version',
+        'feature9-desc': 'Versionsinformationen und neue Funktionen anzeigen.',
+        'final-note-title': 'Wichtiger Hinweis',
+        'final-note-content': 'Die ECHOPAIS Scaler-Anwendung erfordert keine zusätzlichen Einstellungen in der App oder Ihrem Instrument – einfach verbinden und spielen!',
+        'nav-privacy': 'Datenschutzerklärung',
+        'nav-terms': 'Nutzungsbedingungen',
+        'nav-cookies': 'Cookie-Richtlinie',
+        'nav-imprint': 'Impressum',
+        'footer-rights': 'Alle Rechte vorbehalten',
+        'footer-note': 'Professionelle MIDI-Lösungen und Stimmungsanwendungen'
+      },
+      el: {
+        'subtitle': 'Επαγγελματικές MIDI Λύσεις',
+        'nav-home': 'Αρχική',
+        'hero-title': 'ECHOPAIS Scaler Tutorial',
+        'hero-description': 'Πλήρης οδηγός για επαγγελματικό MIDI tuning και έλεγχο κλίμακας. Μάθετε πώς να συνδέετε και να χρησιμοποιείτε την πιο προηγμένη εφαρμογή MIDI tuning.',
+        'badge-ios': 'Λήψη για iOS',
+        'badge-android': 'Λήψη για Android',
+        'connection-title': 'Οδηγός Σύνδεσης',
+        'connection-subtitle': 'Μάθετε πώς να συνδέετε τη συσκευή σας με MIDI όργανα',
+        'usb-title': 'Α. Σύνδεση με καλώδιο USB',
+        'usb-step1-title': 'Σύνδεση καλωδίου',
+        'usb-step1-desc': 'Συνδέστε ένα καλώδιο USB-C ή Lightning (με τον κατάλληλο αντάπτορα) από το κινητό/τάμπλετ σας στη θύρα USB της συσκευής/οργάνου.',
+        'usb-step2-title': 'Εκκίνηση της εφαρμογής',
+        'usb-step2-desc': 'Μόλις το καλώδιο συνδεθεί, ανοίξτε την εφαρμογή. Πηγαίνετε στη λίστα "Device Connect".',
+        'usb-step3-title': 'Επιλογή συσκευής',
+        'usb-step3-desc': 'Στη λίστα, θα εμφανιστεί η συνδεδεμένη συσκευή. Επιλέξτε τη. Η εφαρμογή θα είναι έτοιμη και άμεσα λειτουργική.',
+        'note-title': 'Σημείωση',
+        'usb-note': 'Δεν απαιτείται καμία επιπλέον ρύθμιση ούτε στην εφαρμογή, ούτε στο όργανο.',
+        'bluetooth-title': 'Β. Σύνδεση Bluetooth',
+        'bt-step1-title': 'Τι χρειάζεστε',
+        'bt-step1-desc': 'Χρειάζεστε έναν Bluetooth αντάπτορα Yamaha BT-01 (ή BD-01) συνδεδεμένο στο όργανό σας.',
+        'bt-step2-title': 'Ενεργοποίηση Bluetooth MIDI',
+        'bt-step2-desc': 'Εγκαταστήστε και ανοίξτε την εφαρμογή "midimittr" (ή παρόμοιο εργαλείο Bluetooth MIDI) στη συσκευή σας.',
+        'bt-step3-title': 'Σύζευξη συσκευής',
+        'bt-step3-desc': 'Στο midimittr, κάντε αναζήτηση για διαθέσιμες συσκευές Bluetooth MIDI. Μόλις ο αντάπτορας Yamaha BT-01 είναι συνδεδεμένος στο όργανο, θα εμφανιστεί στη λίστα. Επιλέξτε τον για να κάνετε τη σύνδεση.',
+        'bt-step4-title': 'Σύνδεση στην εφαρμογή',
+        'bt-step4-desc': 'Ανοίξτε την εφαρμογή Scaler, πηγαίνετε στη λίστα "Device Connect" και επιλέξτε τον Yamaha BT-01 από τις διαθέσιμες συσκευές. Η εφαρμογή συνδέεται άμεσα και είναι έτοιμη για χρήση.',
+        'bt-note': 'Δεν απαιτείται καμία επιπλέον ρύθμιση στην εφαρμογή ή στο όργανο.',
+        'usage-title': 'Οδηγός Χρήσης Εφαρμογής',
+        'usage-subtitle': 'Κατακτήστε όλες τις λειτουργίες της εφαρμογής ECHOPAIS Scaler',
+        'feature1-title': 'Κουτί Κουρδίσματος',
+        'feature1-desc': '12 κουτιά κουρδίσματος (για κάθε νότα C-B). Ρυθμίστε χειροκίνητα το κούρδισμα για κάθε νότα.',
+        'feature2-title': 'Τιμή Βήματος',
+        'feature2-desc': 'Μείον (−): Μείωση κουρδίσματος • Μηδέν (0): Επαναφορά κουρδίσματος • Συν (+): Αύξηση κουρδίσματος',
+        'feature3-title': 'Αποθήκευση/Φόρτωση Σκάλας',
+        'feature3-desc': '12 πλήκτρα/νότα (12 θέσεις αποθήκευσης). Πατώντας "Αποθήκευση", περιμένει να επιλέξετε σε ποια νότα θα αποθηκευτούν οι ρυθμίσεις. Πατώντας "Φόρτωση", περιμένει να επιλέξετε από ποια νότα θα φορτωθούν οι ρυθμίσεις.',
+        'feature4-title': 'Πλήκτρα Νότας',
+        'feature4-desc': '12 πλήκτρα νότας. Σε ενεργή κατάσταση: -60 προεπιλεγμένο κούρδισμα. Αν είναι ενεργά, παραμένουν ενεργοποιημένα ακόμη και όταν αλλάζετε ήχο.',
+        'feature5-title': 'Ένδειξη Βήματος',
+        'feature5-desc': 'Βλέπετε σε πραγματικό χρόνο την τιμή tuning για το κάθε βήμα.',
+        'feature6-title': 'Διακόπτης Scaler On/Off',
+        'feature6-desc': 'Ενεργοποιώντας το Scaler (ON), μπορείτε να ρυθμίσετε χειροκίνητα το κούρδισμα για κάθε νότα.',
+        'feature7-title': 'Σύνδεση Συσκευής',
+        'feature7-desc': 'Εμφανίζει τη λίστα με τις διαθέσιμες συσκευές για σύνδεση.',
+        'feature8-title': 'Επαναφορά Όλων των Νότων',
+        'feature8-desc': 'Απενεργοποιεί όλες τις ενεργές νότες.',
+        'feature9-title': 'Σχετικά/Έκδοση',
+        'feature9-desc': 'Δείτε πληροφορίες για την έκδοση και τις νέες λειτουργίες.',
+        'final-note-title': 'Σημαντική Σημείωση',
+        'final-note-content': 'Η λειτουργία της εφαρμογής ECHOPAIS Scaler δεν απαιτεί επιπλέον ρυθμίσεις ούτε στην εφαρμογή, ούτε στο όργανό σας – απλά συνδέετε και παίζετε!',
+        'nav-privacy': 'Πολιτική Απορρήτου',
+        'nav-terms': 'Όροι Χρήσης',
+        'nav-cookies': 'Πολιτική Cookies',
+        'nav-imprint': 'Στοιχεία Επιχείρησης',
+        'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
+        'footer-note': 'Επαγγελματικές MIDI λύσεις και εφαρμογές tuning'
+      }
+    };
+
+    let currentLanguage = 'en';
+
+    function changeLanguage(lang) {
+      currentLanguage = lang;
+      
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update all translatable elements
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      
+      // Update document language
+      document.documentElement.lang = lang;
+      
+      // Store language preference
+      localStorage.setItem('echopais-language', lang);
+    }
+
+    // Load saved language preference
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('echopais-language') || 'en';
+      if (savedLang !== 'en') {
+        const langBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${savedLang}')"]`);
+        if (langBtn) {
+          langBtn.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
