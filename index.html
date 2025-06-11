@@ -3085,17 +3085,6 @@
       localStorage.setItem('echopais-language', lang);
     }
 
-    // Load saved language preference
-    document.addEventListener('DOMContentLoaded', function() {
-      const savedLang = localStorage.getItem('echopais-language') || 'en';
-      if (savedLang !== 'en') {
-        const langBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${savedLang}')"]`);
-        if (langBtn) {
-          langBtn.click();
-        }
-      }
-    });
-
     // Contact form handling with Formspree
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
