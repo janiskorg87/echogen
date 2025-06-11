@@ -3172,13 +3172,17 @@
       // Εδώ μπορείς να απενεργοποιήσεις cookies
     }
 
-    // Check cookie consent on page load
+    // Check cookie consent and load language on page load
     document.addEventListener('DOMContentLoaded', function() {
+      // Cookie banner
       const cookiesAccepted = localStorage.getItem('cookies-accepted');
       if (cookiesAccepted === null) {
-        // Εμφάνισε το banner μετά από 1 δευτερόλεπτο
         setTimeout(showCookieBanner, 1000);
       }
+    
+      // Language
+      const savedLang = localStorage.getItem('echopais-language') || 'en';
+      changeLanguage(savedLang);
     });
   </script>
   <!-- Cookie Banner -->
