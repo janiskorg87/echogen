@@ -1287,6 +1287,15 @@
 
     let currentLanguage = 'en';
 
+    function updateIosDownloadLink() {
+      const iosBtn = document.getElementById('download-ios');
+      if (!iosBtn) return;
+      let pdf = 'tutorial1-en.pdf';
+      if (currentLanguage === 'el') pdf = 'tutorial1-gr.pdf';
+      iosBtn.setAttribute('href', pdf);
+      iosBtn.setAttribute('download', pdf);
+    }
+
     function changeLanguage(lang) {
       currentLanguage = lang;
       
