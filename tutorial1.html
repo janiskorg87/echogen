@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECHOPAIS PAD Controller Tutorial - Professional MIDI Pad Application</title>
+  <meta name="description" content="Complete tutorial for ECHOPAIS PAD Controller - Professional MIDI pad application for iOS and Android">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange-500: #ff6600;
+      --orange-600: #e65c00;
+      --orange-400: #ff8533;
+      --orange-300: #ffa366;
+      --orange-200: #ffcc99;
+      --zinc-100: #f4f4f5;
+      --zinc-200: #e4e4e7;
+      --zinc-300: #d4d4d8;
+      --zinc-400: #a1a1aa;
+      --zinc-500: #71717a;
+      --zinc-600: #52525b;
+      --zinc-700: #3f3f46;
+      --zinc-800: #27272a;
+      --zinc-900: #18181b;
+      --black: #09090b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--zinc-900) 0%, var(--black) 100%);
+      color: var(--zinc-100);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Header */
+    header {
+      background: rgba(24, 24, 27, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--zinc-800);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo-box {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--zinc-100);
+      margin: 0;
+    }
+    
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--orange-400);
+      margin: 0;
+    }
+    
+    .nav-link {
+      color: var(--zinc-300);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--orange-400);
+      background: rgba(255, 102, 0, 0.1);
+    }
+    
+    /* Language Selector */
+    .language-selector {
+      display: flex;
+      background: var(--zinc-800);
+      border-radius: 0.5rem;
+      padding: 0.25rem;
+      gap: 0.25rem;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--zinc-300);
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.875rem;
+    }
+    
+    .lang-btn.active {
+      background: var(--orange-500);
+      color: white;
+    }
+    
+    .lang-btn:hover:not(.active) {
+      background: var(--zinc-700);
+      color: var(--zinc-100);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, var(--zinc-800) 0%, var(--zinc-900) 100%);
+      border-radius: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--orange-400), var(--orange-600));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--zinc-300);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .app-badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--zinc-700);
+      border-radius: 0.75rem;
+      color: var(--zinc-200);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 1px solid var(--zinc-600);
+    }
+    
+    .badge:hover {
+      background: var(--orange-500);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    /* Main Content */
+    main {
+      padding: 2rem 0;
+    }
+    
+    .tutorial-card {
+      background: var(--zinc-800);
+      border: 1px solid var(--zinc-700);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      margin-bottom: 2rem;
+    }
+    
+    .tutorial-header {
+      background: var(--zinc-700);
+      padding: 2rem;
+      border-bottom: 1px solid var(--zinc-600);
+    }
+    
+    .tutorial-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--orange-400);
+      margin-bottom: 0.5rem;
+    }
+    
+    .tutorial-subtitle {
+      color: var(--zinc-400);
+      font-size: 1rem;
+    }
+    
+    .tutorial-content {
+      padding: 2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--orange-500);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .section-icon {
+      width: 2rem;
+      height: 2rem;
+      background: var(--orange-500);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+    }
+    
+    .section-content {
+      color: var(--zinc-300);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+    
+    .section-content p {
+      margin-bottom: 1rem;
+    }
+    
+    .section-content strong {
+      color: var(--orange-300);
+      font-weight: 600;
+    }
+    
+    .step-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .step-item {
+      background: var(--zinc-700);
+      border: 1px solid var(--zinc-600);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .step-number {
+      position: absolute;
+      top: -0.75rem;
+      left: 1.5rem;
+      background: var(--orange-500);
+      color: white;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.875rem;
+    }
+    
+    .step-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--zinc-100);
+      margin-bottom: 0.5rem;
+      margin-top: 0.25rem;
+    }
+    
+    .step-description {
+      color: var(--zinc-300);
+      line-height: 1.6;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .feature-card {
+      background: var(--zinc-700);
+      border: 1px solid var(--zinc-600);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    
+    .feature-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--orange-500);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      color: white;
+    }
+    
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin-bottom: 1rem;
+    }
+    
+    .feature-description {
+      color: var(--zinc-300);
+      line-height: 1.6;
+    }
+    
+    .note-box {
+      background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(255, 102, 0, 0.05));
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .note-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--orange-300);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .note-content {
+      color: var(--orange-200);
+      line-height: 1.6;
+    }
+    
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .control-card {
+      background: var(--zinc-700);
+      border: 1px solid var(--zinc-600);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .control-number {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--orange-500);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .control-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--zinc-100);
+      margin-bottom: 0.5rem;
+    }
+    
+    .control-description {
+      font-size: 0.875rem;
+      color: var(--zinc-400);
+      line-height: 1.5;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--zinc-900);
+      border-top: 1px solid var(--zinc-800);
+      padding: 2rem 0;
+      margin-top: 4rem;
+      text-align: center;
+    }
+    
+    .footer-content {
+      color: var(--zinc-500);
+      font-size: 0.875rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--zinc-400);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--orange-400);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .tutorial-content {
+        padding: 1.5rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .controls-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo-box">E</div>
+          <div class="logo-text">
+            <h1>ECHOPAIS</h1>
+            <p data-translate="subtitle">Professional MIDI Solutions</p>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 2rem;">
+          <a href="index.html" class="nav-link" data-translate="nav-home">Home</a>
+          
+          <div class="language-selector">
+            <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+            <button class="lang-btn" onclick="changeLanguage('el')">EL</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="container">
+    <section class="hero">
+      <h1 data-translate="hero-title">ECHOPAIS PAD Controller Tutorial</h1>
+      <p data-translate="hero-description">
+        Complete guide for professional MIDI pad control and music production. Learn how to master the most advanced PAD controller application.
+      </p>
+      
+      <div class="app-badges">
+        <a href="#" class="badge">
+          <span>📱</span>
+          <span data-translate="badge-ios">Download for iOS</span>
+        </a>
+        <a href="#" class="badge">
+          <span>🤖</span>
+          <span data-translate="badge-android">Download for Android</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- PAD Settings -->
+    <div class="tutorial-card">
+      <div class="tutorial-header">
+        <h2 class="tutorial-title" data-translate="pad-settings-title">PAD Settings & Configuration</h2>
+        <p class="tutorial-subtitle" data-translate="pad-settings-subtitle">Learn how to configure and customize your PADs</p>
+      </div>
+      
+      <div class="tutorial-content">
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">⚙️</div>
+            <span data-translate="settings-section-title">PAD Settings Overview</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="settings-intro">
+              By pressing the Settings button for a PAD, you can configure the following options:
+            </p>
+            
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-number">1</div>
+                <h4 class="step-title" data-translate="name-setting-title">Change PAD Name</h4>
+                <p class="step-description" data-translate="name-setting-desc">
+                  Customize the name of your PAD for better organization and identification during live performances.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">2</div>
+                <h4 class="step-title" data-translate="image-setting-title">Load Background Image</h4>
+                <p class="step-description" data-translate="image-setting-desc">
+                  Replace the default color background with a custom image to create visual themes for your PADs.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">3</div>
+                <h4 class="step-title" data-translate="content-setting-title">Content Selection</h4>
+                <p class="step-description" data-translate="content-setting-desc">
+                  Choose between: Song/Loop playback, MIDI settings (CC/Note/SysEx), or both simultaneously for maximum flexibility.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Group ID Section -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">🔗</div>
+            <span data-translate="group-section-title">Group ID - Group Functionality</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="group-intro">
+              When you assign two or more PADs to the same Group ID (e.g., Group 1):
+            </p>
+            
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h4 class="feature-title" data-translate="exclusive-play-title">Exclusive Playback</h4>
+                <p class="feature-description" data-translate="exclusive-play-desc">
+                  PADs in the same group don't play simultaneously. They function as a switcher - when one plays, others stop.
+                </p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h4 class="feature-title" data-translate="wait-loop-title">Wait for Loop</h4>
+                <p class="feature-description" data-translate="wait-loop-desc">
+                  When enabled, the next PAD doesn't start immediately but waits for a time boundary, like a measure completion.
+                </p>
+              </div>
+            </div>
+            
+            <div class="note-box">
+              <div class="note-title">
+                <span>💡</span>
+                <span data-translate="group-example-title">Example</span>
+              </div>
+              <p class="note-content" data-translate="group-example-content">
+                If a loop has a 4-measure duration with "Wait for Loop" enabled, each PAD press triggers the switch at the correct timing - entering the next PAD at the right beat.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MIDI Types Section -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">🎹</div>
+            <span data-translate="midi-types-title">MIDI Types & Modes</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="midi-types-intro">
+              You can select from the following MIDI types, each with its own parameters:
+            </p>
+            
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">🎛️</div>
+                <h4 class="feature-title">Control Change (CC)</h4>
+                <p class="feature-description" data-translate="cc-desc">
+                  Send MIDI Control Change messages for parameter control like volume, filter cutoff, or effects.
+                </p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h4 class="feature-title">Note</h4>
+                <p class="feature-description" data-translate="note-desc">
+                  Trigger MIDI notes with customizable Note Number, velocity, and channel settings.
+                </p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h4 class="feature-title">SysEx</h4>
+                <p class="feature-description" data-translate="sysex-desc">
+                  Send System Exclusive messages for advanced device control and parameter changes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAD Modes Section -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">🎮</div>
+            <span data-translate="pad-modes-title">PAD Operation Modes</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="modes-intro">
+              There are 3 available modes for each PAD:
+            </p>
+            
+            <div class="controls-grid">
+              <div class="control-card">
+                <div class="control-number">1</div>
+                <h4 class="control-title">Momentary</h4>
+                <p class="control-description" data-translate="momentary-desc">
+                  MIDI command is sent while the PAD is pressed. Like a pressed switch: On when pressed, Off when released.
+                </p>
+              </div>
+              
+              <div class="control-card">
+                <div class="control-number">2</div>
+                <h4 class="control-title">Toggle</h4>
+                <p class="control-description" data-translate="toggle-desc">
+                  First press sends On, second press sends Off. Ideal for toggles like mute/unmute or start/stop.
+                </p>
+              </div>
+              
+              <div class="control-card">
+                <div class="control-number">3</div>
+                <h4 class="control-title">One-Shot</h4>
+                <p class="control-description" data-translate="oneshot-desc">
+                  Sends only the On command each time pressed. Useful for FX sounds like sirens, horns, etc.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced Features -->
+    <div class="tutorial-card">
+      <div class="tutorial-header">
+        <h2 class="tutorial-title" data-translate="advanced-title">Advanced Features</h2>
+        <p class="tutorial-subtitle" data-translate="advanced-subtitle">Master the professional features of PAD Controller</p>
+      </div>
+      
+      <div class="tutorial-content">
+        <!-- SysEx Settings -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">🔧</div>
+            <span data-translate="sysex-settings-title">SysEx Special Settings</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="sysex-intro">
+              When you select SysEx, additional settings appear:
+            </p>
+            
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-number">1</div>
+                <h4 class="step-title" data-translate="sysex-toggle-title">On/Off Commands</h4>
+                <p class="step-description" data-translate="sysex-toggle-desc">
+                  Available only for Toggle mode. Define separate commands for On and Off states.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">2</div>
+                <h4 class="step-title" data-translate="sysex-data-title">SysEx ON Data Field</h4>
+                <p class="step-description" data-translate="sysex-data-desc">
+                  Enter the command to be sent. F0 and F7 are added automatically. Only hexadecimal numbers allowed (e.g., 7E 7F 09 01).
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pitch Shifting -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">🎼</div>
+            <span data-translate="pitch-title">Pitch Shifting (Key Note Control)</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="pitch-intro">
+              Enable Key Note (Pitch Shifting) to transpose audio to different notes:
+            </p>
+            
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">🎹</div>
+                <h4 class="feature-title" data-translate="original-note-title">Original Note</h4>
+                <p class="feature-description" data-translate="original-note-desc">
+                  The original key of the song or loop (e.g., A, C#, etc.).
+                </p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h4 class="feature-title" data-translate="target-note-title">Target Note</h4>
+                <p class="feature-description" data-translate="target-note-desc">
+                  The new key you want the audio to play in when the PAD is triggered.
+                </p>
+              </div>
+            </div>
+            
+            <div class="note-box">
+              <div class="note-title">
+                <span>⚠️</span>
+                <span data-translate="pitch-warning-title">Important Note</span>
+              </div>
+              <p class="note-content" data-translate="pitch-warning-content">
+                When Pitch Shifting is active, changes to BPM, tempo, or tuning don't apply in real-time. Instead, the song automatically restarts from the beginning to properly synchronize the changes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loop Audio -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">🔄</div>
+            <span data-translate="loop-title">Loop Audio Control</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="loop-intro">
+              When Loop Audio is enabled, the PAD plays the loop in repeat mode:
+            </p>
+            
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h4 class="feature-title" data-translate="original-bpm-title">Original BPM</h4>
+                <p class="feature-description" data-translate="original-bpm-desc">
+                  The authentic speed of the loop (in beats per minute).
+                </p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h4 class="feature-title" data-translate="target-bpm-title">Target BPM</h4>
+                <p class="feature-description" data-translate="target-bpm-desc">
+                  The speed you want the PAD to play at. Adjust to sync with your project or set.
+                </p>
+              </div>
+            </div>
+            
+            <div class="note-box">
+              <div class="note-title">
+                <span>💡</span>
+                <span data-translate="loop-recommendation-title">Recommendation</span>
+              </div>
+              <p class="note-content" data-translate="loop-recommendation-content">
+                For loops, it's recommended to disable Pitch Shifting so BPM changes happen in real-time without restarting the audio file.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Global Controls -->
+    <div class="tutorial-card">
+      <div class="tutorial-header">
+        <h2 class="tutorial-title" data-translate="global-title">Global Controls & Settings</h2>
+        <p class="tutorial-subtitle" data-translate="global-subtitle">Master the application-wide controls and features</p>
+      </div>
+      
+      <div class="tutorial-content">
+        <!-- Edit Hold -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">✏️</div>
+            <span data-translate="edit-hold-title">Edit Hold Function</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="edit-hold-intro">
+              When you hold down the EDIT button, a special function activates:
+            </p>
+            
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-number">1</div>
+                <h4 class="step-title" data-translate="hide-logo-title">Hide Logo</h4>
+                <p class="step-description" data-translate="hide-logo-desc">
+                  Hides the Echopais Pad Controller logo to free up screen space.
+                </p>
+              </li>
+              
+              <li class="step-item">
+                <div class="step-number">2</div>
+                <h4 class="step-title" data-translate="hide-settings-title">Hide Settings Button</h4>
+                <p class="step-description" data-translate="hide-settings-desc">
+                  Hides the SETTINGS button, allowing for an additional row of PADs on smaller screens.
+                </p>
+              </li>
+            </ul>
+            
+            <div class="note-box">
+              <div class="note-title">
+                <span>🎯</span>
+                <span data-translate="edit-hold-benefit-title">Perfect for Live Use</span>
+              </div>
+              <p class="note-content" data-translate="edit-hold-benefit-content">
+                Ideal for those who want to edit PADs while seeing more at a glance, especially on smaller screens or during live performances.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MIDI Output -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">🔌</div>
+            <span data-translate="midi-output-title">MIDI OUTPUT Settings</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="midi-output-intro">
+              Access these options by pressing the SETTINGS button:
+            </p>
+            
+            <div class="controls-grid">
+              <div class="control-card">
+                <div class="control-number">1</div>
+                <h4 class="control-title" data-translate="session-title">Session Selection</h4>
+                <p class="control-description" data-translate="session-desc">
+                  Select the current MIDI Session (e.g., Session 1) where MIDI messages will be sent.
+                </p>
+              </div>
+              
+              <div class="control-card">
+                <div class="control-number">2</div>
+                <h4 class="control-title" data-translate="refresh-title">Refresh MIDI Outputs</h4>
+                <p class="control-description" data-translate="refresh-desc">
+                  Refreshes the list of available MIDI devices. Use when a device doesn't appear or connections change.
+                </p>
+              </div>
+              
+              <div class="control-card">
+                <div class="control-number">3</div>
+                <h4 class="control-title" data-translate="bluetooth-title">Bluetooth MIDI</h4>
+                <p class="control-description" data-translate="bluetooth-desc">
+                  Opens Bluetooth MIDI window showing all available Bluetooth devices that support MIDI.
+                </p>
+              </div>
+            </div>
+            
+            <div class="note-box">
+              <div class="note-title">
+                <span>🔗</span>
+                <span data-translate="connection-note-title">Connection Support</span>
+              </div>
+              <p class="note-content" data-translate="connection-note-content">
+                Supports USB cable connection (Type-C to USB Device) to keyboards or other MIDI devices. USB-A direct connection not supported unless the device has USB Device compatibility (not Host).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BPM Control -->
+        <div class="section">
+          <h3 class="section-title">
+            <div class="section-icon">⏱️</div>
+            <span data-translate="bpm-control-title">BPM CONTROL - Tempo Settings</span>
+          </h3>
+          <div class="section-content">
+            <p data-translate="bpm-intro">
+              Control tempo (BPM) for your songs or loops in various ways:
+            </p>
+            
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">➖➕</div>
+                <h4 class="feature-title" data-translate="step-buttons-title">Step Buttons (- / +)</h4>
+                <p class="feature-description" data-translate="step-buttons-desc">
+                  Increase/decrease speed (BPM) step-by-step. Useful for live adjustment or syncing with other audio sources.
+                </p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">👆</div>
+                <h4 class="feature-title" data-translate="tap-tempo-title">Tap Tempo</h4>
+                <p class="feature-description" data-translate="tap-tempo-desc">
+                  Tap multiple times on the BPM number to use Tap Tempo function. BPM adjusts to your tapping rhythm.
+                </p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h4 class="feature-title" data-translate="lock-title">Speed Lock</h4>
+                <p class="feature-description" data-translate="lock-desc">
+                  Lock icon enables/disables BPM lock. When locked, tempo stays constant even when playing other PADs.
+                </p>
+              </div>
+              
+              <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h4 class="feature-title" data-translate="reset-title">RESET</h4>
+                <p class="control-description" data-translate="reset-desc">
+                  Resets tempo to the original value set in "Current Tempo" from scene or PAD settings.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="index.html" data-translate="nav-home">Home</a>
+          <a href="privacy.html" data-translate="nav-privacy">Privacy Policy</a>
+          <a href="terms.html" data-translate="nav-terms">Terms of Service</a>
+          <a href="cookies.html" data-translate="nav-cookies">Cookie Policy</a>
+          <a href="imprint.html" data-translate="nav-imprint">Imprint</a>
+        </div>
+        <p>© 2024 ECHOPAIS. <span data-translate="footer-rights">All rights reserved</span>.</p>
+        <p data-translate="footer-note">Professional MIDI solutions and PAD controller applications</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        'subtitle': 'Professional MIDI Solutions',
+        'nav-home': 'Home',
+        'hero-title': 'ECHOPAIS PAD Controller Tutorial',
+        'hero-description': 'Complete guide for professional MIDI pad control and music production. Learn how to master the most advanced PAD controller application.',
+        'badge-ios': 'Download for iOS',
+        'badge-android': 'Download for Android',
+        'pad-settings-title': 'PAD Settings & Configuration',
+        'pad-settings-subtitle': 'Learn how to configure and customize your PADs',
+        'settings-section-title': 'PAD Settings Overview',
+        'settings-intro': 'By pressing the Settings button for a PAD, you can configure the following options:',
+        'name-setting-title': 'Change PAD Name',
+        'name-setting-desc': 'Customize the name of your PAD for better organization and identification during live performances.',
+        'image-setting-title': 'Load Background Image',
+        'image-setting-desc': 'Replace the default color background with a custom image to create visual themes for your PADs.',
+        'content-setting-title': 'Content Selection',
+        'content-setting-desc': 'Choose between: Song/Loop playback, MIDI settings (CC/Note/SysEx), or both simultaneously for maximum flexibility.',
+        'group-section-title': 'Group ID - Group Functionality',
+        'group-intro': 'When you assign two or more PADs to the same Group ID (e.g., Group 1):',
+        'exclusive-play-title': 'Exclusive Playback',
+        'exclusive-play-desc': 'PADs in the same group don\'t play simultaneously. They function as a switcher - when one plays, others stop.',
+        'wait-loop-title': 'Wait for Loop',
+        'wait-loop-desc': 'When enabled, the next PAD doesn\'t start immediately but waits for a time boundary, like a measure completion.',
+        'group-example-title': 'Example',
+        'group-example-content': 'If a loop has a 4-measure duration with "Wait for Loop" enabled, each PAD press triggers the switch at the correct timing - entering the next PAD at the right beat.',
+        'midi-types-title': 'MIDI Types & Modes',
+        'midi-types-intro': 'You can select from the following MIDI types, each with its own parameters:',
+        'cc-desc': 'Send MIDI Control Change messages for parameter control like volume, filter cutoff, or effects.',
+        'note-desc': 'Trigger MIDI notes with customizable Note Number, velocity, and channel settings.',
+        'sysex-desc': 'Send System Exclusive messages for advanced device control and parameter changes.',
+        'pad-modes-title': 'PAD Operation Modes',
+        'modes-intro': 'There are 3 available modes for each PAD:',
+        'momentary-desc': 'MIDI command is sent while the PAD is pressed. Like a pressed switch: On when pressed, Off when released.',
+        'toggle-desc': 'First press sends On, second press sends Off. Ideal for toggles like mute/unmute or start/stop.',
+        'oneshot-desc': 'Sends only the On command each time pressed. Useful for FX sounds like sirens, horns, etc.',
+        'advanced-title': 'Advanced Features',
+        'advanced-subtitle': 'Master the professional features of PAD Controller',
+        'sysex-settings-title': 'SysEx Special Settings',
+        'sysex-intro': 'When you select SysEx, additional settings appear:',
+        'sysex-toggle-title': 'On/Off Commands',
+        'sysex-toggle-desc': 'Available only for Toggle mode. Define separate commands for On and Off states.',
+        'sysex-data-title': 'SysEx ON Data Field',
+        'sysex-data-desc': 'Enter the command to be sent. F0 and F7 are added automatically. Only hexadecimal numbers allowed (e.g., 7E 7F 09 01).',
+        'pitch-title': 'Pitch Shifting (Key Note Control)',
+        'pitch-intro': 'Enable Key Note (Pitch Shifting) to transpose audio to different notes:',
+        'original-note-title': 'Original Note',
+        'original-note-desc': 'The original key of the song or loop (e.g., A, C#, etc.).',
+        'target-note-title': 'Target Note',
+        'target-note-desc': 'The new key you want the audio to play in when the PAD is triggered.',
+        'pitch-warning-title': 'Important Note',
+        'pitch-warning-content': 'When Pitch Shifting is active, changes to BPM, tempo, or tuning don\'t apply in real-time. Instead, the song automatically restarts from the beginning to properly synchronize the changes.',
+        'loop-title': 'Loop Audio Control',
+        'loop-intro': 'When Loop Audio is enabled, the PAD plays the loop in repeat mode:',
+        'original-bpm-title': 'Original BPM',
+        'original-bpm-desc': 'The authentic speed of the loop (in beats per minute).',
+        'target-bpm-title': 'Target BPM',
+        'target-bpm-desc': 'The speed you want the PAD to play at. Adjust to sync with your project or set.',
+        'loop-recommendation-title': 'Recommendation',
+        'loop-recommendation-content': 'For loops, it\'s recommended to disable Pitch Shifting so BPM changes happen in real-time without restarting the audio file.',
+        'global-title': 'Global Controls & Settings',
+        'global-subtitle': 'Master the application-wide controls and features',
+        'edit-hold-title': 'Edit Hold Function',
+        'edit-hold-intro': 'When you hold down the EDIT button, a special function activates:',
+        'hide-logo-title': 'Hide Logo',
+        'hide-logo-desc': 'Hides the Echopais Pad Controller logo to free up screen space.',
+        'hide-settings-title': 'Hide Settings Button',
+        'hide-settings-desc': 'Hides the SETTINGS button, allowing for an additional row of PADs on smaller screens.',
+        'edit-hold-benefit-title': 'Perfect for Live Use',
+        'edit-hold-benefit-content': 'Ideal for those who want to edit PADs while seeing more at a glance, especially on smaller screens or during live performances.',
+        'midi-output-title': 'MIDI OUTPUT Settings',
+        'midi-output-intro': 'Access these options by pressing the SETTINGS button:',
+        'session-title': 'Session Selection',
+        'session-desc': 'Select the current MIDI Session (e.g., Session 1) where MIDI messages will be sent.',
+        'refresh-title': 'Refresh MIDI Outputs',
+        'refresh-desc': 'Refreshes the list of available MIDI devices. Use when a device doesn\'t appear or connections change.',
+        'bluetooth-title': 'Bluetooth MIDI',
+        'bluetooth-desc': 'Opens Bluetooth MIDI window showing all available Bluetooth devices that support MIDI.',
+        'connection-note-title': 'Connection Support',
+        'connection-note-content': 'Supports USB cable connection (Type-C to USB Device) to keyboards or other MIDI devices. USB-A direct connection not supported unless the device has USB Device compatibility (not Host).',
+        'bpm-control-title': 'BPM CONTROL - Tempo Settings',
+        'bpm-intro': 'Control tempo (BPM) for your songs or loops in various ways:',
+        'step-buttons-title': 'Step Buttons (- / +)',
+        'step-buttons-desc': 'Increase/decrease speed (BPM) step-by-step. Useful for live adjustment or syncing with other audio sources.',
+        'tap-tempo-title': 'Tap Tempo',
+        'tap-tempo-desc': 'Tap multiple times on the BPM number to use Tap Tempo function. BPM adjusts to your tapping rhythm.',
+        'lock-title': 'Speed Lock',
+        'lock-desc': 'Lock icon enables/disables BPM lock. When locked, tempo stays constant even when playing other PADs.',
+        'reset-title': 'RESET',
+        'reset-desc': 'Resets tempo to the original value set in "Current Tempo" from scene or PAD settings.',
+        'nav-privacy': 'Privacy Policy',
+        'nav-terms': 'Terms of Service',
+        'nav-cookies': 'Cookie Policy',
+        'nav-imprint': 'Imprint',
+        'footer-rights': 'All rights reserved',
+        'footer-note': 'Professional MIDI solutions and PAD controller applications'
+      },
+      de: {
+        'subtitle': 'Professionelle MIDI-Lösungen',
+        'nav-home': 'Startseite',
+        'hero-title': 'ECHOPAIS PAD Controller Tutorial',
+        'hero-description': 'Vollständige Anleitung für professionelle MIDI-Pad-Steuerung und Musikproduktion. Lernen Sie, wie Sie die fortschrittlichste PAD-Controller-Anwendung beherrschen.',
+        'badge-ios': 'Für iOS herunterladen',
+        'badge-android': 'Für Android herunterladen',
+        'pad-settings-title': 'PAD-Einstellungen & Konfiguration',
+        'pad-settings-subtitle': 'Lernen Sie, wie Sie Ihre PADs konfigurieren und anpassen',
+        'settings-section-title': 'PAD-Einstellungen Übersicht',
+        'settings-intro': 'Durch Drücken der Einstellungen-Taste für ein PAD können Sie folgende Optionen konfigurieren:',
+        'name-setting-title': 'PAD-Namen ändern',
+        'name-setting-desc': 'Passen Sie den Namen Ihres PADs für bessere Organisation und Identifikation während Live-Auftritten an.',
+        'image-setting-title': 'Hintergrundbild laden',
+        'image-setting-desc': 'Ersetzen Sie den Standard-Farbhintergrund durch ein benutzerdefiniertes Bild, um visuelle Themen für Ihre PADs zu erstellen.',
+        'content-setting-title': 'Inhaltsauswahl',
+        'content-setting-desc': 'Wählen Sie zwischen: Song/Loop-Wiedergabe, MIDI-Einstellungen (CC/Note/SysEx) oder beiden gleichzeitig für maximale Flexibilität.',
+        'group-section-title': 'Gruppen-ID - Gruppenfunktionalität',
+        'group-intro': 'Wenn Sie zwei oder mehr PADs derselben Gruppen-ID zuweisen (z.B. Gruppe 1):',
+        'exclusive-play-title': 'Exklusive Wiedergabe',
+        'exclusive-play-desc': 'PADs in derselben Gruppe spielen nicht gleichzeitig. Sie funktionieren als Umschalter - wenn eines spielt, stoppen andere.',
+        'wait-loop-title': 'Auf Loop warten',
+        'wait-loop-desc': 'Wenn aktiviert, startet das nächste PAD nicht sofort, sondern wartet auf eine Zeitgrenze, wie einen Taktabschluss.',
+        'group-example-title': 'Beispiel',
+        'group-example-content': 'Wenn ein Loop eine 4-Takt-Dauer mit aktiviertem "Auf Loop warten" hat, löst jeder PAD-Druck den Wechsel zum richtigen Zeitpunkt aus - das nächste PAD kommt zum richtigen Beat.',
+        'midi-types-title': 'MIDI-Typen & Modi',
+        'midi-types-intro': 'Sie können aus folgenden MIDI-Typen wählen, jeder mit eigenen Parametern:',
+        'cc-desc': 'Senden Sie MIDI Control Change-Nachrichten für Parametersteuerung wie Lautstärke, Filter-Cutoff oder Effekte.',
+        'note-desc': 'Lösen Sie MIDI-Noten mit anpassbaren Note Number-, Velocity- und Kanal-Einstellungen aus.',
+        'sysex-desc': 'Senden Sie System Exclusive-Nachrichten für erweiterte Gerätekontrolle und Parameteränderungen.',
+        'pad-modes-title': 'PAD-Betriebsmodi',
+        'modes-intro': 'Es gibt 3 verfügbare Modi für jedes PAD:',
+        'momentary-desc': 'MIDI-Befehl wird gesendet, während das PAD gedrückt wird. Wie ein gedrückter Schalter: Ein wenn gedrückt, Aus wenn losgelassen.',
+        'toggle-desc': 'Erster Druck sendet Ein, zweiter Druck sendet Aus. Ideal für Umschaltungen wie stumm/entstummen oder start/stopp.',
+        'oneshot-desc': 'Sendet nur den Ein-Befehl bei jedem Drücken. Nützlich für FX-Sounds wie Sirenen, Hörner usw.',
+        'advanced-title': 'Erweiterte Funktionen',
+        'advanced-subtitle': 'Meistern Sie die professionellen Funktionen des PAD Controllers',
+        'sysex-settings-title': 'SysEx Spezialeinstellungen',
+        'sysex-intro': 'Wenn Sie SysEx auswählen, erscheinen zusätzliche Einstellungen:',
+        'sysex-toggle-title': 'Ein/Aus-Befehle',
+        'sysex-toggle-desc': 'Nur für Toggle-Modus verfügbar. Definieren Sie separate Befehle für Ein- und Aus-Zustände.',
+        'sysex-data-title': 'SysEx ON Datenfeld',
+        'sysex-data-desc': 'Geben Sie den zu sendenden Befehl ein. F0 und F7 werden automatisch hinzugefügt. Nur hexadezimale Zahlen erlaubt (z.B. 7E 7F 09 01).',
+        'pitch-title': 'Pitch Shifting (Key Note Control)',
+        'pitch-intro': 'Aktivieren Sie Key Note (Pitch Shifting), um Audio auf verschiedene Noten zu transponieren:',
+        'original-note-title': 'Original Note',
+        'original-note-desc': 'Die ursprüngliche Tonart des Songs oder Loops (z.B. A, C#, usw.).',
+        'target-note-title': 'Ziel-Note',
+        'target-note-desc': 'Die neue Tonart, in der das Audio spielen soll, wenn das PAD ausgelöst wird.',
+        'pitch-warning-title': 'Wichtiger Hinweis',
+        'pitch-warning-content': 'Wenn Pitch Shifting aktiv ist, werden Änderungen an BPM, Tempo oder Stimmung nicht in Echtzeit angewendet. Stattdessen startet der Song automatisch von Anfang an neu, um die Änderungen richtig zu synchronisieren.',
+        'loop-title': 'Loop Audio Control',
+        'loop-intro': 'Wenn Loop Audio aktiviert ist, spielt das PAD den Loop im Wiederholungsmodus:',
+        'original-bpm-title': 'Original BPM',
+        'original-bpm-desc': 'Die authentische Geschwindigkeit des Loops (in Beats pro Minute).',
+        'target-bpm-title': 'Ziel-BPM',
+        'target-bpm-desc': 'Die Geschwindigkeit, mit der das PAD spielen soll. Anpassen, um mit Ihrem Projekt oder Set zu synchronisieren.',
+        'loop-recommendation-title': 'Empfehlung',
+        'loop-recommendation-content': 'Für Loops wird empfohlen, Pitch Shifting zu deaktivieren, damit BPM-Änderungen in Echtzeit ohne Neustart der Audiodatei erfolgen.',
+        'global-title': 'Globale Steuerungen & Einstellungen',
+        'global-subtitle': 'Meistern Sie die anwendungsweiten Steuerungen und Funktionen',
+        'edit-hold-title': 'Edit Hold Funktion',
+        'edit-hold-intro': 'Wenn Sie die EDIT-Taste gedrückt halten, aktiviert sich eine spezielle Funktion:',
+        'hide-logo-title': 'Logo ausblenden',
+        'hide-logo-desc': 'Blendet das Echopais Pad Controller Logo aus, um Bildschirmplatz freizugeben.',
+        'hide-settings-title': 'Einstellungen-Button ausblenden',
+        'hide-settings-desc': 'Blendet den EINSTELLUNGEN-Button aus und ermöglicht eine zusätzliche PAD-Reihe auf kleineren Bildschirmen.',
+        'edit-hold-benefit-title': 'Perfekt für Live-Nutzung',
+        'edit-hold-benefit-content': 'Ideal für diejenigen, die PADs bearbeiten möchten, während sie mehr auf einen Blick sehen, besonders auf kleineren Bildschirmen oder während Live-Auftritten.',
+        'midi-output-title': 'MIDI OUTPUT Einstellungen',
+        'midi-output-intro': 'Greifen Sie auf diese Optionen zu, indem Sie die EINSTELLUNGEN-Taste drücken:',
+        'session-title': 'Session-Auswahl',
+        'session-desc': 'Wählen Sie die aktuelle MIDI-Session (z.B. Session 1), an die MIDI-Nachrichten gesendet werden.',
+        'refresh-title': 'MIDI-Ausgänge aktualisieren',
+        'refresh-desc': 'Aktualisiert die Liste der verfügbaren MIDI-Geräte. Verwenden Sie dies, wenn ein Gerät nicht erscheint oder sich Verbindungen ändern.',
+        'bluetooth-title': 'Bluetooth MIDI',
+        'bluetooth-desc': 'Öffnet das Bluetooth MIDI-Fenster mit allen verfügbaren Bluetooth-Geräten, die MIDI unterstützen.',
+        'connection-note-title': 'Verbindungsunterstützung',
+        'connection-note-content': 'Unterstützt USB-Kabelverbindung (Type-C zu USB-Gerät) zu Keyboards oder anderen MIDI-Geräten. USB-A-Direktverbindung nicht unterstützt, es sei denn, das Gerät hat USB-Geräte-Kompatibilität (nicht Host).',
+        'bpm-control-title': 'BPM CONTROL - Tempo-Einstellungen',
+        'bpm-intro': 'Steuern Sie das Tempo (BPM) für Ihre Songs oder Loops auf verschiedene Weise:',
+        'step-buttons-title': 'Schritt-Buttons (- / +)',
+        'step-buttons-desc': 'Erhöhen/verringern Sie die Geschwindigkeit (BPM) schrittweise. Nützlich für Live-Anpassung oder Synchronisation mit anderen Audioquellen.',
+        'tap-tempo-title': 'Tap Tempo',
+        'tap-tempo-desc': 'Tippen Sie mehrmals auf die BPM-Zahl, um die Tap Tempo-Funktion zu verwenden. BPM passt sich Ihrem Tipp-Rhythmus an.',
+        'lock-title': 'Geschwindigkeitssperre',
+        'lock-desc': 'Schloss-Symbol aktiviert/deaktiviert BPM-Sperre. Wenn gesperrt, bleibt das Tempo konstant, auch beim Spielen anderer PADs.',
+        'reset-title': 'RESET',
+        'reset-desc': 'Setzt das Tempo auf den ursprünglichen Wert zurück, der in "Current Tempo" aus Szenen- oder PAD-Einstellungen festgelegt wurde.',
+        'nav-privacy': 'Datenschutzerklärung',
+        'nav-terms': 'Nutzungsbedingungen',
+        'nav-cookies': 'Cookie-Richtlinie',
+        'nav-imprint': 'Impressum',
+        'footer-rights': 'Alle Rechte vorbehalten',
+        'footer-note': 'Professionelle MIDI-Lösungen und PAD-Controller-Anwendungen'
+      },
+      el: {
+        'subtitle': 'Επαγγελματικές MIDI Λύσεις',
+        'nav-home': 'Αρχική',
+        'hero-title': 'ECHOPAIS PAD Controller Tutorial',
+        'hero-description': 'Πλήρης οδηγός για επαγγελματικό έλεγχο MIDI pad και παραγωγή μουσικής. Μάθετε πώς να κατακτήσετε την πιο προηγμένη εφαρμογή PAD controller.',
+        'badge-ios': 'Λήψη για iOS',
+        'badge-android': 'Λήψη για Android',
+        'pad-settings-title': 'Ρυθμίσεις & Διαμόρφωση PAD',
+        'pad-settings-subtitle': 'Μάθετε πώς να διαμορφώνετε και να προσαρμόζετε τα PADs σας',
+        'settings-section-title': 'Επισκόπηση Ρυθμίσεων PAD',
+        'settings-intro': 'Πατώντας το κουμπί Settings για ένα PAD, μπορείτε να διαμορφώσετε τις ακόλουθες επιλογές:',
+        'name-setting-title': 'Αλλαγή Ονόματος PAD',
+        'name-setting-desc': 'Προσαρμόστε το όνομα του PAD σας για καλύτερη οργάνωση και αναγνώριση κατά τις ζωντανές εμφανίσεις.',
+        'image-setting-title': 'Φόρτωση Εικόνας Φόντου',
+        'image-setting-desc': 'Αντικαταστήστε το προεπιλεγμένο χρωματιστό φόντο με μια προσαρμοσμένη εικόνα για να δημιουργήσετε οπτικά θέματα για τα PADs σας.',
+        'content-setting-title': 'Επιλογή Περιεχομένου',
+        'content-setting-desc': 'Επιλέξτε μεταξύ: Αναπαραγωγή τραγουδιού/Loop, ρυθμίσεις MIDI (CC/Note/SysEx), ή και τα δύο ταυτόχρονα για μέγιστη ευελιξία.',
+        'group-section-title': 'Group ID - Λειτουργία Ομάδων',
+        'group-intro': 'Όταν αναθέτετε δύο ή περισσότερα PADs στο ίδιο Group ID (π.χ. Group 1):',
+        'exclusive-play-title': 'Αποκλειστική Αναπαραγωγή',
+        'exclusive-play-desc': 'Τα PADs στην ίδια ομάδα δεν παίζουν ταυτόχρονα. Λειτουργούν ως διακόπτης - όταν παίζει το ένα, τα άλλα σταματούν.',
+        'wait-loop-title': 'Αναμονή για Loop',
+        'wait-loop-desc': 'Όταν είναι ενεργοποιημένο, το επόμενο PAD δεν ξεκινά αμέσως αλλά περιμένει ένα χρονικό όριο, όπως την ολοκλήρωση ενός μέτρου.',
+        'group-example-title': 'Παράδειγμα',
+        'group-example-content': 'Αν ένα loop έχει διάρκεια 4 μέτρων με ενεργοποιημένο το "Αναμονή για Loop", κάθε πάτημα PAD ενεργοποιεί την εναλλαγή στο σωστό χρονισμό - ε εισάγοντας το επόμενο PAD στο σωστό beat.',
+        'midi-types-title': 'Τύποι & Λειτουργίες MIDI',
+        'midi-types-intro': 'Μπορείτε να επιλέξετε από τους ακόλουθους τύπους MIDI, ο καθένας με τις δικές του παραμέτρους:',
+        'cc-desc': 'Στείλτε μηνύματα MIDI Control Change για έλεγχο παραμέτρων όπως ένταση, filter cutoff ή εφέ.',
+        'note-desc': 'Ενεργοποιήστε MIDI νότες με προσαρμόσιμες ρυθμίσεις Note Number, velocity και καναλιού.',
+        'sysex-desc': 'Στείλτε μηνύματα System Exclusive για προηγμένο έλεγχο συσκευών και αλλαγές παραμέτρων.',
+        'pad-modes-title': 'Λειτουργίες Λειτουργίας PAD',
+        'modes-intro': 'Υπάρχουν 3 διαθέσιμες λειτουργίες για κάθε PAD:',
+        'momentary-desc': 'Η εντολή MIDI στέλνεται όσο πατιέται το PAD. Σαν πατημένος διακόπτης: Ενεργό όταν πατημένο, Ανενεργό όταν αφεθεί.',
+        'toggle-desc': 'Το πρώτο πάτημα στέλνει Ενεργό, το δεύτερο στέλνει Ανενεργό. Ιδανικό για εναλλαγές όπως σίγαση/κατάργηση σίγασης ή έναρξη/διακοπή.',
+        'oneshot-desc': 'Στέλνει μόνο την εντολή Ενεργό κάθε φορά που πατιέται. Χρήσιμο για ήχους FX όπως σειρήνες, κόρνες κλπ.',
+        'advanced-title': 'Προηγμένες Λειτουργίες',
+        'advanced-subtitle': 'Κατακτήστε τις επαγγελματικές λειτουργίες του PAD Controller',
+        'sysex-settings-title': 'Ειδικές Ρυθμίσεις SysEx',
+        'sysex-intro': 'Όταν επιλέγετε SysEx, εμφανίζονται επιπλέον ρυθμίσεις:',
+        'sysex-toggle-title': 'Εντολές Ενεργό/Ανενεργό',
+        'sysex-toggle-desc': 'Διαθέσιμο μόνο για λειτουργία Toggle. Ορίστε ξεχωριστές εντολές για καταστάσεις Ενεργό και Ανενεργό.',
+        'sysex-data-title': 'Πεδίο SysEx ON Data',
+        'sysex-data-desc': 'Εισάγετε την εντολή που θα σταλεί. Τα F0 και F7 προστίθενται αυτόματα. Επιτρέπονται μόνο δεκαεξαδικοί αριθμοί (π.χ. 7E 7F 09 01).',
+        'pitch-title': 'Pitch Shifting (Έλεγχος Key Note)',
+        'pitch-intro': 'Ενεργοποιήστε το Key Note (Pitch Shifting) για να μεταθέσετε το audio σε διαφορετικές νότες:',
+        'original-note-title': 'Αρχική Νότα',
+        'original-note-desc': 'Η αρχική τονικότητα του τραγουδιού ή loop (π.χ. A, C#, κλπ.).',
+        'target-note-title': 'Στόχος Νότα',
+        'target-note-desc': 'Η νέα τονικότητα στην οποία θέλετε να παίζει το audio όταν ενεργοποιείται το PAD.',
+        'pitch-warning-title': 'Σημαντική Σημείωση',
+        'pitch-warning-content': 'Όταν το Pitch Shifting είναι ενεργό, οι αλλαγές σε BPM, tempo ή tuning δεν εφαρμόζονται σε πραγματικό χρόνο. Αντίθετα, το τραγούδι επανεκκινεί αυτόματα από την αρχή για να συγχρονίσει σωστά τις αλλαγές.',
+        'loop-title': 'Έλεγχος Loop Audio',
+        'loop-intro': 'Όταν το Loop Audio είναι ενεργοποιημένο, το PAD παίζει το loop σε λειτουργία επανάληψης:',
+        'original-bpm-title': 'Αρχικό BPM',
+        'original-bpm-desc': 'Η αυθεντική ταχύτητα του loop (σε beats ανά λεπτό).',
+        'target-bpm-title': 'Στόχος BPM',
+        'target-bpm-desc': 'Η ταχύτητα στην οποία θέλετε να παίζει το PAD. Προσαρμόστε για συγχρονισμό με το έργο ή set σας.',
+        'loop-recommendation-title': 'Σύσταση',
+        'loop-recommendation-content': 'Για loops, συνιστάται να απενεργοποιήσετε το Pitch Shifting ώστε οι αλλαγές BPM να γίνονται σε πραγματικό χρόνο χωρίς επανεκκίνηση του αρχείου audio.',
+        'global-title': 'Γενικοί Έλεγχοι & Ρυθμίσεις',
+        'global-subtitle': 'Κατακτήστε τους ελέγχους και λειτουργίες σε επίπεδο εφαρμογής',
+        'edit-hold-title': 'Λειτουργία Edit Hold',
+        'edit-hold-intro': 'Όταν κρατάτε πατημένο το κουμπί EDIT, ενεργοποιείται μια ειδική λειτουργία:',
+        'hide-logo-title': 'Απόκρυψη Logo',
+        'hide-logo-desc': 'Αποκρύπτει το λογότυπο Echopais Pad Controller για να ελευθερώσει χώρο οθόνης.',
+        'hide-settings-title': 'Απόκρυψη Κουμπιού Ρυθμίσεων',
+        'hide-settings-desc': 'Αποκρύπτει το κουμπί ΡΥΘΜΙΣΕΙΣ, επιτρέποντας μια επιπλέον σειρά PADs σε μικρότερες οθόνες.',
+        'edit-hold-benefit-title': 'Τέλειο για Ζωντανή Χρήση',
+        'edit-hold-benefit-content': 'Ιδανικό για όσους θέλουν να επεξεργάζονται PADs ενώ βλέπουν περισσότερα με μια ματιά, ειδικά σε μικρότερες οθόνες ή κατά τις ζωντανές εμφανίσεις.',
+        'midi-output-title': 'Ρυθμίσεις MIDI OUTPUT',
+        'midi-output-intro': 'Αποκτήστε πρόσβαση σε αυτές τις επιλογές πατώντας το κουμπί ΡΥΘΜΙΣΕΙΣ:',
+        'session-title': 'Επιλογή Session',
+        'session-desc': 'Επιλέξτε την τρέχουσα MIDI Session (π.χ. Session 1) όπου θα στέλνονται τα μηνύματα MIDI.',
+        'refresh-title': 'Ανανέωση MIDI Outputs',
+        'refresh-desc': 'Ανανεώνει τη λίστα των διαθέσιμων συσκευών MIDI. Χρησιμοποιήστε όταν μια συσκευή δεν εμφανίζεται ή αλλάζουν οι συνδέσεις.',
+        'bluetooth-title': 'Bluetooth MIDI',
+        'bluetooth-desc': 'Ανοίγει το παράθυρο Bluetooth MIDI που δείχνει όλες τις διαθέσιμες συσκευές Bluetooth που υποστηρίζουν MIDI.',
+        'connection-note-title': 'Υποστήριξη Σύνδεσης',
+        'connection-note-content': 'Υποστηρίζει σύνδεση καλωδίου USB (Type-C σε USB Device) σε πληκτρολόγια ή άλλες συσκευές MIDI. Άμεση σύνδεση USB-A δεν υποστηρίζεται εκτός αν η συσκευή έχει συμβατότητα USB Device (όχι Host).',
+        'bpm-control-title': 'BPM CONTROL - Ρυθμίσεις Tempo',
+        'bpm-intro': 'Ελέγξτε το tempo (BPM) για τα τραγούδια ή loops σας με διάφορους τρόπους:',
+        'step-buttons-title': 'Κουμπιά Βήματος (- / +)',
+        'step-buttons-desc': 'Αυξήστε/μειώστε την ταχύτητα (BPM) βήμα-βήμα. Χρήσιμο για ζωντανή προσαρμογή ή συγχρονισμό με άλλες πηγές audio.',
+        'tap-tempo-title': 'Tap Tempo',
+        'tap-tempo-desc': 'Χτυπήστε πολλές φορές στον αριθμό BPM για να χρησιμοποιήσετε τη λειτουργία Tap Tempo. Το BPM προσαρμόζεται στον ρυθμό του χτυπήματός σας.',
+        'lock-title': 'Κλείδωμα Ταχύτητας',
+        'lock-desc': 'Το εικονίδιο κλειδαριάς ενεργοποιεί/απενεργοποιεί το κλείδωμα BPM. Όταν είναι κλειδωμένο, το tempo παραμένει σταθερό ακόμη και όταν παίζουν άλλα PADs.',
+        'reset-title': 'RESET',
+        'reset-desc': 'Επαναφέρει το tempo στην αρχική τιμή που ορίστηκε στο "Current Tempo" από τις ρυθμίσεις σκηνής ή PAD.',
+        'nav-privacy': 'Πολιτική Απορρήτου',
+        'nav-terms': 'Όροι Χρήσης',
+        'nav-cookies': 'Πολιτική Cookies',
+        'nav-imprint': 'Impressum',
+        'footer-rights': 'Όλα τα δικαιώματα διατηρούνται',
+        'footer-note': 'Επαγγελματικές λύσεις MIDI και εφαρμογές PAD controller'
+      }
+    };
+
+    let currentLanguage = 'en';
+
+    function changeLanguage(lang) {
+      currentLanguage = lang;
+      
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Update all translatable elements
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    // Initialize with English
+    document.addEventListener('DOMContentLoaded', function() {
+      changeLanguage('en');
+    });
+  </script>
+</body>
+</html>
