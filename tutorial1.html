@@ -524,11 +524,11 @@
       </p>
       
       <div class="app-badges">
-        <a href="#" class="badge">
+        <a href="#" class="badge" id="download-ios">
           <span>📱</span>
           <span data-translate="badge-ios">Download for iOS</span>
         </a>
-        <a href="#" class="badge">
+        <a href="#" class="badge" id="download-android">
           <span>🤖</span>
           <span data-translate="badge-android">Download for Android</span>
         </a>
@@ -1287,15 +1287,6 @@
 
     let currentLanguage = 'en';
 
-    function updateIosDownloadLink() {
-      const iosBtn = document.getElementById('download-ios');
-      if (!iosBtn) return;
-      let pdf = 'tutorial1-en.pdf';
-      if (currentLanguage === 'el') pdf = 'tutorial1-gr.pdf';
-      iosBtn.setAttribute('href', pdf);
-      iosBtn.setAttribute('download', pdf);
-    }
-
     function changeLanguage(lang) {
       currentLanguage = lang;
       
@@ -1312,11 +1303,36 @@
           element.textContent = translations[lang][key];
         }
       });
+
+      // Update download links
+      updateDownloadLinks();
+    }
+
+    function updateDownloadLinks() {
+      const iosBtn = document.getElementById('download-ios');
+      const androidBtn = document.getElementById('download-android');
+      
+      if (iosBtn) {
+        let pdf = 'tutorial1-en.pdf';
+        if (currentLanguage === 'el') pdf = 'tutorial1-gr.pdf';
+        else if (currentLanguage === 'de') pdf = 'tutorial1-de.pdf';
+        iosBtn.setAttribute('href', pdf);
+        iosBtn.setAttribute('download', pdf);
+      }
+      
+      if (androidBtn) {
+        let pdf = 'tutorial1-en.pdf';
+        if (currentLanguage === 'el') pdf = 'tutorial1-gr.pdf';
+        else if (currentLanguage === 'de') pdf = 'tutorial1-de.pdf';
+        androidBtn.setAttribute('href', pdf);
+        androidBtn.setAttribute('download', pdf);
+      }
     }
 
     // Initialize with English
     document.addEventListener('DOMContentLoaded', function() {
       changeLanguage('en');
+      updateDownloadLinks();
     });
   </script>
 </body>
